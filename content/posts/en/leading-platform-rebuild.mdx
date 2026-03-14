@@ -1,0 +1,67 @@
+---
+slug: leading-platform-rebuild
+locale: en
+title: Designing a greenfield logistics platform without building a future trap
+description: How I approached architecture, delivery shape, and operating rules for a new logistics platform.
+publishedAt: 2026-03-10
+tags:
+  - Architecture
+  - Logistics
+  - Next.js
+  - .NET
+published: true
+---
+
+When a platform starts from scratch, the real risk is not a lack of features. The risk is building something that **looks fast in month one but becomes difficult to reason about in month six**.
+
+For the first version of a logistics platform, I wanted a shape that could survive day-to-day delivery pressure:
+
+- **Clear domain boundaries** so order, shipment, and operational flows do not collapse into one shared bucket.
+- **Predictable request handling** so new features can be added without hidden coupling.
+- **Operational visibility from day one** so production debugging does not start only after the first incident.
+
+## Start with the delivery model, not just the domain model
+
+Architecture diagrams often stop at components and boxes. In practice, teams live inside delivery flow.
+
+The early stack I used combined:
+
+- Next.js for the operator-facing frontend
+- .NET Core and Entity Framework on the backend
+- CQRS and Vertical Slice structure to keep feature logic close together
+- Azure DevOps for release automation
+
+That combination mattered because it reduced two common failure modes:
+
+1. A frontend that evolves faster than the backend contract.
+2. A backend that becomes technically “clean” but hard for the team to change quickly.
+
+## Keep slices close to user intent
+
+For new operational systems, I prefer feature-oriented slices over wide shared layers.
+
+That does not make the system magically better. It simply makes it easier to answer:
+
+> Which code path owns this business action?
+
+That question matters more than purity when a platform is being shaped under real deadlines.
+
+## Observability is part of the architecture
+
+Prometheus, Grafana, and Jaeger were not added as optional tooling. They were part of the baseline operating model.
+
+The practical benefit was simple:
+
+- trace the path of a request
+- understand where latency accumulates
+- reduce the cost of debugging cross-service behavior
+
+For internal platforms, that usually matters earlier than teams expect.
+
+## What I would repeat
+
+- Design for team clarity before framework cleverness.
+- Make the release path visible as early as the feature path.
+- Put monitoring and tracing into the same conversation as architecture.
+
+A good first version is not one that predicts everything. It is one that can change without losing its shape.

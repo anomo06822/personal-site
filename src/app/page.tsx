@@ -1,65 +1,118 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  const entries = [
+    {
+      href: "/zh-TW",
+      label: "中文",
+      title: "履歷、技術筆記與聯絡頁",
+      summary:
+        "聚焦平台架構、後端工程、工程交付與實戰整理，保留可公開的專案與技術觀點。",
+    },
+    {
+      href: "/en",
+      label: "English",
+      title: "Resume, writing, and contact",
+      summary:
+        "A clean editorial site covering experience, architecture notes, and selected technical essays.",
+    },
+  ] as const;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="relative min-h-screen overflow-hidden px-6 py-10 text-ink sm:px-10 lg:px-16">
+      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl flex-col justify-between">
+        <section className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div className="space-y-8">
+            <div className="eyebrow">Jarvis Huang / Personal Site</div>
+            <div className="space-y-5">
+              <h1 className="max-w-4xl text-balance text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+                Resume, technical writing, and a bilingual home for platform
+                engineering work.
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
+                Built with Next.js, React, and TypeScript for GitHub Pages.
+                Clean structure first, sharp details second. Choose a language
+                to enter.
+              </p>
+            </div>
+          </div>
+
+          <div className="card-surface space-y-6 p-7 sm:p-8">
+            <div className="flex items-center justify-between text-sm text-ink-muted">
+              <span>Version</span>
+              <span className="font-mono">v1 / static export</span>
+            </div>
+            <div className="h-px bg-line" />
+            <dl className="grid gap-4 sm:grid-cols-3">
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-[0.3em] text-ink-muted">
+                  Stack
+                </dt>
+                <dd className="mt-2 text-sm leading-7 text-ink">
+                  Next.js 16
+                  <br />
+                  React 19
+                  <br />
+                  TypeScript
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-[0.3em] text-ink-muted">
+                  Scope
+                </dt>
+                <dd className="mt-2 text-sm leading-7 text-ink">
+                  Resume
+                  <br />
+                  Blog
+                  <br />
+                  Contact
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-[0.3em] text-ink-muted">
+                  Deploy
+                </dt>
+                <dd className="mt-2 text-sm leading-7 text-ink">
+                  GitHub Pages
+                  <br />
+                  /personal-site
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section className="mt-12 grid gap-5 lg:grid-cols-2">
+          {entries.map((entry) => (
+            <Link
+              key={entry.href}
+              href={entry.href}
+              className="group card-surface flex min-h-[260px] flex-col justify-between p-7 transition duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-panel-strong/90 sm:p-8"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="eyebrow">{entry.label}</span>
+                  <span className="font-mono text-sm text-accent transition group-hover:translate-x-1">
+                    Enter /
+                  </span>
+                </div>
+                <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                  {entry.title}
+                </h2>
+                <p className="max-w-xl text-base leading-8 text-ink-muted">
+                  {entry.summary}
+                </p>
+              </div>
+              <div className="mt-8 flex items-center justify-between border-t border-line pt-5 text-sm text-ink-muted">
+                <span>Minimal, bilingual, privacy-aware</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.3em]">
+                  {entry.label}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }
