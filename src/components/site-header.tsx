@@ -44,7 +44,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                 Jarvis Huang
               </div>
               <div className="text-sm text-ink">
-                Tech Lead / Backend Architect
+                Senior Backend Engineer / Tech Lead
               </div>
             </Link>
 

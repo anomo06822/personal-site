@@ -49,3 +49,20 @@ export function stripBasePath(pathname: string, basePath: string) {
 
   return pathname;
 }
+
+export function parseResumePeriod(period: string) {
+  const [startLabel, rawEndLabel] = period.split(/\s*-\s*/, 2);
+  const normalizedEnd = rawEndLabel?.trim().toLowerCase();
+  const isPresent =
+    normalizedEnd === "present" ||
+    normalizedEnd === "至今" ||
+    normalizedEnd === "current";
+  const endLabel = rawEndLabel?.trim() || startLabel.trim();
+
+  return {
+    startLabel: startLabel.trim(),
+    endLabel,
+    isPresent,
+    rangeLabel: rawEndLabel ? `${startLabel.trim()} - ${endLabel}` : startLabel.trim(),
+  };
+}

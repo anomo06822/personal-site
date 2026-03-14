@@ -88,6 +88,21 @@ export default async function BlogPostPage({
       <section className="card-surface p-7 sm:p-8">
         <div className="prose-article">{post.content}</div>
       </section>
+
+      <section className="subtle-panel p-6 sm:p-7">
+        <div className="space-y-4">
+          <div className="eyebrow">{copy.blog.endCtaTitle}</div>
+          <p className="max-w-3xl text-base leading-8 text-ink-muted">
+            {copy.blog.endCtaBody}
+          </p>
+          <Link
+            href={getRouteHref(locale, "resume")}
+            className="inline-flex min-h-11 items-center rounded-full border border-accent/50 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/70"
+          >
+            {copy.home.resumeCta}
+          </Link>
+        </div>
+      </section>
     </article>
   );
 }

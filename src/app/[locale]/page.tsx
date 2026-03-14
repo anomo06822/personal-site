@@ -19,7 +19,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: locale === "zh-TW" ? "首頁" : "Home",
+    title: locale === "zh-TW" ? "概覽" : "Profile",
     description: siteConfig.siteDescription[locale],
   };
 }
@@ -28,15 +28,15 @@ function getHomeCopy(locale: "zh-TW" | "en") {
   return locale === "zh-TW"
     ? {
         selectedExperienceIntro:
-          "只保留最能定義主軸的經歷預覽，讓第一輪閱讀先看懂現在的角色與成果。",
+          "兩段最能代表後端、平台與交付領導經驗的經歷預覽。",
         latestWritingIntro:
-          "文章只保留少量入口，避免首頁再次變成總覽牆。",
+          "最近的技術文章，聚焦架構、可維運性與工程交付。",
       }
     : {
         selectedExperienceIntro:
-          "Only the experience previews that best support the positioning stay here, so the first pass remains focused.",
+          "Two role previews that best represent backend, platform, and delivery leadership.",
         latestWritingIntro:
-          "Writing stays intentionally selective here instead of turning the page back into an overview wall.",
+          "Recent writing focused on architecture, operability, and engineering delivery.",
       };
 }
 

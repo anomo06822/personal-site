@@ -18,16 +18,16 @@ export const siteConfig: SiteConfig = {
   },
   navigation: {
     "zh-TW": [
-      { key: "home", label: "首頁", description: "Overview" },
+      { key: "home", label: "概覽", description: "Profile" },
       { key: "resume", label: "履歷", description: "Resume" },
-      { key: "blog", label: "技術筆記", description: "Blog" },
-      { key: "contact", label: "聯絡", description: "Contact" },
+      { key: "blog", label: "技術文章", description: "Writing" },
+      { key: "contact", label: "聯繫", description: "Connect" },
     ],
     en: [
-      { key: "home", label: "Home", description: "Overview" },
+      { key: "home", label: "Profile", description: "Overview" },
       { key: "resume", label: "Resume", description: "Experience" },
-      { key: "blog", label: "Blog", description: "Writing" },
-      { key: "contact", label: "Contact", description: "Reach out" },
+      { key: "blog", label: "Writing", description: "Articles" },
+      { key: "contact", label: "Connect", description: "Reach out" },
     ],
   },
   socialLinks: contactLinks,
@@ -36,20 +36,14 @@ export const siteConfig: SiteConfig = {
 export const siteCopy = {
   "zh-TW": {
     home: {
-      eyebrow: "Platform Engineering / Resume",
-      title: "平台架構、後端工程與工程交付。",
+      eyebrow: "Profile / Overview",
+      title: "後端架構、平台交付與可維運系統。",
       intro:
-        "把履歷、代表專案與技術寫作放進同一個清楚的地方。公開版本聚焦可分享的成果與方法，不暴露敏感個資。",
-      focusTitle: "目前聚焦",
-      focusItems: [
-        "大型平台與商務系統的可持續架構",
-        "Azure 與 .NET / Next.js 的交付實務",
-        "把團隊運作、監控與發版流程整合起來",
-      ],
-      featuredExperienceTitle: "精選經歷",
+        "聚焦大型電商與平台系統，公開呈現定位、代表經歷與技術寫作，讓第一輪閱讀先抓到關鍵訊號。",
+      featuredExperienceTitle: "代表經歷",
       latestPostsTitle: "最新文章",
       resumeCta: "查看完整履歷",
-      blogCta: "閱讀技術筆記",
+      blogCta: "閱讀技術文章",
     },
     resume: {
       openToWorkTitle: "Open to Work / 目標角色",
@@ -62,22 +56,36 @@ export const siteCopy = {
       certificationsTitle: "證照 / 獎項",
     },
     blog: {
-      eyebrow: "Blog / Notes",
-      title: "技術筆記",
+      eyebrow: "Writing / Technical Articles",
+      title: "技術文章",
       intro:
-        "記錄平台設計、可維運性、工程交付與團隊合作中的方法與取捨。",
+        "聚焦 platform architecture、operability、engineering delivery 與可維運系統的思考與實作取捨。",
+      readingPathsTitle: "閱讀方向",
+      readingPaths: ["Architecture", "Operability", "Delivery"],
+      listTitle: "文章列表",
       allTopics: "全部主題",
       emptyState: "目前這個分類還沒有文章。",
+      endCtaTitle: "想看完整背景？",
+      endCtaBody: "如果你想了解這些文章背後的實戰脈絡，下一步直接看完整履歷。",
     },
     contact: {
-      eyebrow: "Contact / Public Links",
-      title: "公開聯絡方式",
+      eyebrow: "Connect / Public Contact",
+      title: "聯繫",
       intro:
-        "網站只保留安全可公開的聯絡入口。若需要更進一步聯繫，可先透過公開平台接觸。",
+        "如果你想討論 backend、platform engineering、技術領導或合作機會，先從公開入口開始即可。",
+      methodsTitle: "聯絡入口",
+      collaborationTitle: "適合交流的主題",
+      collaborationTopics: [
+        "Senior backend / platform engineering 職務機會",
+        "Tech lead / engineering leadership 合作",
+        "0→1 平台架構與交付流程",
+        "電商、物流與 AI-enabled products",
+      ],
+      responseTitle: "回覆方式",
+      responseBody:
+        "先從公開平台聯繫；若方向合適，再切到更直接的溝通管道。",
       privacyTitle: "隱私說明",
       privacyNote: "電話、地址與私人信箱不在網站公開。",
-      followUpNote:
-        "這個版本以 GitHub 作為公開起點；若對話需要往下走，再視情境提供直接聯絡方式。",
     },
     common: {
       readTime: "分鐘閱讀",
@@ -95,20 +103,14 @@ export const siteCopy = {
   },
   en: {
     home: {
-      eyebrow: "Platform Engineering / Resume",
-      title: "Platform architecture, backend systems, and engineering delivery.",
+      eyebrow: "Profile / Overview",
+      title: "Backend architecture, platform delivery, and operable systems.",
       intro:
-        "A bilingual home for resume content, selected project notes, and technical writing. The public version keeps the useful signal and omits private personal data.",
-      focusTitle: "Current focus",
-      focusItems: [
-        "Sustainable architecture for large operational platforms",
-        "Azure, .NET, and Next.js delivery workflows",
-        "Connecting team execution, release flow, and observability",
-      ],
-      featuredExperienceTitle: "Featured experience",
+        "A focused public profile that highlights positioning, representative experience, and technical writing without turning the entry page into a second resume.",
+      featuredExperienceTitle: "Selected experience",
       latestPostsTitle: "Latest writing",
       resumeCta: "View full resume",
-      blogCta: "Read the blog",
+      blogCta: "Read writing",
     },
     resume: {
       openToWorkTitle: "Open to Work",
@@ -121,22 +123,37 @@ export const siteCopy = {
       certificationsTitle: "Certifications / Awards",
     },
     blog: {
-      eyebrow: "Blog / Notes",
-      title: "Technical writing",
+      eyebrow: "Writing / Technical Articles",
+      title: "Writing",
       intro:
-        "Short essays on platform design, operability, engineering delivery, and the tradeoffs behind maintainable systems.",
+        "Short essays on platform architecture, operability, engineering delivery, and the tradeoffs behind systems that need to keep running.",
+      readingPathsTitle: "Reading paths",
+      readingPaths: ["Architecture", "Operability", "Delivery"],
+      listTitle: "Article list",
       allTopics: "All topics",
       emptyState: "There are no published posts for this topic yet.",
+      endCtaTitle: "Want the operating context behind this work?",
+      endCtaBody:
+        "The resume gives the practical background behind the systems, delivery patterns, and team decisions discussed here.",
     },
     contact: {
-      eyebrow: "Contact / Public Links",
-      title: "Public contact paths",
+      eyebrow: "Connect / Public Contact",
+      title: "Connect",
       intro:
-        "This site keeps contact methods intentionally minimal. For serious conversations, start from a public profile and move to direct channels later.",
+        "For conversations about backend engineering, platform leadership, or relevant opportunities, start from a public contact path here.",
+      methodsTitle: "Contact methods",
+      collaborationTitle: "Good reasons to reach out",
+      collaborationTopics: [
+        "Senior backend or platform engineering roles",
+        "Tech lead or engineering leadership conversations",
+        "0→1 platform architecture and delivery design",
+        "Commerce, logistics, and AI-enabled product opportunities",
+      ],
+      responseTitle: "How I usually respond",
+      responseBody:
+        "Start from a public platform first. If the direction makes sense, direct channels can follow.",
       privacyTitle: "Privacy note",
       privacyNote: "Phone number, address, and private email are intentionally omitted.",
-      followUpNote:
-        "GitHub is the public starting point for this version of the site. If a conversation needs to move further, direct channels can be shared case by case.",
     },
     common: {
       readTime: "min read",
