@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { RecruiterHome } from "@/components/recruiter-home";
 import { getHomeContent } from "@/lib/home";
-import { getResume } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig } from "@/lib/site";
 
 export async function generateMetadata({
@@ -17,7 +16,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: locale === "zh-TW" ? "概覽" : "Profile",
+    title: locale === "zh-TW" ? "概覽" : "Overview",
     description: siteConfig.siteDescription[locale],
   };
 }
@@ -34,17 +33,13 @@ export default async function LocaleHomePage({
   }
 
   const home = getHomeContent(locale);
-  const resume = getResume(locale);
-  const githubHref =
-    siteConfig.socialLinks.find((item) => item.icon === "github")?.href ??
-    "https://github.com/anomo06822";
 
   return (
     <RecruiterHome
       home={home}
-      resume={resume}
-      githubHref={githubHref}
-      pathwayHrefs={{
+      routeHrefs={{
+        home: getRouteHref(locale, "home"),
+        projects: getRouteHref(locale, "projects"),
         resume: getRouteHref(locale, "resume"),
         blog: getRouteHref(locale, "blog"),
         contact: getRouteHref(locale, "contact"),

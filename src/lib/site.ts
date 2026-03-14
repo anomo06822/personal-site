@@ -26,7 +26,7 @@ export const siteConfig: SiteConfig = {
       { key: "contact", label: "聯繫", description: "Connect" },
     ],
     en: [
-      { key: "home", label: "Profile", description: "Overview" },
+      { key: "home", label: "Overview", description: "Guide" },
       { key: "projects", label: "Projects", description: "Projects" },
       { key: "blog", label: "Writing", description: "Articles" },
       { key: "resume", label: "Resume", description: "Experience" },
@@ -59,7 +59,7 @@ export const siteCopy = {
       highlightsTitle: "Highlights",
       experienceTitle: "Experience",
       skillsTitle: "Top Skills",
-      featuredTitle: "Featured",
+      featuredTitle: "代表成果",
       showcaseTitle: "專案介紹 / Project Showcase",
       showcaseIntro:
         "把自己主導的個人作品與曾參與的核心產品分開呈現，避免公開版履歷把 ownership 與 collaboration 混在一起。",
@@ -75,6 +75,13 @@ export const siteCopy = {
       coreProductsTitle: "Core Products",
       coreProductsIntro:
         "以下保留曾參與交付與營運的核心產品摘要，作為公開版履歷的工作脈絡。",
+      presentationTitle: "簡報預覽 / Intro Deck",
+      presentationCtaLabel: "下載簡報（PPTX）",
+      presentationPreviewLabel: "Deck Preview",
+      presentationFallbackNote:
+        "如果之後換新的簡報版本，只要更新封面圖即可保留這個 preview 入口。",
+      presentationLanguageBadgeLabel: "簡報語言",
+      presentationSlideCountLabel: "頁投影片",
       downloadPdfLabel: "下載 PDF",
       projectDetailEyebrow: "個人專案",
       projectDetailBackLabel: "返回履歷",
@@ -134,9 +141,10 @@ export const siteCopy = {
       ],
       responseTitle: "回覆方式",
       responseBody:
-        "先從公開平台聯繫；若方向合適，再切到更直接的溝通管道。",
+        "可以先從公開平台或 anomo06822@gmail.com 聯繫；若方向合適，再切到更直接的溝通管道。",
       privacyTitle: "隱私說明",
-      privacyNote: "電話、地址與私人信箱不在網站公開。",
+      privacyNote:
+        "電話與地址不在網站公開；公開聯繫可使用 LinkedIn、GitHub 與 anomo06822@gmail.com。",
     },
     common: {
       readTime: "分鐘閱讀",
@@ -149,6 +157,8 @@ export const siteCopy = {
       switchToLightTheme: "切換到淺色模式",
       switchToDarkTheme: "切換到深色模式",
       builtWith: "使用 Next.js 靜態匯出，部署於 GitHub Pages。",
+      analyticsNotice:
+        "本站僅使用匿名 GA4 頁面瀏覽統計，不追蹤表單內容、外部連結或下載行為。",
       relatedTopics: "主題",
     },
   },
@@ -174,7 +184,7 @@ export const siteCopy = {
       highlightsTitle: "Highlights",
       experienceTitle: "Experience",
       skillsTitle: "Top Skills",
-      featuredTitle: "Featured",
+      featuredTitle: "Selected Wins",
       showcaseTitle: "Project Showcase",
       showcaseIntro:
         "This section separates personal builds that I directly drive from larger core products that I helped ship and operate.",
@@ -190,6 +200,13 @@ export const siteCopy = {
       coreProductsTitle: "Core Products",
       coreProductsIntro:
         "This compact list keeps the larger products I helped ship visible without mixing them into the personal-project entry points.",
+      presentationTitle: "Intro Deck",
+      presentationCtaLabel: "Download deck (PPTX)",
+      presentationPreviewLabel: "Deck Preview",
+      presentationFallbackNote:
+        "If the deck changes later, this preview can stay in place by updating the cover image only.",
+      presentationLanguageBadgeLabel: "Deck language",
+      presentationSlideCountLabel: "slides",
       downloadPdfLabel: "Download PDF",
       projectDetailEyebrow: "Personal Project",
       projectDetailBackLabel: "Back to resume",
@@ -254,9 +271,10 @@ export const siteCopy = {
       ],
       responseTitle: "How I usually respond",
       responseBody:
-        "Start from a public platform first. If the direction makes sense, direct channels can follow.",
+        "You can start from a public platform or email anomo06822@gmail.com. If the direction makes sense, direct channels can follow.",
       privacyTitle: "Privacy note",
-      privacyNote: "Phone number, address, and private email are intentionally omitted.",
+      privacyNote:
+        "Phone number and address are intentionally omitted. Public contact is available through LinkedIn, GitHub, and anomo06822@gmail.com.",
     },
     common: {
       readTime: "min read",
@@ -269,6 +287,8 @@ export const siteCopy = {
       switchToLightTheme: "Switch to light mode",
       switchToDarkTheme: "Switch to dark mode",
       builtWith: "Built with Next.js static export and published via GitHub Pages.",
+      analyticsNotice:
+        "This site uses anonymous GA4 pageview analytics only. It does not track form content, outbound links, or downloads.",
       relatedTopics: "Topics",
     },
   },

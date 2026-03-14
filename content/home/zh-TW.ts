@@ -1,165 +1,139 @@
 import type { HomeContent } from "../../src/lib/types";
 
 export const homeZhTW: HomeContent = {
-  heroEyebrow: "Recruiter Brief / 30-second read",
-  heroTitle:
-    "後端架構、平台交付，以及能把團隊帶到交付現場的工程領導。",
+  heroEyebrow: "Site Guide / Overview",
+  heroTitle: "這個首頁不是第二份履歷，而是整個網站的導覽台。",
   heroIntro:
-    "我長期在電商、物流與平台系統工作，關注的不只是一個 service 寫得多乾淨，而是如何把 architecture、delivery rhythm 與 team execution 一起帶到可持續運作的狀態。首頁先給你可快速驗證的證據，再往下走到完整履歷、GitHub 與技術文章。",
-  resumeCtaLabel: "看履歷",
-  githubCtaLabel: "看 GitHub",
-  proofBoardEyebrow: "快速核對訊號",
-  proofBoardTitle: "可信度不是一句自介，而是幾個能快速核對的訊號。",
-  homeProofBoard: [
+    "如果你第一次來到這個站，這裡先幫你理解每個 tab 放什麼、適合誰看，以及該從哪個入口開始。整站是公開版索引：專案、文章、履歷與聯繫方式分開整理，讓你不用在長頁面裡來回找資訊。",
+  heroTags: ["雙語站點", "公開版索引", "靜態部署", "分頁閱讀", "快速導覽"],
+  heroNoticeTitle: "使用方式",
+  heroNoticeBody:
+    "先用右側 tab map 建立全站概念；如果你已經知道目的，就直接進入專案、技術文章、履歷或聯繫頁面。",
+  heroMapEyebrow: "Tab Map",
+  heroMapIntro: "五個入口，五種閱讀目的。先看地圖，再進分頁。",
+  tabsEyebrow: "Tab Guide",
+  tabsTitle: "每個 tab 都有明確分工。",
+  tabsIntro:
+    "這個站不是把所有資訊塞進同一頁，而是把用途拆成五個可快速進入的入口。",
+  tabs: [
     {
-      value: "10+",
-      label: "年平台與電商經驗",
-      detail: "從 QA、自動化測試、backend 到 engineering leadership。",
-    },
-    {
-      value: "20+",
-      label: "工程協作範圍",
-      detail: "跨 mobile、backend、desktop 與 big data 平台交付。",
-    },
-    {
-      value: "7",
-      label: "目前直接帶領台灣團隊",
-      detail: "在 First Horizon 持續對齊平台技術方向與交付節奏。",
-    },
-    {
-      value: "3 地區",
-      label: "跨區域協作情境",
-      detail: "台灣、香港、澳洲團隊共同推進交付。",
-    },
-  ],
-  githubEyebrow: "GitHub Signal",
-  githubTitle: "公開程式痕跡，比自介更有說服力。",
-  githubIntro:
-    "首頁不做 activity heatmap，也不把畫面變成工程 dashboard。這裡只保留最能代表工作風格、技術取向與更新節奏的 GitHub 訊號。",
-  githubSignals: [
-    {
-      title: "AI Productivity Workspace",
-      subtitle: "Desktop workflow product foundation",
-      status: "Private / Active Build",
-      updatedLabel: "Updated 2026.03",
-      summary:
-        "把桌面工作流、任務管理與 agent 協作收斂到同一個可持續演進的個人生產力工作區。",
-      highlights: [
-        "Electron shell + React + TypeScript + Tailwind v4，搭配 .NET 10 vertical-slice API。",
-        "目前已整理 tasks、projects、agents、roles、dispatch 與 assets APIs。",
-        "最近一次本機開發更新是 2026-03-14，仍屬活躍建構中的 private repo。",
-      ],
-      tags: ["Electron", "React", ".NET 10", "Productivity"],
-      note: "repository 尚未公開，首頁只保留產品訊號與技術方向，不導向 404。",
-    },
-    {
-      title: "Phalanx Chronicle",
-      subtitle: "Unity SRPG campaign prototype",
-      status: "Public Repo",
-      updatedLabel: "Updated 2026.03",
-      summary:
-        "一個已具 playable MVP 流程的 Unity SRPG 戰役原型，重點是系統規則、戰役進程與遊戲流程的完整度。",
-      highlights: [
-        "已串起 12 章戰役、招募、裝備、升階與軍營整備流程。",
-        "戰鬥系統涵蓋 10x10 戰場、技能、AI、HUD 與傷害預測。",
-        "最近公開 repo 更新是 2026-03-14，可直接查看 demo、README 與測試說明。",
-      ],
-      tags: ["Unity", "SRPG", "C#", "Gameplay Systems"],
-      href: "https://github.com/anomo06822/phalanx-chronicle",
-      hrefLabel: "查看公開 repo",
-    },
-    {
-      title: "GitHub Profile",
-      subtitle: "Public code history and shipping cadence",
-      status: "Public Footprint",
-      updatedLabel: "GitHub / anomo06822",
-      summary:
-        "如果你想快速確認公開作品、實作痕跡與持續產出的範圍，GitHub profile 是最直接的對外證據入口。",
-      highlights: [
-        "除了這個站，還有 phalanx-chronicle 與多個 utility / starter 類型 repo。",
-        "能看到 backend、tooling、game prototype 與個人 workflow 類型的公開技術興趣。",
-        "適合快速判斷我不是只寫履歷，而是真的持續在做東西。",
-      ],
-      tags: ["Public Repos", "Code History", "Shipping Cadence"],
-      href: "https://github.com/anomo06822",
-      hrefLabel: "前往 GitHub profile",
-    },
-  ],
-  secondarySignalsTitle: "Secondary signal",
-  secondarySignals: [],
-  teamEyebrow: "Leadership / Trust",
-  teamTitle: "讓人相信你能帶團隊，不只靠職稱。",
-  teamIntro:
-    "這段不再重複履歷條列，而是把 team context、cross-region collaboration 與 delivery ownership 變成可視覺化理解的證據。",
-  teamGallery: [
-    {
-      title: "0→1 平台不是一個人做完的",
-      contextLabel: "Taiwan team / First Horizon",
-      caption:
-        "目前帶領台灣 7 人工程團隊，從架構、CI/CD 到 observability 一起落地。",
-      variant: "primary",
-    },
-    {
-      title: "台灣、香港、澳洲同時對齊",
-      contextLabel: "Cross-region delivery",
-      caption:
-        "和香港、澳洲團隊協作，讓產品、工程與營運共享交付節奏。",
-      variant: "secondary",
-    },
-    {
-      title: "曾處理更大規模的工程協作",
-      contextLabel: "Newegg scale context",
-      caption:
-        "曾帶領 20+ 工程師支援 mobile、B2B desktop、backend 與 big data 平台。",
-      variant: "secondary",
-    },
-  ],
-  leadershipProofTitle: "帶團隊的證據",
-  leadershipProofs: [
-    {
-      value: "7",
-      label: "目前帶領台灣團隊",
-      detail: "First Horizon 的平台技術方向、交付節奏與落地品質。",
-    },
-    {
-      value: "20+",
-      label: "過去帶領工程協作規模",
-      detail: "Newegg 場景下涵蓋 mobile、backend、desktop 與 data platform。",
-    },
-    {
-      value: "TW / HK / AU",
-      label: "跨區域合作經驗",
-      detail: "不是只寫程式，而是協調多地利害關係人一起交付。",
-    },
-  ],
-  nextEyebrow: "Next Step",
-  nextTitle: "不同角色，下一步看的頁面不同。",
-  nextIntro:
-    "首頁只負責建立定位與信任。要往下看完整背景、技術思考或公開聯絡入口，各有明確閱讀路徑。",
-  pathways: [
-    {
-      routeKey: "resume",
-      eyebrow: "Full Background",
-      title: "履歷",
+      routeKey: "home",
+      eyebrow: "Start Here",
+      title: "概覽",
       description:
-        "完整看經歷、代表專案、平台交付與帶團隊的主線脈絡。",
-      hrefLabel: "看完整履歷",
+        "先理解網站結構、閱讀路徑與各分頁的角色，避免一進站就掉進履歷細節。",
+      highlights: [
+        "第一次來訪時最適合先看這頁。",
+        "幫你判斷接下來該去專案、文章、履歷或聯繫。",
+        "重點是網站導覽，不重複履歷內容。",
+      ],
+      hrefLabel: "留在概覽頁",
+    },
+    {
+      routeKey: "projects",
+      eyebrow: "Build Index",
+      title: "專案",
+      description:
+        "集中查看公開個人專案，快速掌握題目、方向與可延伸閱讀的 detail 頁。",
+      highlights: [
+        "適合先看我實際做了什麼。",
+        "把個人作品與工作經歷刻意拆開。",
+        "可以直接進每個專案的 detail 頁。",
+      ],
+      hrefLabel: "看專案",
     },
     {
       routeKey: "blog",
-      eyebrow: "Thinking Depth",
+      eyebrow: "Thinking Layer",
       title: "技術文章",
       description:
-        "看我如何描述 architecture、operability 與 delivery tradeoffs。",
-      hrefLabel: "看技術文章",
+        "查看我怎麼整理 architecture、operability 與 delivery 的實作取捨。",
+      highlights: [
+        "適合看思考方式而不是只看成果。",
+        "文章依主題與語系整理。",
+        "補足專案頁看不到的推理過程。",
+      ],
+      hrefLabel: "看文章",
+    },
+    {
+      routeKey: "resume",
+      eyebrow: "Public Resume",
+      title: "履歷",
+      description:
+        "看公開版背景、代表經歷與整理過的工作脈絡，但不把所有內部細節都攤開。",
+      highlights: [
+        "內容是公開版，不等於完整內部背景。",
+        "適合需要快速掌握經驗脈絡的人。",
+        "和專案頁分開，避免把 ownership 混在一起。",
+      ],
+      hrefLabel: "看履歷",
     },
     {
       routeKey: "contact",
       eyebrow: "Public Paths",
       title: "聯繫",
       description:
-        "從 LinkedIn 與 GitHub 的公開入口開始，適合 recruiter 或 hiring manager 發起對話。",
-      hrefLabel: "看公開入口",
+        "集中公開聯絡方式與適合交流的主題，方便用對的入口開始對話。",
+      highlights: [
+        "可從 LinkedIn、GitHub 或 email 開始。",
+        "適合 recruiter、合作方或技術交流。",
+        "先從公開入口開始，方向對再往下談。",
+      ],
+      hrefLabel: "看聯繫",
+    },
+  ],
+  journeysEyebrow: "Reading Paths",
+  journeysTitle: "不同目的，建議不同走法。",
+  journeysIntro:
+    "如果你不是要把整站每頁都看完，下面是更有效率的閱讀順序。",
+  journeys: [
+    {
+      audience: "第一次來訪",
+      title: "先建立網站地圖",
+      summary:
+        "先知道這個站怎麼分工，再決定要往哪個內容深讀。",
+      routeKeys: ["home", "projects", "blog"],
+      note: "適合想快速判斷這個站值不值得繼續看的人。",
+    },
+    {
+      audience: "招募 / Hiring",
+      title: "先看公開背景，再決定是否聯繫",
+      summary:
+        "先理解網站，再進公開履歷與聯繫入口，比直接跳進單一頁面更快。",
+      routeKeys: ["home", "resume", "contact"],
+      note: "適合 recruiter、hiring manager 或合作窗口。",
+    },
+    {
+      audience: "技術讀者",
+      title: "先看作品，再補文章脈絡",
+      summary:
+        "從專案理解題目，再用文章看方法、約束與取捨。",
+      routeKeys: ["projects", "blog", "contact"],
+      note: "適合對實作、設計取捨或技術寫作有興趣的人。",
+    },
+  ],
+  guideEyebrow: "Public Scope",
+  guideTitle: "這個網站刻意維持公開版邊界。",
+  guideIntro:
+    "它的角色是清楚、好讀、可分享，不是把所有背景、私密資訊或內部資料全部攤開。",
+  guideItems: [
+    {
+      eyebrow: "What is here",
+      title: "公開且可持續維護的內容",
+      description:
+        "只保留適合公開、可長期維護的專案、文章、履歷摘要與聯繫入口。",
+    },
+    {
+      eyebrow: "What is not",
+      title: "私人與內部內容不放在站上",
+      description:
+        "私人資料、未公開 repository、內部文件與無法公開驗證的細節不會出現在這裡。",
+    },
+    {
+      eyebrow: "How to use",
+      title: "把它當成索引，不是終點",
+      description:
+        "找到感興趣的 tab 後再深入；如果方向合適，再從聯繫頁面開啟對話。",
     },
   ],
 };

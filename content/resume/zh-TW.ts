@@ -62,12 +62,11 @@ export const resumeZhTW: ResumeContent = {
         alt: "SJC logo",
       },
       impactBullets: [
-        "主導 First Horizon 物流平台從 0 到 1 的開發與落地，將架構、交付與維運在一開始就放進同一條主線。",
-        "以 Next.js、.NET Core、CQRS 與 Vertical Slice 設計平台架構，讓領域切分與實作流程保持可維護性。",
-        "建立 Azure DevOps CI/CD 並部署到 Azure，讓新平台具備可重複發布與環境治理能力。",
-        "導入 Prometheus、Grafana、Jaeger，讓監控、記錄與診斷成為日常工程流程的一部分。",
-        "管理台灣團隊共 7 位工程師，持續對齊專案節奏與技術方向。",
-        "協調香港與澳洲團隊的跨區域合作，讓產品、工程與營運在交付上保持一致。",
+        "主導 First Horizon 物流平台從 0 到 1，將產品需求、平台架構與交付節奏拉成同一條主線。",
+        "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃邊界，讓模組切分、需求擴充與維護成本保持可控。",
+        "建立 Azure DevOps CI/CD、環境設定與發版流程，讓新平台從第一階段就具備可重複交付能力。",
+        "導入 Prometheus、Grafana、Jaeger，讓監控、追蹤與問題診斷能直接支援日常開發與維運。",
+        "管理台灣 7 位工程師，並持續協調香港與澳洲團隊對齊需求拆解、技術決策與跨區交付節奏。",
       ],
       keywords: [
         "Next.js",
@@ -88,12 +87,10 @@ export const resumeZhTW: ResumeContent = {
         alt: "Newegg logo",
       },
       impactBullets: [
-        "帶領 20+ 位工程師支援 B2C mobile、B2B desktop 與 big data 平台，維持全球電商場景下的交付節奏。",
-        "維運 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的行動產品。",
-        "把 Android 推播開啟率從 2% 提升到 5%，透過交付協作與訊息品質優化提升使用者互動。",
-        "將無效裝置 token 降低約 33%，改善推播可靠度與後續營運效率。",
-        "改善 Core Web Vitals，將 bad URLs 從 50% 降到 7% 以下。",
-        "推動 microservice architecture 與 shared presentation layer，支援多產品線並行交付。",
+        "帶領 20+ 位工程師支援 B2C mobile、B2B desktop 與 big data 平台，負責跨產品線的交付節奏與協作方式。",
+        "建立 shared presentation layer 與 microservice 拆分策略，支援多產品線共用能力與並行開發。",
+        "整合 analytics、push notification、SEO 與 release coordination，讓 mobile 與 web 體驗改善能用同一套流程落地。",
+        "與產品、設計、營運及跨區團隊對齊 roadmap、版本節點與 incident handling，讓公開產品在高流量情境下持續穩定迭代。",
       ],
       keywords: [
         "React Native",
@@ -110,15 +107,15 @@ export const resumeZhTW: ResumeContent = {
       period: "2016.04 - 2020.04",
       location: "台中",
       logo: {
-        src: "/images/company-logos/newegg-business-logo.png",
-        alt: "Newegg Business logo",
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
       },
       impactBullets: [
-        "負責 B2B 電商平台的後端服務，涵蓋帳號、購物與訂單處理等核心流程。",
-        "建立支撐高價值交易與採購情境的關鍵 backend services。",
-        "將服務從 .NET Framework 遷移到 .NET Core，為平台現代化與模組化交付打底。",
-        "導入 TDD 與 Jenkins、GitLab 的 CI/CD，提升發布信心並降低回歸成本。",
-        "使用 dotTrace 與 Visual Studio Profiler 優化服務效能，改善回應速度與資源效率。",
+        "負責 Newegg Business B2B 電商平台後端服務，涵蓋帳號、購物車、訂單、付款與採購流程。",
+        "設計支撐高價值交易與企業採購情境的 backend services，將商務規則沉澱成可擴充的服務邊界。",
+        "推動 .NET Framework 到 .NET Core 遷移，並整理更模組化的服務拆分與交付方式。",
+        "導入 TDD、Jenkins 與 GitLab CI/CD，讓 backend 變更能以更穩定且可重複的流程發布。",
+        "使用 dotTrace 與 Visual Studio Profiler 持續處理效能瓶頸與資源使用問題。",
       ],
       keywords: [
         "C#",
@@ -135,13 +132,13 @@ export const resumeZhTW: ResumeContent = {
       period: "2013.04 - 2016.04",
       location: "台中",
       logo: {
-        src: "/images/company-logos/newegg-logo.svg",
-        alt: "Newegg logo",
+        src: "/images/company-logos/newegg-business-logo.png",
+        alt: "Newegg Business logo",
       },
       impactBullets: [
-        "負責電商訂單與購物流程相關的品質驗證，支援核心交易旅程的穩定性。",
-        "以 Selenium 與 Nightwatch 建立自動化測試，降低大量重複回歸測試成本。",
-        "改善測試覆蓋率與 integration testing 流程，建立之後轉向 backend engineering 的系統視角。",
+        "負責 Newegg Business 訂單、購物與企業採購流程的品質驗證，支援核心交易旅程穩定運作。",
+        "以 Selenium 與 Nightwatch 建立自動化測試與回歸檢查，降低大量重複手動驗證成本。",
+        "逐步補齊 integration testing 與測試覆蓋，建立後續轉向 backend engineering 的系統視角與問題拆解能力。",
       ],
       keywords: [
         "Selenium",
@@ -154,25 +151,49 @@ export const resumeZhTW: ResumeContent = {
   topSkills: [
     "C#",
     ".NET Core",
+    "Python",
+    "Java",
+    "React",
+    "React Native",
+    "Next.js",
+    "MS SQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "RabbitMQ",
     "System Architecture",
+    "Vertical Slice Architecture",
     "Microservices",
     "Azure",
     "CI/CD",
     "Backend Development",
-    "SQL",
     "Distributed Systems",
     "Team Leadership",
   ],
   topSkillGroups: [
     {
       label: "核心技術",
-      skills: ["C#", ".NET Core", "SQL", "Azure"],
+      skills: [
+        "C#",
+        ".NET Core",
+        "Python",
+        "Java",
+        "React",
+        "React Native",
+        "Next.js",
+        "Azure",
+      ],
+    },
+    {
+      label: "資料 / 中介",
+      skills: ["MS SQL", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ"],
     },
     {
       label: "架構 / 系統",
       skills: [
         "Backend Development",
         "System Architecture",
+        "Vertical Slice Architecture",
         "Microservices",
         "Distributed Systems",
       ],
@@ -184,33 +205,33 @@ export const resumeZhTW: ResumeContent = {
   ],
   featured: [
     {
-      title: "Newegg App",
+      title: "Newegg Mobile",
       summary:
-        "面向消費者的行動產品維運與改善，兼顧可靠度、互動率與版本品質。",
+        "在高流量公開產品上，同時兼顧可靠度、使用者互動與版本品質的行動產品交付。",
       proofPoints: [
-        "支援 1M+ 下載量與 4.6 App Store 評分的產品。",
-        "在改善通知品質與發版穩定度的同時，維持 99.9% crash-free users。",
-        "將推播開啟率從 2% 提升到 5%，並把無效 token 降低約 33%。",
+        "支援 1M+ 下載量與 4.6 App Store 評分的公開產品。",
+        "長期維持 99.9% crash-free users，讓大型版本更新與日常維運都能穩定推進。",
+        "把 Android 推播開啟率從 2% 提升到 5%，並將無效裝置 token 降低約 33%。",
       ],
     },
     {
-      title: "B2B Website",
+      title: "Newegg Business",
       summary:
-        "聚焦關鍵電商與採購流程的後端現代化與商務能力整合。",
+        "聚焦 B2B 電商與採購場景的後端現代化，讓核心交易流程更模組化也更容易持續交付。",
       proofPoints: [
-        "建立帳號、購物車與訂單處理等核心服務，支撐 B2B 交易流程。",
+        "建立帳號、購物車、訂單與企業採購相關服務，支撐高價值 B2B 交易流程。",
         "整合 PayPal、MasterPass、e-procurement 與 Net Terms 等商務能力。",
-        "推動 .NET Framework 到 .NET Core 遷移，並同步建立 TDD 與 CI/CD。",
+        "完成 .NET Framework 到 .NET Core 遷移，並同步導入 TDD 與 Jenkins / GitLab CI/CD。",
       ],
     },
     {
-      title: "Architecture / Platform Leadership",
+      title: "First Horizon / Platform Delivery",
       summary:
-        "把 0→1 平台的架構、交付、觀測性與跨區協作整合成同一套運作方式。",
+        "把 0→1 平台的架構、交付與可觀測性一次建立起來，讓團隊能在同一套運作方式下前進。",
       proofPoints: [
-        "主導 First Horizon 從綠地規劃走到正式交付結構。",
+        "主導 First Horizon 從綠地規劃走到可持續交付的物流平台骨架。",
         "帶領 7 人台灣團隊，並與香港、澳洲利害關係人協作對齊。",
-        "從第一階段就建立 Azure DevOps、deployment flow 與 Prometheus / Grafana / Jaeger。",
+        "從第一階段就建立 Azure DevOps、Azure deployment flow 與 Prometheus / Grafana / Jaeger。",
       ],
     },
   ],
@@ -325,11 +346,11 @@ export const resumeZhTW: ResumeContent = {
         title: "First Horizon",
         subtitle: "SJC International Logistics",
         summary:
-          "0→1 的物流平台專案，重點不只是功能交付，而是把架構、發版流程、可觀測性與跨區域協作一開始就放進同一套運作方式。",
+          "SJC 的物流平台入口，承接跨區作業流程、營運協作與後續平台能力擴充。",
         bullets: [
-          "以 Next.js、.NET Core、CQRS 與 Vertical Slice 設計平台架構，讓領域切分與實作流程保持可維護性。",
-          "建立 Azure DevOps CI/CD 並部署到 Azure，讓發布流程與環境治理具備可重複執行能力。",
-          "導入 Prometheus、Grafana、Jaeger，讓監控、記錄與診斷成為日常工程流程的一部分。",
+          "前端以 Next.js 承接作業流程，後端以 .NET Core、CQRS 與 Vertical Slice 處理平台能力。",
+          "平台設計重點在模組邊界、部署治理與可觀測性，而不只是單次功能交付。",
+          "公開站點可視為產品入口，實際價值在背後的物流平台骨架與營運支援能力。",
         ],
         tags: ["Next.js", ".NET Core", "CQRS", "Azure", "Observability"],
         href: "https://sjclemenger.com/",
@@ -340,11 +361,11 @@ export const resumeZhTW: ResumeContent = {
         title: "Newegg Mobile",
         subtitle: "Newegg",
         summary:
-          "面向消費者的行動產品維運與改善，聚焦可靠度、互動率與版本品質，在大流量場景下持續優化使用者體驗。",
+          "Newegg 面向消費者的行動購物體驗，涵蓋 app 與 mobile web 的日常營運與版本交付。",
         bullets: [
-          "支援 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的公開產品。",
-          "將 Android 推播開啟率從 2% 提升到 5%，並把無效裝置 token 降低約 33%。",
-          "同步改善 release coordination、notification quality 與 mobile web 的 Core Web Vitals 表現。",
+          "產品面向公開零售流量，重點包含商品瀏覽、購物流程、通知觸達與版本體驗。",
+          "技術面向涵蓋 React Native、analytics、push notification 與 mobile web SEO / CWV。",
+          "我在其中負責的是跨團隊交付、可靠度治理與體驗改善的工程面工作。",
         ],
         tags: [
           "React Native",
@@ -361,11 +382,11 @@ export const resumeZhTW: ResumeContent = {
         title: "Newegg Business",
         subtitle: "Newegg Business",
         summary:
-          "聚焦關鍵電商與採購流程的 B2B 平台後端現代化，涵蓋帳號、購物、訂單與商務能力整合。",
+          "Newegg 的企業採購與 B2B 電商入口，對應帳號、採購、付款與訂單等商務流程。",
         bullets: [
-          "建立帳號、購物車與訂單處理等核心 backend services，支撐高價值 B2B 交易流程。",
-          "整合 PayPal、MasterPass、e-procurement 與 Net Terms 等商務能力。",
-          "推動 .NET Framework 到 .NET Core 遷移，並同步導入 TDD 與 Jenkins / GitLab CI/CD。",
+          "產品重點在企業客戶的交易與 procurement 流程，而不是一般 B2C 購物體驗。",
+          "平台核心以 C# / .NET、MS SQL 與商務整合能力支撐。",
+          "我參與的重點是 backend services、系統現代化與交付流程治理。",
         ],
         tags: ["C#", ".NET Core", "B2B Commerce", "MS SQL", "CI/CD"],
         href: "https://neweggbusiness.com/",
@@ -399,6 +420,18 @@ export const resumeZhTW: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  presentation: {
+    fileName: "jarvis-intro-cn-2026-v1.pptx",
+    title: "Jarvis Huang 自我介紹簡報",
+    summary:
+      "這份 9 頁簡報集中整理我的角色跨度、平台經驗、First Horizon 0→1 架構實作，以及 Newegg 十年的工程與管理脈絡。",
+    previewImageSrc: "/images/resume/jarvis-intro-cn-2026-v1-cover.png",
+    previewImageAlt: "Jarvis Huang 自我介紹簡報封面預覽",
+    slideCount: 9,
+    languageLabel: "中文",
+    note:
+      "履歷頁保留 PDF 方便快速下載；這份 deck 則適合用來快速理解完整的自我介紹脈絡與敘事節奏。",
+  },
   pdf: {
     fileName: pdfManifest["zh-TW"].fileName,
     summary: [
@@ -409,19 +442,30 @@ export const resumeZhTW: ResumeContent = {
       {
         title: "First Horizon 物流平台",
         summary:
-          "0→1 平台落地，從第一階段就把架構、發版流程與觀測性當成同一套運作系統設計。",
+          "把 0→1 平台的架構、交付與可觀測性一次建立起來，讓團隊能在同一套運作方式下前進。",
         proofPoints: [
           "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃平台技術骨架與邊界。",
+          "帶領台灣 7 人工程團隊，並與香港、澳洲利害關係人持續對齊。",
           "建立 Azure DevOps CI/CD、Azure 發布流程，並提早導入 Prometheus、Grafana、Jaeger。",
         ],
       },
       {
-        title: "Newegg 行動產品與平台交付",
+        title: "Newegg Mobile",
         summary:
-          "在全球電商環境下，同時支撐 consumer mobile、B2B commerce 與共享平台交付。",
+          "在高流量公開產品上，同時兼顧可靠度、使用者互動與版本品質的行動產品交付。",
         proofPoints: [
-          "帶領 20+ 位工程師，涵蓋 mobile、backend 與 data platform 的交付範圍。",
-          "維持 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users，並提升推播表現。",
+          "支援 1M+ 下載量與 4.6 App Store 評分的公開產品。",
+          "長期維持 99.9% crash-free users，並把 Android 推播開啟率從 2% 提升到 5%。",
+        ],
+      },
+      {
+        title: "Newegg Business",
+        summary:
+          "聚焦 B2B 電商與採購場景的後端現代化，讓核心交易流程更模組化也更容易持續交付。",
+        proofPoints: [
+          "建立帳號、購物車、訂單與企業採購相關服務，支撐高價值 B2B 交易流程。",
+          "整合 PayPal、MasterPass、e-procurement 與 Net Terms 等商務能力。",
+          "完成 .NET Framework 到 .NET Core 遷移，並同步導入 TDD 與 Jenkins / GitLab CI/CD。",
         ],
       },
     ],

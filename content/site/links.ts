@@ -2,6 +2,19 @@ import type { ContactLink } from "../../src/lib/types";
 
 export const contactLinks: ContactLink[] = [
   {
+    label: "Email",
+    href: "mailto:anomo06822@gmail.com",
+    icon: "email",
+    localeLabel: {
+      "zh-TW": "Email 直接聯繫",
+      en: "Direct email contact",
+    },
+    note: {
+      "zh-TW": "若你已經有明確合作方向，可以直接寄信到 anomo06822@gmail.com。",
+      en: "If you already have a clear collaboration context, email anomo06822@gmail.com directly.",
+    },
+  },
+  {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/jarvischuang/",
     icon: "linkedin",

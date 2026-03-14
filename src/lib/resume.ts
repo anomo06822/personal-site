@@ -11,6 +11,16 @@ export function getResumePdfDownloadHref(locale: Locale) {
   return `${siteConfig.basePath}/downloads/${getResume(locale).pdf.fileName}`;
 }
 
+export function getResumePresentationDownloadHref(locale: Locale) {
+  const presentation = getResume(locale).presentation;
+
+  if (!presentation) {
+    return null;
+  }
+
+  return `${siteConfig.basePath}/downloads/${presentation.fileName}`;
+}
+
 export function getPersonalProjects(locale: Locale): PersonalProjectItem[] {
   return getResume(locale).projectShowcase.personal;
 }

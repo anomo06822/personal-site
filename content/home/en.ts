@@ -1,165 +1,139 @@
 import type { HomeContent } from "../../src/lib/types";
 
 export const homeEn: HomeContent = {
-  heroEyebrow: "Recruiter Brief / 30-second read",
-  heroTitle:
-    "Backend architecture, platform delivery, and engineering leadership that actually gets teams to shipping.",
+  heroEyebrow: "Site Guide / Overview",
+  heroTitle: "This home page is not a second resume. It is the guide rail for the whole site.",
   heroIntro:
-    "My work has stayed close to e-commerce, logistics, and platform systems where clean backend design is only part of the job. The real work is aligning architecture, delivery rhythm, and team execution so systems keep moving without chaos. This page starts with proof, then sends you to the full resume, GitHub, and writing when you want depth.",
-  resumeCtaLabel: "View resume",
-  githubCtaLabel: "View GitHub",
-  proofBoardEyebrow: "Proof board",
-  proofBoardTitle: "Credibility is not a self-description. It is a set of signals you can verify quickly.",
-  homeProofBoard: [
+    "If this is your first time here, this page explains what each tab contains, who it is for, and where to start. The site is structured as a public index: projects, writing, resume context, and contact paths are separated so readers can move directly to what they need.",
+  heroTags: ["Bilingual", "Public index", "Static site", "Tab-based reading", "Fast orientation"],
+  heroNoticeTitle: "How to use this site",
+  heroNoticeBody:
+    "Use the tab map on the right to understand the whole structure first. If you already know what you need, jump directly into Projects, Writing, Resume, or Connect.",
+  heroMapEyebrow: "Tab Map",
+  heroMapIntro: "Five entry points, five different reading intents. Learn the map first, then go deeper.",
+  tabsEyebrow: "Tab Guide",
+  tabsTitle: "Each tab has a specific job.",
+  tabsIntro:
+    "This site does not cram everything into one page. It splits the public narrative into five clear entry points.",
+  tabs: [
     {
-      value: "10+",
-      label: "years in platforms and e-commerce",
-      detail: "From QA and automation into backend, architecture, and engineering leadership.",
-    },
-    {
-      value: "20+",
-      label: "engineering delivery scope",
-      detail: "Across mobile, backend, desktop, and big data platform work.",
-    },
-    {
-      value: "7",
-      label: "engineers currently led in Taiwan",
-      detail: "Owning technical direction and delivery rhythm on First Horizon.",
-    },
-    {
-      value: "3 regions",
-      label: "cross-region delivery context",
-      detail: "Taiwan, Hong Kong, and Australia collaboration in active delivery.",
-    },
-  ],
-  githubEyebrow: "GitHub Signal",
-  githubTitle: "Public code footprint says more than a polished paragraph.",
-  githubIntro:
-    "This page does not turn into an engineering dashboard. Instead, it curates the GitHub signals that best represent how I build, what I focus on, and whether the work is still active.",
-  githubSignals: [
-    {
-      title: "AI Productivity Workspace",
-      subtitle: "Desktop workflow product foundation",
-      status: "Private / Active Build",
-      updatedLabel: "Updated 2026.03",
-      summary:
-        "A personal productivity workspace that brings desktop workflows, task management, and agent collaboration into one product foundation.",
-      highlights: [
-        "Electron shell with React, TypeScript, Tailwind v4, and a .NET 10 vertical-slice API.",
-        "Already includes tasks, projects, agents, roles, dispatch, and assets APIs.",
-        "The latest local development update landed on 2026-03-14, so this is active work rather than a parked idea.",
-      ],
-      tags: ["Electron", "React", ".NET 10", "Productivity"],
-      note: "The repository is still private, so the home page keeps the product signal without linking to a dead public URL.",
-    },
-    {
-      title: "Phalanx Chronicle",
-      subtitle: "Unity SRPG campaign prototype",
-      status: "Public Repo",
-      updatedLabel: "Updated 2026.03",
-      summary:
-        "A Unity SRPG campaign prototype with playable MVP flows across campaign progression, battle systems, and game-state handling.",
-      highlights: [
-        "Already connects a 12-chapter campaign with recruitment, equipment, promotion, and camp flow.",
-        "Battle systems cover a 10x10 battlefield, AI, skills, HUD states, and damage forecasting.",
-        "The public repository was updated on 2026-03-14 and includes demo media, README context, and tests.",
-      ],
-      tags: ["Unity", "SRPG", "C#", "Gameplay Systems"],
-      href: "https://github.com/anomo06822/phalanx-chronicle",
-      hrefLabel: "Open public repo",
-    },
-    {
-      title: "GitHub Profile",
-      subtitle: "Public code history and shipping cadence",
-      status: "Public Footprint",
-      updatedLabel: "GitHub / anomo06822",
-      summary:
-        "If you want a fast read on public work, implementation history, and technical range, the profile is the clearest external proof layer.",
-      highlights: [
-        "Includes this personal site, phalanx-chronicle, and several utility or starter repos.",
-        "Shows interest across backend, tooling, workflow products, and game prototypes.",
-        "Useful when you want to confirm that the public narrative matches actual build history.",
-      ],
-      tags: ["Public Repos", "Code History", "Shipping Cadence"],
-      href: "https://github.com/anomo06822",
-      hrefLabel: "Open GitHub profile",
-    },
-  ],
-  secondarySignalsTitle: "Secondary signal",
-  secondarySignals: [],
-  teamEyebrow: "Leadership / Trust",
-  teamTitle: "Titles do not prove leadership. Delivery context does.",
-  teamIntro:
-    "This section does not repeat resume bullets. It turns team context, cross-region collaboration, and delivery ownership into something easier to read at a glance.",
-  teamGallery: [
-    {
-      title: "0→1 platforms are not solo work",
-      contextLabel: "Taiwan team / First Horizon",
-      caption:
-        "Currently leading a 7-engineer Taiwan team across architecture, CI/CD, observability, and delivery execution.",
-      variant: "primary",
-    },
-    {
-      title: "Taiwan, Hong Kong, and Australia in one delivery motion",
-      contextLabel: "Cross-region delivery",
-      caption:
-        "Coordinating with Hong Kong and Australia teams so product, engineering, and operations move on the same rhythm.",
-      variant: "secondary",
-    },
-    {
-      title: "Previous scale was broader than one product line",
-      contextLabel: "Newegg scale context",
-      caption:
-        "Previously led 20+ engineers across mobile, B2B desktop, backend, and big data platform delivery.",
-      variant: "secondary",
-    },
-  ],
-  leadershipProofTitle: "Leadership proof",
-  leadershipProofs: [
-    {
-      value: "7",
-      label: "engineers currently led in Taiwan",
-      detail: "Owning technical direction, platform quality, and delivery cadence on First Horizon.",
-    },
-    {
-      value: "20+",
-      label: "past engineering coordination scope",
-      detail: "Across Newegg mobile, backend, desktop, and data platform surfaces.",
-    },
-    {
-      value: "TW / HK / AU",
-      label: "cross-region collaboration",
-      detail: "Not just coding work, but alignment across stakeholders in multiple regions.",
-    },
-  ],
-  nextEyebrow: "Next Step",
-  nextTitle: "Different readers should go to different pages next.",
-  nextIntro:
-    "The home page establishes positioning and trust. For full background, technical depth, or public contact paths, the next steps are intentionally split.",
-  pathways: [
-    {
-      routeKey: "resume",
-      eyebrow: "Full Background",
-      title: "Resume",
+      routeKey: "home",
+      eyebrow: "Start Here",
+      title: "Overview",
       description:
-        "See the full experience arc, representative projects, and platform delivery background.",
-      hrefLabel: "View full resume",
+        "Understand the site structure, reading paths, and the role of each section before going deeper.",
+      highlights: [
+        "Best first stop for a new visitor.",
+        "Helps you decide whether to open projects, writing, resume, or contact next.",
+        "Focused on navigation rather than repeating resume details.",
+      ],
+      hrefLabel: "Stay on overview",
+    },
+    {
+      routeKey: "projects",
+      eyebrow: "Build Index",
+      title: "Projects",
+      description:
+        "Browse the public personal projects first, then open their detail pages when you want more context.",
+      highlights: [
+        "Best when you want to see actual build direction first.",
+        "Keeps personal work separate from broader work history.",
+        "Each public project can be opened directly from here.",
+      ],
+      hrefLabel: "Open projects",
     },
     {
       routeKey: "blog",
-      eyebrow: "Thinking Depth",
+      eyebrow: "Thinking Layer",
       title: "Writing",
       description:
-        "Read how I explain architecture, operability, and delivery tradeoffs in practice.",
-      hrefLabel: "Read writing",
+        "Read how architecture, operability, and delivery tradeoffs are framed and explained.",
+      highlights: [
+        "Best for understanding thinking, not just outputs.",
+        "Articles are organized by topic and language.",
+        "Adds the reasoning that project pages do not show on their own.",
+      ],
+      hrefLabel: "Open writing",
+    },
+    {
+      routeKey: "resume",
+      eyebrow: "Public Resume",
+      title: "Resume",
+      description:
+        "See the public-facing background, representative experience, and the larger work arc without exposing every internal detail.",
+      highlights: [
+        "This is a public version, not an internal dossier.",
+        "Useful when you need a compact experience overview.",
+        "Separated from Projects so ownership stays easier to read.",
+      ],
+      hrefLabel: "Open resume",
     },
     {
       routeKey: "contact",
       eyebrow: "Public Paths",
       title: "Connect",
       description:
-        "Start from the public LinkedIn and GitHub paths if you want to begin a serious conversation.",
+        "Find the public contact paths and the best reasons to start a conversation from this site.",
+      highlights: [
+        "LinkedIn, GitHub, and email are grouped here.",
+        "Useful for recruiters, collaborators, and technical conversations.",
+        "Start public first, then move deeper if there is a fit.",
+      ],
       hrefLabel: "Open contact paths",
+    },
+  ],
+  journeysEyebrow: "Reading Paths",
+  journeysTitle: "Different goals deserve different paths.",
+  journeysIntro:
+    "If you do not want to read the whole site front to back, these routes get you to the right context faster.",
+  journeys: [
+    {
+      audience: "First-time visitor",
+      title: "Build a quick mental map first",
+      summary:
+        "Understand how the site is organized, then choose whether to go into projects or writing.",
+      routeKeys: ["home", "projects", "blog"],
+      note: "Best for a fast yes-or-no read on whether the site is worth deeper time.",
+    },
+    {
+      audience: "Recruiting / Hiring",
+      title: "Review public context, then decide whether to reach out",
+      summary:
+        "Start with the structure, then move into the public resume and contact page.",
+      routeKeys: ["home", "resume", "contact"],
+      note: "Best for recruiters, hiring managers, or partnership conversations.",
+    },
+    {
+      audience: "Technical reader",
+      title: "See projects first, then read the thinking behind them",
+      summary:
+        "Use projects for the surface area, then writing for the reasoning and tradeoffs.",
+      routeKeys: ["projects", "blog", "contact"],
+      note: "Best for readers who care about implementation choices and technical framing.",
+    },
+  ],
+  guideEyebrow: "Public Scope",
+  guideTitle: "This site intentionally keeps a public-facing boundary.",
+  guideIntro:
+    "Its job is to stay clear, readable, and shareable, not to expose every background detail, private asset, or internal artifact.",
+  guideItems: [
+    {
+      eyebrow: "What is here",
+      title: "Public content that can be maintained over time",
+      description:
+        "Only projects, writing, public resume context, and contact paths that make sense to keep public are included here.",
+    },
+    {
+      eyebrow: "What is not",
+      title: "Private and internal material stays off the site",
+      description:
+        "Private data, unpublished repositories, internal documents, and details that cannot be shared responsibly are left out.",
+    },
+    {
+      eyebrow: "How to use",
+      title: "Treat this as an index, not the final destination",
+      description:
+        "Open the tab that matches your goal, go deeper there, and use the contact page when a real conversation makes sense.",
     },
   ],
 };

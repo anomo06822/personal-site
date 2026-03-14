@@ -64,12 +64,11 @@ export const resumeEn: ResumeContent = {
         alt: "SJC logo",
       },
       impactBullets: [
-        "Led development of the First Horizon logistics platform from 0 to 1 and aligned architecture, delivery, and operations from the start.",
-        "Designed the platform architecture with Next.js, .NET Core, CQRS, and Vertical Slice to keep domain boundaries and implementation flow maintainable.",
-        "Built CI/CD pipelines with Azure DevOps and deployed the platform to Azure with repeatable release controls.",
-        "Implemented monitoring and logging with Prometheus, Grafana, and Jaeger to make diagnostics part of daily engineering work.",
-        "Managed the Taiwan engineering team across 7 engineers while keeping project execution and technical direction on the same track.",
-        "Coordinated cross-region collaboration with Hong Kong and Australia teams to keep delivery aligned across product, engineering, and operations.",
+        "Led the First Horizon logistics platform from 0 to 1 by aligning product scope, platform architecture, and delivery rhythm from the start.",
+        "Defined boundaries with Next.js, .NET Core, CQRS, and Vertical Slice so new workflows could be added without losing maintainability.",
+        "Built Azure DevOps CI/CD, environment setup, and release flow so the platform had repeatable delivery controls from phase one.",
+        "Introduced Prometheus, Grafana, and Jaeger so monitoring, tracing, and diagnostics stayed inside normal engineering operations.",
+        "Managed a 7-engineer Taiwan team and coordinated with Hong Kong and Australia partners on planning, technical decisions, and cross-region delivery.",
       ],
       keywords: [
         "Next.js",
@@ -90,12 +89,10 @@ export const resumeEn: ResumeContent = {
         alt: "Newegg logo",
       },
       impactBullets: [
-        "Led 20+ engineers supporting B2C mobile, B2B desktop, and big data platforms in a global e-commerce environment.",
-        "Maintained a mobile app with 1M+ downloads, a 4.6 App Store rating, and 99.9% crash-free users.",
-        "Improved push notification open rate from 2% to 5% through delivery coordination, analytics work, and message-quality tuning.",
-        "Reduced invalid device tokens by approximately 33%, improving notification reliability and downstream marketing efficiency.",
-        "Improved Core Web Vitals by reducing bad URLs from 50% to below 7% on the mobile web experience.",
-        "Implemented microservice architecture and a shared presentation layer to support parallel product delivery.",
+        "Led 20+ engineers across B2C mobile, B2B desktop, and big data platform work, owning multi-stream delivery coordination in a global e-commerce environment.",
+        "Established a shared presentation layer and microservice boundaries to support reusable capabilities across product lines.",
+        "Aligned analytics, push notifications, SEO, and release coordination so mobile and web improvements shipped through one operating model.",
+        "Worked with product, design, operations, and cross-region teams on roadmap, release milestones, and incident handling while keeping public products stable under high traffic.",
       ],
       keywords: [
         "React Native",
@@ -112,15 +109,15 @@ export const resumeEn: ResumeContent = {
       period: "2016.04 - 2020.04",
       location: "Taichung, Taiwan",
       logo: {
-        src: "/images/company-logos/newegg-business-logo.png",
-        alt: "Newegg Business logo",
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
       },
       impactBullets: [
-        "Developed backend services for the B2B e-commerce platform across account, shopping, and order-processing flows.",
-        "Built core services that supported high-value B2B transaction and procurement scenarios.",
-        "Migrated services from .NET Framework to .NET Core to modernize the platform and prepare for more modular backend delivery.",
-        "Introduced TDD and CI/CD with Jenkins and GitLab, improving release confidence and reducing regression cost.",
-        "Optimized service performance with dotTrace and Visual Studio Profiler to improve response time and backend efficiency.",
+        "Built backend services for Newegg Business across account, cart, order, payment, and procurement workflows.",
+        "Designed service boundaries for high-value B2B transaction and procurement scenarios, turning business rules into maintainable backend capabilities.",
+        "Led migration from .NET Framework to .NET Core and reorganized delivery around more modular services.",
+        "Introduced TDD plus Jenkins and GitLab CI/CD so backend delivery became more repeatable and less regression-prone.",
+        "Used dotTrace and Visual Studio Profiler to resolve performance bottlenecks and improve backend efficiency.",
       ],
       keywords: [
         "C#",
@@ -137,13 +134,13 @@ export const resumeEn: ResumeContent = {
       period: "2013.04 - 2016.04",
       location: "Taichung, Taiwan",
       logo: {
-        src: "/images/company-logos/newegg-logo.svg",
-        alt: "Newegg logo",
+        src: "/images/company-logos/newegg-business-logo.png",
+        alt: "Newegg Business logo",
       },
       impactBullets: [
-        "Supported e-commerce order and shopping-flow quality across core transactional journeys.",
-        "Built automation tests with Selenium and Nightwatch to reduce repetitive manual regression work.",
-        "Improved test coverage and integration testing processes, building the system perspective that later carried into backend engineering.",
+        "Supported quality for Newegg Business across order, shopping, and procurement flows in core transaction journeys.",
+        "Built Selenium and Nightwatch automation suites to reduce repetitive regression effort.",
+        "Expanded integration coverage and testing workflow, which shaped the system thinking I later brought into backend engineering.",
       ],
       keywords: [
         "Selenium",
@@ -156,25 +153,49 @@ export const resumeEn: ResumeContent = {
   topSkills: [
     "C#",
     ".NET Core",
+    "Python",
+    "Java",
+    "React",
+    "React Native",
+    "Next.js",
+    "MS SQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "RabbitMQ",
     "System Architecture",
+    "Vertical Slice Architecture",
     "Microservices",
     "Azure",
     "CI/CD",
     "Backend Development",
-    "SQL",
     "Distributed Systems",
     "Team Leadership",
   ],
   topSkillGroups: [
     {
       label: "Core Stack",
-      skills: ["C#", ".NET Core", "SQL", "Azure"],
+      skills: [
+        "C#",
+        ".NET Core",
+        "Python",
+        "Java",
+        "React",
+        "React Native",
+        "Next.js",
+        "Azure",
+      ],
+    },
+    {
+      label: "Data / Messaging",
+      skills: ["MS SQL", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ"],
     },
     {
       label: "Architecture / Systems",
       skills: [
         "Backend Development",
         "System Architecture",
+        "Vertical Slice Architecture",
         "Microservices",
         "Distributed Systems",
       ],
@@ -186,33 +207,33 @@ export const resumeEn: ResumeContent = {
   ],
   featured: [
     {
-      title: "Newegg App",
+      title: "Newegg Mobile",
       summary:
-        "Consumer-facing mobile product ownership across reliability, engagement, and release quality.",
+        "Mobile product delivery that kept reliability, user engagement, and release quality aligned under public, high-volume traffic.",
       proofPoints: [
-        "Supported products with 1M+ downloads and a 4.6 App Store rating.",
-        "Maintained 99.9% crash-free users while improving notification quality and release stability.",
-        "Moved push notification open rate from 2% to 5% and reduced invalid tokens by approximately 33%.",
+        "Supported public products with 1M+ downloads and a 4.6 App Store rating.",
+        "Maintained 99.9% crash-free users while large releases and day-to-day operations kept moving.",
+        "Moved Android push open rate from 2% to 5% and reduced invalid device tokens by approximately 33%.",
       ],
     },
     {
-      title: "B2B Website",
+      title: "Newegg Business",
       summary:
-        "Backend modernization work across critical B2B commerce and procurement flows.",
+        "Backend modernization across B2B commerce and procurement flows so core transaction systems became easier to evolve and ship.",
       proofPoints: [
-        "Built account, cart, and order-processing services for core B2B transactions.",
+        "Built services across account, cart, order, and procurement flows for high-value B2B transactions.",
         "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
-        "Drove .NET Framework to .NET Core migration alongside TDD and CI/CD adoption.",
+        "Completed the .NET Framework to .NET Core migration together with TDD and Jenkins / GitLab CI/CD adoption.",
       ],
     },
     {
-      title: "Architecture / Platform Leadership",
+      title: "First Horizon / Platform Delivery",
       summary:
-        "0→1 platform leadership that combined architecture, delivery, observability, and cross-region execution.",
+        "0→1 platform delivery that established architecture, execution flow, and observability as one operating system for the team.",
       proofPoints: [
-        "Led First Horizon from greenfield planning into production delivery structure.",
+        "Led First Horizon from greenfield planning into a deliverable logistics platform foundation.",
         "Managed a 7-engineer Taiwan team while aligning with Hong Kong and Australia stakeholders.",
-        "Established Azure DevOps, deployment flow, and Prometheus/Grafana/Jaeger observability from the start.",
+        "Established Azure DevOps, Azure deployment flow, and Prometheus / Grafana / Jaeger observability from the start.",
       ],
     },
   ],
@@ -327,11 +348,11 @@ export const resumeEn: ResumeContent = {
         title: "First Horizon",
         subtitle: "SJC International Logistics",
         summary:
-          "A 0→1 logistics platform where architecture, release flow, observability, and cross-region collaboration were treated as one operating system from the start.",
+          "The logistics platform entry point for SJC, built to support cross-region operations, workflow coordination, and future platform expansion.",
         bullets: [
-          "The platform architecture used Next.js, .NET Core, CQRS, and Vertical Slice to keep domain boundaries and implementation flow maintainable.",
-          "Azure DevOps CI/CD and Azure deployment flow were set up early so release control and environment governance were repeatable.",
-          "Prometheus, Grafana, and Jaeger were introduced from phase one to make diagnostics part of the normal engineering loop.",
+          "Next.js handles operational workflows on the frontend while .NET Core, CQRS, and Vertical Slice shape the platform capabilities behind it.",
+          "The product emphasis is on platform boundaries, deployment governance, and observability rather than one-off feature delivery.",
+          "The public site acts as the visible entry point, while the deeper value is in the logistics platform foundation behind it.",
         ],
         tags: ["Next.js", ".NET Core", "CQRS", "Azure", "Observability"],
         href: "https://sjclemenger.com/",
@@ -342,11 +363,11 @@ export const resumeEn: ResumeContent = {
         title: "Newegg Mobile",
         subtitle: "Newegg",
         summary:
-          "Consumer mobile product ownership focused on reliability, engagement, and release quality under public, high-volume usage.",
+          "Newegg's consumer shopping experience across app and mobile web, with continuous release and operational ownership.",
         bullets: [
-          "Supported products with 1M+ downloads, a 4.6 App Store rating, and 99.9% crash-free users.",
-          "Improved Android push open rate from 2% to 5% and reduced invalid device tokens by approximately 33%.",
-          "Improved release coordination, notification quality, and mobile web Core Web Vitals as part of the same product surface.",
+          "The product surface covers product browsing, purchase flow, customer notifications, and day-to-day release experience.",
+          "Key engineering concerns include React Native, analytics, push notifications, and mobile web SEO / Core Web Vitals.",
+          "My role focused on cross-team delivery, reliability governance, and product-experience improvements.",
         ],
         tags: [
           "React Native",
@@ -363,11 +384,11 @@ export const resumeEn: ResumeContent = {
         title: "Newegg Business",
         subtitle: "Newegg Business",
         summary:
-          "B2B platform backend modernization across critical commerce and procurement flows, including account, shopping, orders, and business capability integrations.",
+          "Newegg's B2B and procurement-facing commerce entry point across account, payment, purchasing, and order workflows.",
         bullets: [
-          "Built core backend services across account, cart, and order-processing flows for high-value B2B transactions.",
-          "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
-          "Drove .NET Framework to .NET Core migration together with TDD and Jenkins / GitLab CI/CD adoption.",
+          "The product is centered on enterprise purchasing and procurement flows rather than a standard B2C shopping journey.",
+          "The platform stack relies on C# / .NET, MS SQL, and business capability integrations.",
+          "My work centered on backend services, modernization, and delivery process governance.",
         ],
         tags: ["C#", ".NET Core", "B2B Commerce", "MS SQL", "CI/CD"],
         href: "https://neweggbusiness.com/",
@@ -401,6 +422,18 @@ export const resumeEn: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  presentation: {
+    fileName: "jarvis-intro-cn-2026-v1.pptx",
+    title: "Jarvis Huang Intro Deck",
+    summary:
+      "This 9-slide deck is a compact narrative version of my profile, covering role progression, platform work, First Horizon 0→1 architecture, and my Newegg engineering and leadership context.",
+    previewImageSrc: "/images/resume/jarvis-intro-cn-2026-v1-cover.png",
+    previewImageAlt: "Cover preview for Jarvis Huang intro deck",
+    slideCount: 9,
+    languageLabel: "Chinese deck",
+    note:
+      "The resume PDF stays as the fast download format. This deck gives a more guided introduction to the same background and project context.",
+  },
   pdf: {
     fileName: pdfManifest.en.fileName,
     summary: [
@@ -409,21 +442,33 @@ export const resumeEn: ResumeContent = {
     ],
     featured: [
       {
-        title: "First Horizon Logistics Platform",
+        title: "First Horizon / Platform Delivery",
         summary:
-          "0→1 platform delivery that treated architecture, release flow, and observability as one system from the start.",
+          "0→1 platform delivery that established architecture, execution flow, and observability as one operating system for the team.",
         proofPoints: [
           "Defined the platform stack with Next.js, .NET Core, CQRS, and Vertical Slice boundaries.",
+          "Managed the 7-engineer Taiwan team while aligning with Hong Kong and Australia stakeholders.",
           "Established Azure DevOps CI/CD, Azure deployment flow, and early observability with Prometheus, Grafana, and Jaeger.",
         ],
       },
       {
-        title: "Newegg Mobile and Platform Delivery",
+        title: "Newegg Mobile",
         summary:
-          "Engineering leadership across consumer mobile, B2B commerce, and shared platform work in a global e-commerce environment.",
+          "Mobile product delivery that kept reliability, user engagement, and release quality aligned under public, high-volume traffic.",
         proofPoints: [
-          "Led 20+ engineers across mobile, backend, and data platform delivery scope.",
-          "Maintained products with 1M+ downloads, 4.6 App Store rating, and 99.9% crash-free users while improving push performance.",
+          "Supported public products with 1M+ downloads and a 4.6 App Store rating.",
+          "Maintained 99.9% crash-free users while large releases and day-to-day operations kept moving.",
+          "Moved Android push open rate from 2% to 5% and reduced invalid device tokens by approximately 33%.",
+        ],
+      },
+      {
+        title: "Newegg Business",
+        summary:
+          "Backend modernization across B2B commerce and procurement flows so core transaction systems became easier to evolve and ship.",
+        proofPoints: [
+          "Built services across account, cart, order, and procurement flows for high-value B2B transactions.",
+          "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
+          "Completed the .NET Framework to .NET Core migration together with TDD and Jenkins / GitLab CI/CD adoption.",
         ],
       },
     ],

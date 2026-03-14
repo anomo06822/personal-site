@@ -17,6 +17,7 @@ import { parseResumePeriod } from "@/lib/utils";
 const linkMonograms: Record<ContactIcon, string> = {
   linkedin: "IN",
   github: "GH",
+  email: "EM",
 };
 
 const printEyebrows: Record<
@@ -58,6 +59,10 @@ const printEyebrows: Record<
 };
 
 function getDisplayHref(href: string) {
+  if (href.startsWith("mailto:")) {
+    return href.replace(/^mailto:/, "");
+  }
+
   try {
     const url = new URL(href);
     const hostname = url.hostname.replace(/^www\./, "");

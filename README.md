@@ -33,6 +33,21 @@ pnpm lint
 pnpm typecheck
 ```
 
+## GA4 Analytics
+
+This site supports GA4 in a strict pageview-only mode.
+
+- Set `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX` at build time to enable analytics.
+- The GitHub Pages workflow reads this value from the repository Actions variable `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+- Analytics only loads on the production hostname and only sends manual `page_view` events for localized content pages.
+- Root redirect pages, print pages, form input, outbound links, downloads, and search terms are not tracked.
+
+### Public vs Sensitive GA Data
+
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` is public by design. It will appear in the client bundle when enabled.
+- Do not place GA API secrets, Measurement Protocol secrets, service-account JSON, or any other credential in `public/`, committed files, or client-side env vars.
+- In the GA4 Web Data Stream UI, keep Enhanced Measurement disabled so outbound clicks, downloads, search, and form interactions are not auto-collected.
+
 To generate the downloadable resume PDFs locally, install Chromium once:
 
 ```bash

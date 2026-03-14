@@ -24,9 +24,18 @@ const iconStyles: Record<
     className:
       "border-[#24292f]/14 bg-[#24292f]/8 text-[#24292f]",
   },
+  email: {
+    monogram: "EM",
+    className:
+      "border-[#b45309]/18 bg-[#b45309]/10 text-[#b45309]",
+  },
 };
 
 function getDisplayHref(href: string) {
+  if (href.startsWith("mailto:")) {
+    return href.replace(/^mailto:/, "");
+  }
+
   try {
     const url = new URL(href);
     const hostname = url.hostname.replace(/^www\./, "");
@@ -90,7 +99,6 @@ export function ProfileLinkGrid({
   const linkCount = siteConfig.socialLinks.length;
   const isCompact = variant === "compact";
   const footerLabel = locale === "zh-TW" ? "公開入口" : "Public path";
-  const visitLabel = locale === "zh-TW" ? "前往檔案" : "Visit profile";
   const wrapperClassName =
     variant === "hero"
       ? linkCount > 2
@@ -110,8 +118,8 @@ export function ProfileLinkGrid({
         <Link
           key={link.href}
           href={link.href}
-          target="_blank"
-          rel="noreferrer"
+          target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+          rel={link.href.startsWith("mailto:") ? undefined : "noreferrer"}
           className={getCardClassName(variant, index)}
         >
           <div
@@ -161,7 +169,13 @@ export function ProfileLinkGrid({
             <div className="mt-auto flex items-center justify-between gap-4 pt-6 text-xs leading-6 text-ink-muted">
               <span className="font-mono uppercase tracking-[0.18em]">{footerLabel}</span>
               <span className="transition group-hover:translate-x-0.5">
-                {visitLabel}
+                {locale === "zh-TW"
+                  ? link.icon === "email"
+                    ? "寄送郵件"
+                    : "前往檔案"
+                  : link.icon === "email"
+                    ? "Send email"
+                    : "Visit profile"}
               </span>
             </div>
           </div>

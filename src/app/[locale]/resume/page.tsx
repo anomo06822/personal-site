@@ -3,8 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ImpactRibbon } from "@/components/impact-ribbon";
+import { ResumePresentationPreview } from "@/components/resume-presentation-preview";
 import { ResumeHero } from "@/components/resume-hero";
-import { getResume, getResumePdfDownloadHref } from "@/lib/resume";
+import {
+  getResume,
+  getResumePdfDownloadHref,
+  getResumePresentationDownloadHref,
+} from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
 import type {
   ExperienceEntry,
@@ -314,9 +319,18 @@ export default async function ResumePage({
   const resume = getResume(locale);
   const aboutBody = resume.about.slice(1);
   const resumePdfHref = getResumePdfDownloadHref(locale);
+  const resumePresentationHref = getResumePresentationDownloadHref(locale);
   const personalProjects = resume.projectShowcase.personal;
   const coreProducts = resume.projectShowcase.core;
   const projectsHref = getRouteHref(locale, "projects");
+  const resumePresentation = resume.presentation
+    ? {
+        ...resume.presentation,
+        previewImageSrc: resume.presentation.previewImageSrc
+          ? withBasePath(resume.presentation.previewImageSrc)
+          : undefined,
+      }
+    : null;
 
   return (
     <div className="space-y-12">
@@ -333,6 +347,21 @@ export default async function ResumePage({
         downloadLabel={copy.resume.downloadPdfLabel}
         downloadFileName={resume.pdf.fileName}
       />
+
+      {resumePresentation && resumePresentationHref ? (
+        <section className="space-y-4">
+          <SectionHeading title={copy.resume.presentationTitle} />
+          <ResumePresentationPreview
+            presentation={resumePresentation}
+            downloadHref={resumePresentationHref}
+            ctaLabel={copy.resume.presentationCtaLabel}
+            previewLabel={copy.resume.presentationPreviewLabel}
+            fallbackNote={copy.resume.presentationFallbackNote}
+            slideCountLabel={copy.resume.presentationSlideCountLabel}
+            languageBadgeLabel={copy.resume.presentationLanguageBadgeLabel}
+          />
+        </section>
+      ) : null}
 
       <section className="space-y-4">
         <SectionHeading title={copy.resume.highlightsTitle} />
@@ -371,7 +400,7 @@ export default async function ResumePage({
         <SectionHeading title={copy.resume.skillsTitle} />
         <article className="subtle-panel p-6 sm:p-7">
           {resume.topSkillGroups?.length ? (
-            <div className="grid gap-4 lg:grid-cols-3">
+            <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
               {resume.topSkillGroups.map((group) => (
                 <section
                   key={group.label}

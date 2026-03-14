@@ -3,7 +3,7 @@ export const locales = ["zh-TW", "en"] as const;
 export type Locale = (typeof locales)[number];
 export type ThemeMode = "light" | "dark";
 export type RouteKey = "home" | "projects" | "blog" | "resume" | "contact";
-export type ContactIcon = "linkedin" | "github";
+export type ContactIcon = "linkedin" | "github" | "email";
 
 export type SiteConfig = {
   siteName: string;
@@ -113,75 +113,50 @@ export type ProjectShowcase = {
   core: ShowcaseProjectItem[];
 };
 
-export type HomeProofItem = {
-  value: string;
-  label: string;
-  detail: string;
-};
-
-export type HomeGithubSignal = {
-  title: string;
-  subtitle: string;
-  status: string;
-  updatedLabel: string;
-  summary: string;
-  highlights: string[];
-  tags?: string[];
-  href?: string;
-  hrefLabel?: string;
-  note?: string;
-};
-
-export type HomeTeamGalleryItem = {
-  title: string;
-  contextLabel: string;
-  caption: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  variant?: "primary" | "secondary";
-};
-
-export type HomeSecondarySignal = {
-  label: string;
-  value: string;
-  note?: string;
-  href?: string;
-  hrefLabel?: string;
-};
-
-export type HomePathwayItem = {
-  routeKey: Exclude<RouteKey, "home" | "projects">;
+export type HomeTabItem = {
+  routeKey: RouteKey;
   eyebrow: string;
   title: string;
   description: string;
+  highlights: string[];
   hrefLabel: string;
+};
+
+export type HomeJourneyItem = {
+  audience: string;
+  title: string;
+  summary: string;
+  routeKeys: RouteKey[];
+  note: string;
+};
+
+export type HomeGuideItem = {
+  eyebrow: string;
+  title: string;
+  description: string;
 };
 
 export type HomeContent = {
   heroEyebrow: string;
   heroTitle: string;
   heroIntro: string;
-  resumeCtaLabel: string;
-  githubCtaLabel: string;
-  proofBoardEyebrow: string;
-  proofBoardTitle: string;
-  homeProofBoard: HomeProofItem[];
-  githubEyebrow: string;
-  githubTitle: string;
-  githubIntro: string;
-  githubSignals: HomeGithubSignal[];
-  secondarySignalsTitle?: string;
-  secondarySignals?: HomeSecondarySignal[];
-  teamEyebrow: string;
-  teamTitle: string;
-  teamIntro: string;
-  teamGallery: HomeTeamGalleryItem[];
-  leadershipProofTitle: string;
-  leadershipProofs: HomeProofItem[];
-  nextEyebrow: string;
-  nextTitle: string;
-  nextIntro: string;
-  pathways: HomePathwayItem[];
+  heroTags: string[];
+  heroNoticeTitle: string;
+  heroNoticeBody: string;
+  heroMapEyebrow: string;
+  heroMapIntro: string;
+  tabsEyebrow: string;
+  tabsTitle: string;
+  tabsIntro: string;
+  tabs: HomeTabItem[];
+  journeysEyebrow: string;
+  journeysTitle: string;
+  journeysIntro: string;
+  journeys: HomeJourneyItem[];
+  guideEyebrow: string;
+  guideTitle: string;
+  guideIntro: string;
+  guideItems: HomeGuideItem[];
 };
 
 export type Certification = {
@@ -203,6 +178,17 @@ export type ResumePdfContent = {
   projects: ProjectItem[];
 };
 
+export type ResumePresentationContent = {
+  fileName: string;
+  title: string;
+  summary: string;
+  previewImageSrc?: string;
+  previewImageAlt: string;
+  slideCount: number;
+  languageLabel?: string;
+  note?: string;
+};
+
 export type ResumeContent = {
   profile: ResumeProfile;
   positioning: ResumePositioning;
@@ -215,6 +201,7 @@ export type ResumeContent = {
   projectShowcase: ProjectShowcase;
   projects: ProjectItem[];
   certifications: Certification[];
+  presentation?: ResumePresentationContent;
   pdf: ResumePdfContent;
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { AnalyticsSlot } from "@/components/analytics-slot";
 import { IBM_Plex_Mono, Noto_Sans_TC } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { defaultTheme, getThemeBootstrapScript } from "@/lib/theme";
@@ -56,6 +57,7 @@ export default function RootLayout({
           {getThemeBootstrapScript()}
         </Script>
         {children}
+        <AnalyticsSlot />
       </body>
     </html>
   );

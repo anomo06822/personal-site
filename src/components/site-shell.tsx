@@ -24,6 +24,9 @@ export function SiteShell({
               <p className="max-w-xl text-sm leading-7 text-ink-muted">
                 {copy.common.builtWith}
               </p>
+              <p className="max-w-xl text-sm leading-7 text-ink-muted">
+                {copy.common.analyticsNotice}
+              </p>
             </div>
             <ProfileLinkGrid locale={locale} variant="compact" />
           </div>

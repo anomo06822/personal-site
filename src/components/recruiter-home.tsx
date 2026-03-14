@@ -1,65 +1,97 @@
-import Image from "next/image";
 import Link from "next/link";
-import { withBasePath } from "@/lib/site";
 import type {
   HomeContent,
-  HomeGithubSignal,
-  HomePathwayItem,
-  HomeProofItem,
-  HomeTeamGalleryItem,
-  ResumeContent,
+  HomeGuideItem,
+  HomeJourneyItem,
+  HomeTabItem,
   RouteKey,
 } from "@/lib/types";
 
 type RecruiterHomeProps = {
   home: HomeContent;
-  resume: ResumeContent;
-  githubHref: string;
-  pathwayHrefs: Record<Exclude<RouteKey, "home" | "projects">, string>;
+  routeHrefs: Record<RouteKey, string>;
 };
 
-function ProofMetric({ item }: { item: HomeProofItem }) {
+function HeroTabMapCard({
+  item,
+  href,
+  index,
+}: {
+  item: HomeTabItem;
+  href: string;
+  index: number;
+}) {
   return (
-    <article className="subtle-panel relative overflow-hidden p-5">
+    <Link
+      href={href}
+      className={`group rounded-[24px] border p-4 transition hover:-translate-y-0.5 ${
+        item.routeKey === "home"
+          ? "border-accent/35 bg-[linear-gradient(180deg,var(--accent-soft)_0%,color-mix(in_srgb,var(--panel-strong)_92%,transparent)_100%)]"
+          : "border-line bg-canvas-elevated/76 hover:border-accent/35"
+      }`}
+    >
+      <div className="flex items-start justify-between gap-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+          {item.eyebrow}
+        </span>
+      </div>
+
+      <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+        {item.title}
+      </h2>
+      <p className="mt-2 text-sm leading-7 text-ink-muted">{item.description}</p>
+    </Link>
+  );
+}
+
+function TabGuideCard({
+  item,
+  href,
+  index,
+}: {
+  item: HomeTabItem;
+  href: string;
+  index: number;
+}) {
+  const isLeadCard = index === 0;
+
+  return (
+    <article
+      className={`group relative overflow-hidden rounded-[28px] border p-6 shadow-[var(--shadow-panel)] transition hover:-translate-y-1 sm:p-7 ${
+        isLeadCard
+          ? "border-accent/30 bg-[linear-gradient(145deg,color-mix(in_srgb,var(--accent)_10%,var(--panel-strong))_0%,var(--surface-subtle)_100%)] xl:col-span-2"
+          : "border-line bg-[linear-gradient(180deg,var(--panel)_0%,var(--surface-subtle)_100%)]"
+      }`}
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-90"
         style={{
-          background:
-            "radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent) 0, transparent 34%), linear-gradient(180deg, color-mix(in srgb, var(--panel-strong) 92%, transparent) 0%, transparent 100%)",
+          background: isLeadCard
+            ? "radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--accent) 18%, transparent) 0, transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.12), transparent 42%)"
+            : "radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28%)",
         }}
       />
-      <div className="relative space-y-3">
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-          {item.value}
-        </div>
-        <h3 className="text-lg font-semibold tracking-tight text-ink">
-          {item.label}
-        </h3>
-        <p className="text-sm leading-7 text-ink-muted">{item.detail}</p>
-      </div>
-    </article>
-  );
-}
 
-function GithubSignalCard({ item }: { item: HomeGithubSignal }) {
-  return (
-    <article className="card-surface h-full p-6 sm:p-7">
-      <div className="flex h-full flex-col gap-5">
+      <div className="relative flex h-full flex-col gap-5">
         <div className="flex items-start justify-between gap-4">
-          <div className="space-y-2">
-            <div className="eyebrow">{item.updatedLabel}</div>
-            <h3 className="text-2xl font-semibold tracking-tight text-ink">
+          <div className="space-y-3">
+            <div className="eyebrow">{item.eyebrow}</div>
+            <h3 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.15rem]">
               {item.title}
             </h3>
-            <div className="text-sm leading-7 text-ink-muted">{item.subtitle}</div>
           </div>
-          <span className="rounded-full border border-accent/25 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
-            {item.status}
+          <span className="rounded-full border border-accent/18 bg-canvas-elevated/78 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
+            {String(index + 1).padStart(2, "0")}
           </span>
         </div>
 
-        <p className="text-sm leading-7 text-ink-muted">{item.summary}</p>
+        <p className="max-w-2xl text-base leading-8 text-ink-muted">
+          {item.description}
+        </p>
 
         <ul className="space-y-3 text-sm leading-7 text-ink-muted">
           {item.highlights.map((highlight) => (
@@ -70,106 +102,71 @@ function GithubSignalCard({ item }: { item: HomeGithubSignal }) {
           ))}
         </ul>
 
-        {item.tags?.length ? (
-          <div className="flex flex-wrap gap-2">
-            {item.tags.map((tag) => (
-              <span key={tag} className="tag-chip">
-                {tag}
-              </span>
-            ))}
-          </div>
-        ) : null}
-
-        {item.note ? (
-          <div className="rounded-[22px] border border-accent/18 bg-[var(--accent-soft)] px-4 py-3 text-sm leading-7 text-ink-muted">
-            {item.note}
-          </div>
-        ) : null}
-
-        {item.href && item.hrefLabel ? (
-          <div className="mt-auto pt-1">
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center rounded-full border border-accent/35 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/60 hover:bg-panel-strong"
-            >
-              {item.hrefLabel}
-            </a>
-          </div>
-        ) : null}
-      </div>
-    </article>
-  );
-}
-
-function TeamGalleryCard({ item }: { item: HomeTeamGalleryItem }) {
-  const isPrimary = item.variant !== "secondary";
-  const frameClassName = isPrimary
-    ? "aspect-[16/11] min-h-[24rem]"
-    : "aspect-[16/10] min-h-[11.5rem]";
-
-  return (
-    <article className={`card-surface overflow-hidden ${frameClassName}`}>
-      <div className="relative h-full">
-        {item.imageSrc ? (
-          <Image
-            src={withBasePath(item.imageSrc)}
-            alt={item.imageAlt ?? item.title}
-            fill
-            sizes={isPrimary ? "(min-width: 1280px) 40vw, 100vw" : "(min-width: 1280px) 24vw, 100vw"}
-            className="object-cover"
-          />
-        ) : (
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--accent) 18%, transparent) 0, transparent 28%), radial-gradient(circle at 82% 78%, color-mix(in srgb, var(--ink) 10%, transparent) 0, transparent 28%), linear-gradient(140deg, color-mix(in srgb, var(--panel-strong) 94%, transparent) 0%, color-mix(in srgb, var(--surface-subtle) 96%, transparent) 100%)",
-            }}
+        <div className="mt-auto pt-2">
+          <Link
+            href={href}
+            className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/78 px-5 text-sm text-ink transition group-hover:border-accent/45"
           >
-            <div className="absolute inset-0 bg-[linear-gradient(130deg,transparent_0%,transparent_44%,rgba(255,255,255,0.08)_44%,transparent_58%)]" />
-            <div className="absolute left-5 right-5 top-1/2 -translate-y-1/2">
-              <div className="eyebrow">{item.contextLabel}</div>
-              <div className="mt-3 max-w-[22rem] text-2xl font-semibold tracking-tight text-ink">
-                {item.title}
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,12,10,0.06)_0%,rgba(14,12,10,0.22)_52%,rgba(14,12,10,0.9)_100%)]" />
-
-        <div className="absolute inset-x-0 bottom-0 p-5">
-          <div className="rounded-[24px] border border-white/12 bg-[rgba(17,15,13,0.68)] p-4 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm">
-            <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-[rgba(247,238,227,0.72)]">
-              {item.contextLabel}
-            </div>
-            <h3 className="mt-3 text-xl font-semibold tracking-tight text-[rgba(250,245,238,0.96)]">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-[rgba(247,238,227,0.82)]">
-              {item.caption}
-            </p>
-          </div>
+            {item.hrefLabel}
+          </Link>
         </div>
       </div>
     </article>
   );
 }
 
-function PathwayCard({
+function JourneyCard({
   item,
-  href,
+  routeHrefs,
+  tabLabelMap,
 }: {
-  item: HomePathwayItem;
-  href: string;
+  item: HomeJourneyItem;
+  routeHrefs: Record<RouteKey, string>;
+  tabLabelMap: Map<RouteKey, string>;
 }) {
   return (
-    <Link
-      href={href}
-      className="card-surface group flex h-full flex-col p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:bg-panel-strong sm:p-7"
-    >
+    <article className="card-surface h-full p-6 sm:p-7">
+      <div className="flex h-full flex-col gap-5">
+        <div className="space-y-3">
+          <div className="eyebrow">{item.audience}</div>
+          <h3 className="text-2xl font-semibold tracking-tight text-ink">
+            {item.title}
+          </h3>
+          <p className="text-sm leading-7 text-ink-muted">{item.summary}</p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {item.routeKeys.map((routeKey, index) => (
+            <div key={routeKey} className="flex items-center gap-2">
+              {index > 0 ? (
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-muted"
+                >
+                  →
+                </span>
+              ) : null}
+              <Link
+                href={routeHrefs[routeKey]}
+                className="inline-flex min-h-10 items-center rounded-full border border-line bg-canvas-elevated/72 px-4 text-sm text-ink transition hover:border-accent/45"
+              >
+                {tabLabelMap.get(routeKey) ?? routeKey}
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-auto rounded-[22px] border border-accent/18 bg-[var(--accent-soft)] px-4 py-3 text-sm leading-7 text-ink-muted">
+          {item.note}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function GuideCard({ item }: { item: HomeGuideItem }) {
+  return (
+    <article className="subtle-panel h-full p-6 sm:p-7">
       <div className="space-y-4">
         <div className="eyebrow">{item.eyebrow}</div>
         <h3 className="text-2xl font-semibold tracking-tight text-ink">
@@ -177,29 +174,14 @@ function PathwayCard({
         </h3>
         <p className="text-sm leading-7 text-ink-muted">{item.description}</p>
       </div>
-
-      <div className="mt-auto pt-8">
-        <span className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/75 px-5 text-sm text-ink transition group-hover:border-accent/45">
-          {item.hrefLabel}
-        </span>
-      </div>
-    </Link>
+    </article>
   );
 }
 
-export function RecruiterHome({
-  home,
-  resume,
-  githubHref,
-  pathwayHrefs,
-}: RecruiterHomeProps) {
-  const primaryGallery =
-    home.teamGallery.find((item) => item.variant !== "secondary") ??
-    home.teamGallery[0];
-  const secondaryGallery = home.teamGallery.filter(
-    (item) => item !== primaryGallery,
+export function RecruiterHome({ home, routeHrefs }: RecruiterHomeProps) {
+  const tabLabelMap = new Map(
+    home.tabs.map((item) => [item.routeKey, item.title] as const),
   );
-  const secondarySignals = home.secondarySignals ?? [];
 
   return (
     <div className="space-y-16">
@@ -209,15 +191,15 @@ export function RecruiterHome({
           className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full opacity-95"
           style={{
             background:
-              "radial-gradient(circle at 10% 16%, color-mix(in srgb, var(--accent) 16%, transparent) 0, transparent 32%), radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--ink) 8%, transparent) 0, transparent 28%), linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--surface-subtle) 82%, transparent) 100%)",
+              "radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--accent) 16%, transparent) 0, transparent 30%), radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--ink) 10%, transparent) 0, transparent 28%), linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--surface-subtle) 82%, transparent) 100%)",
           }}
         />
 
-        <div className="grid gap-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(340px,0.92fr)] xl:items-start">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1.06fr)_minmax(320px,0.94fr)] xl:items-start">
           <div className="space-y-8">
             <div className="space-y-5">
               <div className="eyebrow">{home.heroEyebrow}</div>
-              <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
+              <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
                 {home.heroTitle}
               </h1>
               <p className="max-w-3xl text-lg leading-8 text-ink">
@@ -226,43 +208,41 @@ export function RecruiterHome({
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {resume.positioning.openToRoles.map((role) => (
-                <span key={role} className="tag-chip tag-chip-active">
-                  {role}
+              {home.heroTags.map((tag) => (
+                <span key={tag} className="tag-chip tag-chip-active">
+                  {tag}
                 </span>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={pathwayHrefs.resume}
-                className="inline-flex min-h-11 items-center rounded-full border border-accent/50 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/70"
-              >
-                {home.resumeCtaLabel}
-              </Link>
-              <a
-                href={githubHref}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/70 px-5 text-sm text-ink transition hover:border-accent/60"
-              >
-                {home.githubCtaLabel}
-              </a>
+            <div className="impact-card max-w-2xl p-5 sm:p-6">
+              <div className="space-y-3">
+                <div className="eyebrow">{home.heroNoticeTitle}</div>
+                <p className="text-base leading-8 text-ink-muted">
+                  {home.heroNoticeBody}
+                </p>
+              </div>
             </div>
           </div>
 
-          <aside className="space-y-4">
-            <div className="subtle-panel overflow-hidden p-6">
-              <div className="space-y-5">
-                <div className="eyebrow">{home.proofBoardEyebrow}</div>
-                <p className="max-w-xl text-base leading-8 text-ink-muted">
-                  {home.proofBoardTitle}
+          <aside className="card-surface overflow-hidden p-3 sm:p-4">
+            <div className="space-y-4">
+              <div className="px-2 pt-2">
+                <div className="eyebrow">{home.heroMapEyebrow}</div>
+                <p className="mt-3 max-w-md text-sm leading-7 text-ink-muted">
+                  {home.heroMapIntro}
                 </p>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {home.homeProofBoard.map((item) => (
-                    <ProofMetric key={item.value + item.label} item={item} />
-                  ))}
-                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                {home.tabs.map((item, index) => (
+                  <HeroTabMapCard
+                    key={item.routeKey}
+                    item={item}
+                    href={routeHrefs[item.routeKey]}
+                    index={index}
+                  />
+                ))}
               </div>
             </div>
           </aside>
@@ -271,131 +251,64 @@ export function RecruiterHome({
 
       <section className="space-y-6">
         <div className="space-y-3">
-          <div className="eyebrow">{home.githubEyebrow}</div>
+          <div className="eyebrow">{home.tabsEyebrow}</div>
           <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.35rem]">
-            {home.githubTitle}
+            {home.tabsTitle}
           </h2>
           <p className="max-w-4xl text-base leading-8 text-ink-muted">
-            {home.githubIntro}
+            {home.tabsIntro}
           </p>
         </div>
 
         <div className="grid gap-4 xl:grid-cols-3">
-          {home.githubSignals.map((item) => (
-            <GithubSignalCard key={item.title} item={item} />
+          {home.tabs.map((item, index) => (
+            <TabGuideCard
+              key={item.routeKey}
+              item={item}
+              href={routeHrefs[item.routeKey]}
+              index={index}
+            />
           ))}
         </div>
-
-        {secondarySignals.length ? (
-          <div className="subtle-panel p-5 sm:p-6">
-            <div className="space-y-4">
-              {home.secondarySignalsTitle ? (
-                <div className="eyebrow">{home.secondarySignalsTitle}</div>
-              ) : null}
-              <div className="grid gap-3 lg:grid-cols-3">
-                {secondarySignals.map((item) => (
-                  <div
-                    key={item.label + item.value}
-                    className="rounded-[22px] border border-line bg-canvas-elevated/72 p-4"
-                  >
-                    <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                      {item.label}
-                    </div>
-                    <div className="mt-2 text-lg font-semibold tracking-tight text-ink">
-                      {item.value}
-                    </div>
-                    {item.note ? (
-                      <p className="mt-2 text-sm leading-7 text-ink-muted">
-                        {item.note}
-                      </p>
-                    ) : null}
-                    {item.href && item.hrefLabel ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-4 inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm text-ink transition hover:border-accent/50"
-                      >
-                        {item.hrefLabel}
-                      </a>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ) : null}
       </section>
 
       <section className="space-y-6">
         <div className="space-y-3">
-          <div className="eyebrow">{home.teamEyebrow}</div>
+          <div className="eyebrow">{home.journeysEyebrow}</div>
           <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.35rem]">
-            {home.teamTitle}
+            {home.journeysTitle}
           </h2>
           <p className="max-w-4xl text-base leading-8 text-ink-muted">
-            {home.teamIntro}
-          </p>
-        </div>
-
-        <div className="grid gap-5 xl:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)]">
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)]">
-            {primaryGallery ? <TeamGalleryCard item={primaryGallery} /> : null}
-
-            <div className="space-y-4">
-              {secondaryGallery.map((item) => (
-                <TeamGalleryCard
-                  key={item.contextLabel + item.title}
-                  item={item}
-                />
-              ))}
-            </div>
-          </div>
-
-          <aside className="subtle-panel p-6 sm:p-7">
-            <div className="space-y-5">
-              <div className="eyebrow">{home.leadershipProofTitle}</div>
-              <div className="space-y-4">
-                {home.leadershipProofs.map((item) => (
-                  <div
-                    key={item.value + item.label}
-                    className="border-b border-line pb-4 last:border-b-0 last:pb-0"
-                  >
-                    <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                      {item.value}
-                    </div>
-                    <h3 className="mt-2 text-lg font-semibold tracking-tight text-ink">
-                      {item.label}
-                    </h3>
-                    <p className="mt-2 text-sm leading-7 text-ink-muted">
-                      {item.detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="space-y-3">
-          <div className="eyebrow">{home.nextEyebrow}</div>
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.35rem]">
-            {home.nextTitle}
-          </h2>
-          <p className="max-w-4xl text-base leading-8 text-ink-muted">
-            {home.nextIntro}
+            {home.journeysIntro}
           </p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
-          {home.pathways.map((item) => (
-            <PathwayCard
-              key={item.routeKey}
+          {home.journeys.map((item) => (
+            <JourneyCard
+              key={item.audience + item.title}
               item={item}
-              href={pathwayHrefs[item.routeKey]}
+              routeHrefs={routeHrefs}
+              tabLabelMap={tabLabelMap}
             />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-3">
+          <div className="eyebrow">{home.guideEyebrow}</div>
+          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.35rem]">
+            {home.guideTitle}
+          </h2>
+          <p className="max-w-4xl text-base leading-8 text-ink-muted">
+            {home.guideIntro}
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-3">
+          {home.guideItems.map((item) => (
+            <GuideCard key={item.eyebrow + item.title} item={item} />
           ))}
         </div>
       </section>
