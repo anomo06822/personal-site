@@ -13,32 +13,39 @@ export function SiteShell({
   const copy = siteCopy[locale];
 
   return (
-    <div className="relative min-h-screen px-5 py-6 sm:px-8 lg:px-12">
+    <div className="relative min-h-screen px-5 pb-12 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <SiteHeader locale={locale} />
-        <main className="space-y-8 pb-12">{children}</main>
-        <footer className="card-surface mt-10 grid gap-8 px-6 py-7 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-3">
-            <div className="eyebrow">About this site</div>
-            <p className="max-w-xl text-sm leading-7 text-ink-muted">
-              {copy.common.builtWith}
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {siteConfig.socialLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-[22px] border border-line px-4 py-4 transition hover:border-accent/50 hover:bg-white/4"
-              >
-                <div className="font-medium text-ink">{link.label}</div>
-                <div className="mt-1 text-sm text-ink-muted">
-                  {link.localeLabel[locale]}
-                </div>
-              </Link>
-            ))}
+        <main className="space-y-14 pb-8">{children}</main>
+        <footer className="mt-16 border-t border-line/80 pb-10 pt-7">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div className="space-y-3">
+              <div className="eyebrow">About this site</div>
+              <p className="max-w-xl text-sm leading-7 text-ink-muted">
+                {copy.common.builtWith}
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {siteConfig.socialLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="subtle-panel p-5 transition hover:border-accent/50 hover:bg-panel-strong"
+                >
+                  <div className="font-medium text-ink">{link.label}</div>
+                  <div className="mt-2 text-sm leading-7 text-ink-muted">
+                    {link.localeLabel[locale]}
+                  </div>
+                  {link.note ? (
+                    <div className="mt-3 text-sm leading-7 text-ink-muted">
+                      {link.note[locale]}
+                    </div>
+                  ) : null}
+                </Link>
+              ))}
+            </div>
           </div>
         </footer>
       </div>

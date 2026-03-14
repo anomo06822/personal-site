@@ -1,6 +1,7 @@
 export const locales = ["zh-TW", "en"] as const;
 
 export type Locale = (typeof locales)[number];
+export type ThemeMode = "light" | "dark";
 export type RouteKey = "home" | "resume" | "blog" | "contact";
 export type ContactIcon = "github" | "globe" | "note";
 

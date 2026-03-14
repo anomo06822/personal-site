@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { IBM_Plex_Mono, Noto_Sans_TC } from "next/font/google";
 import { siteConfig } from "@/lib/site";
+import { defaultTheme, getThemeBootstrapScript } from "@/lib/theme";
 import "./globals.css";
 
 const bodyFont = Noto_Sans_TC({
@@ -46,9 +48,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bodyFont.variable} ${monoFont.variable}`}
+      data-theme={defaultTheme}
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        <Script id="theme-bootstrap" strategy="beforeInteractive">
+          {getThemeBootstrapScript()}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

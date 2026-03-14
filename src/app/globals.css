@@ -1,16 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --canvas: #111416;
-  --canvas-elevated: #171b1e;
-  --panel: rgba(24, 28, 31, 0.78);
-  --panel-strong: rgba(29, 34, 38, 0.92);
-  --line: rgba(242, 233, 220, 0.12);
-  --line-strong: rgba(242, 233, 220, 0.22);
+:root,
+html[data-theme="light"] {
+  --canvas: #f5efe4;
+  --canvas-elevated: #fffbf4;
+  --panel: rgba(255, 251, 244, 0.86);
+  --panel-strong: rgba(255, 248, 239, 0.98);
+  --surface-subtle: rgba(250, 243, 232, 0.92);
+  --line: rgba(67, 54, 39, 0.14);
+  --line-strong: rgba(67, 54, 39, 0.24);
+  --ink: #211b14;
+  --ink-muted: #6a6154;
+  --accent: #ac6430;
+  --accent-strong: #8f4e21;
+  --accent-soft: rgba(172, 100, 48, 0.1);
+  --accent-line: rgba(172, 100, 48, 0.22);
+  --shadow-panel: 0 20px 44px rgba(94, 71, 48, 0.08);
+  --shadow-soft: 0 14px 30px rgba(94, 71, 48, 0.06);
+  --grid-primary: rgba(53, 41, 28, 0.05);
+  --grid-secondary: rgba(53, 41, 28, 0.035);
+  --body-background:
+    radial-gradient(circle at top left, rgba(207, 144, 84, 0.14), transparent 34%),
+    radial-gradient(circle at top right, rgba(148, 138, 122, 0.14), transparent 28%),
+    linear-gradient(180deg, #fbf7ef 0%, #f4ede1 48%, #efe6d8 100%);
+  --grid-opacity: 0.22;
+}
+
+html[data-theme="dark"] {
+  --canvas: #121416;
+  --canvas-elevated: #181a1d;
+  --panel: rgba(22, 26, 30, 0.84);
+  --panel-strong: rgba(27, 31, 36, 0.96);
+  --surface-subtle: rgba(27, 31, 36, 0.9);
+  --line: rgba(244, 237, 226, 0.12);
+  --line-strong: rgba(244, 237, 226, 0.22);
   --ink: #f4ede2;
-  --ink-muted: #a79f94;
-  --accent: #e0a164;
-  --accent-strong: #f0b77d;
+  --ink-muted: #aca397;
+  --accent: #d18f57;
+  --accent-strong: #efb27a;
+  --accent-soft: rgba(209, 143, 87, 0.12);
+  --accent-line: rgba(209, 143, 87, 0.22);
+  --shadow-panel: 0 22px 56px rgba(0, 0, 0, 0.24);
+  --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.18);
+  --grid-primary: rgba(244, 237, 226, 0.04);
+  --grid-secondary: rgba(244, 237, 226, 0.03);
+  --body-background:
+    radial-gradient(circle at top left, rgba(209, 143, 87, 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(96, 111, 122, 0.12), transparent 30%),
+    linear-gradient(180deg, #16181a 0%, #111315 48%, #0c0f11 100%);
+  --grid-opacity: 0.18;
 }
 
 @theme inline {
@@ -18,6 +56,7 @@
   --color-canvas-elevated: var(--canvas-elevated);
   --color-panel: var(--panel);
   --color-panel-strong: var(--panel-strong);
+  --color-surface-subtle: var(--surface-subtle);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --color-ink: var(--ink);
@@ -37,16 +76,17 @@
 html {
   scroll-behavior: smooth;
   background: var(--canvas);
+  color-scheme: light;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(224, 161, 100, 0.16), transparent 34%),
-    radial-gradient(circle at top right, rgba(96, 111, 122, 0.18), transparent 28%),
-    linear-gradient(180deg, #15181a 0%, #101315 38%, #0d1011 100%);
+  background: var(--body-background);
   color: var(--ink);
   font-family: var(--font-body), sans-serif;
+  transition:
+    background 220ms ease,
+    color 220ms ease;
 }
 
 body::before {
@@ -55,15 +95,15 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(244, 237, 226, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 237, 226, 0.04) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
-  opacity: 0.28;
+    linear-gradient(var(--grid-primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-secondary) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 86%);
+  opacity: var(--grid-opacity);
 }
 
 ::selection {
-  background: rgba(224, 161, 100, 0.28);
+  background: var(--accent-soft);
   color: var(--ink);
 }
 
@@ -86,7 +126,25 @@ button {
 
 @layer components {
   .card-surface {
-    @apply rounded-[28px] border border-line bg-panel shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-sm;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--panel);
+    box-shadow: var(--shadow-panel);
+    backdrop-filter: blur(14px);
+  }
+
+  .subtle-panel {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--surface-subtle);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .impact-card {
+    border: 1px solid var(--accent-line);
+    border-radius: 22px;
+    background: linear-gradient(180deg, var(--panel-strong) 0%, var(--surface-subtle) 100%);
+    box-shadow: var(--shadow-soft);
   }
 
   .eyebrow {
@@ -94,11 +152,15 @@ button {
   }
 
   .tag-chip {
-    @apply inline-flex items-center rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-ink-muted transition;
+    @apply inline-flex items-center rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-ink-muted transition;
+    border-color: var(--line);
+    background: color-mix(in srgb, var(--canvas-elevated) 84%, transparent);
   }
 
   .tag-chip-active {
-    @apply border-accent/60 bg-accent/12 text-ink;
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+    color: var(--ink);
   }
 
   .prose-article {
@@ -135,11 +197,13 @@ button {
   }
 
   .prose-article code {
-    @apply rounded bg-black/20 px-2 py-1 font-mono text-[0.92em] text-accent-strong;
+    @apply rounded px-2 py-1 font-mono text-[0.92em] text-accent-strong;
+    background: color-mix(in srgb, var(--surface-subtle) 92%, transparent);
   }
 
   .prose-article pre {
-    @apply mt-6 overflow-x-auto rounded-[22px] border border-line bg-black/30 p-5;
+    @apply mt-6 overflow-x-auto rounded-[22px] border border-line p-5;
+    background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
   }
 
   .prose-article pre code {
