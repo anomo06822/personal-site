@@ -18,7 +18,7 @@ export function SiteShell({
         <SiteHeader locale={locale} />
         <main className="space-y-14 pb-8">{children}</main>
         <footer className="mt-16 border-t border-line/80 pb-10 pt-7">
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="grid gap-6 xl:grid-cols-[minmax(240px,0.48fr)_minmax(0,1.52fr)] xl:items-start">
             <div className="space-y-3">
               <div className="eyebrow">About this site</div>
               <p className="max-w-xl text-sm leading-7 text-ink-muted">

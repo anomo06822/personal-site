@@ -118,10 +118,9 @@ export const siteCopy = {
       title: "技術文章",
       intro:
         "聚焦 platform architecture、operability、engineering delivery 與可維運系統的思考與實作取捨。",
-      readingPathsTitle: "閱讀方向",
-      readingPaths: ["Architecture", "Operability", "Delivery"],
-      listTitle: "文章列表",
+      listTitle: "文章時間軸",
       allTopics: "全部主題",
+      newBadgeLabel: "NEW",
       emptyState: "目前這個分類還沒有文章。",
       endCtaTitle: "想看完整背景？",
       endCtaBody: "如果你想了解這些文章背後的實戰脈絡，下一步直接看完整履歷。",
@@ -247,10 +246,9 @@ export const siteCopy = {
       title: "Writing",
       intro:
         "Short essays on platform architecture, operability, engineering delivery, and the tradeoffs behind systems that need to keep running.",
-      readingPathsTitle: "Reading paths",
-      readingPaths: ["Architecture", "Operability", "Delivery"],
-      listTitle: "Article list",
+      listTitle: "Article Timeline",
       allTopics: "All topics",
+      newBadgeLabel: "NEW",
       emptyState: "There are no published posts for this topic yet.",
       endCtaTitle: "Want the operating context behind this work?",
       endCtaBody:

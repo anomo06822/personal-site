@@ -2,30 +2,29 @@ import type { HomeContent } from "../../src/lib/types";
 
 export const homeEn: HomeContent = {
   heroEyebrow: "Site Guide / Overview",
-  heroTitle: "This home page is not a second resume. It is the guide rail for the whole site.",
+  heroTitle: "Choose an entry point, then go deeper.",
   heroIntro:
-    "If this is your first time here, this page explains what each tab contains, who it is for, and where to start. The site is structured as a public index: projects, writing, resume context, and contact paths are separated so readers can move directly to what they need.",
-  heroTags: ["Bilingual", "Public index", "Static site", "Tab-based reading", "Fast orientation"],
+    "The home page is only for navigation. Use Projects for builds, Writing for technical thinking, Resume for background, and Connect when you want to reach out.",
+  heroTags: ["Projects", "Writing", "Resume", "Connect"],
   heroNoticeTitle: "How to use this site",
   heroNoticeBody:
-    "Use the tab map on the right to understand the whole structure first. If you already know what you need, jump directly into Projects, Writing, Resume, or Connect.",
+    "If you already know your goal, skip the overview and go straight to the matching section.",
   heroMapEyebrow: "Tab Map",
-  heroMapIntro: "Five entry points, five different reading intents. Learn the map first, then go deeper.",
+  heroMapIntro: "Five entry points, each with a different reading job.",
   tabsEyebrow: "Tab Guide",
-  tabsTitle: "Each tab has a specific job.",
+  tabsTitle: "Each entry point does one job.",
   tabsIntro:
-    "This site does not cram everything into one page. It splits the public narrative into five clear entry points.",
+    "Do not read the whole site front to back unless you need to. Start with the closest match.",
   tabs: [
     {
       routeKey: "home",
       eyebrow: "Start Here",
       title: "Overview",
       description:
-        "Understand the site structure, reading paths, and the role of each section before going deeper.",
+        "Get the site structure quickly, then choose where to go next.",
       highlights: [
-        "Best first stop for a new visitor.",
-        "Helps you decide whether to open projects, writing, resume, or contact next.",
-        "Focused on navigation rather than repeating resume details.",
+        "Best for a first-time visitor.",
+        "Focused on navigation, not repeated resume detail.",
       ],
       hrefLabel: "Stay on overview",
     },
@@ -34,11 +33,10 @@ export const homeEn: HomeContent = {
       eyebrow: "Build Index",
       title: "Projects",
       description:
-        "Browse the public personal projects first, then open their detail pages when you want more context.",
+        "Browse public personal projects and open detail pages when needed.",
       highlights: [
-        "Best when you want to see actual build direction first.",
-        "Keeps personal work separate from broader work history.",
-        "Each public project can be opened directly from here.",
+        "Best when you want to see actual builds first.",
+        "Personal work stays separate from broader work history.",
       ],
       hrefLabel: "Open projects",
     },
@@ -47,11 +45,10 @@ export const homeEn: HomeContent = {
       eyebrow: "Thinking Layer",
       title: "Writing",
       description:
-        "Read how architecture, operability, and delivery tradeoffs are framed and explained.",
+        "Read how architecture, operability, and delivery tradeoffs are explained.",
       highlights: [
         "Best for understanding thinking, not just outputs.",
-        "Articles are organized by topic and language.",
-        "Adds the reasoning that project pages do not show on their own.",
+        "Adds reasoning that project pages do not show on their own.",
       ],
       hrefLabel: "Open writing",
     },
@@ -60,9 +57,8 @@ export const homeEn: HomeContent = {
       eyebrow: "Public Resume",
       title: "Resume",
       description:
-        "See the public-facing background, representative experience, and the larger work arc without exposing every internal detail.",
+        "See the public-facing background, representative experience, and work arc.",
       highlights: [
-        "This is a public version, not an internal dossier.",
         "Useful when you need a compact experience overview.",
         "Separated from Projects so ownership stays easier to read.",
       ],
@@ -73,33 +69,32 @@ export const homeEn: HomeContent = {
       eyebrow: "Public Paths",
       title: "Connect",
       description:
-        "Find the public contact paths and the best reasons to start a conversation from this site.",
+        "Find the public contact paths and use the right one directly.",
       highlights: [
         "LinkedIn, GitHub, and email are grouped here.",
         "Useful for recruiters, collaborators, and technical conversations.",
-        "Start public first, then move deeper if there is a fit.",
       ],
       hrefLabel: "Open contact paths",
     },
   ],
   journeysEyebrow: "Reading Paths",
-  journeysTitle: "Different goals deserve different paths.",
+  journeysTitle: "Common paths.",
   journeysIntro:
-    "If you do not want to read the whole site front to back, these routes get you to the right context faster.",
+    "If you do not want the full tour, these paths get to the right context faster.",
   journeys: [
     {
       audience: "First-time visitor",
       title: "Build a quick mental map first",
       summary:
-        "Understand how the site is organized, then choose whether to go into projects or writing.",
+        "Understand how the site is organized, then choose where to go deeper.",
       routeKeys: ["home", "projects", "blog"],
-      note: "Best for a fast yes-or-no read on whether the site is worth deeper time.",
+      note: "Best for a quick scan of the whole site.",
     },
     {
       audience: "Recruiting / Hiring",
       title: "Review public context, then decide whether to reach out",
       summary:
-        "Start with the structure, then move into the public resume and contact page.",
+        "Go directly into the public resume, then use the contact page if needed.",
       routeKeys: ["home", "resume", "contact"],
       note: "Best for recruiters, hiring managers, or partnership conversations.",
     },
@@ -107,7 +102,7 @@ export const homeEn: HomeContent = {
       audience: "Technical reader",
       title: "See projects first, then read the thinking behind them",
       summary:
-        "Use projects for the surface area, then writing for the reasoning and tradeoffs.",
+        "Use projects for the surface area, then writing for the reasoning.",
       routeKeys: ["projects", "blog", "contact"],
       note: "Best for readers who care about implementation choices and technical framing.",
     },

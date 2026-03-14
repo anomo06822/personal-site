@@ -7,7 +7,11 @@ import {
   useState,
 } from "react";
 import { getRouteHref } from "@/lib/site";
-import { formatMonthYear } from "@/lib/utils";
+import {
+  formatLongDate,
+  groupItemsByMonth,
+  isRecentPost,
+} from "@/lib/utils";
 import type { BlogPostMeta, Locale } from "@/lib/types";
 
 type BlogFilterProps = {
@@ -16,6 +20,8 @@ type BlogFilterProps = {
   allTopicsLabel: string;
   emptyState: string;
   readTimeLabel: string;
+  newBadgeLabel: string;
+  buildTimestamp: string;
 };
 
 export function BlogFilter({
@@ -24,83 +30,127 @@ export function BlogFilter({
   allTopicsLabel,
   emptyState,
   readTimeLabel,
+  newBadgeLabel,
+  buildTimestamp,
 }: BlogFilterProps) {
   const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort(
     (left, right) => left.localeCompare(right),
   );
+  const hasTagFilter = tags.length > 0;
   const [activeTag, setActiveTag] = useState("all");
   const deferredTag = useDeferredValue(activeTag);
   const visiblePosts =
     deferredTag === "all"
       ? posts
       : posts.filter((post) => post.tags.includes(deferredTag));
+  const visibleGroups = groupItemsByMonth(locale, visiblePosts);
 
   return (
-    <div className="space-y-6">
-      <div className="card-surface p-5 sm:p-6">
-        <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => startTransition(() => setActiveTag("all"))}
-            className={`tag-chip ${activeTag === "all" ? "tag-chip-active" : ""}`}
-          >
-            {allTopicsLabel}
-          </button>
-          {tags.map((tag) => (
+    <div className="space-y-8">
+      {hasTagFilter ? (
+        <div className="card-surface p-5 sm:p-6">
+          <div className="flex flex-wrap gap-3">
             <button
-              key={tag}
               type="button"
-              onClick={() => startTransition(() => setActiveTag(tag))}
-              className={`tag-chip ${activeTag === tag ? "tag-chip-active" : ""}`}
+              onClick={() => startTransition(() => setActiveTag("all"))}
+              className={`tag-chip ${activeTag === "all" ? "tag-chip-active" : ""}`}
             >
-              {tag}
+              {allTopicsLabel}
             </button>
-          ))}
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => startTransition(() => setActiveTag(tag))}
+                className={`tag-chip ${activeTag === tag ? "tag-chip-active" : ""}`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
 
-      {visiblePosts.length === 0 ? (
+      {visibleGroups.length === 0 ? (
         <div className="card-surface p-8 text-base text-ink-muted">
           {emptyState}
         </div>
       ) : (
-        <div className="grid gap-5">
-          {visiblePosts.map((post) => (
-            <Link
-              key={`${post.locale}-${post.slug}`}
-              href={getRouteHref(locale, "blog", post.slug)}
-              className="card-surface grid gap-5 p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:bg-panel-strong/90 lg:grid-cols-[0.85fr_1.15fr]"
+        <div className="space-y-10">
+          {visibleGroups.map((group) => (
+            <section
+              key={group.key}
+              className="grid gap-4 lg:grid-cols-[170px_minmax(0,1fr)] lg:gap-6"
             >
-              <div className="space-y-4 border-b border-line pb-5 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
-                <div className="eyebrow">
-                  {formatMonthYear(locale, post.publishedAt)}
+              <div className="flex items-center justify-between gap-4 lg:items-start lg:pt-2">
+                <div className="eyebrow text-accent">{group.label}</div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-muted">
+                  {String(group.items.length).padStart(2, "0")}
                 </div>
-                <h2 className="text-2xl font-semibold tracking-tight text-ink">
-                  {post.title}
-                </h2>
-                <p className="text-sm leading-7 text-ink-muted">
-                  {post.description}
-                </p>
               </div>
 
-              <div className="flex flex-col justify-between gap-4">
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span key={tag} className="tag-chip">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between text-sm text-ink-muted">
-                  <span>
-                    {post.readingTime} {readTimeLabel}
-                  </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
-                    Open /
-                  </span>
-                </div>
+              <div className="relative space-y-5 before:absolute before:bottom-4 before:left-[0.41rem] before:top-4 before:w-px before:bg-line-strong/80">
+                {group.items.map((post) => {
+                  const showNewBadge = isRecentPost(
+                    post.publishedAt,
+                    buildTimestamp,
+                  );
+
+                  return (
+                    <Link
+                      key={`${post.locale}-${post.slug}`}
+                      href={getRouteHref(locale, "blog", post.slug)}
+                      className="group relative block pl-6"
+                    >
+                      <span className="absolute left-0 top-6 h-[14px] w-[14px] rounded-full border-2 border-accent bg-canvas shadow-[0_0_0_6px_color-mix(in_srgb,var(--canvas)_86%,transparent)] transition group-hover:scale-110" />
+
+                      <article className="card-surface p-6 transition group-hover:-translate-y-1 group-hover:border-accent/50 group-hover:bg-panel-strong/90 sm:p-7">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <div className="eyebrow">
+                            {formatLongDate(locale, post.publishedAt)}
+                          </div>
+                          {showNewBadge ? (
+                            <span className="rounded-full border border-accent/35 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                              {newBadgeLabel}
+                            </span>
+                          ) : null}
+                        </div>
+
+                        <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                          <div className="max-w-3xl space-y-3">
+                            <h2 className="text-2xl font-semibold tracking-tight text-ink">
+                              {post.title}
+                            </h2>
+                            <p className="text-sm leading-7 text-ink-muted sm:text-base sm:leading-8">
+                              {post.description}
+                            </p>
+                          </div>
+
+                          <div className="flex shrink-0 items-center gap-4 text-sm text-ink-muted lg:pt-1">
+                            <span>
+                              {post.readingTime} {readTimeLabel}
+                            </span>
+                            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+                              Open /
+                            </span>
+                          </div>
+                        </div>
+
+                        {post.tags.length ? (
+                          <div className="mt-5 flex flex-wrap gap-2">
+                            {post.tags.map((tag) => (
+                              <span key={tag} className="tag-chip">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        ) : null}
+                      </article>
+                    </Link>
+                  );
+                })}
               </div>
-            </Link>
+            </section>
           ))}
         </div>
       )}

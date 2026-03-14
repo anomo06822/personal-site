@@ -47,7 +47,10 @@ function getDisplayHref(href: string) {
   }
 }
 
-function getCardClassName(variant: NonNullable<ProfileLinkGridProps["variant"]>, index: number) {
+function getCardClassName(
+  variant: NonNullable<ProfileLinkGridProps["variant"]>,
+  index: number,
+) {
   const classes = [
     "group",
     "relative",
@@ -106,7 +109,7 @@ export function ProfileLinkGrid({
         : "grid gap-4 md:grid-cols-2"
       : variant === "compact"
         ? linkCount > 2
-          ? "grid gap-3 sm:grid-cols-3"
+          ? "grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
           : "grid gap-3 sm:grid-cols-2"
         : linkCount > 2
           ? "grid gap-4 lg:grid-cols-3"
@@ -130,11 +133,11 @@ export function ProfileLinkGrid({
 
           <div className="relative flex h-full flex-col">
             <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-4">
+              <div className="flex min-w-0 items-center gap-4">
                 <ProfileIcon icon={link.icon} />
-                <div className="space-y-1">
+                <div className="min-w-0 space-y-1">
                   <div className="eyebrow">{link.label}</div>
-                  <div className="text-xs leading-6 text-ink-muted">
+                  <div className="break-words text-xs leading-6 text-ink-muted">
                     {getDisplayHref(link.href)}
                   </div>
                 </div>

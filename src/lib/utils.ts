@@ -20,6 +20,63 @@ export function formatMonthYear(locale: Locale, value: string) {
   }).format(new Date(value));
 }
 
+export function getMonthGroupKey(value: string) {
+  return value.slice(0, 7);
+}
+
+export function groupItemsByMonth<T extends { publishedAt: string }>(
+  locale: Locale,
+  items: T[],
+) {
+  return items.reduce<Array<{ key: string; label: string; items: T[] }>>(
+    (groups, item) => {
+      const key = getMonthGroupKey(item.publishedAt);
+      const lastGroup = groups.at(-1);
+
+      if (lastGroup?.key === key) {
+        lastGroup.items.push(item);
+        return groups;
+      }
+
+      groups.push({
+        key,
+        label: formatMonthYear(locale, item.publishedAt),
+        items: [item],
+      });
+
+      return groups;
+    },
+    [],
+  );
+}
+
+export function isRecentPost(
+  publishedAt: string,
+  now: string,
+  windowDays = 7,
+) {
+  const published = new Date(`${publishedAt}T00:00:00Z`);
+  const current = new Date(now);
+
+  if (Number.isNaN(published.getTime()) || Number.isNaN(current.getTime())) {
+    return false;
+  }
+
+  const publishedDay = Date.UTC(
+    published.getUTCFullYear(),
+    published.getUTCMonth(),
+    published.getUTCDate(),
+  );
+  const currentDay = Date.UTC(
+    current.getUTCFullYear(),
+    current.getUTCMonth(),
+    current.getUTCDate(),
+  );
+  const diffDays = (currentDay - publishedDay) / 86_400_000;
+
+  return diffDays >= 0 && diffDays <= windowDays;
+}
+
 export function estimateReadingTime(source: string) {
   const withoutFrontmatter = source.replace(/^---[\s\S]*?---/, " ");
   const withoutCode = withoutFrontmatter.replace(/```[\s\S]*?```/g, " ");

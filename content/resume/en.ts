@@ -11,7 +11,7 @@ export const resumeEn: ResumeContent = {
   },
   positioning: {
     headlinePrimary:
-      "Engineering leadership that keeps platform architecture and delivery moving together.",
+      "Integrating platform architecture, engineering leadership, and delivery to make progress happen.",
     headlineSecondary:
       ".NET, Azure, e-commerce platforms, and backend architecture",
     openToRoles: [
@@ -105,7 +105,7 @@ export const resumeEn: ResumeContent = {
     },
     {
       company: "Newegg Taiwan",
-      role: "Staff Engineer",
+      role: "Staff Engineer / Group Leader",
       period: "2016.04 - 2020.04",
       location: "Taichung, Taiwan",
       logo: {
@@ -152,6 +152,7 @@ export const resumeEn: ResumeContent = {
   ],
   topSkills: [
     "C#",
+    ".NET Framework",
     ".NET Core",
     "Python",
     "Java",
@@ -177,6 +178,7 @@ export const resumeEn: ResumeContent = {
       label: "Core Stack",
       skills: [
         "C#",
+        ".NET Framework",
         ".NET Core",
         "Python",
         "Java",
@@ -442,16 +444,6 @@ export const resumeEn: ResumeContent = {
     ],
     featured: [
       {
-        title: "First Horizon / Platform Delivery",
-        summary:
-          "0→1 platform delivery that established architecture, execution flow, and observability as one operating system for the team.",
-        proofPoints: [
-          "Defined the platform stack with Next.js, .NET Core, CQRS, and Vertical Slice boundaries.",
-          "Managed the 7-engineer Taiwan team while aligning with Hong Kong and Australia stakeholders.",
-          "Established Azure DevOps CI/CD, Azure deployment flow, and early observability with Prometheus, Grafana, and Jaeger.",
-        ],
-      },
-      {
         title: "Newegg Mobile",
         summary:
           "Mobile product delivery that kept reliability, user engagement, and release quality aligned under public, high-volume traffic.",
@@ -469,6 +461,16 @@ export const resumeEn: ResumeContent = {
           "Built services across account, cart, order, and procurement flows for high-value B2B transactions.",
           "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
           "Completed the .NET Framework to .NET Core migration together with TDD and Jenkins / GitLab CI/CD adoption.",
+        ],
+      },
+      {
+        title: "First Horizon / Platform Delivery",
+        summary:
+          "0→1 platform delivery that established architecture, execution flow, and observability as one operating system for the team.",
+        proofPoints: [
+          "Defined the platform stack with Next.js, .NET Core, CQRS, and Vertical Slice boundaries.",
+          "Managed the 7-engineer Taiwan team while aligning with Hong Kong and Australia stakeholders.",
+          "Established Azure DevOps CI/CD, Azure deployment flow, and early observability with Prometheus, Grafana, and Jaeger.",
         ],
       },
     ],

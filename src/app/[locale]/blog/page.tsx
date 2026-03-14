@@ -34,6 +34,7 @@ export default async function BlogPage({
 
   const copy = siteCopy[locale];
   const posts = getPublishedPosts(locale);
+  const buildTimestamp = new Date().toISOString();
 
   return (
     <div className="space-y-8">
@@ -46,22 +47,6 @@ export default async function BlogPage({
           <p className="max-w-3xl text-lg leading-8 text-ink-muted">
             {copy.blog.intro}
           </p>
-        </div>
-
-        <div className="space-y-4">
-          <div className="eyebrow">{copy.blog.readingPathsTitle}</div>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {copy.blog.readingPaths.map((item) => (
-              <article key={item} className="subtle-panel p-5">
-                <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
-                  Path
-                </div>
-                <h2 className="mt-3 text-xl font-semibold tracking-tight text-ink">
-                  {item}
-                </h2>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -76,6 +61,8 @@ export default async function BlogPage({
           allTopicsLabel={copy.blog.allTopics}
           emptyState={copy.blog.emptyState}
           readTimeLabel={copy.common.readTime}
+          newBadgeLabel={copy.blog.newBadgeLabel}
+          buildTimestamp={buildTimestamp}
         />
       </section>
     </div>

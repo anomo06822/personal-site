@@ -10,7 +10,7 @@ export const resumeZhTW: ResumeContent = {
     portraitAlt: "Jarvis Huang 個人照",
   },
   positioning: {
-    headlinePrimary: "讓平台架構、工程帶領與交付節奏一起落地。",
+    headlinePrimary: "整合平台架構、工程帶領與交付節奏，讓事情持續發生。",
     headlineSecondary: ".NET、Azure、電商平台與後端架構",
     openToRoles: [
       "Engineering Manager",
@@ -103,7 +103,7 @@ export const resumeZhTW: ResumeContent = {
     },
     {
       company: "Newegg 台灣",
-      role: "Staff Engineer",
+      role: "Staff Engineer / Group Leader",
       period: "2016.04 - 2020.04",
       location: "台中",
       logo: {
@@ -150,6 +150,7 @@ export const resumeZhTW: ResumeContent = {
   ],
   topSkills: [
     "C#",
+    ".NET Framework",
     ".NET Core",
     "Python",
     "Java",
@@ -175,6 +176,7 @@ export const resumeZhTW: ResumeContent = {
       label: "核心技術",
       skills: [
         "C#",
+        ".NET Framework",
         ".NET Core",
         "Python",
         "Java",
@@ -440,16 +442,6 @@ export const resumeZhTW: ResumeContent = {
     ],
     featured: [
       {
-        title: "First Horizon 物流平台",
-        summary:
-          "把 0→1 平台的架構、交付與可觀測性一次建立起來，讓團隊能在同一套運作方式下前進。",
-        proofPoints: [
-          "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃平台技術骨架與邊界。",
-          "帶領台灣 7 人工程團隊，並與香港、澳洲利害關係人持續對齊。",
-          "建立 Azure DevOps CI/CD、Azure 發布流程，並提早導入 Prometheus、Grafana、Jaeger。",
-        ],
-      },
-      {
         title: "Newegg Mobile",
         summary:
           "在高流量公開產品上，同時兼顧可靠度、使用者互動與版本品質的行動產品交付。",
@@ -466,6 +458,16 @@ export const resumeZhTW: ResumeContent = {
           "建立帳號、購物車、訂單與企業採購相關服務，支撐高價值 B2B 交易流程。",
           "整合 PayPal、MasterPass、e-procurement 與 Net Terms 等商務能力。",
           "完成 .NET Framework 到 .NET Core 遷移，並同步導入 TDD 與 Jenkins / GitLab CI/CD。",
+        ],
+      },
+      {
+        title: "First Horizon / Platform Delivery",
+        summary:
+          "把 0→1 平台的架構、交付與可觀測性一次建立起來，讓團隊能在同一套運作方式下前進。",
+        proofPoints: [
+          "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃平台技術骨架與邊界。",
+          "帶領台灣 7 人工程團隊，並與香港、澳洲利害關係人持續對齊。",
+          "建立 Azure DevOps CI/CD、Azure 發布流程，並提早導入 Prometheus、Grafana、Jaeger。",
         ],
       },
     ],

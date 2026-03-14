@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type {
   HomeContent,
-  HomeGuideItem,
   HomeJourneyItem,
   HomeTabItem,
   RouteKey,
@@ -56,23 +55,16 @@ function TabGuideCard({
   href: string;
   index: number;
 }) {
-  const isLeadCard = index === 0;
-
   return (
     <article
-      className={`group relative overflow-hidden rounded-[28px] border p-6 shadow-[var(--shadow-panel)] transition hover:-translate-y-1 sm:p-7 ${
-        isLeadCard
-          ? "border-accent/30 bg-[linear-gradient(145deg,color-mix(in_srgb,var(--accent)_10%,var(--panel-strong))_0%,var(--surface-subtle)_100%)] xl:col-span-2"
-          : "border-line bg-[linear-gradient(180deg,var(--panel)_0%,var(--surface-subtle)_100%)]"
-      }`}
+      className="group relative overflow-hidden rounded-[28px] border border-line bg-[linear-gradient(180deg,var(--panel)_0%,var(--surface-subtle)_100%)] p-6 shadow-[var(--shadow-panel)] transition hover:-translate-y-1 sm:p-7"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-90"
         style={{
-          background: isLeadCard
-            ? "radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--accent) 18%, transparent) 0, transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.12), transparent 42%)"
-            : "radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28%)",
+          background:
+            "radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28%)",
         }}
       />
 
@@ -84,7 +76,7 @@ function TabGuideCard({
               {item.title}
             </h3>
           </div>
-          <span className="rounded-full border border-accent/18 bg-canvas-elevated/78 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
+          <span className="rounded-full border border-line bg-canvas-elevated/78 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-ink-muted">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
@@ -164,24 +156,11 @@ function JourneyCard({
   );
 }
 
-function GuideCard({ item }: { item: HomeGuideItem }) {
-  return (
-    <article className="subtle-panel h-full p-6 sm:p-7">
-      <div className="space-y-4">
-        <div className="eyebrow">{item.eyebrow}</div>
-        <h3 className="text-2xl font-semibold tracking-tight text-ink">
-          {item.title}
-        </h3>
-        <p className="text-sm leading-7 text-ink-muted">{item.description}</p>
-      </div>
-    </article>
-  );
-}
-
 export function RecruiterHome({ home, routeHrefs }: RecruiterHomeProps) {
   const tabLabelMap = new Map(
     home.tabs.map((item) => [item.routeKey, item.title] as const),
   );
+  const primaryTabs = home.tabs.filter((item) => item.routeKey !== "home");
 
   return (
     <div className="space-y-16">
@@ -197,21 +176,25 @@ export function RecruiterHome({ home, routeHrefs }: RecruiterHomeProps) {
 
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1.06fr)_minmax(320px,0.94fr)] xl:items-start">
           <div className="space-y-8">
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div className="eyebrow">{home.heroEyebrow}</div>
               <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
                 {home.heroTitle}
               </h1>
-              <p className="max-w-3xl text-lg leading-8 text-ink">
+              <p className="max-w-3xl text-base leading-8 text-ink sm:text-lg">
                 {home.heroIntro}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              {home.heroTags.map((tag) => (
-                <span key={tag} className="tag-chip tag-chip-active">
-                  {tag}
-                </span>
+            <div className="flex flex-wrap gap-3">
+              {primaryTabs.map((item) => (
+                <Link
+                  key={item.routeKey}
+                  href={routeHrefs[item.routeKey]}
+                  className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/78 px-5 text-sm text-ink transition hover:border-accent/45 hover:bg-panel-strong"
+                >
+                  {item.title}
+                </Link>
               ))}
             </div>
 
@@ -260,7 +243,7 @@ export function RecruiterHome({ home, routeHrefs }: RecruiterHomeProps) {
           </p>
         </div>
 
-        <div className="grid gap-4 xl:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {home.tabs.map((item, index) => (
             <TabGuideCard
               key={item.routeKey}
@@ -291,24 +274,6 @@ export function RecruiterHome({ home, routeHrefs }: RecruiterHomeProps) {
               routeHrefs={routeHrefs}
               tabLabelMap={tabLabelMap}
             />
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="space-y-3">
-          <div className="eyebrow">{home.guideEyebrow}</div>
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.35rem]">
-            {home.guideTitle}
-          </h2>
-          <p className="max-w-4xl text-base leading-8 text-ink-muted">
-            {home.guideIntro}
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-3">
-          {home.guideItems.map((item) => (
-            <GuideCard key={item.eyebrow + item.title} item={item} />
           ))}
         </div>
       </section>
