@@ -33,27 +33,16 @@ export type ResumeProfile = {
 
 export type ResumePositioning = {
   headline: string;
-  targetRoles: string[];
-  valueProposition: string;
-  recruiterKeywords: string[];
+  openToRoles: string[];
 };
-
-export type ExperienceEmphasis = "featured" | "earlier";
 
 export type ExperienceEntry = {
   company: string;
   role: string;
   period: string;
   location: string;
-  mission: string;
   impactBullets: string[];
   keywords: string[];
-  emphasis: ExperienceEmphasis;
-};
-
-export type SkillGroup = {
-  title: string;
-  items: string[];
 };
 
 export type ResumeImpactPoint = {
@@ -62,12 +51,18 @@ export type ResumeImpactPoint = {
   detail: string;
 };
 
-export type SelectedWin = {
+export type FeaturedItem = {
   title: string;
-  period: string;
   summary: string;
   proofPoints: string[];
-  tags: string[];
+  href?: string;
+};
+
+export type ProjectItem = {
+  title: string;
+  subtitle?: string;
+  bullets: string[];
+  tags?: string[];
 };
 
 export type Certification = {
@@ -80,13 +75,13 @@ export type Certification = {
 export type ResumeContent = {
   profile: ResumeProfile;
   positioning: ResumePositioning;
-  executiveSummary: string[];
-  selectedImpact: ResumeImpactPoint[];
+  about: string[];
+  highlights: ResumeImpactPoint[];
   experiences: ExperienceEntry[];
-  selectedWins: SelectedWin[];
-  coreStack: SkillGroup[];
+  topSkills: string[];
+  featured: FeaturedItem[];
+  projects: ProjectItem[];
   certifications: Certification[];
-  contactNote: string;
 };
 
 export type ContactLink = {

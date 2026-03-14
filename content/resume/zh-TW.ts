@@ -8,44 +8,45 @@ export const resumeZhTW: ResumeContent = {
     avatar: "JH",
   },
   positioning: {
-    headline: "Tech Lead / Backend Architect｜平台架構、工程交付與可維運系統",
-    targetRoles: ["Tech Lead", "Backend Architect", "Platform Engineering Lead"],
-    valueProposition:
-      "擅長把平台架構、交付流程與跨團隊協作收斂成可持續的工程系統，讓產品從綠地平台到穩定維運都能清楚落地。",
-    recruiterKeywords: [
-      "Backend Architecture",
-      "Platform Engineering",
-      "Engineering Delivery",
-      "Azure DevOps",
-      "Observability",
-      "E-commerce Systems",
-      "Cross-functional Leadership",
+    headline:
+      "Senior Backend Engineer / Tech Lead / Engineering Manager｜.NET、Azure、電商平台與後端架構",
+    openToRoles: [
+      "Senior Backend Engineer",
+      "Tech Lead",
+      "Engineering Manager",
     ],
   },
-  executiveSummary: [
-    "10+ 年聚焦大型電商、平台系統與工程交付，近年主軸放在後端架構、團隊帶領與可維運系統設計。",
-    "在綠地物流平台與全球電商場景中，能同時處理架構選型、交付流程、品質治理與跨部門協作，讓系統能上線、能維護，也能持續擴張。",
+  about: [
+    "具備 10+ 年大型電商與平台系統經驗，長期專注在後端服務、平台架構與工程交付。",
+    "職涯歷程橫跨 QA、Backend Engineer、Engineering Lead 到 Assistant Project Manager，能同時理解品質、架構與交付節奏。",
+    "熟悉 .NET backend development、Azure cloud architecture、CI/CD 與工程團隊帶領。",
+    "專注在建立穩定、可擴充的平台，並幫助團隊持續交付可靠系統。",
+    "目前關注 platform engineering、backend architecture 與 AI-enabled products 相關機會。",
   ],
-  selectedImpact: [
+  highlights: [
     {
       value: "10+",
-      label: "年平台與商務系統經驗",
-      detail: "從 QA automation、B2B backend 到 engineering lead 與 greenfield tech lead。",
+      label: "年電商與平台經驗",
+      detail:
+        "從 QA automation 到 backend、engineering leadership 與 delivery ownership 的完整歷程。",
     },
     {
       value: "20+",
-      label: "工程團隊協作規模",
-      detail: "在 mobile、desktop、backend 與 data service 的環境中推動交付節奏。",
+      label: "工程團隊帶領 / 協作規模",
+      detail:
+        "跨 mobile、desktop、backend 與 big data 平台推動交付與協作。",
     },
     {
       value: "1M+",
-      label: "維運產品下載量",
-      detail: "支援對外行動產品的穩定性、通知品質與版本交付。",
+      label: "App 下載量",
+      detail:
+        "負責公開行動產品的穩定性、版本交付與使用者互動改善。",
     },
     {
-      value: "99.9%",
-      label: "Crash-free users",
-      detail: "在公開產品可靠度維持下，同步改善推播與效能訊號。",
+      value: "0→1",
+      label: "物流平台落地",
+      detail:
+        "主導 First Horizon 從綠地架構到 CI/CD、observability 與運作節奏。",
     },
   ],
   experiences: [
@@ -54,12 +55,13 @@ export const resumeZhTW: ResumeContent = {
       role: "Assistant Project Manager / Tech Lead",
       period: "2024.04 - 至今",
       location: "台中",
-      mission:
-        "主導新物流平台從架構、交付到上線後維運的整體規劃，把工程實作與專案節奏收斂到同一條主線。",
       impactBullets: [
-        "以 Next.js、.NET Core、CQRS 與 Vertical Slice 從 0 到 1 打造 First Horizon，讓物流平台的領域流程與交付模型一次定型。",
-        "建立 Azure DevOps CI/CD、部署自動化與 Azure 資源規劃，讓新平台具備可重複發布與環境治理能力。",
-        "導入 Prometheus、Grafana、Jaeger 與跨職能協作節奏，將上線後診斷、監控與交付責任納入同一條工程主線。",
+        "主導 First Horizon 物流平台從 0 到 1 的開發與落地，將架構、交付與維運在一開始就放進同一條主線。",
+        "以 Next.js、.NET Core、CQRS 與 Vertical Slice 設計平台架構，讓領域切分與實作流程保持可維護性。",
+        "建立 Azure DevOps CI/CD 並部署到 Azure，讓新平台具備可重複發布與環境治理能力。",
+        "導入 Prometheus、Grafana、Jaeger，讓監控、記錄與診斷成為日常工程流程的一部分。",
+        "管理台灣團隊共 7 位工程師，持續對齊專案節奏與技術方向。",
+        "協調香港與澳洲團隊的跨區域合作，讓產品、工程與營運在交付上保持一致。",
       ],
       keywords: [
         "Next.js",
@@ -69,41 +71,40 @@ export const resumeZhTW: ResumeContent = {
         "Azure DevOps",
         "Observability",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg 台灣",
-      role: "Engineering Lead",
+      role: "Assistant Team Manager / Engineering Lead",
       period: "2020.04 - 2024.04",
       location: "台中",
-      mission:
-        "負責全球電商場景中的行動平台、桌面平台與資料服務協作，兼顧產品穩定度與團隊交付節奏。",
       impactBullets: [
-        "在 20+ 工程規模環境中協調 B2C mobile、B2B desktop 與 backend data services，讓多產品線維持一致的交付節奏。",
-        "支援混合式行動產品維持 4.6 App Store 評分、1M+ 下載量與 99.9% crash-free users。",
-        "將 Android 推播開啟率由 2% 提升到 5%，並把無效裝置 token 降低 33%，同步改善 mobile web 效能與 Core Web Vitals。",
+        "帶領 20+ 位工程師支援 B2C mobile、B2B desktop 與 big data 平台，維持全球電商場景下的交付節奏。",
+        "維運 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的行動產品。",
+        "把 Android 推播開啟率從 2% 提升到 5%，透過交付協作與訊息品質優化提升使用者互動。",
+        "將無效裝置 token 降低約 33%，改善推播可靠度與後續營運效率。",
+        "改善 Core Web Vitals，將 bad URLs 從 50% 降到 7% 以下。",
+        "推動 microservice architecture 與 shared presentation layer，支援多產品線並行交付。",
       ],
       keywords: [
         "React Native",
         "React",
-        "Engineering Leadership",
+        "Team Leadership",
         "Analytics",
         "SEO",
         "Push Notifications",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg 台灣",
       role: "Staff Engineer",
       period: "2016.04 - 2020.04",
       location: "台中",
-      mission:
-        "主導 B2B 電商核心服務與平台現代化，讓既有商務流程逐步轉向可測試、可持續交付的架構。",
       impactBullets: [
-        "開發帳號、購物與訂單處理等核心服務，支撐 B2B 平台的關鍵交易流程。",
-        "完成 PayPal、MasterPass、e-procurement 與 Net Terms 等 4 類商務整合，擴充平台支付與採購能力。",
-        "導入單元測試、TDD、CI/CD 與 .NET Framework 到 .NET Core 遷移，降低回歸成本並為微服務化打底。",
+        "負責 B2B 電商平台的後端服務，涵蓋帳號、購物與訂單處理等核心流程。",
+        "建立支撐高價值交易與採購情境的關鍵 backend services。",
+        "將服務從 .NET Framework 遷移到 .NET Core，為平台現代化與模組化交付打底。",
+        "導入 TDD 與 Jenkins、GitLab 的 CI/CD，提升發布信心並降低回歸成本。",
+        "使用 dotTrace 與 Visual Studio Profiler 優化服務效能，改善回應速度與資源效率。",
       ],
       keywords: [
         "C#",
@@ -111,98 +112,81 @@ export const resumeZhTW: ResumeContent = {
         "B2B Commerce",
         "MS SQL",
         "CI/CD",
-        "System Integration",
+        "Performance Profiling",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg 台灣",
       role: "QA Automation Engineer",
       period: "2013.04 - 2016.04",
       location: "台中",
-      mission:
-        "以測試自動化為起點，建立對系統行為、風險與品質基線的理解，之後轉向後端工程。",
       impactBullets: [
-        "以 SoapUI、Postman、Selenium、Nightwatch 建立 API 與 UI 自動化，減少人工回歸負擔。",
-        "撰寫測試資料與驗證腳本，提升缺陷重現與驗證效率。",
-        "把 QA 背景轉化為後續後端工作中的風險意識與系統觀。",
+        "負責電商訂單與購物流程相關的品質驗證，支援核心交易旅程的穩定性。",
+        "以 Selenium 與 Nightwatch 建立自動化測試，降低大量重複回歸測試成本。",
+        "改善測試覆蓋率與 integration testing 流程，建立之後轉向 backend engineering 的系統視角。",
       ],
       keywords: [
-        "SoapUI",
-        "Postman",
         "Selenium",
         "Nightwatch",
-        "Automation",
-        "Regression Testing",
+        "Automation Testing",
+        "Integration Testing",
       ],
-      emphasis: "earlier",
     },
   ],
-  selectedWins: [
+  topSkills: [
+    "C#",
+    ".NET Core",
+    "System Architecture",
+    "Microservices",
+    "Azure",
+    "CI/CD",
+    "Backend Development",
+    "SQL",
+    "Distributed Systems",
+    "Team Leadership",
+  ],
+  featured: [
     {
-      title: "First Horizon 物流平台",
-      period: "2024 - 至今",
+      title: "Newegg App",
       summary:
-        "把綠地平台的架構、交付與監控當成同一個系統設計問題，不讓可維運性留到後期補救。",
+        "面向消費者的行動產品維運與改善，兼顧可靠度、互動率與版本品質。",
       proofPoints: [
-        "從零定義前後端架構、領域切分與交付節奏。",
-        "CI/CD、部署流程與 observability 在第一版就進入日常作業模型。",
-        "對外呈現的是平台落地速度，對內留下的是可維護的工程骨架。",
+        "支援 1M+ 下載量與 4.6 App Store 評分的產品。",
+        "在改善通知品質與發版穩定度的同時，維持 99.9% crash-free users。",
+        "將推播開啟率從 2% 提升到 5%，並把無效 token 降低約 33%。",
       ],
-      tags: ["Greenfield Platform", "Azure", ".NET", "Next.js"],
     },
     {
-      title: "行動平台可靠度與成長改善",
-      period: "2020 - 2024",
+      title: "B2B Website",
       summary:
-        "在已上線產品中持續優化可靠度、通知品質與效能訊號，讓穩定度與成長目標能同時成立。",
+        "聚焦關鍵電商與採購流程的後端現代化與商務能力整合。",
       proofPoints: [
-        "維持 1M+ 下載量產品的日常品質與版本交付。",
-        "Crash-free users 維持 99.9%，同時改善 Core Web Vitals。",
-        "推播開啟率 2% -> 5%，無效 token 降低 33%。",
+        "建立帳號、購物車與訂單處理等核心服務，支撐 B2B 交易流程。",
+        "整合 PayPal、MasterPass、e-procurement 與 Net Terms 等商務能力。",
+        "推動 .NET Framework 到 .NET Core 遷移，並同步建立 TDD 與 CI/CD。",
       ],
-      tags: ["Mobile Reliability", "Performance", "Analytics"],
     },
     {
-      title: "Newegg Global Hackathon - Follow Seller",
-      period: "2021",
+      title: "Architecture / Platform Leadership",
       summary:
-        "用極短週期驗證產品想法、拆解跨職能協作，並把原型進一步推進到正式上線。",
+        "把 0→1 平台的架構、交付、觀測性與跨區協作整合成同一套運作方式。",
       proofPoints: [
-        "3 天 sprint 交付可操作原型。",
-        "獲得 Global Hackathon 1st Place 與 Most Valuable Project Award。",
-        "後續延伸成正式上線功能。",
+        "主導 First Horizon 從綠地規劃走到正式交付結構。",
+        "帶領 7 人台灣團隊，並與香港、澳洲利害關係人協作對齊。",
+        "從第一階段就建立 Azure DevOps、deployment flow 與 Prometheus / Grafana / Jaeger。",
       ],
-      tags: ["Hackathon", "Product Delivery", "Leadership"],
     },
   ],
-  coreStack: [
+  projects: [
     {
-      title: "Backend / Service Design",
-      items: ["C#", ".NET Core", "ASP.NET Core", "REST API", "Domain Modeling"],
-    },
-    {
-      title: "Platform Architecture",
-      items: [
-        "CQRS",
-        "Monorepo",
-        "Vertical Slice Architecture",
-        "Distributed Systems Design",
+      title: "Follow Seller - Newegg Hackathon",
+      subtitle: "Newegg Global Hackathon",
+      bullets: [
+        "在 3 天內完成 prototype，驗證產品概念與執行可行性。",
+        "拿下 Global Hackathon 1st Place 與 Most Valuable Project Award。",
+        "把最初原型延伸成正式上線功能。",
       ],
-    },
-    {
-      title: "Cloud / Delivery",
-      items: [
-        "Microsoft Azure",
-        "Azure DevOps",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-      ],
-    },
-    {
-      title: "Product / Reliability",
-      items: ["Next.js", "React", "React Native", "Observability", "Performance"],
+      tags: ["Hackathon", "Prototype", "Production Launch"],
     },
   ],
   certifications: [
@@ -215,9 +199,7 @@ export const resumeZhTW: ResumeContent = {
       title: "Newegg Global Hackathon - 1st Place",
       issuer: "Newegg",
       year: "2021",
-      note: "Follow Seller / Most Valuable Project Award",
+      note: "Most Valuable Project Award / Follow Seller",
     },
   ],
-  contactNote:
-    "公開站點不放電話、地址與私人信箱；若有進一步交流需求，會在合適情境再提供。",
 };

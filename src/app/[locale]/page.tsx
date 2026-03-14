@@ -55,9 +55,7 @@ export default async function LocaleHomePage({
   const localCopy = getHomeCopy(locale);
   const resume = getResume(locale);
   const posts = getFeaturedPosts(locale, 2);
-  const featuredExperiences = resume.experiences.filter(
-    (experience) => experience.emphasis === "featured",
-  );
+  const featuredExperiences = resume.experiences.slice(0, 2);
 
   return (
     <div className="space-y-14">
@@ -68,7 +66,7 @@ export default async function LocaleHomePage({
             {copy.home.title}
           </h1>
           <p className="max-w-3xl text-lg leading-8 text-ink">
-            {resume.positioning.valueProposition}
+            {resume.about[0]}
           </p>
           <p className="max-w-3xl text-base leading-8 text-ink-muted">
             {copy.home.intro}
@@ -76,14 +74,14 @@ export default async function LocaleHomePage({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {resume.positioning.targetRoles.map((role) => (
+          {resume.positioning.openToRoles.map((role) => (
             <span key={role} className="tag-chip tag-chip-active">
               {role}
             </span>
           ))}
         </div>
 
-        <ImpactRibbon items={resume.selectedImpact} compact />
+        <ImpactRibbon items={resume.highlights} compact />
 
         <div className="flex flex-wrap gap-3">
           <Link
@@ -137,9 +135,6 @@ export default async function LocaleHomePage({
                 </div>
 
                 <div className="space-y-4 border-t border-line pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
-                  <p className="text-base leading-8 text-ink">
-                    {experience.mission}
-                  </p>
                   <p className="text-sm leading-7 text-ink-muted">
                     {experience.impactBullets[0]}
                   </p>

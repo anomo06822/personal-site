@@ -9,58 +9,59 @@ export const resumeEn: ResumeContent = {
   },
   positioning: {
     headline:
-      "Tech Lead / Backend Architect | Platform Architecture, Engineering Delivery, and Operable Systems",
-    targetRoles: ["Tech Lead", "Backend Architect", "Platform Engineering Lead"],
-    valueProposition:
-      "Builds maintainable engineering systems by aligning platform architecture, delivery workflows, and cross-functional execution from greenfield setup through steady-state operations.",
-    recruiterKeywords: [
-      "Backend Architecture",
-      "Platform Engineering",
-      "Engineering Delivery",
-      "Azure DevOps",
-      "Observability",
-      "E-commerce Systems",
-      "Cross-functional Leadership",
+      "Senior Backend Engineer | Tech Lead | Engineering Manager | .NET | Azure | E-commerce Platforms",
+    openToRoles: [
+      "Senior Backend Engineer",
+      "Tech Lead",
+      "Engineering Manager",
     ],
   },
-  executiveSummary: [
-    "10+ years across large-scale commerce platforms, backend systems, and engineering delivery, with recent focus on architecture leadership and operable system design.",
-    "Works effectively in both greenfield logistics and global e-commerce environments, connecting architecture decisions, delivery process, quality discipline, and stakeholder alignment into systems that can launch, run, and evolve.",
+  about: [
+    "Software engineer and engineering leader with 10+ years of experience building large-scale e-commerce and platform systems.",
+    "My career path spans QA, backend engineering, engineering leadership, and assistant project management, which helps me bridge software quality, system architecture, and engineering delivery.",
+    "Experienced in .NET backend development, Azure cloud architecture, CI/CD, and leading engineering teams across product and platform work.",
+    "I focus on building stable, scalable platforms and helping teams deliver reliable systems.",
+    "Currently interested in opportunities related to platform engineering, backend architecture, and AI-enabled products.",
   ],
-  selectedImpact: [
+  highlights: [
     {
       value: "10+",
-      label: "years in platform and commerce systems",
-      detail: "Progressed from QA automation into backend engineering, staff engineering, and platform leadership.",
+      label: "years in e-commerce and platforms",
+      detail:
+        "Built a career path from QA automation to backend engineering, engineering leadership, and delivery ownership.",
     },
     {
       value: "20+",
       label: "engineers across delivery scope",
-      detail: "Worked across mobile, desktop, backend, and data-service environments with shared delivery ownership.",
+      detail:
+        "Led and coordinated multi-team execution across mobile, desktop, backend, and big data platform work.",
     },
     {
       value: "1M+",
-      label: "downloads on supported products",
-      detail: "Operated public-facing mobile products with ongoing release, notification, and reliability ownership.",
+      label: "downloads on supported mobile products",
+      detail:
+        "Maintained app reliability, release quality, and engagement improvements on public consumer products.",
     },
     {
-      value: "99.9%",
-      label: "crash-free users",
-      detail: "Sustained product reliability while improving push quality and performance signals.",
+      value: "0→1",
+      label: "logistics platform delivery",
+      detail:
+        "Led the First Horizon platform from greenfield architecture into CI/CD, observability, and operating rhythm.",
     },
   ],
   experiences: [
     {
-      company: "SJ Challenger Taiwan",
+      company: "SJC International Logistics",
       role: "Assistant Project Manager / Tech Lead",
       period: "2024.04 - Present",
       location: "Taichung, Taiwan",
-      mission:
-        "Leading a new logistics platform from architecture through delivery and operations, while keeping project execution and engineering structure on the same track.",
       impactBullets: [
-        "Built First Horizon from 0 to first delivery with Next.js, .NET Core, CQRS, and Vertical Slice architecture, shaping both domain boundaries and delivery flow from the start.",
-        "Established Azure DevOps CI/CD, deployment automation, and Azure environment planning so the platform could ship repeatedly with clearer operational control.",
-        "Introduced Prometheus, Grafana, Jaeger, and a more explicit cross-functional operating rhythm, bringing diagnostics, observability, and delivery accountability into one system.",
+        "Led development of the First Horizon logistics platform from 0 to 1 and aligned architecture, delivery, and operations from the start.",
+        "Designed the platform architecture with Next.js, .NET Core, CQRS, and Vertical Slice to keep domain boundaries and implementation flow maintainable.",
+        "Built CI/CD pipelines with Azure DevOps and deployed the platform to Azure with repeatable release controls.",
+        "Implemented monitoring and logging with Prometheus, Grafana, and Jaeger to make diagnostics part of daily engineering work.",
+        "Managed the Taiwan engineering team across 7 engineers while keeping project execution and technical direction on the same track.",
+        "Coordinated cross-region collaboration with Hong Kong and Australia teams to keep delivery aligned across product, engineering, and operations.",
       ],
       keywords: [
         "Next.js",
@@ -70,41 +71,40 @@ export const resumeEn: ResumeContent = {
         "Azure DevOps",
         "Observability",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg Taiwan",
-      role: "Engineering Lead",
+      role: "Assistant Team Manager / Engineering Lead",
       period: "2020.04 - 2024.04",
       location: "Taichung, Taiwan",
-      mission:
-        "Led engineering execution across mobile, desktop, and data services in a global e-commerce setting, balancing product reliability with delivery pace.",
       impactBullets: [
-        "Coordinated B2C mobile, B2B desktop, and backend data-service work across a 20+ engineer environment to keep multiple product lines moving on a shared delivery rhythm.",
-        "Supported hybrid mobile products sustaining a 4.6 App Store rating, 1M+ downloads, and 99.9% crash-free users.",
-        "Improved Android push open rate from 2% to 5% and reduced invalid device tokens by 33%, while also improving mobile web performance and Core Web Vitals.",
+        "Led 20+ engineers supporting B2C mobile, B2B desktop, and big data platforms in a global e-commerce environment.",
+        "Maintained a mobile app with 1M+ downloads, a 4.6 App Store rating, and 99.9% crash-free users.",
+        "Improved push notification open rate from 2% to 5% through delivery coordination, analytics work, and message-quality tuning.",
+        "Reduced invalid device tokens by approximately 33%, improving notification reliability and downstream marketing efficiency.",
+        "Improved Core Web Vitals by reducing bad URLs from 50% to below 7% on the mobile web experience.",
+        "Implemented microservice architecture and a shared presentation layer to support parallel product delivery.",
       ],
       keywords: [
         "React Native",
         "React",
-        "Engineering Leadership",
+        "Team Leadership",
         "Analytics",
         "SEO",
         "Push Notifications",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg Taiwan",
       role: "Staff Engineer",
       period: "2016.04 - 2020.04",
       location: "Taichung, Taiwan",
-      mission:
-        "Owned core B2B commerce services and pushed the platform toward a more testable, modern delivery model.",
       impactBullets: [
-        "Built core account, shopping, and order-processing services that supported key B2B transaction flows.",
-        "Integrated 4 major business and payment capabilities, including PayPal, MasterPass, e-procurement, and Net Terms.",
-        "Introduced unit testing, TDD, CI/CD, and migration work from .NET Framework to .NET Core, reducing regression cost and improving modernization readiness.",
+        "Developed backend services for the B2B e-commerce platform across account, shopping, and order-processing flows.",
+        "Built core services that supported high-value B2B transaction and procurement scenarios.",
+        "Migrated services from .NET Framework to .NET Core to modernize the platform and prepare for more modular backend delivery.",
+        "Introduced TDD and CI/CD with Jenkins and GitLab, improving release confidence and reducing regression cost.",
+        "Optimized service performance with dotTrace and Visual Studio Profiler to improve response time and backend efficiency.",
       ],
       keywords: [
         "C#",
@@ -112,98 +112,81 @@ export const resumeEn: ResumeContent = {
         "B2B Commerce",
         "MS SQL",
         "CI/CD",
-        "System Integration",
+        "Performance Profiling",
       ],
-      emphasis: "featured",
     },
     {
       company: "Newegg Taiwan",
       role: "QA Automation Engineer",
       period: "2013.04 - 2016.04",
       location: "Taichung, Taiwan",
-      mission:
-        "Started in test automation, building a system-level view of quality, operational risk, and failure patterns before moving into backend engineering.",
       impactBullets: [
-        "Built API and UI automation with SoapUI, Postman, Selenium, and Nightwatch to reduce repetitive regression work.",
-        "Created reusable test-data and validation scripts to speed up defect reproduction and verification.",
-        "Carried the QA perspective forward into backend work with stronger discipline around system behavior and risk.",
+        "Supported e-commerce order and shopping-flow quality across core transactional journeys.",
+        "Built automation tests with Selenium and Nightwatch to reduce repetitive manual regression work.",
+        "Improved test coverage and integration testing processes, building the system perspective that later carried into backend engineering.",
       ],
       keywords: [
-        "SoapUI",
-        "Postman",
         "Selenium",
         "Nightwatch",
-        "Automation",
-        "Regression Testing",
+        "Automation Testing",
+        "Integration Testing",
       ],
-      emphasis: "earlier",
     },
   ],
-  selectedWins: [
+  topSkills: [
+    "C#",
+    ".NET Core",
+    "System Architecture",
+    "Microservices",
+    "Azure",
+    "CI/CD",
+    "Backend Development",
+    "SQL",
+    "Distributed Systems",
+    "Team Leadership",
+  ],
+  featured: [
     {
-      title: "First Horizon Logistics Platform",
-      period: "2024 - Present",
+      title: "Newegg App",
       summary:
-        "Treated architecture, delivery, and observability as a single design problem so operability was built in from day one instead of patched in later.",
+        "Consumer-facing mobile product ownership across reliability, engagement, and release quality.",
       proofPoints: [
-        "Defined the initial frontend/backend architecture, domain boundaries, and delivery operating model.",
-        "Made CI/CD, deployment flow, and observability part of day-one execution rather than a later maturity project.",
-        "Created a platform that could move quickly without leaving behind an unmaintainable engineering base.",
+        "Supported products with 1M+ downloads and a 4.6 App Store rating.",
+        "Maintained 99.9% crash-free users while improving notification quality and release stability.",
+        "Moved push notification open rate from 2% to 5% and reduced invalid tokens by approximately 33%.",
       ],
-      tags: ["Greenfield Platform", "Azure", ".NET", "Next.js"],
     },
     {
-      title: "Mobile Reliability and Growth Improvements",
-      period: "2020 - 2024",
+      title: "B2B Website",
       summary:
-        "Long-running improvement work across shipped products, balancing reliability, performance, and engagement metrics instead of optimizing for only one side.",
+        "Backend modernization work across critical B2B commerce and procurement flows.",
       proofPoints: [
-        "Supported daily quality and release expectations for products with 1M+ downloads.",
-        "Maintained 99.9% crash-free users while improving mobile web performance signals.",
-        "Moved push open rate from 2% to 5% and reduced invalid device tokens by 33%.",
+        "Built account, cart, and order-processing services for core B2B transactions.",
+        "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
+        "Drove .NET Framework to .NET Core migration alongside TDD and CI/CD adoption.",
       ],
-      tags: ["Mobile Reliability", "Performance", "Analytics"],
     },
     {
-      title: "Newegg Global Hackathon - Follow Seller",
-      period: "2021",
+      title: "Architecture / Platform Leadership",
       summary:
-        "Validated a product concept under tight constraints, coordinated cross-functional work quickly, and converted the prototype into a production outcome.",
+        "0→1 platform leadership that combined architecture, delivery, observability, and cross-region execution.",
       proofPoints: [
-        "Delivered a working prototype inside a 3-day sprint.",
-        "Won 1st Place and Most Valuable Project Award at the global hackathon.",
-        "Extended the concept into a shipped production feature.",
+        "Led First Horizon from greenfield planning into production delivery structure.",
+        "Managed a 7-engineer Taiwan team while aligning with Hong Kong and Australia stakeholders.",
+        "Established Azure DevOps, deployment flow, and Prometheus/Grafana/Jaeger observability from the start.",
       ],
-      tags: ["Hackathon", "Product Delivery", "Leadership"],
     },
   ],
-  coreStack: [
+  projects: [
     {
-      title: "Backend / Service Design",
-      items: ["C#", ".NET Core", "ASP.NET Core", "REST API", "Domain Modeling"],
-    },
-    {
-      title: "Platform Architecture",
-      items: [
-        "CQRS",
-        "Monorepo",
-        "Vertical Slice Architecture",
-        "Distributed Systems Design",
+      title: "Follow Seller - Newegg Hackathon",
+      subtitle: "Newegg Global Hackathon",
+      bullets: [
+        "Built the prototype in 3 days and validated the concept under real hackathon constraints.",
+        "Won 1st Place and Most Valuable Project Award in the global hackathon.",
+        "Extended the concept into a production launch after the initial prototype.",
       ],
-    },
-    {
-      title: "Cloud / Delivery",
-      items: [
-        "Microsoft Azure",
-        "Azure DevOps",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-      ],
-    },
-    {
-      title: "Product / Reliability",
-      items: ["Next.js", "React", "React Native", "Observability", "Performance"],
+      tags: ["Hackathon", "Prototype", "Production Launch"],
     },
   ],
   certifications: [
@@ -216,9 +199,7 @@ export const resumeEn: ResumeContent = {
       title: "Newegg Global Hackathon - 1st Place",
       issuer: "Newegg",
       year: "2021",
-      note: "Follow Seller / Most Valuable Project Award",
+      note: "Most Valuable Project Award / Follow Seller",
     },
   ],
-  contactNote:
-    "Direct personal contact details are intentionally omitted from this public site. Public links stay available here.",
 };
