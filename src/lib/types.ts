@@ -80,9 +80,103 @@ export type ShowcaseProjectItem = {
   note?: string;
 };
 
+export type PersonalProjectDetailImage = {
+  kind: "placeholder";
+  alt: string;
+};
+
+export type PersonalProjectFeedback =
+  | {
+      type: "github-issue";
+      repoUrl: string;
+      emailOptional: true;
+    }
+  | {
+      type: "disabled";
+      message: string;
+    };
+
+export type PersonalProjectItem = ShowcaseProjectItem & {
+  slug: string;
+  detailIntro: string[];
+  detailImage: PersonalProjectDetailImage;
+  feedback: PersonalProjectFeedback;
+};
+
 export type ProjectShowcase = {
-  personal: ShowcaseProjectItem[];
+  personal: PersonalProjectItem[];
   core: ShowcaseProjectItem[];
+};
+
+export type HomeProofItem = {
+  value: string;
+  label: string;
+  detail: string;
+};
+
+export type HomeGithubSignal = {
+  title: string;
+  subtitle: string;
+  status: string;
+  updatedLabel: string;
+  summary: string;
+  highlights: string[];
+  tags?: string[];
+  href?: string;
+  hrefLabel?: string;
+  note?: string;
+};
+
+export type HomeTeamGalleryItem = {
+  title: string;
+  contextLabel: string;
+  caption: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  variant?: "primary" | "secondary";
+};
+
+export type HomeSecondarySignal = {
+  label: string;
+  value: string;
+  note?: string;
+  href?: string;
+  hrefLabel?: string;
+};
+
+export type HomePathwayItem = {
+  routeKey: Exclude<RouteKey, "home">;
+  eyebrow: string;
+  title: string;
+  description: string;
+  hrefLabel: string;
+};
+
+export type HomeContent = {
+  heroEyebrow: string;
+  heroTitle: string;
+  heroIntro: string;
+  resumeCtaLabel: string;
+  githubCtaLabel: string;
+  proofBoardEyebrow: string;
+  proofBoardTitle: string;
+  homeProofBoard: HomeProofItem[];
+  githubEyebrow: string;
+  githubTitle: string;
+  githubIntro: string;
+  githubSignals: HomeGithubSignal[];
+  secondarySignalsTitle?: string;
+  secondarySignals?: HomeSecondarySignal[];
+  teamEyebrow: string;
+  teamTitle: string;
+  teamIntro: string;
+  teamGallery: HomeTeamGalleryItem[];
+  leadershipProofTitle: string;
+  leadershipProofs: HomeProofItem[];
+  nextEyebrow: string;
+  nextTitle: string;
+  nextIntro: string;
+  pathways: HomePathwayItem[];
 };
 
 export type Certification = {

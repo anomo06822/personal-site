@@ -1,15 +1,61 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getResume } from "@/lib/resume";
-import { isLocale, siteConfig, siteCopy } from "@/lib/site";
+import { isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
 import type {
+  ContactIcon,
   ContactLink,
   ExperienceEntry,
   FeaturedItem,
+  Locale,
   ProjectItem,
   ResumeImpactPoint,
 } from "@/lib/types";
 import { parseResumePeriod } from "@/lib/utils";
+
+const linkMonograms: Record<ContactIcon, string> = {
+  linkedin: "IN",
+  github: "GH",
+};
+
+const printEyebrows: Record<
+  Locale,
+  {
+    dossier: string;
+    summary: string;
+    contact: string;
+    highlights: string;
+    experience: string;
+    skills: string;
+    featured: string;
+    projects: string;
+    certifications: string;
+  }
+> = {
+  "zh-TW": {
+    dossier: "Public Resume / Dossier",
+    summary: "履歷摘要",
+    contact: "公開入口",
+    highlights: "關鍵訊號",
+    experience: "經歷主線",
+    skills: "核心技能",
+    featured: "代表工作",
+    projects: "作品證明",
+    certifications: "證照與獎項",
+  },
+  en: {
+    dossier: "Public Resume / Dossier",
+    summary: "Profile Digest",
+    contact: "Public Paths",
+    highlights: "Impact Signals",
+    experience: "Operating History",
+    skills: "Core Stack",
+    featured: "Selected Work",
+    projects: "Build Proof",
+    certifications: "Credentials",
+  },
+};
 
 function getDisplayHref(href: string) {
   try {
@@ -44,8 +90,20 @@ export async function generateMetadata({
   };
 }
 
-function SectionHeading({ title }: { title: string }) {
-  return <h2 className="resume-print-heading">{title}</h2>;
+function SectionHeading({
+  title,
+  eyebrow,
+}: {
+  title: string;
+  eyebrow: string;
+}) {
+  return (
+    <div className="resume-print-heading-group">
+      <div className="resume-print-eyebrow">{eyebrow}</div>
+      <h2 className="resume-print-heading">{title}</h2>
+      <div className="resume-print-heading-rule" />
+    </div>
+  );
 }
 
 function PublicLinkItem({
@@ -56,11 +114,14 @@ function PublicLinkItem({
   locale: "zh-TW" | "en";
 }) {
   return (
-    <li className="resume-print-item border-b border-slate-200/80 pb-3 last:border-b-0 last:pb-0">
-      <a href={link.href} className="block">
-        <div className="text-sm font-medium text-slate-900">{link.localeLabel[locale]}</div>
-        <div className="mt-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-slate-500">
-          {getDisplayHref(link.href)}
+    <li className="resume-print-item">
+      <a href={link.href} className="resume-print-link-card">
+        <span className="resume-print-link-mark" data-link-icon={link.icon}>
+          {linkMonograms[link.icon]}
+        </span>
+        <div className="min-w-0">
+          <div className="resume-print-link-label">{link.localeLabel[locale]}</div>
+          <div className="resume-print-link-url">{getDisplayHref(link.href)}</div>
         </div>
       </a>
     </li>
@@ -69,14 +130,10 @@ function PublicLinkItem({
 
 function HighlightCard({ item }: { item: ResumeImpactPoint }) {
   return (
-    <article className="resume-print-card">
-      <div className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-slate-500">
-        {item.label}
-      </div>
-      <div className="mt-2 text-[1.8rem] font-semibold tracking-tight text-slate-950">
-        {item.value}
-      </div>
-      <p className="mt-2 text-[0.84rem] leading-5 text-slate-600">{item.detail}</p>
+    <article className="resume-print-card resume-print-stat-card">
+      <div className="resume-print-eyebrow">{item.label}</div>
+      <div className="resume-print-stat-value">{item.value}</div>
+      <p className="resume-print-stat-detail">{item.detail}</p>
     </article>
   );
 }
@@ -86,18 +143,14 @@ function ExperienceCard({ experience }: { experience: ExperienceEntry }) {
 
   return (
     <article className="resume-print-card resume-print-experience">
-      <div className="flex flex-col gap-2 border-b border-slate-200 pb-3 sm:flex-row sm:items-start sm:justify-between">
+      <div className="resume-print-experience-header">
         <div>
-          <h3 className="text-[1rem] font-semibold tracking-tight text-slate-950">
-            {experience.role}
-          </h3>
-          <div className="mt-0.5 text-[0.84rem] font-medium text-slate-700">
-            {experience.company}
-          </div>
+          <h3 className="resume-print-experience-title">{experience.role}</h3>
+          <div className="resume-print-experience-company">{experience.company}</div>
         </div>
 
-        <div className="text-[0.82rem] leading-5 text-slate-500 sm:text-right">
-          <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-slate-500">
+        <div className="resume-print-experience-meta">
+          <div className="resume-print-experience-period">
             {period.rangeLabel}
           </div>
           <div className="mt-0.5">{experience.location}</div>
@@ -117,11 +170,11 @@ function ExperienceCard({ experience }: { experience: ExperienceEntry }) {
 
 function FeaturedCard({ item }: { item: FeaturedItem }) {
   return (
-    <article className="resume-print-item border-b border-slate-200 pb-4 last:border-b-0 last:pb-0">
-      <h3 className="text-base font-semibold tracking-tight text-slate-950">
-        {item.title}
-      </h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600">{item.summary}</p>
+    <article className="resume-print-item border-b border-[var(--resume-line)] pb-4 last:border-b-0 last:pb-0">
+      <h3 className="resume-print-panel-title">{item.title}</h3>
+      <p className="mt-2 text-[0.82rem] leading-5 text-[var(--resume-muted)]">
+        {item.summary}
+      </p>
       <ul className="resume-print-list mt-3">
         {item.proofPoints.map((point) => (
           <li key={point}>
@@ -135,12 +188,12 @@ function FeaturedCard({ item }: { item: FeaturedItem }) {
 
 function ProjectCard({ item }: { item: ProjectItem }) {
   return (
-    <article className="resume-print-item border-b border-slate-200 pb-4 last:border-b-0 last:pb-0">
-      <h3 className="text-base font-semibold tracking-tight text-slate-950">
-        {item.title}
-      </h3>
+    <article className="resume-print-item border-b border-[var(--resume-line)] pb-4 last:border-b-0 last:pb-0">
+      <h3 className="resume-print-panel-title">{item.title}</h3>
       {item.subtitle ? (
-        <div className="mt-1 text-sm font-medium text-slate-600">{item.subtitle}</div>
+        <div className="mt-1 text-[0.82rem] font-medium text-[var(--resume-muted)]">
+          {item.subtitle}
+        </div>
       ) : null}
       <ul className="resume-print-list mt-3">
         {item.bullets.map((bullet) => (
@@ -175,49 +228,62 @@ export default async function PrintResumePage({
 
   const copy = siteCopy[locale];
   const resume = getResume(locale);
+  const eyebrowCopy = printEyebrows[locale];
 
   return (
     <div className="resume-print-page" data-pdf-ready="true">
       <div className="resume-print-shell">
-        <header className="resume-print-section border-b border-slate-200 pb-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <header className="resume-print-section resume-print-header">
+          <div className="resume-print-hero-grid">
             <div className="space-y-4">
-              <div className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-slate-500">
-                Jarvis Huang / Resume
-              </div>
+              <div className="resume-print-eyebrow">{eyebrowCopy.dossier}</div>
               <div>
-                <h1 className="text-[2.4rem] font-semibold tracking-tight text-slate-950">
-                  {resume.profile.englishName}
-                </h1>
-                <div className="mt-1 text-sm leading-6 text-slate-500">
+                <h1 className="resume-print-title">{resume.profile.englishName}</h1>
+                <div className="resume-print-name-row">
                   {resume.profile.name} · {resume.profile.locationLabel}
                 </div>
               </div>
-              <div className="space-y-2">
-                <div className="text-[1.25rem] font-semibold leading-8 text-slate-950">
+              <div className="space-y-3">
+                <div className="resume-print-hero-lead">
                   {resume.positioning.headlinePrimary}
                 </div>
-                <div className="max-w-3xl text-base leading-7 text-slate-600">
+                <div className="resume-print-hero-subtitle">
                   {resume.positioning.headlineSecondary}
                 </div>
+                <p className="resume-print-standfirst">{resume.about[0]}</p>
               </div>
             </div>
 
-            <aside className="resume-print-card md:w-[17rem]">
-              <SectionHeading title={copy.resume.rolesEyebrow} />
-              <div className="mt-4 flex flex-wrap gap-2">
-                {resume.positioning.openToRoles.map((role) => (
-                  <span key={role} className="resume-print-chip">
-                    {role}
-                  </span>
-                ))}
+            <aside className="resume-print-identity-card">
+              <div className="resume-print-portrait-frame">
+                <Image
+                  src={withBasePath(resume.profile.portraitSrc)}
+                  alt={resume.profile.portraitAlt}
+                  width={132}
+                  height={164}
+                  priority
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              <div className="space-y-3">
+                <div className="resume-print-eyebrow">{copy.resume.rolesEyebrow}</div>
+                <div className="flex flex-wrap gap-2">
+                  {resume.positioning.openToRoles.map((role) => (
+                    <span key={role} className="resume-print-chip">
+                      {role}
+                    </span>
+                  ))}
+                </div>
               </div>
             </aside>
           </div>
 
-          <div className="mt-5 grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
-            <section className="resume-print-card">
-              <SectionHeading title={copy.resume.pdfSummaryTitle} />
+          <div className="resume-print-overview-grid">
+            <section className="resume-print-card resume-print-card-emphasis">
+              <SectionHeading
+                title={copy.resume.pdfSummaryTitle}
+                eyebrow={eyebrowCopy.summary}
+              />
               <ul className="resume-print-list mt-4">
                 {resume.pdf.summary.map((item) => (
                   <li key={item}>
@@ -228,8 +294,11 @@ export default async function PrintResumePage({
             </section>
 
             <section className="resume-print-card">
-              <SectionHeading title={copy.contact.methodsTitle} />
-              <ul className="mt-4 space-y-3">
+              <SectionHeading
+                title={copy.contact.methodsTitle}
+                eyebrow={eyebrowCopy.contact}
+              />
+              <ul className="mt-4 grid gap-2.5">
                 {siteConfig.socialLinks.map((link) => (
                   <PublicLinkItem key={link.href} link={link} locale={locale} />
                 ))}
@@ -239,7 +308,10 @@ export default async function PrintResumePage({
         </header>
 
         <section className="resume-print-section pt-4">
-          <SectionHeading title={copy.resume.highlightsTitle} />
+          <SectionHeading
+            title={copy.resume.highlightsTitle}
+            eyebrow={eyebrowCopy.highlights}
+          />
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {resume.highlights.map((item) => (
               <HighlightCard key={item.label} item={item} />
@@ -248,7 +320,10 @@ export default async function PrintResumePage({
         </section>
 
         <section className="resume-print-section pt-4">
-          <SectionHeading title={copy.resume.experienceTitle} />
+          <SectionHeading
+            title={copy.resume.experienceTitle}
+            eyebrow={eyebrowCopy.experience}
+          />
           <div className="mt-4 space-y-3">
             {resume.experiences.map((experience) => (
               <ExperienceCard
@@ -260,9 +335,12 @@ export default async function PrintResumePage({
         </section>
 
         <section className="resume-print-section pt-4">
-          <div className="grid gap-4 md:grid-cols-2">
-            <article className="resume-print-card">
-              <SectionHeading title={copy.resume.skillsTitle} />
+          <div className="grid gap-4 md:grid-cols-[0.92fr_1.08fr]">
+            <article className="resume-print-card resume-print-card-emphasis">
+              <SectionHeading
+                title={copy.resume.skillsTitle}
+                eyebrow={eyebrowCopy.skills}
+              />
               <div className="mt-4 flex flex-wrap gap-2">
                 {resume.topSkills.map((skill) => (
                   <span key={skill} className="resume-print-chip">
@@ -273,7 +351,10 @@ export default async function PrintResumePage({
             </article>
 
             <article className="resume-print-card">
-              <SectionHeading title={copy.resume.featuredTitle} />
+              <SectionHeading
+                title={copy.resume.featuredTitle}
+                eyebrow={eyebrowCopy.featured}
+              />
               <div className="mt-4 space-y-4">
                 {resume.pdf.featured.map((item) => (
                   <FeaturedCard key={item.title} item={item} />
@@ -282,7 +363,10 @@ export default async function PrintResumePage({
             </article>
 
             <article className="resume-print-card">
-              <SectionHeading title={copy.resume.projectsTitle} />
+              <SectionHeading
+                title={copy.resume.projectsTitle}
+                eyebrow={eyebrowCopy.projects}
+              />
               <div className="mt-4 space-y-4">
                 {resume.pdf.projects.map((item) => (
                   <ProjectCard key={item.title} item={item} />
@@ -291,19 +375,22 @@ export default async function PrintResumePage({
             </article>
 
             <article className="resume-print-card">
-              <SectionHeading title={copy.resume.certificationsTitle} />
+              <SectionHeading
+                title={copy.resume.certificationsTitle}
+                eyebrow={eyebrowCopy.certifications}
+              />
               <div className="mt-4 space-y-4">
                 {resume.certifications.map((item) => (
                   <div
                     key={item.title}
-                    className="resume-print-item border-b border-slate-200 pb-4 last:border-b-0 last:pb-0"
+                    className="resume-print-item border-b border-[var(--resume-line)] pb-4 last:border-b-0 last:pb-0"
                   >
-                    <div className="text-sm font-medium text-slate-900">{item.title}</div>
-                    <div className="mt-1 text-sm leading-6 text-slate-600">
+                    <div className="resume-print-panel-title">{item.title}</div>
+                    <div className="mt-1 text-[0.82rem] leading-5 text-[var(--resume-muted)]">
                       {item.issuer} / {item.year}
                     </div>
                     {item.note ? (
-                      <div className="mt-1 text-sm leading-6 text-slate-500">
+                      <div className="mt-1 text-[0.8rem] leading-5 text-[var(--resume-muted)]">
                         {item.note}
                       </div>
                     ) : null}

@@ -64,7 +64,25 @@ export const siteCopy = {
       showcaseCoreTab: "核心項目",
       showcaseTabsAriaLabel: "專案介紹分頁",
       showcaseImageSlotLabel: "預留圖片",
+      showcasePersonalCtaLabel: "查看專案頁面",
       downloadPdfLabel: "下載 PDF",
+      projectDetailEyebrow: "個人專案",
+      projectDetailBackLabel: "返回履歷",
+      projectDetailImageLabel: "Image",
+      projectDetailOverviewLabel: "介紹",
+      projectDetailFeedbackLabel: "Feedback",
+      projectDetailPreviewLabel: "Preview Surface",
+      projectDetailPreviewNote: "目前先以站內生成 placeholder 呈現，之後可替換為實際產品截圖。",
+      projectDetailFeedbackIntro:
+        "如果你對這個專案有建議，可以先在這裡整理成草稿，系統會帶你到 GitHub issue 頁面完成建立。",
+      projectDetailFeedbackTitleLabel: "建議標題",
+      projectDetailFeedbackMessageLabel: "建議內容",
+      projectDetailFeedbackEmailLabel: "Email（選填）",
+      projectDetailFeedbackEmailHint: "若你希望後續能聯絡到你，可以留下 email。",
+      projectDetailFeedbackSubmitLabel: "建立 GitHub issue 草稿",
+      projectDetailFeedbackOpenedLabel: "已在新分頁開啟 GitHub issue 草稿。",
+      projectDetailFeedbackValidationLabel: "請先填寫標題與建議內容。",
+      projectDetailFeedbackDisabledLabel: "目前尚未開放 feedback",
       projectsTitle: "Projects",
       certificationsTitle: "證照 / 獎項",
     },
@@ -144,7 +162,29 @@ export const siteCopy = {
       showcaseCoreTab: "Core Products",
       showcaseTabsAriaLabel: "Project showcase tabs",
       showcaseImageSlotLabel: "Preview Slot",
+      showcasePersonalCtaLabel: "View project page",
       downloadPdfLabel: "Download PDF",
+      projectDetailEyebrow: "Personal Project",
+      projectDetailBackLabel: "Back to resume",
+      projectDetailImageLabel: "Image",
+      projectDetailOverviewLabel: "Overview",
+      projectDetailFeedbackLabel: "Feedback",
+      projectDetailPreviewLabel: "Preview Surface",
+      projectDetailPreviewNote:
+        "This placeholder is intentionally generated inside the site and can be replaced with real product screenshots later.",
+      projectDetailFeedbackIntro:
+        "If you have feedback for this project, draft it here and the site will open a GitHub issue form with the content prefilled.",
+      projectDetailFeedbackTitleLabel: "Suggestion title",
+      projectDetailFeedbackMessageLabel: "Suggestion",
+      projectDetailFeedbackEmailLabel: "Email (optional)",
+      projectDetailFeedbackEmailHint:
+        "Leave an email only if you want follow-up outside the GitHub thread.",
+      projectDetailFeedbackSubmitLabel: "Open GitHub issue draft",
+      projectDetailFeedbackOpenedLabel:
+        "A prefilled GitHub issue draft has been opened in a new tab.",
+      projectDetailFeedbackValidationLabel:
+        "Fill in both the title and suggestion before opening the issue draft.",
+      projectDetailFeedbackDisabledLabel: "Feedback is not open for this project yet",
       projectsTitle: "Projects",
       certificationsTitle: "Certifications / Awards",
     },
@@ -218,4 +258,20 @@ export function getRouteHref(locale: Locale, routeKey: RouteKey, slug?: string) 
     default:
       return `/${locale}`;
   }
+}
+
+export function getProjectHref(locale: Locale, slug: string) {
+  return `/${locale}/projects/${slug}`;
+}
+
+export function withBasePath(pathname: string) {
+  if (!pathname.startsWith("/")) {
+    return `${siteConfig.basePath}/${pathname}`;
+  }
+
+  if (pathname.startsWith(siteConfig.basePath)) {
+    return pathname;
+  }
+
+  return `${siteConfig.basePath}${pathname}`;
 }

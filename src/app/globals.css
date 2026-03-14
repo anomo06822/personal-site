@@ -230,19 +230,49 @@ button {
   }
 
   .resume-print-page {
+    --resume-paper: #fbf5ea;
+    --resume-paper-strong: #fffaf2;
+    --resume-panel: rgba(255, 251, 244, 0.98);
+    --resume-panel-strong: rgba(248, 239, 224, 0.98);
+    --resume-line: rgba(67, 54, 39, 0.12);
+    --resume-line-strong: rgba(172, 100, 48, 0.22);
+    --resume-ink: #211b14;
+    --resume-muted: #6a6154;
+    --resume-accent: #ac6430;
+    --resume-accent-soft: rgba(172, 100, 48, 0.1);
+    --resume-shadow: 0 18px 40px rgba(94, 71, 48, 0.08);
     min-height: 100vh;
-    background: #fff;
-    color: #0f172a;
-    padding: 2.5rem 1.25rem 3rem;
+    background:
+      radial-gradient(circle at top left, rgba(207, 144, 84, 0.18), transparent 32%),
+      radial-gradient(circle at top right, rgba(148, 138, 122, 0.12), transparent 24%),
+      linear-gradient(180deg, #fbf7ef 0%, #f4ede1 52%, #efe6d8 100%);
+    color: var(--resume-ink);
+    padding: 2rem 1rem 2.5rem;
   }
 
   .resume-print-shell {
+    position: relative;
+    overflow: hidden;
     margin: 0 auto;
     width: min(100%, 8.27in);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: #fff;
-    box-shadow: 0 22px 54px rgba(15, 23, 42, 0.08);
-    padding: 0.45in 0.5in;
+    border: 1px solid var(--resume-line);
+    border-radius: 28px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, transparent 12%),
+      linear-gradient(180deg, var(--resume-paper-strong) 0%, var(--resume-paper) 100%);
+    box-shadow: var(--resume-shadow);
+    padding: 0.36in 0.42in 0.4in;
+  }
+
+  .resume-print-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(172, 100, 48, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 18%);
+    opacity: 0.9;
   }
 
   .resume-print-section,
@@ -252,52 +282,306 @@ button {
     page-break-inside: avoid;
   }
 
+  .resume-print-header {
+    position: relative;
+    border-bottom: 1px solid var(--resume-line);
+    padding-bottom: 1rem;
+  }
+
+  .resume-print-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1px;
+    width: 11rem;
+    background: linear-gradient(90deg, rgba(172, 100, 48, 0.4), rgba(172, 100, 48, 0));
+  }
+
+  .resume-print-hero-grid {
+    position: relative;
+    display: grid;
+    gap: 0.95rem;
+    grid-template-columns: minmax(0, 1.22fr) minmax(12rem, 13.25rem);
+    align-items: end;
+    z-index: 1;
+  }
+
+  .resume-print-overview-grid {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.85rem;
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+  }
+
+  .resume-print-eyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--resume-accent);
+  }
+
+  .resume-print-title {
+    font-size: 2.28rem;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--resume-ink);
+    font-weight: 700;
+  }
+
+  .resume-print-name-row {
+    margin-top: 0.28rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--resume-muted);
+  }
+
+  .resume-print-hero-lead {
+    max-width: 35rem;
+    font-size: 1.18rem;
+    line-height: 1.28;
+    letter-spacing: -0.03em;
+    color: var(--resume-ink);
+    font-weight: 600;
+  }
+
+  .resume-print-hero-subtitle {
+    max-width: 34rem;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: var(--resume-accent);
+  }
+
+  .resume-print-standfirst {
+    max-width: 34rem;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--resume-muted);
+  }
+
+  .resume-print-identity-card {
+    display: grid;
+    gap: 0.75rem;
+    align-self: stretch;
+    border: 1px solid var(--resume-line-strong);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 248, 239, 0.98), rgba(250, 243, 232, 0.94));
+    padding: 0.75rem;
+    box-shadow: 0 14px 28px rgba(94, 71, 48, 0.07);
+  }
+
+  .resume-print-portrait-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 4.6;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    background:
+      radial-gradient(circle at top left, rgba(172, 100, 48, 0.16), transparent 30%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(15, 23, 42, 0.05));
+  }
+
+  .resume-print-heading-group {
+    display: grid;
+    gap: 0.18rem;
+  }
+
   .resume-print-heading {
-    color: #0f172a;
-    font-size: 1rem;
+    color: var(--resume-ink);
+    font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
 
+  .resume-print-heading-rule {
+    margin-top: 0.28rem;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(172, 100, 48, 0.44),
+      rgba(172, 100, 48, 0.1)
+    );
+  }
+
   .resume-print-card {
-    border: 1px solid rgba(15, 23, 42, 0.12);
+    border: 1px solid var(--resume-line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--resume-panel) 0%, var(--resume-paper) 100%);
+    padding: 0.78rem 0.86rem;
+    box-shadow: 0 10px 24px rgba(94, 71, 48, 0.05);
+  }
+
+  .resume-print-card-emphasis {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 248, 239, 0.98) 0%,
+      rgba(250, 243, 232, 0.94) 100%
+    );
+    border-color: var(--resume-line-strong);
+  }
+
+  .resume-print-link-card {
+    display: grid;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid var(--resume-line);
     border-radius: 16px;
-    background: #fff;
-    padding: 0.85rem 0.95rem;
+    background: rgba(255, 251, 244, 0.84);
+    padding: 0.68rem 0.76rem;
+  }
+
+  .resume-print-link-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--resume-line);
+    font-family: var(--font-mono), monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .resume-print-link-mark[data-link-icon="linkedin"] {
+    border-color: rgba(10, 102, 194, 0.18);
+    background: rgba(10, 102, 194, 0.1);
+    color: #0a66c2;
+  }
+
+  .resume-print-link-mark[data-link-icon="github"] {
+    border-color: rgba(36, 41, 47, 0.16);
+    background: rgba(36, 41, 47, 0.08);
+    color: #24292f;
+  }
+
+  .resume-print-link-label {
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: var(--resume-ink);
+    font-weight: 600;
+  }
+
+  .resume-print-link-url {
+    margin-top: 0.14rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--resume-muted);
+  }
+
+  .resume-print-stat-card {
+    border-color: var(--resume-line-strong);
+    background: linear-gradient(180deg, rgba(255, 248, 239, 0.98), rgba(250, 243, 232, 0.94));
+  }
+
+  .resume-print-stat-value {
+    margin-top: 0.36rem;
+    font-size: 1.72rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--resume-ink);
+    font-weight: 700;
+  }
+
+  .resume-print-stat-detail {
+    margin-top: 0.44rem;
+    font-size: 0.78rem;
+    line-height: 1.42;
+    color: var(--resume-muted);
   }
 
   .resume-print-experience {
+    position: relative;
     break-inside: auto;
     page-break-inside: auto;
-    border: 0;
-    border-radius: 0;
-    padding: 0 0 0.9rem;
+    padding: 0.72rem 0.78rem 0.76rem 1rem;
   }
 
-  .resume-print-experience + .resume-print-experience {
-    border-top: 1px solid rgba(15, 23, 42, 0.14);
-    padding-top: 0.9rem;
+  .resume-print-experience::before {
+    content: "";
+    position: absolute;
+    left: 0.58rem;
+    top: 0.8rem;
+    bottom: 0.8rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--resume-accent), rgba(172, 100, 48, 0.18));
+  }
+
+  .resume-print-experience-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--resume-line);
+    padding-bottom: 0.5rem;
+  }
+
+  .resume-print-experience-title {
+    font-size: 0.96rem;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: var(--resume-ink);
+    font-weight: 600;
+  }
+
+  .resume-print-experience-company {
+    margin-top: 0.14rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--resume-muted);
+    font-weight: 600;
+  }
+
+  .resume-print-experience-meta {
+    font-size: 0.76rem;
+    line-height: 1.35;
+    color: var(--resume-muted);
+  }
+
+  .resume-print-experience-period {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--resume-accent);
+  }
+
+  .resume-print-panel-title {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--resume-ink);
+    font-weight: 600;
   }
 
   .resume-print-chip {
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.14);
-    background: rgba(15, 23, 42, 0.03);
-    padding: 0.22rem 0.55rem;
+    border: 1px solid var(--resume-line-strong);
+    background: var(--resume-accent-soft);
+    padding: 0.2rem 0.52rem;
     font-family: var(--font-mono), monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #334155;
+    color: var(--resume-ink);
   }
 
   .resume-print-list {
     display: grid;
-    gap: 0.38rem;
-    color: #334155;
-    font-size: 0.84rem;
+    gap: 0.34rem;
+    color: var(--resume-muted);
+    font-size: 0.78rem;
     line-height: 1.45;
   }
 
@@ -308,12 +592,12 @@ button {
 
   .resume-print-list li::before {
     content: "";
-    margin-top: 0.48rem;
+    margin-top: 0.44rem;
     height: 0.28rem;
     width: 0.28rem;
     flex-shrink: 0;
     border-radius: 999px;
-    background: #0f172a;
+    background: var(--resume-accent);
   }
 }
 
@@ -330,7 +614,7 @@ button {
   }
 
   body {
-    color: #0f172a;
+    color: var(--resume-ink);
   }
 
   .resume-print-page {
@@ -341,7 +625,12 @@ button {
     width: auto;
     margin: 0;
     border: 0;
+    border-radius: 0;
     box-shadow: none;
     padding: 0;
+  }
+
+  .resume-print-shell::before {
+    opacity: 0.75;
   }
 }

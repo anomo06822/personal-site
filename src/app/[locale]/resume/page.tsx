@@ -5,7 +5,7 @@ import { ImpactRibbon } from "@/components/impact-ribbon";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { ResumeHero } from "@/components/resume-hero";
 import { getResume, getResumePdfDownloadHref } from "@/lib/resume";
-import { isLocale, siteConfig, siteCopy } from "@/lib/site";
+import { isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
 import type { ExperienceEntry, FeaturedItem, ProjectItem } from "@/lib/types";
 import { parseResumePeriod } from "@/lib/utils";
 
@@ -183,7 +183,7 @@ export default async function ResumePage({
         intro={resume.about[0]}
         rolesEyebrow={copy.resume.rolesEyebrow}
         openToRoles={resume.positioning.openToRoles}
-        portraitSrc={resume.profile.portraitSrc}
+        portraitSrc={withBasePath(resume.profile.portraitSrc)}
         portraitAlt={resume.profile.portraitAlt}
         downloadHref={resumePdfHref}
         downloadLabel={copy.resume.downloadPdfLabel}
@@ -254,6 +254,7 @@ export default async function ResumePage({
           {copy.resume.showcaseIntro}
         </p>
         <ProjectShowcase
+          locale={locale}
           tabs={{
             personal: copy.resume.showcasePersonalTab,
             core: copy.resume.showcaseCoreTab,
@@ -261,6 +262,7 @@ export default async function ResumePage({
           items={resume.projectShowcase}
           tabsAriaLabel={copy.resume.showcaseTabsAriaLabel}
           imageSlotLabel={copy.resume.showcaseImageSlotLabel}
+          personalCtaLabel={copy.resume.showcasePersonalCtaLabel}
         />
       </section>
 

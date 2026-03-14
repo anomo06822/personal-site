@@ -183,6 +183,7 @@ export const resumeZhTW: ResumeContent = {
   projectShowcase: {
     personal: [
       {
+        slug: "ai-productivity-workspace",
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
@@ -199,10 +200,25 @@ export const resumeZhTW: ResumeContent = {
           ".NET 10",
           "Productivity",
         ],
+        detailIntro: [
+          "這個專案的核心想法不是單點工具，而是把任務管理、agent orchestration、桌面工作流與資料資產放進同一個 workspace。",
+          "目前以 Electron 桌面殼層承接日常操作，再用 React + TypeScript + Tailwind v4 建出前端表面；後端則以 .NET 10 vertical-slice API 處理資料與流程。",
+          "我把它當成長期演進的個人產品骨架，因此也把 local MCP、desktop-first dev workflow 與後續 AI-assisted workflow 一起納入設計。",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "AI Productivity Workspace placeholder preview",
+        },
+        feedback: {
+          type: "disabled",
+          message:
+            "這個 repository 目前尚未公開；等公開版整理完成後，才會開放 GitHub issue feedback。",
+        },
         imageAlt: "AI Productivity Workspace app preview",
         note: "Repository 目前尚未公開，整理完成後會再補上 GitHub 連結。",
       },
       {
+        slug: "phalanx-chronicle",
         title: "phalanx-chronicle",
         subtitle: "anomo06822/phalanx-chronicle",
         summary:
@@ -213,9 +229,61 @@ export const resumeZhTW: ResumeContent = {
           "README 內已提供 demo、畫面預覽與 headless 規則測試說明，作為持續擴充的公開遊戲原型。",
         ],
         tags: ["Unity", "SRPG", "Game Prototype", "C#", "Gameplay Systems"],
+        detailIntro: [
+          "這個專案聚焦在戰役推進與戰場規則的完整串接，目標不是單一戰鬥 demo，而是一個可延伸的 SRPG campaign prototype。",
+          "目前已經把章節解鎖、招募、裝備更換、升階、戰鬥規則、敵軍 AI 與 HUD 流程接到同一個可遊玩的 MVP 狀態。",
+          "公開 repo 也包含 demo、畫面預覽與 headless 規則測試說明，方便後續持續擴充系統與內容。",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "Phalanx Chronicle placeholder preview",
+        },
+        feedback: {
+          type: "github-issue",
+          repoUrl: "https://github.com/anomo06822/phalanx-chronicle",
+          emailOptional: true,
+        },
         href: "https://github.com/anomo06822/phalanx-chronicle",
         hrefLabel: "前往 GitHub",
         imageAlt: "Phalanx Chronicle game preview",
+      },
+      {
+        slug: "xml-toolkit",
+        title: "xml-toolkit",
+        subtitle: "anomo06822/xml-toolkit",
+        summary:
+          "聚焦 XML、JSON 與 Markdown 的多格式資料工具，提供 format、minify、sort、diff、convert 與 visualize 等日常處理能力，並往 Electron 桌面應用與可選 .NET 10 backend 延伸。",
+        bullets: [
+          "以單一工具介面整合 XML、JSON、Markdown 的格式化、縮排、排序、差異比較、轉換與視覺化流程。",
+          "加入 Gemini assistant 與 AI diff summary，並支援 Electron desktop packaging、menu bar entry、global wakeup shortcut 與 GitHub Releases 更新檢查。",
+          "可選擇使用 .NET 10 backend proxy 隔離 API key，同時保留 web/direct mode 與 Docker deployment 路徑。",
+        ],
+        tags: [
+          "XML",
+          "JSON",
+          "Markdown",
+          "Electron",
+          ".NET 10",
+          "AI Assistant",
+        ],
+        detailIntro: [
+          "這個專案原本是資料格式處理工具，現在已擴充成兼顧 web mode 與 desktop mode 的 DataToolkit，目標是把 XML、JSON、Markdown 的整理、比對與視覺化放進同一個工作介面。",
+          "除了格式化與 diff 之外，repo 也整合 Gemini assistant / AI diff summary、Electron 桌面封裝、menu bar 狀態入口、全域喚醒捷徑與 GitHub Releases 更新檢查。",
+          "如果需要把 API key 留在本機或打包到桌面版，它也提供可選的 .NET 10 backend proxy 與 Docker web deployment 路徑。",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "xml-toolkit placeholder preview",
+        },
+        feedback: {
+          type: "github-issue",
+          repoUrl: "https://github.com/anomo06822/xml-toolkit",
+          emailOptional: true,
+        },
+        href: "https://github.com/anomo06822/xml-toolkit",
+        hrefLabel: "前往 GitHub",
+        imageAlt: "xml-toolkit project preview",
+        note: "目前 repo 內產品命名偏向 DataToolkit，公開對外暫以 xml-toolkit repo 名稱呈現。",
       },
     ],
     core: [
@@ -301,8 +369,7 @@ export const resumeZhTW: ResumeContent = {
     fileName: pdfManifest["zh-TW"].fileName,
     summary: [
       "具備 10+ 年後端、平台與工程交付經驗，職涯歷程橫跨 QA、自動化測試、後端開發、技術帶領與專案管理。",
-      "熟悉 .NET、Azure、CI/CD、observability 與大型電商／物流平台系統，能把架構決策、交付節奏與維運需求放在同一個框架下處理。",
-      "適合 senior backend、platform engineering、tech lead 與 engineering management 類型角色。",
+      "熟悉 .NET、Azure、CI/CD、observability 與大型電商／物流平台系統，能把架構、交付與維運放在同一個框架下處理。",
     ],
     featured: [
       {
@@ -311,8 +378,7 @@ export const resumeZhTW: ResumeContent = {
           "0→1 平台落地，從第一階段就把架構、發版流程與觀測性當成同一套運作系統設計。",
         proofPoints: [
           "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃平台技術骨架與邊界。",
-          "建立 Azure DevOps CI/CD、Azure 發布流程與可重複執行的交付機制。",
-          "提早導入 Prometheus、Grafana、Jaeger，讓診斷能力成為日常工程流程的一部分。",
+          "建立 Azure DevOps CI/CD、Azure 發布流程，並提早導入 Prometheus、Grafana、Jaeger。",
         ],
       },
       {
@@ -321,8 +387,7 @@ export const resumeZhTW: ResumeContent = {
           "在全球電商環境下，同時支撐 consumer mobile、B2B commerce 與共享平台交付。",
         proofPoints: [
           "帶領 20+ 位工程師，涵蓋 mobile、backend 與 data platform 的交付範圍。",
-          "維持 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的產品穩定度。",
-          "將推播開啟率從 2% 提升到 5%，並把無效 token 降低約 33%。",
+          "維持 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users，並提升推播表現。",
         ],
       },
     ],
@@ -332,8 +397,7 @@ export const resumeZhTW: ResumeContent = {
         subtitle: "Newegg Global Hackathon",
         bullets: [
           "在 3 天內完成 prototype，驗證概念與執行可行性。",
-          "拿下 Global Hackathon 1st Place 與 Most Valuable Project Award。",
-          "讓最初 hackathon 原型延伸成正式上線功能方向。",
+          "拿下 Global Hackathon 1st Place 與 Most Valuable Project Award，並延伸成正式上線方向。",
         ],
         tags: ["Hackathon", "Prototype", "Production Launch"],
       },

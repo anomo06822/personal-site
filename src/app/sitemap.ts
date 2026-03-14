@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPublishedPosts } from "@/lib/posts";
-import { getRouteHref, siteConfig } from "@/lib/site";
+import { getPersonalProjects } from "@/lib/resume";
+import { getProjectHref, getRouteHref, siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -36,5 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticRoutes, ...postRoutes];
+  const projectRoutes = siteConfig.locales.flatMap((locale) =>
+    getPersonalProjects(locale).map((project) => ({
+      url: `${siteConfig.siteUrl}${getProjectHref(locale, project.slug)}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  );
+
+  return [...staticRoutes, ...postRoutes, ...projectRoutes];
 }

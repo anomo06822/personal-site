@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { createServer } from "node:http";
+import net from "node:net";
 import { readFile, mkdir, rm, cp, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +14,7 @@ const outDir = path.join(rootDir, "out");
 const previewRoot = path.join(rootDir, ".preview");
 const mountedPreviewDir = path.join(previewRoot, "personal-site");
 const manifestPath = path.join(rootDir, "content", "resume", "pdf-manifest.json");
-const port = Number(process.env.RESUME_PDF_PORT || 4321);
+const preferredPort = Number(process.env.RESUME_PDF_PORT || 4321);
 
 const contentTypes = new Map([
   [".css", "text/css; charset=utf-8"],
@@ -98,6 +99,48 @@ function startStaticServer(rootPath, listenPort) {
   });
 }
 
+async function canListenOnPort(listenPort) {
+  return new Promise((resolve) => {
+    const probe = net.createServer();
+
+    probe.once("error", () => {
+      resolve(false);
+    });
+
+    probe.listen(listenPort, "127.0.0.1", () => {
+      probe.close(() => {
+        resolve(true);
+      });
+    });
+  });
+}
+
+async function resolveListenPort() {
+  if (await canListenOnPort(preferredPort)) {
+    return preferredPort;
+  }
+
+  return new Promise((resolve, reject) => {
+    const probe = net.createServer();
+
+    probe.once("error", reject);
+    probe.listen(0, "127.0.0.1", () => {
+      const address = probe.address();
+      const resolvedPort =
+        typeof address === "object" && address ? address.port : preferredPort;
+
+      probe.close((error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(resolvedPort);
+      });
+    });
+  });
+}
+
 async function waitForPageReady(page) {
   await page.locator("[data-pdf-ready='true']").waitFor({ state: "visible" });
   await page.evaluate(async () => {
@@ -118,6 +161,7 @@ async function main() {
   await mkdir(path.join(outDir, "downloads"), { recursive: true });
   await preparePreviewRoot();
 
+  const port = await resolveListenPort();
   const server = await startStaticServer(previewRoot, port);
   const browser = await chromium.launch();
 

@@ -184,6 +184,7 @@ export const resumeEn: ResumeContent = {
   projectShowcase: {
     personal: [
       {
+        slug: "ai-productivity-workspace",
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
@@ -200,10 +201,25 @@ export const resumeEn: ResumeContent = {
           ".NET 10",
           "Productivity",
         ],
+        detailIntro: [
+          "The goal is not a single-purpose utility, but a workspace that keeps task management, agent orchestration, desktop workflows, and personal data assets inside one product surface.",
+          "Electron acts as the desktop shell, React + TypeScript + Tailwind v4 shape the UI, and a .NET 10 vertical-slice API handles data and workflow logic behind it.",
+          "I treat it as a long-running personal product foundation, so local MCP support, desktop-first development flow, and future AI-assisted workflows are part of the design from the start.",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "AI Productivity Workspace placeholder preview",
+        },
+        feedback: {
+          type: "disabled",
+          message:
+            "This repository is not public yet. GitHub issue feedback will open after the public cleanup and release path are ready.",
+        },
         imageAlt: "AI Productivity Workspace app preview",
         note: "The repository is not public yet. The GitHub link will be added after the cleanup for public release is done.",
       },
       {
+        slug: "phalanx-chronicle",
         title: "phalanx-chronicle",
         subtitle: "anomo06822/phalanx-chronicle",
         summary:
@@ -214,9 +230,61 @@ export const resumeEn: ResumeContent = {
           "The public repo includes demo media, gameplay previews, and headless rule tests as the base for continued expansion.",
         ],
         tags: ["Unity", "SRPG", "Game Prototype", "C#", "Gameplay Systems"],
+        detailIntro: [
+          "This project is built as a campaign-level SRPG prototype rather than a single battle demo, so the emphasis is on connecting progression, preparation, and combat rules into one playable loop.",
+          "The current MVP already ties chapter unlocks, recruitment, equipment changes, promotion flow, battle logic, enemy AI, and HUD states into the same operating surface.",
+          "The public repo also includes demo material, gameplay previews, and headless rule tests so the systems can keep evolving with less guesswork.",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "Phalanx Chronicle placeholder preview",
+        },
+        feedback: {
+          type: "github-issue",
+          repoUrl: "https://github.com/anomo06822/phalanx-chronicle",
+          emailOptional: true,
+        },
         href: "https://github.com/anomo06822/phalanx-chronicle",
         hrefLabel: "View on GitHub",
         imageAlt: "Phalanx Chronicle game preview",
+      },
+      {
+        slug: "xml-toolkit",
+        title: "xml-toolkit",
+        subtitle: "anomo06822/xml-toolkit",
+        summary:
+          "A multi-format data toolkit for XML, JSON, and Markdown that covers format, minify, sort, diff, convert, and visualize workflows, with Electron desktop packaging and an optional .NET 10 backend.",
+        bullets: [
+          "Combines XML, JSON, and Markdown formatting, sorting, diffing, conversion, and visualization into one tool surface.",
+          "Adds Gemini assistant and AI diff summary together with Electron desktop packaging, a menu bar entry, a global wakeup shortcut, and GitHub Releases update checks.",
+          "Supports an optional .NET 10 backend proxy for API key isolation while keeping web/direct mode and Docker deployment available.",
+        ],
+        tags: [
+          "XML",
+          "JSON",
+          "Markdown",
+          "Electron",
+          ".NET 10",
+          "AI Assistant",
+        ],
+        detailIntro: [
+          "The project started as a data-format utility and is now evolving into a broader DataToolkit surface that supports both web mode and desktop mode for XML, JSON, and Markdown workflows.",
+          "Beyond formatting and diffing, the repo now includes Gemini assistant and AI diff summary, Electron packaging, a menu bar status entry, a configurable wakeup shortcut, and GitHub Releases-based update checks.",
+          "When desktop delivery needs local credential isolation, the project can also run through an optional .NET 10 backend proxy while preserving a Docker-friendly web deployment path.",
+        ],
+        detailImage: {
+          kind: "placeholder",
+          alt: "xml-toolkit placeholder preview",
+        },
+        feedback: {
+          type: "github-issue",
+          repoUrl: "https://github.com/anomo06822/xml-toolkit",
+          emailOptional: true,
+        },
+        href: "https://github.com/anomo06822/xml-toolkit",
+        hrefLabel: "View on GitHub",
+        imageAlt: "xml-toolkit project preview",
+        note: "The current in-repo product branding is DataToolkit while the public repository name remains xml-toolkit.",
       },
     ],
     core: [
