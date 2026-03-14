@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ImpactRibbon } from "@/components/impact-ribbon";
-import { ProjectShowcase } from "@/components/project-showcase";
 import { ResumeHero } from "@/components/resume-hero";
 import { getResume, getResumePdfDownloadHref } from "@/lib/resume";
-import { isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
-import type { ExperienceEntry, FeaturedItem, ProjectItem } from "@/lib/types";
+import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
+import type {
+  ExperienceEntry,
+  FeaturedItem,
+  Locale,
+  PersonalProjectItem,
+  ProjectItem,
+  ShowcaseProjectItem,
+} from "@/lib/types";
 import { parseResumePeriod } from "@/lib/utils";
 
 export async function generateMetadata({
@@ -31,6 +38,46 @@ function SectionHeading({ title }: { title: string }) {
     <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-[2rem]">
       {title}
     </h2>
+  );
+}
+
+function getCompanyMonogram(company: string) {
+  const latinWords = company.match(/[A-Za-z]+/g);
+
+  if (latinWords?.length) {
+    return latinWords
+      .slice(0, 2)
+      .map((word) => word[0]?.toUpperCase() ?? "")
+      .join("");
+  }
+
+  return company.slice(0, 2);
+}
+
+function ExperienceCompanyMark({
+  company,
+  logo,
+}: Pick<ExperienceEntry, "company" | "logo">) {
+  if (!logo) {
+    return (
+      <div className="inline-flex h-14 w-14 items-center justify-center rounded-[20px] border border-line/80 bg-canvas-elevated font-mono text-sm tracking-[0.28em] text-accent">
+        {getCompanyMonogram(company)}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-14 w-[9.5rem] items-center justify-center rounded-[20px] border border-line/80 bg-white/95 px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
+      <div className="relative h-full w-full">
+        <Image
+          src={withBasePath(logo.src)}
+          alt={logo.alt}
+          fill
+          sizes="152px"
+          className="object-contain"
+        />
+      </div>
+    </div>
   );
 }
 
@@ -59,11 +106,17 @@ function ExperienceTimelineItem({
       <div className="card-surface p-6 sm:p-7">
         <div className="space-y-5">
           <header className="flex flex-col gap-3 border-b border-line pb-5 sm:flex-row sm:items-start sm:justify-between">
-            <div className="space-y-2">
-              <h3 className="text-2xl font-semibold tracking-tight text-ink">
-                {experience.role}
-              </h3>
-              <div className="text-base text-ink">{experience.company}</div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+              <ExperienceCompanyMark
+                company={experience.company}
+                logo={experience.logo}
+              />
+              <div className="space-y-2">
+                <h3 className="text-2xl font-semibold tracking-tight text-ink">
+                  {experience.role}
+                </h3>
+                <div className="text-base text-ink">{experience.company}</div>
+              </div>
             </div>
 
             <div className="text-sm leading-7 text-ink-muted sm:text-right">
@@ -156,6 +209,96 @@ function ProjectCard({ item }: { item: ProjectItem }) {
   );
 }
 
+function PersonalProjectResumeItem({
+  item,
+  locale,
+  detailCtaLabel,
+}: {
+  item: PersonalProjectItem;
+  locale: Locale;
+  detailCtaLabel: string;
+}) {
+  return (
+    <li className="flex flex-col gap-4 border-b border-line pb-5 last:border-b-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between">
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <h3 className="text-xl font-semibold tracking-tight text-ink">
+            {item.title}
+          </h3>
+          {item.subtitle ? (
+            <div className="text-sm leading-7 text-ink-muted">{item.subtitle}</div>
+          ) : null}
+        </div>
+
+        <p className="max-w-3xl text-sm leading-7 text-ink-muted">
+          {item.summary}
+        </p>
+
+        {item.tags?.length ? (
+          <div className="flex flex-wrap gap-2">
+            {item.tags.slice(0, 4).map((tag) => (
+              <span key={tag} className="tag-chip">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      <Link
+        href={getRouteHref(locale, "projects", item.slug)}
+        className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-accent/35 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/60 hover:bg-panel-strong"
+      >
+        {detailCtaLabel}
+      </Link>
+    </li>
+  );
+}
+
+function CoreProductSummaryCard({
+  item,
+}: {
+  item: ShowcaseProjectItem;
+}) {
+  return (
+    <article className="subtle-panel p-6 sm:p-7">
+      <div className="space-y-4">
+        <header className="space-y-2">
+          <h3 className="text-2xl font-semibold tracking-tight text-ink">
+            {item.title}
+          </h3>
+          {item.subtitle ? (
+            <div className="text-sm leading-7 text-ink-muted">{item.subtitle}</div>
+          ) : null}
+        </header>
+
+        <p className="text-sm leading-7 text-ink-muted">{item.summary}</p>
+
+        {item.tags?.length ? (
+          <div className="flex flex-wrap gap-2">
+            {item.tags.map((tag) => (
+              <span key={tag} className="tag-chip">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
+
+        {item.href && item.hrefLabel ? (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/72 px-5 text-sm text-ink transition hover:border-accent/50 hover:bg-panel-strong"
+          >
+            {item.hrefLabel}
+          </a>
+        ) : null}
+      </div>
+    </article>
+  );
+}
+
 export default async function ResumePage({
   params,
 }: {
@@ -171,6 +314,9 @@ export default async function ResumePage({
   const resume = getResume(locale);
   const aboutBody = resume.about.slice(1);
   const resumePdfHref = getResumePdfDownloadHref(locale);
+  const personalProjects = resume.projectShowcase.personal;
+  const coreProducts = resume.projectShowcase.core;
+  const projectsHref = getRouteHref(locale, "projects");
 
   return (
     <div className="space-y-12">
@@ -181,8 +327,6 @@ export default async function ResumePage({
         headlinePrimary={resume.positioning.headlinePrimary}
         headlineSecondary={resume.positioning.headlineSecondary}
         intro={resume.about[0]}
-        rolesEyebrow={copy.resume.rolesEyebrow}
-        openToRoles={resume.positioning.openToRoles}
         portraitSrc={withBasePath(resume.profile.portraitSrc)}
         portraitAlt={resume.profile.portraitAlt}
         downloadHref={resumePdfHref}
@@ -200,10 +344,7 @@ export default async function ResumePage({
           <SectionHeading title={copy.resume.aboutTitle} />
           <div className="space-y-3">
             {aboutBody.map((paragraph) => (
-              <p
-                key={paragraph}
-                className="max-w-4xl text-base leading-8 text-ink-muted"
-              >
+              <p key={paragraph} className="text-base leading-8 text-ink-muted">
                 {paragraph}
               </p>
             ))}
@@ -229,13 +370,33 @@ export default async function ResumePage({
       <section className="space-y-4">
         <SectionHeading title={copy.resume.skillsTitle} />
         <article className="subtle-panel p-6 sm:p-7">
-          <div className="flex flex-wrap gap-2">
-            {resume.topSkills.map((skill) => (
-              <span key={skill} className="tag-chip tag-chip-active">
-                {skill}
-              </span>
-            ))}
-          </div>
+          {resume.topSkillGroups?.length ? (
+            <div className="grid gap-4 lg:grid-cols-3">
+              {resume.topSkillGroups.map((group) => (
+                <section
+                  key={group.label}
+                  className="rounded-[24px] border border-line bg-canvas-elevated/72 p-5"
+                >
+                  <div className="eyebrow">{group.label}</div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span key={skill} className="tag-chip tag-chip-active">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {resume.topSkills.map((skill) => (
+                <span key={skill} className="tag-chip tag-chip-active">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          )}
         </article>
       </section>
 
@@ -249,21 +410,57 @@ export default async function ResumePage({
       </section>
 
       <section className="space-y-4">
-        <SectionHeading title={copy.resume.showcaseTitle} />
+        <SectionHeading title={copy.resume.personalProjectsTitle} />
+        <div className="grid gap-4 xl:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)]">
+          <article className="card-surface p-6 sm:p-7">
+            <div className="space-y-5">
+              <p className="max-w-3xl text-base leading-8 text-ink-muted">
+                {copy.resume.personalProjectsIntro}
+              </p>
+
+              <ul className="space-y-5">
+                {personalProjects.map((item) => (
+                  <PersonalProjectResumeItem
+                    key={item.slug}
+                    item={item}
+                    locale={locale}
+                    detailCtaLabel={copy.projects.detailCtaLabel}
+                  />
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          <aside className="subtle-panel p-6 sm:p-7">
+            <div className="space-y-5">
+              <div className="eyebrow">{copy.projects.title}</div>
+              <div className="font-mono text-4xl uppercase tracking-[0.18em] text-accent">
+                {String(personalProjects.length).padStart(2, "0")}
+              </div>
+              <p className="text-sm leading-7 text-ink-muted">
+                {copy.projects.intro}
+              </p>
+              <Link
+                href={projectsHref}
+                className="inline-flex min-h-11 items-center rounded-full border border-accent/35 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/60 hover:bg-panel-strong"
+              >
+                {copy.resume.personalProjectsCtaLabel}
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <SectionHeading title={copy.resume.coreProductsTitle} />
         <p className="max-w-4xl text-base leading-8 text-ink-muted">
-          {copy.resume.showcaseIntro}
+          {copy.resume.coreProductsIntro}
         </p>
-        <ProjectShowcase
-          locale={locale}
-          tabs={{
-            personal: copy.resume.showcasePersonalTab,
-            core: copy.resume.showcaseCoreTab,
-          }}
-          items={resume.projectShowcase}
-          tabsAriaLabel={copy.resume.showcaseTabsAriaLabel}
-          imageSlotLabel={copy.resume.showcaseImageSlotLabel}
-          personalCtaLabel={copy.resume.showcasePersonalCtaLabel}
-        />
+        <div className="grid gap-4 lg:grid-cols-3">
+          {coreProducts.map((item) => (
+            <CoreProductSummaryCard key={item.title} item={item} />
+          ))}
+        </div>
       </section>
 
       <section className="space-y-4">

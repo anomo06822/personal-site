@@ -10,13 +10,12 @@ export const resumeZhTW: ResumeContent = {
     portraitAlt: "Jarvis Huang 個人照",
   },
   positioning: {
-    headlinePrimary:
-      "Senior Backend Engineer / Tech Lead / Engineering Manager",
+    headlinePrimary: "讓平台架構、工程帶領與交付節奏一起落地。",
     headlineSecondary: ".NET、Azure、電商平台與後端架構",
     openToRoles: [
-      "Senior Backend Engineer",
-      "Tech Lead",
       "Engineering Manager",
+      "Tech Lead",
+      "Senior Backend Engineer",
     ],
   },
   about: [
@@ -58,6 +57,10 @@ export const resumeZhTW: ResumeContent = {
       role: "Assistant Project Manager / Tech Lead",
       period: "2024.04 - 至今",
       location: "台中",
+      logo: {
+        src: "/images/company-logos/sjc-logo.jpg",
+        alt: "SJC logo",
+      },
       impactBullets: [
         "主導 First Horizon 物流平台從 0 到 1 的開發與落地，將架構、交付與維運在一開始就放進同一條主線。",
         "以 Next.js、.NET Core、CQRS 與 Vertical Slice 設計平台架構，讓領域切分與實作流程保持可維護性。",
@@ -80,6 +83,10 @@ export const resumeZhTW: ResumeContent = {
       role: "Assistant Team Manager / Engineering Lead",
       period: "2020.04 - 2024.04",
       location: "台中",
+      logo: {
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
+      },
       impactBullets: [
         "帶領 20+ 位工程師支援 B2C mobile、B2B desktop 與 big data 平台，維持全球電商場景下的交付節奏。",
         "維運 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的行動產品。",
@@ -102,6 +109,10 @@ export const resumeZhTW: ResumeContent = {
       role: "Staff Engineer",
       period: "2016.04 - 2020.04",
       location: "台中",
+      logo: {
+        src: "/images/company-logos/newegg-business-logo.png",
+        alt: "Newegg Business logo",
+      },
       impactBullets: [
         "負責 B2B 電商平台的後端服務，涵蓋帳號、購物與訂單處理等核心流程。",
         "建立支撐高價值交易與採購情境的關鍵 backend services。",
@@ -123,6 +134,10 @@ export const resumeZhTW: ResumeContent = {
       role: "QA Automation Engineer",
       period: "2013.04 - 2016.04",
       location: "台中",
+      logo: {
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
+      },
       impactBullets: [
         "負責電商訂單與購物流程相關的品質驗證，支援核心交易旅程的穩定性。",
         "以 Selenium 與 Nightwatch 建立自動化測試，降低大量重複回歸測試成本。",
@@ -147,6 +162,25 @@ export const resumeZhTW: ResumeContent = {
     "SQL",
     "Distributed Systems",
     "Team Leadership",
+  ],
+  topSkillGroups: [
+    {
+      label: "核心技術",
+      skills: ["C#", ".NET Core", "SQL", "Azure"],
+    },
+    {
+      label: "架構 / 系統",
+      skills: [
+        "Backend Development",
+        "System Architecture",
+        "Microservices",
+        "Distributed Systems",
+      ],
+    },
+    {
+      label: "交付 / 帶領",
+      skills: ["CI/CD", "Team Leadership"],
+    },
   ],
   featured: [
     {

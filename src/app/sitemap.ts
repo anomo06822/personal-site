@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteConfig.siteUrl}${getRouteHref(locale, "projects")}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
       url: `${siteConfig.siteUrl}${getRouteHref(locale, "contact")}`,
       changeFrequency: "monthly" as const,
       priority: 0.6,

@@ -7,8 +7,6 @@ type ResumeHeroProps = {
   headlinePrimary: string;
   headlineSecondary: string;
   intro: string;
-  rolesEyebrow: string;
-  openToRoles: string[];
   portraitSrc: string;
   portraitAlt: string;
   downloadHref: string;
@@ -23,8 +21,6 @@ export function ResumeHero({
   headlinePrimary,
   headlineSecondary,
   intro,
-  rolesEyebrow,
-  openToRoles,
   portraitSrc,
   portraitAlt,
   downloadHref,
@@ -89,29 +85,10 @@ export function ResumeHero({
               fill
               priority
               sizes="(min-width: 1280px) 390px, (min-width: 1024px) 34vw, (min-width: 768px) 70vw, 100vw"
-              className="object-cover object-center"
+              className="object-cover object-[center_58%]"
             />
 
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,12,10,0)_28%,rgba(14,12,10,0.14)_55%,rgba(14,12,10,0.88)_100%)]" />
-
-            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-              <div className="rounded-[24px] border border-white/12 bg-[rgba(17,15,13,0.72)] p-4 shadow-[0_18px_40px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:p-5">
-                <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-[rgba(247,238,227,0.74)]">
-                  {rolesEyebrow}
-                </div>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {openToRoles.map((role) => (
-                    <span
-                      key={role}
-                      className="inline-flex items-center rounded-full border border-[rgba(247,238,227,0.18)] bg-[rgba(247,238,227,0.08)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[rgba(250,245,238,0.94)]"
-                    >
-                      {role}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,12,10,0)_34%,rgba(14,12,10,0.08)_64%,rgba(14,12,10,0.28)_100%)]" />
           </div>
         </article>
       </div>

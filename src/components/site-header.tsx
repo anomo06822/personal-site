@@ -8,6 +8,10 @@ import type { Locale, RouteKey } from "@/lib/types";
 import { ThemeToggle } from "./theme-toggle";
 
 function resolveRoute(segments: string[]): { routeKey: RouteKey; slug?: string } {
+  if (segments[0] === "projects") {
+    return { routeKey: "projects", slug: segments[1] };
+  }
+
   if (segments[0] === "resume") {
     return { routeKey: "resume" };
   }
@@ -29,8 +33,9 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const current = resolveRoute(segments);
   const alternateLocale = getAlternateLocale(locale);
   const alternateHref =
-    current.routeKey === "blog" && current.slug
-      ? getRouteHref(alternateLocale, "blog", current.slug)
+    (current.routeKey === "blog" || current.routeKey === "projects") &&
+    current.slug
+      ? getRouteHref(alternateLocale, current.routeKey, current.slug)
       : getRouteHref(alternateLocale, current.routeKey);
   const normalizedPath = stripBasePath(pathname, siteConfig.basePath);
 
@@ -44,7 +49,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                 Jarvis Huang
               </div>
               <div className="text-sm text-ink">
-                Senior Backend Engineer / Tech Lead
+                {siteConfig.headerRoleLine}
               </div>
             </Link>
 

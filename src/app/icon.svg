@@ -5,7 +5,7 @@
     fill="#F4EDE2"
   />
   <path
-    d="M74 28h16l18 28V28h16v72h-16L90 72v28H74V28Z"
+    d="M74 28h16v27h22V28h16v72h-16V71H90v29H74V28Z"
     fill="#E0A164"
   />
 </svg>

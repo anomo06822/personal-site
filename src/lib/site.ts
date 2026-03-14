@@ -5,6 +5,7 @@ export const siteConfig: SiteConfig = {
   siteName: "Jarvis Huang",
   siteUrl: "https://anomo06822.github.io/personal-site",
   basePath: "/personal-site",
+  headerRoleLine: "Engineering Manager / Tech Lead / Senior Backend Engineer",
   locales,
   defaultEntry: "zh-TW",
   localeNames: {
@@ -19,14 +20,16 @@ export const siteConfig: SiteConfig = {
   navigation: {
     "zh-TW": [
       { key: "home", label: "概覽", description: "Profile" },
-      { key: "resume", label: "履歷", description: "Resume" },
+      { key: "projects", label: "專案", description: "Projects" },
       { key: "blog", label: "技術文章", description: "Writing" },
+      { key: "resume", label: "履歷", description: "Resume" },
       { key: "contact", label: "聯繫", description: "Connect" },
     ],
     en: [
       { key: "home", label: "Profile", description: "Overview" },
-      { key: "resume", label: "Resume", description: "Experience" },
+      { key: "projects", label: "Projects", description: "Projects" },
       { key: "blog", label: "Writing", description: "Articles" },
+      { key: "resume", label: "Resume", description: "Experience" },
       { key: "contact", label: "Connect", description: "Reach out" },
     ],
   },
@@ -65,6 +68,13 @@ export const siteCopy = {
       showcaseTabsAriaLabel: "專案介紹分頁",
       showcaseImageSlotLabel: "預留圖片",
       showcasePersonalCtaLabel: "查看專案頁面",
+      personalProjectsTitle: "個人專案",
+      personalProjectsIntro:
+        "履歷頁先保留快速導覽，完整的個人專案列表與入口集中在上方的「專案」頁面。",
+      personalProjectsCtaLabel: "查看全部個人專案",
+      coreProductsTitle: "Core Products",
+      coreProductsIntro:
+        "以下保留曾參與交付與營運的核心產品摘要，作為公開版履歷的工作脈絡。",
       downloadPdfLabel: "下載 PDF",
       projectDetailEyebrow: "個人專案",
       projectDetailBackLabel: "返回履歷",
@@ -85,6 +95,16 @@ export const siteCopy = {
       projectDetailFeedbackDisabledLabel: "目前尚未開放 feedback",
       projectsTitle: "Projects",
       certificationsTitle: "證照 / 獎項",
+    },
+    projects: {
+      eyebrow: "Projects / Personal Builds",
+      title: "個人專案",
+      intro:
+        "這裡集中列出我自己主導開發的專案，方便快速查看方向、技術面向，並進一步進入 detail 頁。",
+      listTitle: "專案列表",
+      detailCtaLabel: "查看 detail",
+      emptyState: "目前還沒有可公開列出的個人專案。",
+      backToProjectsLabel: "返回專案列表",
     },
     blog: {
       eyebrow: "Writing / Technical Articles",
@@ -163,6 +183,13 @@ export const siteCopy = {
       showcaseTabsAriaLabel: "Project showcase tabs",
       showcaseImageSlotLabel: "Preview Slot",
       showcasePersonalCtaLabel: "View project page",
+      personalProjectsTitle: "Personal Projects",
+      personalProjectsIntro:
+        "The resume keeps this section compact. The full list of personal builds now lives under the top-level Projects page.",
+      personalProjectsCtaLabel: "View all personal projects",
+      coreProductsTitle: "Core Products",
+      coreProductsIntro:
+        "This compact list keeps the larger products I helped ship visible without mixing them into the personal-project entry points.",
       downloadPdfLabel: "Download PDF",
       projectDetailEyebrow: "Personal Project",
       projectDetailBackLabel: "Back to resume",
@@ -187,6 +214,16 @@ export const siteCopy = {
       projectDetailFeedbackDisabledLabel: "Feedback is not open for this project yet",
       projectsTitle: "Projects",
       certificationsTitle: "Certifications / Awards",
+    },
+    projects: {
+      eyebrow: "Projects / Personal Builds",
+      title: "Projects",
+      intro:
+        "A focused list of the personal projects I directly build, with fast entry points into their detail pages.",
+      listTitle: "Project List",
+      detailCtaLabel: "View details",
+      emptyState: "There are no public personal projects listed yet.",
+      backToProjectsLabel: "Back to projects",
     },
     blog: {
       eyebrow: "Writing / Technical Articles",
@@ -249,6 +286,8 @@ export function getRouteHref(locale: Locale, routeKey: RouteKey, slug?: string) 
   switch (routeKey) {
     case "home":
       return `/${locale}`;
+    case "projects":
+      return slug ? `/${locale}/projects/${slug}` : `/${locale}/projects`;
     case "resume":
       return `/${locale}/resume`;
     case "blog":
@@ -261,7 +300,7 @@ export function getRouteHref(locale: Locale, routeKey: RouteKey, slug?: string) 
 }
 
 export function getProjectHref(locale: Locale, slug: string) {
-  return `/${locale}/projects/${slug}`;
+  return getRouteHref(locale, "projects", slug);
 }
 
 export function withBasePath(pathname: string) {

@@ -15,7 +15,7 @@ type RecruiterHomeProps = {
   home: HomeContent;
   resume: ResumeContent;
   githubHref: string;
-  pathwayHrefs: Record<Exclude<RouteKey, "home">, string>;
+  pathwayHrefs: Record<Exclude<RouteKey, "home" | "projects">, string>;
 };
 
 function ProofMetric({ item }: { item: HomeProofItem }) {

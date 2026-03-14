@@ -122,6 +122,7 @@ export default async function PersonalProjectDetailPage({
   }
 
   const copy = siteCopy[locale].resume;
+  const projectsCopy = siteCopy[locale].projects;
   const project = getPersonalProject(locale, slug);
 
   if (!project) {
@@ -132,10 +133,10 @@ export default async function PersonalProjectDetailPage({
     <div className="space-y-10">
       <section className="space-y-6 border-b border-line/80 pb-10">
         <Link
-          href={getRouteHref(locale, "resume")}
+          href={getRouteHref(locale, "projects")}
           className="inline-flex min-h-10 items-center rounded-full border border-line bg-canvas-elevated/80 px-4 text-sm text-ink-muted transition hover:border-accent/50 hover:text-ink"
         >
-          {copy.projectDetailBackLabel}
+          {projectsCopy.backToProjectsLabel}
         </Link>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)]">

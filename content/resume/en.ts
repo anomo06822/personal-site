@@ -11,13 +11,13 @@ export const resumeEn: ResumeContent = {
   },
   positioning: {
     headlinePrimary:
-      "Senior Backend Engineer / Tech Lead / Engineering Manager",
+      "Engineering leadership that keeps platform architecture and delivery moving together.",
     headlineSecondary:
       ".NET, Azure, e-commerce platforms, and backend architecture",
     openToRoles: [
-      "Senior Backend Engineer",
-      "Tech Lead",
       "Engineering Manager",
+      "Tech Lead",
+      "Senior Backend Engineer",
     ],
   },
   about: [
@@ -59,6 +59,10 @@ export const resumeEn: ResumeContent = {
       role: "Assistant Project Manager / Tech Lead",
       period: "2024.04 - Present",
       location: "Taichung, Taiwan",
+      logo: {
+        src: "/images/company-logos/sjc-logo.jpg",
+        alt: "SJC logo",
+      },
       impactBullets: [
         "Led development of the First Horizon logistics platform from 0 to 1 and aligned architecture, delivery, and operations from the start.",
         "Designed the platform architecture with Next.js, .NET Core, CQRS, and Vertical Slice to keep domain boundaries and implementation flow maintainable.",
@@ -81,6 +85,10 @@ export const resumeEn: ResumeContent = {
       role: "Assistant Team Manager / Engineering Lead",
       period: "2020.04 - 2024.04",
       location: "Taichung, Taiwan",
+      logo: {
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
+      },
       impactBullets: [
         "Led 20+ engineers supporting B2C mobile, B2B desktop, and big data platforms in a global e-commerce environment.",
         "Maintained a mobile app with 1M+ downloads, a 4.6 App Store rating, and 99.9% crash-free users.",
@@ -103,6 +111,10 @@ export const resumeEn: ResumeContent = {
       role: "Staff Engineer",
       period: "2016.04 - 2020.04",
       location: "Taichung, Taiwan",
+      logo: {
+        src: "/images/company-logos/newegg-business-logo.png",
+        alt: "Newegg Business logo",
+      },
       impactBullets: [
         "Developed backend services for the B2B e-commerce platform across account, shopping, and order-processing flows.",
         "Built core services that supported high-value B2B transaction and procurement scenarios.",
@@ -124,6 +136,10 @@ export const resumeEn: ResumeContent = {
       role: "QA Automation Engineer",
       period: "2013.04 - 2016.04",
       location: "Taichung, Taiwan",
+      logo: {
+        src: "/images/company-logos/newegg-logo.svg",
+        alt: "Newegg logo",
+      },
       impactBullets: [
         "Supported e-commerce order and shopping-flow quality across core transactional journeys.",
         "Built automation tests with Selenium and Nightwatch to reduce repetitive manual regression work.",
@@ -148,6 +164,25 @@ export const resumeEn: ResumeContent = {
     "SQL",
     "Distributed Systems",
     "Team Leadership",
+  ],
+  topSkillGroups: [
+    {
+      label: "Core Stack",
+      skills: ["C#", ".NET Core", "SQL", "Azure"],
+    },
+    {
+      label: "Architecture / Systems",
+      skills: [
+        "Backend Development",
+        "System Architecture",
+        "Microservices",
+        "Distributed Systems",
+      ],
+    },
+    {
+      label: "Delivery / Leadership",
+      skills: ["CI/CD", "Team Leadership"],
+    },
   ],
   featured: [
     {

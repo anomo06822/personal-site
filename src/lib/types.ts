@@ -2,13 +2,14 @@ export const locales = ["zh-TW", "en"] as const;
 
 export type Locale = (typeof locales)[number];
 export type ThemeMode = "light" | "dark";
-export type RouteKey = "home" | "resume" | "blog" | "contact";
+export type RouteKey = "home" | "projects" | "blog" | "resume" | "contact";
 export type ContactIcon = "linkedin" | "github";
 
 export type SiteConfig = {
   siteName: string;
   siteUrl: string;
   basePath: string;
+  headerRoleLine: string;
   locales: readonly Locale[];
   defaultEntry: Locale;
   localeNames: Record<Locale, string>;
@@ -45,6 +46,10 @@ export type ExperienceEntry = {
   location: string;
   impactBullets: string[];
   keywords: string[];
+  logo?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export type ResumeImpactPoint = {
@@ -145,7 +150,7 @@ export type HomeSecondarySignal = {
 };
 
 export type HomePathwayItem = {
-  routeKey: Exclude<RouteKey, "home">;
+  routeKey: Exclude<RouteKey, "home" | "projects">;
   eyebrow: string;
   title: string;
   description: string;
@@ -186,6 +191,11 @@ export type Certification = {
   note?: string;
 };
 
+export type SkillGroup = {
+  label: string;
+  skills: string[];
+};
+
 export type ResumePdfContent = {
   fileName: string;
   summary: string[];
@@ -200,6 +210,7 @@ export type ResumeContent = {
   highlights: ResumeImpactPoint[];
   experiences: ExperienceEntry[];
   topSkills: string[];
+  topSkillGroups?: SkillGroup[];
   featured: FeaturedItem[];
   projectShowcase: ProjectShowcase;
   projects: ProjectItem[];
