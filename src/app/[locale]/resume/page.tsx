@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ImpactRibbon } from "@/components/impact-ribbon";
+import { ProjectShowcase } from "@/components/project-showcase";
 import { getResume } from "@/lib/resume";
 import { isLocale, siteConfig, siteCopy } from "@/lib/site";
 import type { ExperienceEntry, FeaturedItem, ProjectItem } from "@/lib/types";
@@ -242,6 +243,22 @@ export default async function ResumePage({
             <FeaturedCard key={item.title} item={item} />
           ))}
         </div>
+      </section>
+
+      <section className="space-y-4">
+        <SectionHeading title={copy.resume.showcaseTitle} />
+        <p className="max-w-4xl text-base leading-8 text-ink-muted">
+          {copy.resume.showcaseIntro}
+        </p>
+        <ProjectShowcase
+          tabs={{
+            personal: copy.resume.showcasePersonalTab,
+            core: copy.resume.showcaseCoreTab,
+          }}
+          items={resume.projectShowcase}
+          tabsAriaLabel={copy.resume.showcaseTabsAriaLabel}
+          imageSlotLabel={copy.resume.showcaseImageSlotLabel}
+        />
       </section>
 
       <section className="space-y-4">

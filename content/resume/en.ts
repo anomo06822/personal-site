@@ -177,6 +177,98 @@ export const resumeEn: ResumeContent = {
       ],
     },
   ],
+  projectShowcase: {
+    personal: [
+      {
+        title: "ai-productivity-workspace",
+        subtitle: "Private GitHub repository",
+        summary:
+          "A personal productivity workspace built with Electron, React, and .NET 10 to bring desktop workflows, task management, and agent capabilities into one product foundation.",
+        bullets: [
+          "The stack combines an Electron shell, a React + TypeScript + Tailwind v4 frontend, and a .NET 10 vertical-slice API with EF Core and PostgreSQL.",
+          "The current product surface already includes tasks, projects, agents, roles, dispatch, and asset APIs as the core workspace building blocks.",
+          "It also includes local MCP integration and a desktop-first development flow so AI-assisted workflows can plug directly into the workspace.",
+        ],
+        tags: [
+          "Electron",
+          "React",
+          "TypeScript",
+          ".NET 10",
+          "Productivity",
+        ],
+        imageAlt: "AI Productivity Workspace app preview",
+        note: "The repository is not public yet. The GitHub link will be added after the cleanup for public release is done.",
+      },
+      {
+        title: "phalanx-chronicle",
+        subtitle: "anomo06822/phalanx-chronicle",
+        summary:
+          "A Unity SRPG campaign prototype that already includes playable MVP flows across campaign progression, camp preparation, battle rules, and combat UI.",
+        bullets: [
+          "The prototype already connects a 12-chapter Liu Bei campaign with chapter unlocks, rewards, recruitment, equipment changes, and promotion flow.",
+          "Battle systems cover a 10x10 battlefield, skills and status effects, enemy AI decisions, HUD states, and damage forecasting.",
+          "The public repo includes demo media, gameplay previews, and headless rule tests as the base for continued expansion.",
+        ],
+        tags: ["Unity", "SRPG", "Game Prototype", "C#", "Gameplay Systems"],
+        href: "https://github.com/anomo06822/phalanx-chronicle",
+        hrefLabel: "View on GitHub",
+        imageAlt: "Phalanx Chronicle game preview",
+      },
+    ],
+    core: [
+      {
+        title: "First Horizon",
+        subtitle: "SJC International Logistics",
+        summary:
+          "A 0→1 logistics platform where architecture, release flow, observability, and cross-region collaboration were treated as one operating system from the start.",
+        bullets: [
+          "The platform architecture used Next.js, .NET Core, CQRS, and Vertical Slice to keep domain boundaries and implementation flow maintainable.",
+          "Azure DevOps CI/CD and Azure deployment flow were set up early so release control and environment governance were repeatable.",
+          "Prometheus, Grafana, and Jaeger were introduced from phase one to make diagnostics part of the normal engineering loop.",
+        ],
+        tags: ["Next.js", ".NET Core", "CQRS", "Azure", "Observability"],
+        href: "https://sjclemenger.com/",
+        hrefLabel: "Visit site",
+        imageAlt: "First Horizon platform preview",
+      },
+      {
+        title: "Newegg Mobile",
+        subtitle: "Newegg",
+        summary:
+          "Consumer mobile product ownership focused on reliability, engagement, and release quality under public, high-volume usage.",
+        bullets: [
+          "Supported products with 1M+ downloads, a 4.6 App Store rating, and 99.9% crash-free users.",
+          "Improved Android push open rate from 2% to 5% and reduced invalid device tokens by approximately 33%.",
+          "Improved release coordination, notification quality, and mobile web Core Web Vitals as part of the same product surface.",
+        ],
+        tags: [
+          "React Native",
+          "Mobile Commerce",
+          "Push Notifications",
+          "Analytics",
+          "SEO",
+        ],
+        href: "https://www.newegg.com/",
+        hrefLabel: "Visit site",
+        imageAlt: "Newegg mobile product preview",
+      },
+      {
+        title: "Newegg Business",
+        subtitle: "Newegg Business",
+        summary:
+          "B2B platform backend modernization across critical commerce and procurement flows, including account, shopping, orders, and business capability integrations.",
+        bullets: [
+          "Built core backend services across account, cart, and order-processing flows for high-value B2B transactions.",
+          "Integrated PayPal, MasterPass, e-procurement, and Net Terms into the platform.",
+          "Drove .NET Framework to .NET Core migration together with TDD and Jenkins / GitLab CI/CD adoption.",
+        ],
+        tags: ["C#", ".NET Core", "B2B Commerce", "MS SQL", "CI/CD"],
+        href: "https://neweggbusiness.com/",
+        hrefLabel: "Visit site",
+        imageAlt: "Newegg Business platform preview",
+      },
+    ],
+  },
   projects: [
     {
       title: "Follow Seller - Newegg Hackathon",

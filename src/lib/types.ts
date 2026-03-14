@@ -65,6 +65,24 @@ export type ProjectItem = {
   tags?: string[];
 };
 
+export type ShowcaseProjectItem = {
+  title: string;
+  subtitle?: string;
+  summary: string;
+  bullets: string[];
+  tags?: string[];
+  href?: string;
+  hrefLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  note?: string;
+};
+
+export type ProjectShowcase = {
+  personal: ShowcaseProjectItem[];
+  core: ShowcaseProjectItem[];
+};
+
 export type Certification = {
   title: string;
   issuer: string;
@@ -80,6 +98,7 @@ export type ResumeContent = {
   experiences: ExperienceEntry[];
   topSkills: string[];
   featured: FeaturedItem[];
+  projectShowcase: ProjectShowcase;
   projects: ProjectItem[];
   certifications: Certification[];
 };
