@@ -28,8 +28,16 @@ http://localhost:3000/personal-site/
 ```bash
 pnpm dev
 pnpm build
+pnpm build:release
 pnpm lint
 pnpm typecheck
+```
+
+To generate the downloadable resume PDFs locally, install Chromium once:
+
+```bash
+pnpm exec playwright install chromium
+pnpm build:release
 ```
 
 ## Content Structure
@@ -49,3 +57,8 @@ https://anomo06822.github.io/personal-site/
 ```
 
 The included GitHub Actions workflow publishes the static `out/` directory to Pages.
+
+`pnpm build:release` also generates:
+
+- `out/downloads/jarvis-huang-resume-en.pdf`
+- `out/downloads/jarvis-huang-resume-zh-tw.pdf`

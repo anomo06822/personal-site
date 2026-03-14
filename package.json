@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "build:release": "pnpm build && node ./scripts/generate-resume-pdfs.mjs",
+    "generate-resume-pdfs": "node ./scripts/generate-resume-pdfs.mjs",
     "start": "next start",
     "preview:export": "./scripts/preview-export.sh",
     "lint": "eslint .",
@@ -25,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "playwright": "^1.54.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

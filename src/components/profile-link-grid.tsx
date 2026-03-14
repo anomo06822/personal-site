@@ -24,11 +24,6 @@ const iconStyles: Record<
     className:
       "border-[#24292f]/14 bg-[#24292f]/8 text-[#24292f]",
   },
-  career: {
-    monogram: "104",
-    className:
-      "border-[#ff7a00]/18 bg-[#ff7a00]/10 text-[#c45a00]",
-  },
 };
 
 function getDisplayHref(href: string) {
@@ -61,7 +56,11 @@ function getCardClassName(variant: NonNullable<ProfileLinkGridProps["variant"]>,
   ];
 
   if (variant === "hero") {
-    classes.push(index === 0 ? "md:row-span-2 md:min-h-[22rem]" : "md:min-h-[10.5rem]");
+    if (index === 0 && siteConfig.socialLinks.length > 2) {
+      classes.push("md:row-span-2", "md:min-h-[22rem]");
+    } else {
+      classes.push("md:min-h-[16rem]");
+    }
   }
 
   if (variant === "compact") {
@@ -88,15 +87,22 @@ export function ProfileLinkGrid({
   locale,
   variant = "default",
 }: ProfileLinkGridProps) {
+  const linkCount = siteConfig.socialLinks.length;
   const isCompact = variant === "compact";
   const footerLabel = locale === "zh-TW" ? "公開入口" : "Public path";
   const visitLabel = locale === "zh-TW" ? "前往檔案" : "Visit profile";
   const wrapperClassName =
     variant === "hero"
-      ? "grid gap-4 md:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] md:auto-rows-fr"
+      ? linkCount > 2
+        ? "grid gap-4 md:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] md:auto-rows-fr"
+        : "grid gap-4 md:grid-cols-2"
       : variant === "compact"
-        ? "grid gap-3 sm:grid-cols-3"
-        : "grid gap-4 lg:grid-cols-3";
+        ? linkCount > 2
+          ? "grid gap-3 sm:grid-cols-3"
+          : "grid gap-3 sm:grid-cols-2"
+        : linkCount > 2
+          ? "grid gap-4 lg:grid-cols-3"
+          : "grid gap-4 sm:grid-cols-2";
 
   return (
     <div className={wrapperClassName}>

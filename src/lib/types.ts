@@ -3,7 +3,7 @@ export const locales = ["zh-TW", "en"] as const;
 export type Locale = (typeof locales)[number];
 export type ThemeMode = "light" | "dark";
 export type RouteKey = "home" | "resume" | "blog" | "contact";
-export type ContactIcon = "linkedin" | "github" | "career";
+export type ContactIcon = "linkedin" | "github";
 
 export type SiteConfig = {
   siteName: string;
@@ -28,11 +28,13 @@ export type ResumeProfile = {
   name: string;
   englishName: string;
   locationLabel: string;
-  avatar: string;
+  portraitSrc: string;
+  portraitAlt: string;
 };
 
 export type ResumePositioning = {
-  headline: string;
+  headlinePrimary: string;
+  headlineSecondary: string;
   openToRoles: string[];
 };
 
@@ -90,6 +92,13 @@ export type Certification = {
   note?: string;
 };
 
+export type ResumePdfContent = {
+  fileName: string;
+  summary: string[];
+  featured: FeaturedItem[];
+  projects: ProjectItem[];
+};
+
 export type ResumeContent = {
   profile: ResumeProfile;
   positioning: ResumePositioning;
@@ -101,6 +110,7 @@ export type ResumeContent = {
   projectShowcase: ProjectShowcase;
   projects: ProjectItem[];
   certifications: Certification[];
+  pdf: ResumePdfContent;
 };
 
 export type ContactLink = {

@@ -42,8 +42,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build static export
-        run: pnpm build
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build static export and resume PDFs
+        run: pnpm build:release
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

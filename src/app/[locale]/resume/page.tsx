@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ImpactRibbon } from "@/components/impact-ribbon";
 import { ProjectShowcase } from "@/components/project-showcase";
-import { getResume } from "@/lib/resume";
+import { ResumeHero } from "@/components/resume-hero";
+import { getResume, getResumePdfDownloadHref } from "@/lib/resume";
 import { isLocale, siteConfig, siteCopy } from "@/lib/site";
 import type { ExperienceEntry, FeaturedItem, ProjectItem } from "@/lib/types";
 import { parseResumePeriod } from "@/lib/utils";
@@ -43,10 +44,12 @@ function ExperienceTimelineItem({
   return (
     <article className="grid grid-cols-[24px_minmax(0,1fr)] gap-4 pb-8 last:pb-0 sm:grid-cols-[140px_24px_minmax(0,1fr)] sm:gap-6">
       <div className="hidden pt-1 text-right sm:block">
-        <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+        <div className="font-mono text-sm uppercase tracking-[0.18em] text-accent">
           {period.startLabel}
         </div>
-        <div className="mt-2 text-sm leading-7 text-ink-muted">{period.endLabel}</div>
+        <div className="mt-2 text-base font-medium leading-7 text-ink-muted">
+          {period.endLabel}
+        </div>
       </div>
 
       <div className="relative flex justify-center">
@@ -64,7 +67,9 @@ function ExperienceTimelineItem({
             </div>
 
             <div className="text-sm leading-7 text-ink-muted sm:text-right">
-              <div className="sm:hidden">{period.rangeLabel}</div>
+              <div className="font-mono text-sm tracking-[0.14em] text-accent sm:hidden">
+                {period.rangeLabel}
+              </div>
               <div>{experience.location}</div>
             </div>
           </header>
@@ -164,49 +169,47 @@ export default async function ResumePage({
 
   const copy = siteCopy[locale];
   const resume = getResume(locale);
+  const aboutBody = resume.about.slice(1);
+  const resumePdfHref = getResumePdfDownloadHref(locale);
 
   return (
     <div className="space-y-12">
-      <section className="space-y-5 border-b border-line/80 pb-10">
-        <div className="flex flex-wrap items-center gap-3 text-sm leading-7 text-ink-muted">
-          <span className="font-medium text-ink">{resume.profile.englishName}</span>
-          <span>{resume.profile.name}</span>
-          <span>{resume.profile.locationLabel}</span>
-        </div>
-        <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.45rem]">
-          {resume.positioning.headline}
-        </h1>
-      </section>
-
-      <section className="space-y-4">
-        <SectionHeading title={copy.resume.openToWorkTitle} />
-        <div className="flex flex-wrap gap-2">
-          {resume.positioning.openToRoles.map((role) => (
-            <span key={role} className="tag-chip tag-chip-active">
-              {role}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <SectionHeading title={copy.resume.aboutTitle} />
-        <div className="space-y-3">
-          {resume.about.map((paragraph) => (
-            <p
-              key={paragraph}
-              className="max-w-4xl text-base leading-8 text-ink-muted"
-            >
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      </section>
+      <ResumeHero
+        name={resume.profile.name}
+        englishName={resume.profile.englishName}
+        locationLabel={resume.profile.locationLabel}
+        headlinePrimary={resume.positioning.headlinePrimary}
+        headlineSecondary={resume.positioning.headlineSecondary}
+        intro={resume.about[0]}
+        rolesEyebrow={copy.resume.rolesEyebrow}
+        openToRoles={resume.positioning.openToRoles}
+        portraitSrc={resume.profile.portraitSrc}
+        portraitAlt={resume.profile.portraitAlt}
+        downloadHref={resumePdfHref}
+        downloadLabel={copy.resume.downloadPdfLabel}
+        downloadFileName={resume.pdf.fileName}
+      />
 
       <section className="space-y-4">
         <SectionHeading title={copy.resume.highlightsTitle} />
         <ImpactRibbon items={resume.highlights} />
       </section>
+
+      {aboutBody.length ? (
+        <section className="space-y-4">
+          <SectionHeading title={copy.resume.aboutTitle} />
+          <div className="space-y-3">
+            {aboutBody.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="max-w-4xl text-base leading-8 text-ink-muted"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="space-y-5">
         <SectionHeading title={copy.resume.experienceTitle} />

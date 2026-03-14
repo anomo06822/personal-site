@@ -1,15 +1,18 @@
 import type { ResumeContent } from "../../src/lib/types";
+import pdfManifest from "./pdf-manifest.json";
 
 export const resumeZhTW: ResumeContent = {
   profile: {
     name: "黃智偉",
     englishName: "Jarvis Huang",
     locationLabel: "台灣",
-    avatar: "JH",
+    portraitSrc: "/images/profile/jarvis-huang-headshot.png",
+    portraitAlt: "Jarvis Huang 個人照",
   },
   positioning: {
-    headline:
-      "Senior Backend Engineer / Tech Lead / Engineering Manager｜.NET、Azure、電商平台與後端架構",
+    headlinePrimary:
+      "Senior Backend Engineer / Tech Lead / Engineering Manager",
+    headlineSecondary: ".NET、Azure、電商平台與後端架構",
     openToRoles: [
       "Senior Backend Engineer",
       "Tech Lead",
@@ -294,4 +297,46 @@ export const resumeZhTW: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  pdf: {
+    fileName: pdfManifest["zh-TW"].fileName,
+    summary: [
+      "具備 10+ 年後端、平台與工程交付經驗，職涯歷程橫跨 QA、自動化測試、後端開發、技術帶領與專案管理。",
+      "熟悉 .NET、Azure、CI/CD、observability 與大型電商／物流平台系統，能把架構決策、交付節奏與維運需求放在同一個框架下處理。",
+      "適合 senior backend、platform engineering、tech lead 與 engineering management 類型角色。",
+    ],
+    featured: [
+      {
+        title: "First Horizon 物流平台",
+        summary:
+          "0→1 平台落地，從第一階段就把架構、發版流程與觀測性當成同一套運作系統設計。",
+        proofPoints: [
+          "以 Next.js、.NET Core、CQRS 與 Vertical Slice 規劃平台技術骨架與邊界。",
+          "建立 Azure DevOps CI/CD、Azure 發布流程與可重複執行的交付機制。",
+          "提早導入 Prometheus、Grafana、Jaeger，讓診斷能力成為日常工程流程的一部分。",
+        ],
+      },
+      {
+        title: "Newegg 行動產品與平台交付",
+        summary:
+          "在全球電商環境下，同時支撐 consumer mobile、B2B commerce 與共享平台交付。",
+        proofPoints: [
+          "帶領 20+ 位工程師，涵蓋 mobile、backend 與 data platform 的交付範圍。",
+          "維持 1M+ 下載量、4.6 App Store 評分與 99.9% crash-free users 的產品穩定度。",
+          "將推播開啟率從 2% 提升到 5%，並把無效 token 降低約 33%。",
+        ],
+      },
+    ],
+    projects: [
+      {
+        title: "Follow Seller",
+        subtitle: "Newegg Global Hackathon",
+        bullets: [
+          "在 3 天內完成 prototype，驗證概念與執行可行性。",
+          "拿下 Global Hackathon 1st Place 與 Most Valuable Project Award。",
+          "讓最初 hackathon 原型延伸成正式上線功能方向。",
+        ],
+        tags: ["Hackathon", "Prototype", "Production Launch"],
+      },
+    ],
+  },
 };

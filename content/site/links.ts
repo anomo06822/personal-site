@@ -27,17 +27,4 @@ export const contactLinks: ContactLink[] = [
       en: "Shows implementation history, code artifacts, and public work.",
     },
   },
-  {
-    label: "104",
-    href: "https://pda.104.com.tw/profile?vno=76jgjwtoe",
-    icon: "career",
-    localeLabel: {
-      "zh-TW": "104 履歷與職涯檔案",
-      en: "104 resume and career profile",
-    },
-    note: {
-      "zh-TW": "使用非 preview 的正式履歷入口，104 可能要求登入後檢視。",
-      en: "Uses the non-preview profile route; 104 may still require sign-in to view.",
-    },
-  },
 ];

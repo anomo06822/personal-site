@@ -102,6 +102,15 @@ body::before {
   opacity: var(--grid-opacity);
 }
 
+body:has(.resume-print-page) {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+body:has(.resume-print-page)::before {
+  display: none;
+}
+
 ::selection {
   background: var(--accent-soft);
   color: var(--ink);
@@ -212,5 +221,127 @@ button {
 
   .prose-article hr {
     @apply my-10 border-line;
+  }
+
+  .resume-print-page,
+  .resume-print-shell {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-print-page {
+    min-height: 100vh;
+    background: #fff;
+    color: #0f172a;
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .resume-print-shell {
+    margin: 0 auto;
+    width: min(100%, 8.27in);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #fff;
+    box-shadow: 0 22px 54px rgba(15, 23, 42, 0.08);
+    padding: 0.45in 0.5in;
+  }
+
+  .resume-print-section,
+  .resume-print-card,
+  .resume-print-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .resume-print-heading {
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .resume-print-card {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    background: #fff;
+    padding: 0.85rem 0.95rem;
+  }
+
+  .resume-print-experience {
+    break-inside: auto;
+    page-break-inside: auto;
+    border: 0;
+    border-radius: 0;
+    padding: 0 0 0.9rem;
+  }
+
+  .resume-print-experience + .resume-print-experience {
+    border-top: 1px solid rgba(15, 23, 42, 0.14);
+    padding-top: 0.9rem;
+  }
+
+  .resume-print-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(15, 23, 42, 0.03);
+    padding: 0.22rem 0.55rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #334155;
+  }
+
+  .resume-print-list {
+    display: grid;
+    gap: 0.38rem;
+    color: #334155;
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .resume-print-list li {
+    display: flex;
+    gap: 0.65rem;
+  }
+
+  .resume-print-list li::before {
+    content: "";
+    margin-top: 0.48rem;
+    height: 0.28rem;
+    width: 0.28rem;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: #0f172a;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0.5in;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color-scheme: light !important;
+  }
+
+  body {
+    color: #0f172a;
+  }
+
+  .resume-print-page {
+    padding: 0;
+  }
+
+  .resume-print-shell {
+    width: auto;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
   }
 }

@@ -1,15 +1,19 @@
 import type { ResumeContent } from "../../src/lib/types";
+import pdfManifest from "./pdf-manifest.json";
 
 export const resumeEn: ResumeContent = {
   profile: {
     name: "黃智偉",
     englishName: "Jarvis Huang",
     locationLabel: "Taiwan",
-    avatar: "JH",
+    portraitSrc: "/images/profile/jarvis-huang-headshot.png",
+    portraitAlt: "Portrait of Jarvis Huang",
   },
   positioning: {
-    headline:
-      "Senior Backend Engineer | Tech Lead | Engineering Manager | .NET | Azure | E-commerce Platforms",
+    headlinePrimary:
+      "Senior Backend Engineer / Tech Lead / Engineering Manager",
+    headlineSecondary:
+      ".NET, Azure, e-commerce platforms, and backend architecture",
     openToRoles: [
       "Senior Backend Engineer",
       "Tech Lead",
@@ -294,4 +298,42 @@ export const resumeEn: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  pdf: {
+    fileName: pdfManifest.en.fileName,
+    summary: [
+      "Backend and platform engineering leader with 10+ years across quality engineering, backend services, architecture, and delivery ownership.",
+      "Experienced in .NET, Azure, CI/CD, observability, and cross-team execution for e-commerce, logistics, and platform systems.",
+    ],
+    featured: [
+      {
+        title: "First Horizon Logistics Platform",
+        summary:
+          "0→1 platform delivery that treated architecture, release flow, and observability as one system from the start.",
+        proofPoints: [
+          "Defined the platform stack with Next.js, .NET Core, CQRS, and Vertical Slice boundaries.",
+          "Established Azure DevOps CI/CD, Azure deployment flow, and early observability with Prometheus, Grafana, and Jaeger.",
+        ],
+      },
+      {
+        title: "Newegg Mobile and Platform Delivery",
+        summary:
+          "Engineering leadership across consumer mobile, B2B commerce, and shared platform work in a global e-commerce environment.",
+        proofPoints: [
+          "Led 20+ engineers across mobile, backend, and data platform delivery scope.",
+          "Maintained products with 1M+ downloads, 4.6 App Store rating, and 99.9% crash-free users while improving push performance.",
+        ],
+      },
+    ],
+    projects: [
+      {
+        title: "Follow Seller",
+        subtitle: "Newegg Global Hackathon",
+        bullets: [
+          "Built the prototype in 3 days and validated the concept under real delivery constraints.",
+          "Won 1st Place and Most Valuable Project Award, then extended the concept toward production launch.",
+        ],
+        tags: ["Hackathon", "Prototype", "Production Launch"],
+      },
+    ],
+  },
 };
