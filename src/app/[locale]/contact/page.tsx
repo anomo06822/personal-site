@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProfileLinkGrid } from "@/components/profile-link-grid";
 import { isLocale, siteConfig, siteCopy } from "@/lib/site";
 
 export async function generateMetadata({
@@ -49,27 +49,7 @@ export default async function ContactPage({
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
           {copy.contact.methodsTitle}
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {siteConfig.socialLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="subtle-panel p-6 transition hover:border-accent/50 hover:bg-panel-strong"
-            >
-              <div className="eyebrow">{link.label}</div>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">
-                {link.localeLabel[locale]}
-              </h2>
-              {link.note ? (
-                <p className="mt-4 text-base leading-8 text-ink-muted">
-                  {link.note[locale]}
-                </p>
-              ) : null}
-            </Link>
-          ))}
-        </div>
+        <ProfileLinkGrid locale={locale} />
       </section>
 
       <section className="subtle-panel p-6 sm:p-7">

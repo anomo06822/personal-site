@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ImpactRibbon } from "@/components/impact-ribbon";
+import { ProfileLinkGrid } from "@/components/profile-link-grid";
 import { getFeaturedPosts } from "@/lib/posts";
 import { getResume } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy } from "@/lib/site";
@@ -60,42 +61,59 @@ export default async function LocaleHomePage({
   return (
     <div className="space-y-14">
       <section className="space-y-8 border-b border-line/80 pb-10">
-        <div className="space-y-4">
-          <div className="eyebrow">{copy.home.eyebrow}</div>
-          <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
-            {copy.home.title}
-          </h1>
-          <p className="max-w-3xl text-lg leading-8 text-ink">
-            {resume.about[0]}
-          </p>
-          <p className="max-w-3xl text-base leading-8 text-ink-muted">
-            {copy.home.intro}
-          </p>
-        </div>
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] xl:items-start">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="eyebrow">{copy.home.eyebrow}</div>
+              <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
+                {copy.home.title}
+              </h1>
+              <p className="max-w-3xl text-lg leading-8 text-ink">
+                {resume.about[0]}
+              </p>
+              <p className="max-w-3xl text-base leading-8 text-ink-muted">
+                {copy.home.intro}
+              </p>
+            </div>
 
-        <div className="flex flex-wrap gap-2">
-          {resume.positioning.openToRoles.map((role) => (
-            <span key={role} className="tag-chip tag-chip-active">
-              {role}
-            </span>
-          ))}
-        </div>
+            <div className="flex flex-wrap gap-2">
+              {resume.positioning.openToRoles.map((role) => (
+                <span key={role} className="tag-chip tag-chip-active">
+                  {role}
+                </span>
+              ))}
+            </div>
 
-        <ImpactRibbon items={resume.highlights} compact />
+            <ImpactRibbon items={resume.highlights} compact />
 
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href={getRouteHref(locale, "resume")}
-            className="inline-flex min-h-11 items-center rounded-full border border-accent/50 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/70"
-          >
-            {copy.home.resumeCta}
-          </Link>
-          <Link
-            href={getRouteHref(locale, "blog")}
-            className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/70 px-5 text-sm text-ink transition hover:border-accent/60"
-          >
-            {copy.home.blogCta}
-          </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={getRouteHref(locale, "resume")}
+                className="inline-flex min-h-11 items-center rounded-full border border-accent/50 bg-[var(--accent-soft)] px-5 text-sm text-ink transition hover:border-accent/70"
+              >
+                {copy.home.resumeCta}
+              </Link>
+              <Link
+                href={getRouteHref(locale, "blog")}
+                className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/70 px-5 text-sm text-ink transition hover:border-accent/60"
+              >
+                {copy.home.blogCta}
+              </Link>
+            </div>
+          </div>
+
+          <div className="space-y-4 xl:pt-1">
+            <div className="eyebrow">{copy.home.profileLinksEyebrow}</div>
+            <div className="space-y-3">
+              <h2 className="text-3xl font-semibold tracking-tight text-ink">
+                {copy.home.profileLinksTitle}
+              </h2>
+              <p className="max-w-xl text-base leading-8 text-ink-muted">
+                {copy.home.profileLinksIntro}
+              </p>
+            </div>
+            <ProfileLinkGrid locale={locale} variant="hero" />
+          </div>
         </div>
       </section>
 

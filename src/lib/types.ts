@@ -3,7 +3,7 @@ export const locales = ["zh-TW", "en"] as const;
 export type Locale = (typeof locales)[number];
 export type ThemeMode = "light" | "dark";
 export type RouteKey = "home" | "resume" | "blog" | "contact";
-export type ContactIcon = "github" | "globe" | "note";
+export type ContactIcon = "linkedin" | "github" | "career";
 
 export type SiteConfig = {
   siteName: string;

@@ -40,6 +40,10 @@ export const siteCopy = {
       title: "後端架構、平台交付與可維運系統。",
       intro:
         "聚焦大型電商與平台系統，公開呈現定位、代表經歷與技術寫作，讓第一輪閱讀先抓到關鍵訊號。",
+      profileLinksEyebrow: "Verified Profiles",
+      profileLinksTitle: "公開檔案入口",
+      profileLinksIntro:
+        "把履歷、程式碼與職涯平台集中到三個可快速驗證的公開入口。",
       featuredExperienceTitle: "代表經歷",
       latestPostsTitle: "最新文章",
       resumeCta: "查看完整履歷",
@@ -107,6 +111,10 @@ export const siteCopy = {
       title: "Backend architecture, platform delivery, and operable systems.",
       intro:
         "A focused public profile that highlights positioning, representative experience, and technical writing without turning the entry page into a second resume.",
+      profileLinksEyebrow: "Verified Profiles",
+      profileLinksTitle: "Public profile hub",
+      profileLinksIntro:
+        "Three public entry points for resume context, code history, and career visibility.",
       featuredExperienceTitle: "Selected experience",
       latestPostsTitle: "Latest writing",
       resumeCta: "View full resume",

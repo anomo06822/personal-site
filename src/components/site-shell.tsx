@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { siteConfig, siteCopy } from "@/lib/site";
+import { ProfileLinkGrid } from "@/components/profile-link-grid";
+import { siteCopy } from "@/lib/site";
 import type { Locale } from "@/lib/types";
 import { SiteHeader } from "./site-header";
 
@@ -25,27 +25,7 @@ export function SiteShell({
                 {copy.common.builtWith}
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {siteConfig.socialLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="subtle-panel p-5 transition hover:border-accent/50 hover:bg-panel-strong"
-                >
-                  <div className="font-medium text-ink">{link.label}</div>
-                  <div className="mt-2 text-sm leading-7 text-ink-muted">
-                    {link.localeLabel[locale]}
-                  </div>
-                  {link.note ? (
-                    <div className="mt-3 text-sm leading-7 text-ink-muted">
-                      {link.note[locale]}
-                    </div>
-                  ) : null}
-                </Link>
-              ))}
-            </div>
+            <ProfileLinkGrid locale={locale} variant="compact" />
           </div>
         </footer>
       </div>
