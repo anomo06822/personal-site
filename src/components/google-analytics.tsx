@@ -65,9 +65,11 @@ function ensureGtagBootstrap(measurementId: string) {
   window.dataLayer = window.dataLayer ?? [];
 
   if (typeof window.gtag !== "function") {
-    const gtag = (...args: unknown[]) => {
-      window.dataLayer?.push(args);
-    };
+    function gtag() {
+      // Match the official Google tag bootstrap shape so queued commands flush correctly.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
+    }
 
     window.gtag = gtag as Gtag;
   }
