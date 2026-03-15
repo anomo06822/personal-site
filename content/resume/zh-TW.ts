@@ -424,14 +424,14 @@ export const resumeZhTW: ResumeContent = {
   ],
   experienceGallery: {
     intro:
-      "從 2015 到 2026 的影像時間軸，依 experience 主線整理 QA automation、Newegg Business、Newegg Mobile 到 First Horizon 的代表現場。",
+      "從 2015 到 2026，這條影像時間軸串起我從 QA automation、Newegg Business、Newegg Mobile 到 First Horizon 的代表經歷。",
     items: [
       {
         stageLabel: "QA / Newegg Business 起點",
         title: "QA Automation 起步",
         period: "2015.02",
         caption:
-          "從交易流程的測試與回歸驗證開始，建立最早的系統視角與問題拆解方式。",
+          "這張照片記錄 QA automation 的起點，也對應我建立系統視角的早期階段。",
         imageAlt: "QA Automation stage placeholder for Newegg Business",
         imageSrc: "/images/experience-gallery/experience-01-qa-foundation-2015-02.jpg",
       },
@@ -440,53 +440,62 @@ export const resumeZhTW: ResumeContent = {
         title: "早期團隊聚餐",
         period: "2016.01",
         caption:
-          "在自動化測試階段累積跨功能協作默契，也逐步靠近 backend 問題拆解的工作方式。",
+          "這場聚餐記錄自動化測試時期的團隊默契，也對應我開始理解跨功能合作的方式。",
         imageAlt: "Early Newegg Business team dinner photo",
         imageSrc: "/images/experience-gallery/experience-02-team-dinner-2016-01.jpg",
       },
       {
         stageLabel: "Newegg Business / Staff Engineer / Group Leader",
-        title: "轉向後端的第一段",
+        title: "後端轉向 Offsite",
         period: "2016.05",
         caption:
-          "開始承接 B2B backend 議題，從需求與服務邊界一起學會怎麼拆系統。",
+          "這次 offsite 落在轉向 backend 的初期，也對應我開始從需求與服務邊界思考系統。",
         imageAlt: "Early backend offsite photo for Newegg Business",
         imageSrc: "/images/experience-gallery/experience-03-team-offsite-2016-05.jpg",
       },
       {
         stageLabel: "Newegg Business / Staff Engineer / Group Leader",
-        title: "Business 團隊合照",
+        title: "Business 團隊合影",
         period: "2016.09",
         caption:
-          "進入後端主線後，逐步把交付節奏、團隊協作與服務穩定性拉到同一個框架。",
+          "這張合影對應 Newegg Business 階段，也記錄後端主線逐漸成形的團隊合作。",
         imageAlt: "Newegg Business team photo from 2016",
         imageSrc: "/images/experience-gallery/experience-04-team-photo-2016-09.jpg",
       },
       {
         stageLabel: "Newegg Business / Staff Engineer / Group Leader",
-        title: "B2B Team Retreat",
+        title: "B2B 團隊 Retreat",
         period: "2018.09",
         caption:
-          "Newegg Business 階段的團隊 retreat，對應到服務模組化與平台現代化推進期。",
+          "這次 retreat 發生在 B2B 平台持續模組化的階段，也記錄團隊一起推進現代化的過程。",
         imageAlt: "Newegg Business retreat photo from 2018",
         imageSrc: "/images/experience-gallery/experience-05-team-retreat-2018-09-a.jpg",
       },
       {
         stageLabel: "Newegg Business / Staff Engineer / Group Leader",
-        title: "Engineering Offsite",
+        title: "工程團隊 Offsite",
         period: "2018.09",
         caption:
-          "團隊活動背後對應的是 TDD、CI/CD 與效能優化逐步落地的工程節奏。",
+          "這場 offsite 對應 TDD、CI/CD 與效能優化逐步落地的那段工程節奏。",
         imageAlt: "Engineering offsite photo from Newegg Business in 2018",
         imageSrc: "/images/experience-gallery/experience-06-team-retreat-2018-09-b.jpg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
-        title: "Mobile 團隊晚餐",
+        title: "Newegg 尾牙",
+        period: "2021.02.20",
+        caption:
+          "這場尾牙記錄 Newegg Mobile 階段初期的團隊聚會，也對應角色開始走向 engineering lead。",
+        imageAlt: "Newegg year-end party photo from 2021",
+        imageSrc: "/images/experience-gallery/experience-15-social-2026-03-a.jpg",
+      },
+      {
+        stageLabel: "Newegg Mobile / Engineering Lead",
+        title: "TWET 團隊晚餐",
         period: "2021.10",
         caption:
-          "角色進到 engineering lead 後，開始同時承接 mobile、desktop 與 data platform 的協作。",
-        imageAlt: "Newegg Mobile team dinner photo from 2021",
+          "這場晚餐對應 TWET 團隊的日常合作，也記錄我開始承接 mobile、desktop 與 data platform 的協作。",
+        imageAlt: "TWET team dinner photo from 2021",
         imageSrc: "/images/experience-gallery/experience-07-mobile-team-dinner-2021-10.jpg",
       },
       {
@@ -494,43 +503,52 @@ export const resumeZhTW: ResumeContent = {
         title: "跨產品線 Offsite",
         period: "2022.09",
         caption:
-          "把 roadmap、版本節點與跨區合作方式整合成可持續運作的工程節奏。",
+          "這次 offsite 記錄跨產品線協作現場，也對應 roadmap 與 release 節奏逐步整合的階段。",
         imageAlt: "Cross-team engineering offsite photo from 2022",
         imageSrc: "/images/experience-gallery/experience-08-engineering-offsite-2022-09.jpg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
-        title: "Team Retreat",
+        title: "TWET Team Building",
+        period: "2022.10.15",
+        caption:
+          "這次 team building 記錄 TWET 團隊在公開產品持續迭代時的合作狀態。",
+        imageAlt: "TWET team building photo from 2022",
+        imageSrc: "/images/experience-gallery/experience-16-social-2026-03-b.jpg",
+      },
+      {
+        stageLabel: "Newegg Mobile / Engineering Lead",
+        title: "團隊 Retreat",
         period: "2023.11",
         caption:
-          "高流量公開產品穩定迭代的背後，是更成熟的帶領與跨團隊協作模式。",
+          "這場 retreat 對應高流量產品穩定迭代的階段，也記錄更成熟的帶領與跨團隊合作方式。",
         imageAlt: "Newegg retreat photo from 2023",
         imageSrc: "/images/experience-gallery/experience-09-team-retreat-2023-11.jpeg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
-        title: "Newegg Team Gathering",
+        title: "Newegg 團隊聚會",
         period: "2024.01",
         caption:
-          "在 Newegg 後期，重心已轉向讓多條產品線能共用節奏、能力與交付方法。",
+          "這場聚會記錄 Newegg 後期的合作氛圍，也對應多產品線共用節奏與交付方法的階段。",
         imageAlt: "Newegg team gathering photo from 2024",
         imageSrc: "/images/experience-gallery/experience-10-newegg-team-2024-01.jpeg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
-        title: "Newegg Office Reunion",
+        title: "Newegg 辦公室重聚",
         period: "2025.01",
         caption:
-          "雖然已跨到下一段旅程，這張照片仍代表前一階段留下的團隊連結與文化延續。",
+          "這次辦公室重聚延續了 Newegg 團隊連結，也成為前一段經歷的後續註腳。",
         imageAlt: "Newegg office reunion photo from 2025",
         imageSrc: "/images/experience-gallery/experience-11-newegg-office-2025-01.jpeg",
       },
       {
         stageLabel: "First Horizon / Platform Delivery",
-        title: "First Horizon Team Kickoff",
+        title: "First Horizon 團隊 Kickoff",
         period: "2025.04",
         caption:
-          "SJC 階段開始把物流平台的需求、架構與交付方式拉成同一條主線。",
+          "這場 kickoff 記錄 First Horizon 啟動初期，也對應需求、架構與交付開始收斂成同一條主線。",
         imageAlt: "First Horizon team kickoff photo from 2025",
         imageSrc: "/images/experience-gallery/experience-12-sjc-team-2025-04.jpeg",
       },
@@ -539,36 +557,18 @@ export const resumeZhTW: ResumeContent = {
         title: "SJC 新春合影",
         period: "2026.01",
         caption:
-          "0→1 物流平台進入可持續交付節奏後，團隊開始形成自己的合作默契。",
+          "這張新春合影記錄 SJC 團隊進入穩定合作節奏的時期。",
         imageAlt: "SJC new year team photo from 2026",
         imageSrc: "/images/experience-gallery/experience-13-sjc-new-year-2026-01.jpg",
       },
       {
         stageLabel: "First Horizon / Platform Delivery",
-        title: "Platform Team Snapshot",
+        title: "平台團隊合影",
         period: "2026.02",
         caption:
-          "把觀測性、流程與跨區協作落到實作現場，是 First Horizon 階段最核心的工作內容。",
+          "這張團隊合影記錄平台交付進入常態運作後的合作現場。",
         imageAlt: "SJC platform team snapshot from 2026",
         imageSrc: "/images/experience-gallery/experience-14-sjc-team-2026-02.jpg",
-      },
-      {
-        stageLabel: "First Horizon / Platform Delivery",
-        title: "March Social Gathering",
-        period: "2026.03",
-        caption:
-          "在專案收尾階段，留下這段合作關係與現場執行節奏的最後縮影。",
-        imageAlt: "SJC social gathering photo from March 2026",
-        imageSrc: "/images/experience-gallery/experience-15-social-2026-03-a.jpg",
-      },
-      {
-        stageLabel: "First Horizon / Platform Delivery",
-        title: "Closing Team Dinner",
-        period: "2026.03",
-        caption:
-          "作為 SJC 這段經歷的收尾照片，也對應到 2026.03 的工作結束時間點。",
-        imageAlt: "SJC closing team dinner photo from March 2026",
-        imageSrc: "/images/experience-gallery/experience-16-social-2026-03-b.jpg",
       },
     ],
   },

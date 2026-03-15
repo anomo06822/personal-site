@@ -426,14 +426,14 @@ export const resumeEn: ResumeContent = {
   ],
   experienceGallery: {
     intro:
-      "A full image timeline from 2015 to 2026, organized around the experience arc from QA automation to Newegg Business, Newegg Mobile, and First Horizon platform delivery.",
+      "From 2015 to 2026, this image timeline follows representative moments across QA automation, Newegg Business, Newegg Mobile, and First Horizon.",
     items: [
       {
         stageLabel: "QA / Newegg Business Foundation",
         title: "QA Automation Start",
         period: "2015.02",
         caption:
-          "Started from transaction-flow testing and regression validation, building the earliest system perspective and problem-solving habits.",
+          "This photo marks the start of the QA automation chapter and the early system mindset that came with it.",
         imageAlt: "QA Automation stage placeholder for Newegg Business",
         imageSrc: "/images/experience-gallery/experience-01-qa-foundation-2015-02.jpg",
       },
@@ -442,16 +442,16 @@ export const resumeEn: ResumeContent = {
         title: "Early Team Dinner",
         period: "2016.01",
         caption:
-          "Built cross-functional team rhythm during the automation period while moving closer to backend problem framing.",
+          "This early dinner captures the team rhythm from the automation period and the first steps toward cross-functional collaboration.",
         imageAlt: "Early Newegg Business team dinner photo",
         imageSrc: "/images/experience-gallery/experience-02-team-dinner-2016-01.jpg",
       },
       {
         stageLabel: "Newegg Business / Staff Engineer / Group Leader",
-        title: "First Backend Chapter",
+        title: "Backend Transition Offsite",
         period: "2016.05",
         caption:
-          "Took on early B2B backend work and learned to shape systems through requirements and service boundaries together.",
+          "This offsite sits at the start of the backend transition, when I began thinking in requirements and service boundaries.",
         imageAlt: "Early backend offsite photo for Newegg Business",
         imageSrc: "/images/experience-gallery/experience-03-team-offsite-2016-05.jpg",
       },
@@ -460,7 +460,7 @@ export const resumeEn: ResumeContent = {
         title: "Business Team Photo",
         period: "2016.09",
         caption:
-          "As backend work became the main track, delivery rhythm, collaboration, and service stability started to converge into one operating model.",
+          "This team photo reflects the Newegg Business phase, when backend delivery became the main track.",
         imageAlt: "Newegg Business team photo from 2016",
         imageSrc: "/images/experience-gallery/experience-04-team-photo-2016-09.jpg",
       },
@@ -469,7 +469,7 @@ export const resumeEn: ResumeContent = {
         title: "B2B Team Retreat",
         period: "2018.09",
         caption:
-          "A retreat moment from the Newegg Business phase, matching the period of service modularization and platform modernization.",
+          "This retreat comes from the B2B platform phase, when the team was pushing service modularization and modernization.",
         imageAlt: "Newegg Business retreat photo from 2018",
         imageSrc: "/images/experience-gallery/experience-05-team-retreat-2018-09-a.jpg",
       },
@@ -478,17 +478,26 @@ export const resumeEn: ResumeContent = {
         title: "Engineering Offsite",
         period: "2018.09",
         caption:
-          "The team-building side of the same period that also pushed TDD, CI/CD, and performance work into daily engineering practice.",
+          "This offsite matches the stretch when TDD, CI/CD, and performance work were becoming part of the team's default practice.",
         imageAlt: "Engineering offsite photo from Newegg Business in 2018",
         imageSrc: "/images/experience-gallery/experience-06-team-retreat-2018-09-b.jpg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
-        title: "Mobile Team Dinner",
+        title: "Newegg Year-End Party",
+        period: "2021.02.20",
+        caption:
+          "This year-end party captures an early Newegg Mobile moment, as the role was moving toward engineering leadership.",
+        imageAlt: "Newegg year-end party photo from 2021",
+        imageSrc: "/images/experience-gallery/experience-15-social-2026-03-a.jpg",
+      },
+      {
+        stageLabel: "Newegg Mobile / Engineering Lead",
+        title: "TWET Team Dinner",
         period: "2021.10",
         caption:
-          "After stepping into engineering leadership, the work expanded across mobile, desktop, and data platform coordination.",
-        imageAlt: "Newegg Mobile team dinner photo from 2021",
+          "This dinner records day-to-day TWET collaboration as the work expanded across mobile, desktop, and data platform coordination.",
+        imageAlt: "TWET team dinner photo from 2021",
         imageSrc: "/images/experience-gallery/experience-07-mobile-team-dinner-2021-10.jpg",
       },
       {
@@ -496,16 +505,25 @@ export const resumeEn: ResumeContent = {
         title: "Cross-Product Offsite",
         period: "2022.09",
         caption:
-          "Roadmaps, release checkpoints, and cross-region collaboration started operating as one sustainable engineering rhythm.",
+          "This offsite captures cross-product collaboration as roadmap and release rhythm became more aligned.",
         imageAlt: "Cross-team engineering offsite photo from 2022",
         imageSrc: "/images/experience-gallery/experience-08-engineering-offsite-2022-09.jpg",
+      },
+      {
+        stageLabel: "Newegg Mobile / Engineering Lead",
+        title: "TWET Team Building",
+        period: "2022.10.15",
+        caption:
+          "This team-building event records the TWET collaboration mode behind steady public-product iteration.",
+        imageAlt: "TWET team building photo from 2022",
+        imageSrc: "/images/experience-gallery/experience-16-social-2026-03-b.jpg",
       },
       {
         stageLabel: "Newegg Mobile / Engineering Lead",
         title: "Team Retreat",
         period: "2023.11",
         caption:
-          "Stable iteration for high-traffic public products depended on more mature leadership and cross-team collaboration.",
+          "This retreat reflects the stage when high-traffic product delivery depended on more mature leadership and cross-team coordination.",
         imageAlt: "Newegg retreat photo from 2023",
         imageSrc: "/images/experience-gallery/experience-09-team-retreat-2023-11.jpeg",
       },
@@ -514,7 +532,7 @@ export const resumeEn: ResumeContent = {
         title: "Newegg Team Gathering",
         period: "2024.01",
         caption:
-          "Late in the Newegg chapter, the focus had shifted toward shared operating rhythm, shared capabilities, and shared delivery methods across product lines.",
+          "This gathering records the late Newegg atmosphere, when multiple product lines were sharing more delivery rhythm and working habits.",
         imageAlt: "Newegg team gathering photo from 2024",
         imageSrc: "/images/experience-gallery/experience-10-newegg-team-2024-01.jpeg",
       },
@@ -523,7 +541,7 @@ export const resumeEn: ResumeContent = {
         title: "Newegg Office Reunion",
         period: "2025.01",
         caption:
-          "Even after moving into the next chapter, this still represents the team connection and culture carried forward from the previous stage.",
+          "This office reunion carried forward the Newegg team connection and became a postscript to that chapter.",
         imageAlt: "Newegg office reunion photo from 2025",
         imageSrc: "/images/experience-gallery/experience-11-newegg-office-2025-01.jpeg",
       },
@@ -532,7 +550,7 @@ export const resumeEn: ResumeContent = {
         title: "First Horizon Team Kickoff",
         period: "2025.04",
         caption:
-          "The SJC chapter started by aligning logistics platform needs, architecture, and delivery into one track from the beginning.",
+          "This kickoff captures the early First Horizon phase, when product needs, architecture, and delivery were being pulled onto one track.",
         imageAlt: "First Horizon team kickoff photo from 2025",
         imageSrc: "/images/experience-gallery/experience-12-sjc-team-2025-04.jpeg",
       },
@@ -541,36 +559,18 @@ export const resumeEn: ResumeContent = {
         title: "SJC New Year Photo",
         period: "2026.01",
         caption:
-          "As the 0→1 logistics platform moved into a sustainable operating rhythm, the team started to form its own collaboration pattern.",
+          "This Lunar New Year photo records the period when the SJC team had settled into a more stable working rhythm.",
         imageAlt: "SJC new year team photo from 2026",
         imageSrc: "/images/experience-gallery/experience-13-sjc-new-year-2026-01.jpg",
       },
       {
         stageLabel: "First Horizon / Platform Delivery",
-        title: "Platform Team Snapshot",
+        title: "Platform Team Photo",
         period: "2026.02",
         caption:
-          "Observability, process design, and cross-region collaboration were all being translated into execution in this phase.",
+          "This team photo captures the platform after delivery had moved into a steadier operating mode.",
         imageAlt: "SJC platform team snapshot from 2026",
         imageSrc: "/images/experience-gallery/experience-14-sjc-team-2026-02.jpg",
-      },
-      {
-        stageLabel: "First Horizon / Platform Delivery",
-        title: "March Social Gathering",
-        period: "2026.03",
-        caption:
-          "A closing-stage snapshot of the collaboration, the operating rhythm, and the people behind the project delivery.",
-        imageAlt: "SJC social gathering photo from March 2026",
-        imageSrc: "/images/experience-gallery/experience-15-social-2026-03-a.jpg",
-      },
-      {
-        stageLabel: "First Horizon / Platform Delivery",
-        title: "Closing Team Dinner",
-        period: "2026.03",
-        caption:
-          "This works as the closing image for the SJC chapter and aligns with the work ending in March 2026.",
-        imageAlt: "SJC closing team dinner photo from March 2026",
-        imageSrc: "/images/experience-gallery/experience-16-social-2026-03-b.jpg",
       },
     ],
   },
