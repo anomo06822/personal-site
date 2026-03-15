@@ -179,6 +179,7 @@ export type ResumePdfContent = {
 };
 
 export type ExperienceGalleryItem = {
+  stageLabel: string;
   title: string;
   period: string;
   caption: string;
