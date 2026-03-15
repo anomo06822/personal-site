@@ -11,7 +11,7 @@ export const resumeEn: ResumeContent = {
   },
   positioning: {
     headlinePrimary:
-      "Integrating platform architecture, engineering leadership, and delivery to make progress happen.",
+      "From platform architecture to product delivery, keeping engineering moving forward.",
     headlineSecondary:
       ".NET, Azure, e-commerce platforms, and backend architecture",
     openToRoles: [

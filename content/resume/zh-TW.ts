@@ -10,7 +10,7 @@ export const resumeZhTW: ResumeContent = {
     portraitAlt: "Jarvis Huang 個人照",
   },
   positioning: {
-    headlinePrimary: "整合平台架構、工程帶領與交付節奏，讓事情持續發生。",
+    headlinePrimary: "從平台架構到產品交付，讓工程持續前進。",
     headlineSecondary: ".NET、Azure、電商平台與後端架構",
     openToRoles: [
       "Engineering Manager",
