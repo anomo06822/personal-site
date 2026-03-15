@@ -424,6 +424,40 @@ export const resumeEn: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  experienceGallery: {
+    intro:
+      "A visual timeline of four representative stages: QA automation, B2B backend modernization, mobile engineering leadership, and First Horizon platform delivery.",
+    items: [
+      {
+        title: "QA Automation / Newegg Business Foundation",
+        period: "2013.04 - 2016.04",
+        caption:
+          "Started from automation coverage across order, shopping, and procurement flows, building the system perspective that later carried into backend engineering.",
+        imageAlt: "QA Automation stage placeholder for Newegg Business",
+      },
+      {
+        title: "Newegg Business / Staff Engineer / Group Leader",
+        period: "2016.04 - 2020.04",
+        caption:
+          "Owned B2B backend services across purchasing, payment, and order flow while driving .NET Core migration, TDD, and CI/CD adoption.",
+        imageAlt: "Newegg Business engineering stage placeholder",
+      },
+      {
+        title: "Newegg Mobile / Engineering Lead",
+        period: "2020.04 - 2024.04",
+        caption:
+          "Led collaboration across mobile, desktop, and data platform work to improve public-product reliability, engagement, and release execution.",
+        imageAlt: "Newegg Mobile leadership stage placeholder",
+      },
+      {
+        title: "First Horizon / Platform Delivery",
+        period: "2024.04 - Present",
+        caption:
+          "Integrated 0→1 logistics platform architecture, observability, engineering rhythm, and cross-region delivery into one operating track.",
+        imageAlt: "First Horizon platform delivery stage placeholder",
+      },
+    ],
+  },
   presentation: {
     fileName: "jarvis-intro-cn-2026-v1.pptx",
     title: "Jarvis Huang Intro Deck",

@@ -422,6 +422,40 @@ export const resumeZhTW: ResumeContent = {
       note: "Most Valuable Project Award / Follow Seller",
     },
   ],
+  experienceGallery: {
+    intro:
+      "用 4 張影像卡快速標示職涯主線：從 QA automation、B2B backend、mobile engineering leadership，到 First Horizon 的 0→1 平台交付。",
+    items: [
+      {
+        title: "QA Automation / Newegg Business 起點",
+        period: "2013.04 - 2016.04",
+        caption:
+          "從訂單、購物與企業採購流程的自動化測試起步，建立之後轉向 backend engineering 的系統視角。",
+        imageAlt: "QA Automation stage placeholder for Newegg Business",
+      },
+      {
+        title: "Newegg Business / Staff Engineer / Group Leader",
+        period: "2016.04 - 2020.04",
+        caption:
+          "承接 B2B 電商後端、付款與採購整合，並推動 .NET Core 遷移、TDD 與 CI/CD。",
+        imageAlt: "Newegg Business engineering stage placeholder",
+      },
+      {
+        title: "Newegg Mobile / Engineering Lead",
+        period: "2020.04 - 2024.04",
+        caption:
+          "帶領 mobile、desktop 與 data platform 協作，處理公開產品的可靠度、互動與版本交付。",
+        imageAlt: "Newegg Mobile leadership stage placeholder",
+      },
+      {
+        title: "First Horizon / Platform Delivery",
+        period: "2024.04 - 至今",
+        caption:
+          "把 0→1 物流平台的架構、觀測性、工程節奏與跨區協作整合成同一條交付主線。",
+        imageAlt: "First Horizon platform delivery stage placeholder",
+      },
+    ],
+  },
   presentation: {
     fileName: "jarvis-intro-cn-2026-v1.pptx",
     title: "Jarvis Huang 自我介紹簡報",

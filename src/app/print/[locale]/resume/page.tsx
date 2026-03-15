@@ -236,7 +236,7 @@ export default async function PrintResumePage({
   const eyebrowCopy = printEyebrows[locale];
 
   return (
-    <div className="resume-print-page" data-pdf-ready="true">
+    <div className="resume-print-page" data-locale={locale} data-pdf-ready="true">
       <div className="resume-print-shell">
         <header className="resume-print-section resume-print-header">
           <div className="resume-print-hero-grid">
@@ -340,7 +340,7 @@ export default async function PrintResumePage({
         </section>
 
         <section className="resume-print-section pt-4">
-          <div className="grid gap-4 md:grid-cols-[0.92fr_1.08fr]">
+          <div className="resume-print-detail-grid grid gap-4 md:grid-cols-[0.92fr_1.08fr]">
             <article className="resume-print-card resume-print-card-emphasis">
               <SectionHeading
                 title={copy.resume.skillsTitle}

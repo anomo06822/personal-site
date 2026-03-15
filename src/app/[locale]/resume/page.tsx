@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ExperienceGallery } from "@/components/experience-gallery";
 import { ImpactRibbon } from "@/components/impact-ribbon";
 import { ResumePresentationPreview } from "@/components/resume-presentation-preview";
 import { ResumeHero } from "@/components/resume-hero";
@@ -12,6 +13,7 @@ import {
 } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
 import type {
+  ExperienceGalleryItem,
   ExperienceEntry,
   FeaturedItem,
   Locale,
@@ -331,6 +333,15 @@ export default async function ResumePage({
           : undefined,
       }
     : null;
+  const experienceGallery = resume.experienceGallery
+    ? {
+        ...resume.experienceGallery,
+        items: resume.experienceGallery.items.map((item): ExperienceGalleryItem => ({
+          ...item,
+          imageSrc: item.imageSrc ? withBasePath(item.imageSrc) : undefined,
+        })),
+      }
+    : null;
 
   return (
     <div className="space-y-12">
@@ -524,6 +535,19 @@ export default async function ResumePage({
           </div>
         </article>
       </section>
+
+      {experienceGallery?.items.length ? (
+        <section className="space-y-4">
+          <SectionHeading title={copy.resume.experienceGalleryTitle} />
+          <ExperienceGallery
+            intro={experienceGallery.intro}
+            items={experienceGallery.items}
+            badgeLabel={copy.resume.experienceGalleryBadgeLabel}
+            previousLabel={copy.resume.experienceGalleryPrevLabel}
+            nextLabel={copy.resume.experienceGalleryNextLabel}
+          />
+        </section>
+      ) : null}
     </div>
   );
 }

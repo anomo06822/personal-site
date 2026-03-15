@@ -178,6 +178,19 @@ export type ResumePdfContent = {
   projects: ProjectItem[];
 };
 
+export type ExperienceGalleryItem = {
+  title: string;
+  period: string;
+  caption: string;
+  imageAlt: string;
+  imageSrc?: string;
+};
+
+export type ExperienceGalleryContent = {
+  intro: string;
+  items: ExperienceGalleryItem[];
+};
+
 export type ResumePresentationContent = {
   fileName: string;
   title: string;
@@ -202,6 +215,7 @@ export type ResumeContent = {
   projects: ProjectItem[];
   certifications: Certification[];
   presentation?: ResumePresentationContent;
+  experienceGallery?: ExperienceGalleryContent;
   pdf: ResumePdfContent;
 };
 

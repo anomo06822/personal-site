@@ -275,11 +275,15 @@ button {
     opacity: 0.9;
   }
 
-  .resume-print-section,
   .resume-print-card,
   .resume-print-item {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .resume-print-section {
+    break-inside: auto;
+    page-break-inside: auto;
   }
 
   .resume-print-header {
@@ -314,6 +318,11 @@ button {
     display: grid;
     gap: 0.85rem;
     grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+    align-items: start;
+  }
+
+  .resume-print-detail-grid {
+    align-items: start;
   }
 
   .resume-print-eyebrow {
@@ -408,6 +417,7 @@ button {
   }
 
   .resume-print-card {
+    align-self: start;
     border: 1px solid var(--resume-line);
     border-radius: 20px;
     background: linear-gradient(180deg, var(--resume-panel) 0%, var(--resume-paper) 100%);
@@ -598,6 +608,53 @@ button {
     flex-shrink: 0;
     border-radius: 999px;
     background: var(--resume-accent);
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-hero-grid {
+    gap: 0.82rem;
+    grid-template-columns: minmax(0, 1.16fr) minmax(11.4rem, 12.35rem);
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-overview-grid,
+  .resume-print-page[data-locale="en"] .resume-print-detail-grid {
+    gap: 0.72rem;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-hero-lead {
+    max-width: 33rem;
+    font-size: 1.08rem;
+    line-height: 1.24;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.42;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-standfirst {
+    max-width: 33rem;
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-card {
+    padding: 0.68rem 0.76rem;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-list {
+    gap: 0.28rem;
+    font-size: 0.74rem;
+    line-height: 1.38;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-link-card {
+    padding: 0.6rem 0.7rem;
+  }
+
+  .resume-print-page[data-locale="en"] .resume-print-chip {
+    padding: 0.18rem 0.46rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.14em;
   }
 }
 
