@@ -434,6 +434,7 @@ export const resumeEn: ResumeContent = {
         caption:
           "Started from automation coverage across order, shopping, and procurement flows, building the system perspective that later carried into backend engineering.",
         imageAlt: "QA Automation stage placeholder for Newegg Business",
+        imageSrc: "/images/experience-gallery/experience-01-qa-foundation-2015-02.jpg",
       },
       {
         title: "Newegg Business / Staff Engineer / Group Leader",
@@ -441,6 +442,7 @@ export const resumeEn: ResumeContent = {
         caption:
           "Owned B2B backend services across purchasing, payment, and order flow while driving .NET Core migration, TDD, and CI/CD adoption.",
         imageAlt: "Newegg Business engineering stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-05-team-retreat-2018-09-a.jpg",
       },
       {
         title: "Newegg Mobile / Engineering Lead",
@@ -448,6 +450,7 @@ export const resumeEn: ResumeContent = {
         caption:
           "Led collaboration across mobile, desktop, and data platform work to improve public-product reliability, engagement, and release execution.",
         imageAlt: "Newegg Mobile leadership stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-08-engineering-offsite-2022-09.jpg",
       },
       {
         title: "First Horizon / Platform Delivery",
@@ -455,6 +458,7 @@ export const resumeEn: ResumeContent = {
         caption:
           "Integrated 0→1 logistics platform architecture, observability, engineering rhythm, and cross-region delivery into one operating track.",
         imageAlt: "First Horizon platform delivery stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-13-sjc-new-year-2026-01.jpg",
       },
     ],
   },

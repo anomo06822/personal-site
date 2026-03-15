@@ -432,6 +432,7 @@ export const resumeZhTW: ResumeContent = {
         caption:
           "從訂單、購物與企業採購流程的自動化測試起步，建立之後轉向 backend engineering 的系統視角。",
         imageAlt: "QA Automation stage placeholder for Newegg Business",
+        imageSrc: "/images/experience-gallery/experience-01-qa-foundation-2015-02.jpg",
       },
       {
         title: "Newegg Business / Staff Engineer / Group Leader",
@@ -439,6 +440,7 @@ export const resumeZhTW: ResumeContent = {
         caption:
           "承接 B2B 電商後端、付款與採購整合，並推動 .NET Core 遷移、TDD 與 CI/CD。",
         imageAlt: "Newegg Business engineering stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-05-team-retreat-2018-09-a.jpg",
       },
       {
         title: "Newegg Mobile / Engineering Lead",
@@ -446,6 +448,7 @@ export const resumeZhTW: ResumeContent = {
         caption:
           "帶領 mobile、desktop 與 data platform 協作，處理公開產品的可靠度、互動與版本交付。",
         imageAlt: "Newegg Mobile leadership stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-08-engineering-offsite-2022-09.jpg",
       },
       {
         title: "First Horizon / Platform Delivery",
@@ -453,6 +456,7 @@ export const resumeZhTW: ResumeContent = {
         caption:
           "把 0→1 物流平台的架構、觀測性、工程節奏與跨區協作整合成同一條交付主線。",
         imageAlt: "First Horizon platform delivery stage placeholder",
+        imageSrc: "/images/experience-gallery/experience-13-sjc-new-year-2026-01.jpg",
       },
     ],
   },
