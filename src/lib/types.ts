@@ -88,6 +88,17 @@ export type ShowcaseProjectItem = {
 export type PersonalProjectDetailImage = {
   kind: "placeholder";
   alt: string;
+} | {
+  kind: "gallery";
+  alt: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  images: Array<{
+    src: string;
+    alt: string;
+    label: string;
+    caption: string;
+  }>;
 };
 
 export type PersonalProjectFeedback =
@@ -105,6 +116,7 @@ export type PersonalProjectItem = ShowcaseProjectItem & {
   slug: string;
   detailIntro: string[];
   detailImage: PersonalProjectDetailImage;
+  previewNote?: string;
   feedback: PersonalProjectFeedback;
 };
 

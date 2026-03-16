@@ -311,11 +311,11 @@ export const resumeEn: ResumeContent = {
         title: "xml-toolkit",
         subtitle: "anomo06822/xml-toolkit",
         summary:
-          "A multi-format data toolkit for XML, JSON, and Markdown that covers format, minify, sort, diff, convert, and visualize workflows, with Electron desktop packaging and an optional .NET 10 backend.",
+          "A multi-format data toolkit for XML, JSON, and Markdown with dedicated formatter, compare, convert, and visualize workspaces, plus Electron desktop packaging and an optional .NET 10 backend.",
         bullets: [
-          "Combines XML, JSON, and Markdown formatting, sorting, diffing, conversion, and visualization into one tool surface.",
-          "Adds Gemini assistant and AI diff summary together with Electron desktop packaging, a menu bar entry, a global wakeup shortcut, and GitHub Releases update checks.",
-          "Supports an optional .NET 10 backend proxy for API key isolation while keeping web/direct mode and Docker deployment available.",
+          "Ships dedicated Formatter, Compare, Convert, and Visualize workspaces so XML, JSON, and Markdown workflows stay inside one consistent DataToolkit shell.",
+          "The refreshed DataToolkit brand now includes a dedicated mark plus browser-tab favicon and sidebar logo updates, alongside Gemini assistant and AI diff summary support.",
+          "Supports Electron desktop packaging, a menu bar entry, a global wakeup shortcut, GitHub Releases update checks, and an optional .NET 10 backend proxy for local API key isolation.",
         ],
         tags: [
           "XML",
@@ -326,14 +326,48 @@ export const resumeEn: ResumeContent = {
           "AI Assistant",
         ],
         detailIntro: [
-          "The project started as a data-format utility and is now evolving into a broader DataToolkit surface that supports both web mode and desktop mode for XML, JSON, and Markdown workflows.",
-          "Beyond formatting and diffing, the repo now includes Gemini assistant and AI diff summary, Electron packaging, a menu bar status entry, a configurable wakeup shortcut, and GitHub Releases-based update checks.",
-          "When desktop delivery needs local credential isolation, the project can also run through an optional .NET 10 backend proxy while preserving a Docker-friendly web deployment path.",
+          "The project started as a data-format utility and now presents a fuller DataToolkit surface, with dedicated Formatter, Compare, Convert, and Visualize views for XML, JSON, and Markdown workflows.",
+          "The latest refresh also adds a dedicated DataToolkit mark and carries that branding into the browser-tab favicon and app sidebar logo, while keeping Gemini assistant and AI diff summary inside the same warm desktop-style shell.",
+          "For delivery, the repo supports Electron desktop packaging, menu bar presence, wakeup shortcut, GitHub Releases update checks, and an optional .NET 10 backend proxy when desktop installations need local API key isolation.",
         ],
         detailImage: {
-          kind: "placeholder",
-          alt: "xml-toolkit placeholder preview",
+          kind: "gallery",
+          alt: "DataToolkit demo gallery",
+          logoSrc: "/images/projects/xml-toolkit/datatoolkit-mark.svg",
+          logoAlt: "DataToolkit brand mark",
+          images: [
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-formatter.png",
+              alt: "DataToolkit formatter workspace demo",
+              label: "Formatter",
+              caption:
+                "Primary editing surface for formatting, minifying, and sorting XML, JSON, and Markdown input.",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-compare.png",
+              alt: "DataToolkit compare workspace demo",
+              label: "Compare",
+              caption:
+                "Side-by-side diff workflow with AI summary support for reviewing structural and content changes.",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-convert.png",
+              alt: "DataToolkit convert workspace demo",
+              label: "Convert",
+              caption:
+                "Conversion flow for switching between XML, JSON, and Markdown without leaving the same tool shell.",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-visualize.png",
+              alt: "DataToolkit visualize workspace demo",
+              label: "Visualize",
+              caption:
+                "Tree-style inspection view for understanding nested data shape and structure more quickly.",
+            },
+          ],
         },
+        previewNote:
+          "Current previews use the four demo surfaces exported from the repo docs: Formatter, Compare, Convert, and Visualize.",
         feedback: {
           type: "github-issue",
           repoUrl: "https://github.com/anomo06822/xml-toolkit",
@@ -341,8 +375,8 @@ export const resumeEn: ResumeContent = {
         },
         href: "https://github.com/anomo06822/xml-toolkit",
         hrefLabel: "View on GitHub",
-        imageAlt: "xml-toolkit project preview",
-        note: "The current in-repo product branding is DataToolkit while the public repository name remains xml-toolkit.",
+        imageAlt: "DataToolkit project demo gallery",
+        note: "The public repository name remains xml-toolkit, while the in-product surface and latest demo gallery now use the DataToolkit brand.",
       },
     ],
     core: [

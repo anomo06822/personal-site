@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PersonalProjectFeedbackForm } from "@/components/personal-project-feedback-form";
 import { getAllPersonalProjectParams, getPersonalProject } from "@/lib/resume";
-import { getRouteHref, isLocale, siteConfig, siteCopy } from "@/lib/site";
+import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
 import type { PersonalProjectItem } from "@/lib/types";
 
 function SectionHeading({
@@ -28,7 +29,7 @@ function ProjectPreviewPlaceholder({
 }: {
   item: PersonalProjectItem;
   previewLabel: string;
-  previewNote: string;
+  previewNote?: string;
 }) {
   return (
     <div className="space-y-4">
@@ -73,7 +74,157 @@ function ProjectPreviewPlaceholder({
         </div>
       </div>
 
-      <p className="max-w-3xl text-sm leading-7 text-ink-muted">{previewNote}</p>
+      {previewNote ? (
+        <p className="max-w-3xl text-sm leading-7 text-ink-muted">{previewNote}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function ProjectPreviewGallery({
+  item,
+  previewLabel,
+  previewNote,
+}: {
+  item: PersonalProjectItem;
+  previewLabel: string;
+  previewNote?: string;
+}) {
+  if (item.detailImage.kind !== "gallery") {
+    return null;
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="overflow-hidden rounded-[32px] border border-line/80 bg-canvas-elevated/78 p-4 shadow-[0_24px_60px_rgba(10,12,12,0.14)] sm:p-6">
+        <div className="grid gap-4 lg:grid-cols-[minmax(220px,0.38fr)_minmax(0,1fr)]">
+          <div className="relative overflow-hidden rounded-[28px] border border-accent/16 bg-[linear-gradient(155deg,#1D1511_0%,#241A14_55%,#120E0C_100%)] p-6">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(227,154,99,0.24),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_48%)]" />
+            <div className="relative flex h-full flex-col justify-between gap-8">
+              {item.detailImage.logoSrc ? (
+                <div className="flex h-16 w-16 items-center justify-center rounded-[20px] border border-white/8 bg-black/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                  <Image
+                    src={withBasePath(item.detailImage.logoSrc)}
+                    alt={item.detailImage.logoAlt ?? item.title}
+                    width={52}
+                    height={52}
+                    className="h-11 w-11"
+                  />
+                </div>
+              ) : null}
+
+              <div className="space-y-4">
+                <div className="eyebrow text-accent">{previewLabel}</div>
+                <div className="space-y-3">
+                  <h3 className="text-3xl font-semibold tracking-tight text-white sm:text-[2.3rem]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-7 text-[rgba(255,243,230,0.74)]">
+                    {item.summary}
+                  </p>
+                </div>
+              </div>
+
+              {item.tags?.length ? (
+                <div className="flex flex-wrap gap-2">
+                  {item.tags.slice(0, 4).map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-[rgba(255,243,230,0.78)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {item.detailImage.images.map((image) => (
+              <figure
+                key={image.src}
+                className="group overflow-hidden rounded-[28px] border border-line/80 bg-canvas"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-line/75 bg-[#17110E]">
+                  <Image
+                    src={withBasePath(image.src)}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <figcaption className="space-y-2 p-4">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    {image.label}
+                  </div>
+                  <p className="text-sm leading-7 text-ink-muted">{image.caption}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {previewNote ? (
+        <p className="max-w-4xl text-sm leading-7 text-ink-muted">{previewNote}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function ProjectPreviewSurface({
+  item,
+  previewLabel,
+  previewNote,
+}: {
+  item: PersonalProjectItem;
+  previewLabel: string;
+  previewNote?: string;
+}) {
+  if (item.detailImage.kind === "gallery") {
+    return (
+      <ProjectPreviewGallery
+        item={item}
+        previewLabel={previewLabel}
+        previewNote={previewNote}
+      />
+    );
+  }
+
+  return (
+    <ProjectPreviewPlaceholder
+      item={item}
+      previewLabel={previewLabel}
+      previewNote={previewNote}
+    />
+  );
+}
+
+function ProjectSidebarMark({ item }: { item: PersonalProjectItem }) {
+  if (item.detailImage.kind !== "gallery" || !item.detailImage.logoSrc) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center gap-4 rounded-[24px] border border-accent/18 bg-[var(--accent-soft)] px-4 py-4">
+      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[20px] border border-accent/18 bg-[#17110E] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+        <Image
+          src={withBasePath(item.detailImage.logoSrc)}
+          alt={item.detailImage.logoAlt ?? item.title}
+          width={50}
+          height={50}
+          className="h-10 w-10"
+        />
+      </div>
+
+      <div className="min-w-0 space-y-1">
+        <div className="text-sm font-semibold tracking-tight text-ink">{item.title}</div>
+        {item.subtitle ? (
+          <div className="truncate text-xs leading-6 text-ink-muted">{item.subtitle}</div>
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -99,6 +250,9 @@ export async function generateMetadata({
     return {};
   }
 
+  const brandIcon =
+    project.detailImage.kind === "gallery" ? project.detailImage.logoSrc : undefined;
+
   return {
     title: project.title,
     description: project.summary,
@@ -107,6 +261,12 @@ export async function generateMetadata({
       description: project.summary,
       url: `${siteConfig.siteUrl}/${locale}/projects/${slug}/`,
     },
+    icons: brandIcon
+      ? {
+          icon: withBasePath(brandIcon),
+          shortcut: withBasePath(brandIcon),
+        }
+      : undefined,
   };
 }
 
@@ -124,6 +284,11 @@ export default async function PersonalProjectDetailPage({
   const copy = siteCopy[locale].resume;
   const projectsCopy = siteCopy[locale].projects;
   const project = getPersonalProject(locale, slug);
+  const previewNote =
+    project?.previewNote ??
+    (project?.detailImage.kind === "placeholder"
+      ? copy.projectDetailPreviewNote
+      : undefined);
 
   if (!project) {
     notFound();
@@ -176,6 +341,8 @@ export default async function PersonalProjectDetailPage({
           </div>
 
           <aside className="subtle-panel space-y-4 p-6">
+            <ProjectSidebarMark item={project} />
+
             {project.note ? (
               <p className="text-sm leading-7 text-ink-muted">{project.note}</p>
             ) : null}
@@ -196,10 +363,10 @@ export default async function PersonalProjectDetailPage({
 
       <section className="space-y-4">
         <SectionHeading id="image" title={copy.projectDetailImageLabel} />
-        <ProjectPreviewPlaceholder
+        <ProjectPreviewSurface
           item={project}
           previewLabel={copy.projectDetailPreviewLabel}
-          previewNote={copy.projectDetailPreviewNote}
+          previewNote={previewNote}
         />
       </section>
 

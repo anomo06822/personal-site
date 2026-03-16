@@ -309,11 +309,11 @@ export const resumeZhTW: ResumeContent = {
         title: "xml-toolkit",
         subtitle: "anomo06822/xml-toolkit",
         summary:
-          "聚焦 XML、JSON 與 Markdown 的多格式資料工具，提供 format、minify、sort、diff、convert 與 visualize 等日常處理能力，並往 Electron 桌面應用與可選 .NET 10 backend 延伸。",
+          "聚焦 XML、JSON 與 Markdown 的多格式資料工具，現在已整理出 formatter、compare、convert、visualize 四個主要工作區，並支援 Electron 桌面應用與可選 .NET 10 backend。",
         bullets: [
-          "以單一工具介面整合 XML、JSON、Markdown 的格式化、縮排、排序、差異比較、轉換與視覺化流程。",
-          "加入 Gemini assistant 與 AI diff summary，並支援 Electron desktop packaging、menu bar entry、global wakeup shortcut 與 GitHub Releases 更新檢查。",
-          "可選擇使用 .NET 10 backend proxy 隔離 API key，同時保留 web/direct mode 與 Docker deployment 路徑。",
+          "以 Formatter、Compare、Convert、Visualize 四個專注工作區，收斂 XML、JSON、Markdown 的格式化、差異比較、轉換與視覺化流程。",
+          "新版 DataToolkit 品牌已補上專屬 mark，並同步更新 browser tab favicon 與 sidebar logo，同時保留 Gemini assistant 與 AI diff summary 能力。",
+          "支援 Electron desktop packaging、menu bar entry、global wakeup shortcut、GitHub Releases 更新檢查，以及可選的 .NET 10 backend proxy 來隔離本機 API key。",
         ],
         tags: [
           "XML",
@@ -324,14 +324,48 @@ export const resumeZhTW: ResumeContent = {
           "AI Assistant",
         ],
         detailIntro: [
-          "這個專案原本是資料格式處理工具，現在已擴充成兼顧 web mode 與 desktop mode 的 DataToolkit，目標是把 XML、JSON、Markdown 的整理、比對與視覺化放進同一個工作介面。",
-          "除了格式化與 diff 之外，repo 也整合 Gemini assistant / AI diff summary、Electron 桌面封裝、menu bar 狀態入口、全域喚醒捷徑與 GitHub Releases 更新檢查。",
-          "如果需要把 API key 留在本機或打包到桌面版，它也提供可選的 .NET 10 backend proxy 與 Docker web deployment 路徑。",
+          "這個專案原本是資料格式處理工具，現在已擴充成有 Formatter、Compare、Convert、Visualize 四個主要工作區的 DataToolkit，讓 XML、JSON、Markdown 的整理、比對、轉換與視覺化能放進同一個操作表面。",
+          "這一版也補上新的 DataToolkit 品牌 mark，並把品牌延伸到 browser tab favicon 與 app sidebar logo；同時保留 Gemini assistant 與 AI diff summary 在同一套 warm desktop-style 介面中運作。",
+          "在交付形式上，repo 仍支援 Electron 桌面封裝、menu bar 狀態入口、全域喚醒捷徑、GitHub Releases 更新檢查，以及需要本機隔離 API key 時可切換的 .NET 10 backend proxy。",
         ],
         detailImage: {
-          kind: "placeholder",
-          alt: "xml-toolkit placeholder preview",
+          kind: "gallery",
+          alt: "DataToolkit demo gallery",
+          logoSrc: "/images/projects/xml-toolkit/datatoolkit-mark.svg",
+          logoAlt: "DataToolkit brand mark",
+          images: [
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-formatter.png",
+              alt: "DataToolkit formatter workspace demo",
+              label: "Formatter",
+              caption:
+                "主要編輯工作區，處理 XML、JSON、Markdown 的格式化、壓縮與排序。",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-compare.png",
+              alt: "DataToolkit compare workspace demo",
+              label: "Compare",
+              caption:
+                "左右對照的 diff 工作區，並可搭配 AI summary 快速掌握資料變化。",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-convert.png",
+              alt: "DataToolkit convert workspace demo",
+              label: "Convert",
+              caption:
+                "在同一個工具殼層內完成 XML、JSON、Markdown 之間的格式轉換。",
+            },
+            {
+              src: "/images/projects/xml-toolkit/datatoolkit-demo-visualize.png",
+              alt: "DataToolkit visualize workspace demo",
+              label: "Visualize",
+              caption:
+                "用樹狀結構快速檢視巢狀資料，縮短理解資料形狀的時間。",
+            },
+          ],
         },
+        previewNote:
+          "目前預覽圖直接使用 repo docs 內的四張 demo：Formatter、Compare、Convert、Visualize。",
         feedback: {
           type: "github-issue",
           repoUrl: "https://github.com/anomo06822/xml-toolkit",
@@ -339,8 +373,8 @@ export const resumeZhTW: ResumeContent = {
         },
         href: "https://github.com/anomo06822/xml-toolkit",
         hrefLabel: "前往 GitHub",
-        imageAlt: "xml-toolkit project preview",
-        note: "目前 repo 內產品命名偏向 DataToolkit，公開對外暫以 xml-toolkit repo 名稱呈現。",
+        imageAlt: "DataToolkit project demo gallery",
+        note: "公開 repository 名稱仍是 xml-toolkit，但產品介面與最新 demo 圖已改用 DataToolkit 品牌。",
       },
     ],
     core: [
