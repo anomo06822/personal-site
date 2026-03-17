@@ -31,8 +31,6 @@ function ProjectListItem({
   locale,
   detailCtaLabel,
   previewLabel,
-  previewZoomLabel,
-  closePreviewLabel,
   placeholderPreviewLabel,
 }: {
   item: PersonalProjectItem;
@@ -40,8 +38,6 @@ function ProjectListItem({
   locale: Locale;
   detailCtaLabel: string;
   previewLabel: string;
-  previewZoomLabel: string;
-  closePreviewLabel: string;
   placeholderPreviewLabel: string;
 }) {
   return (
@@ -114,8 +110,6 @@ function ProjectListItem({
             summary={item.summary}
             detailImage={item.detailImage}
             previewLabel={previewLabel}
-            previewZoomLabel={previewZoomLabel}
-            closePreviewLabel={closePreviewLabel}
             placeholderPreviewLabel={placeholderPreviewLabel}
           />
         </div>
@@ -188,8 +182,6 @@ export default async function ProjectsPage({
                 locale={locale}
                 detailCtaLabel={copy.detailCtaLabel}
                 previewLabel={copy.previewLabel}
-                previewZoomLabel={copy.previewZoomLabel}
-                closePreviewLabel={copy.closePreviewLabel}
                 placeholderPreviewLabel={copy.placeholderPreviewLabel}
               />
             ))}

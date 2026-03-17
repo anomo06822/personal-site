@@ -93,6 +93,8 @@ export const siteCopy = {
       projectDetailOverviewLabel: "介紹",
       projectDetailFeedbackLabel: "Feedback",
       projectDetailPreviewLabel: "Preview Surface",
+      projectDetailImageZoomLabel: "點擊圖片放大",
+      projectDetailClosePreviewLabel: "關閉預覽",
       projectDetailPreviewNote: "目前先以站內生成 placeholder 呈現，之後可替換為實際產品截圖。",
       projectDetailFeedbackIntro:
         "如果你對這個專案有建議，可以先在這裡整理成草稿，系統會帶你到 GitHub issue 頁面完成建立。",
@@ -115,8 +117,6 @@ export const siteCopy = {
       listTitle: "專案列表",
       detailCtaLabel: "查看 detail",
       previewLabel: "卡片預覽",
-      previewZoomLabel: "點擊放大",
-      closePreviewLabel: "關閉預覽",
       placeholderPreviewLabel: "預覽待補",
       emptyState: "目前還沒有可公開列出的個人專案。",
       backToProjectsLabel: "返回專案列表",
@@ -226,6 +226,8 @@ export const siteCopy = {
       projectDetailOverviewLabel: "Overview",
       projectDetailFeedbackLabel: "Feedback",
       projectDetailPreviewLabel: "Preview Surface",
+      projectDetailImageZoomLabel: "Click image to enlarge",
+      projectDetailClosePreviewLabel: "Close preview",
       projectDetailPreviewNote:
         "This placeholder is intentionally generated inside the site and can be replaced with real product screenshots later.",
       projectDetailFeedbackIntro:
@@ -252,8 +254,6 @@ export const siteCopy = {
       listTitle: "Project List",
       detailCtaLabel: "View details",
       previewLabel: "Card preview",
-      previewZoomLabel: "Click to enlarge",
-      closePreviewLabel: "Close preview",
       placeholderPreviewLabel: "Preview pending",
       emptyState: "There are no public personal projects listed yet.",
       backToProjectsLabel: "Back to projects",

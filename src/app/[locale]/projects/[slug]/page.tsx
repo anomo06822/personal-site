@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectDetailGallery } from "@/components/project-detail-gallery";
 import { PersonalProjectFeedbackForm } from "@/components/personal-project-feedback-form";
 import { getAllPersonalProjectParams, getPersonalProject } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
@@ -85,92 +86,30 @@ function ProjectPreviewGallery({
   item,
   previewLabel,
   previewNote,
+  zoomLabel,
+  closeLabel,
 }: {
   item: PersonalProjectItem;
   previewLabel: string;
   previewNote?: string;
+  zoomLabel: string;
+  closeLabel: string;
 }) {
   if (item.detailImage.kind !== "gallery") {
     return null;
   }
 
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden rounded-[32px] border border-line/80 bg-canvas-elevated/78 p-4 shadow-[0_24px_60px_rgba(10,12,12,0.14)] sm:p-6">
-        <div className="grid gap-4 lg:grid-cols-[minmax(220px,0.38fr)_minmax(0,1fr)]">
-          <div className="relative overflow-hidden rounded-[28px] border border-accent/16 bg-[linear-gradient(155deg,#1D1511_0%,#241A14_55%,#120E0C_100%)] p-6">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(227,154,99,0.24),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_48%)]" />
-            <div className="relative flex h-full flex-col justify-between gap-8">
-              {item.detailImage.logoSrc ? (
-                <div className="flex h-16 w-16 items-center justify-center rounded-[20px] border border-white/8 bg-black/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                  <Image
-                    src={withBasePath(item.detailImage.logoSrc)}
-                    alt={item.detailImage.logoAlt ?? item.title}
-                    width={52}
-                    height={52}
-                    className="h-11 w-11"
-                  />
-                </div>
-              ) : null}
-
-              <div className="space-y-4">
-                <div className="eyebrow text-accent">{previewLabel}</div>
-                <div className="space-y-3">
-                  <h3 className="text-3xl font-semibold tracking-tight text-white sm:text-[2.3rem]">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-7 text-[rgba(255,243,230,0.74)]">
-                    {item.summary}
-                  </p>
-                </div>
-              </div>
-
-              {item.tags?.length ? (
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.slice(0, 4).map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-[rgba(255,243,230,0.78)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {item.detailImage.images.map((image) => (
-              <figure
-                key={image.src}
-                className="group overflow-hidden rounded-[28px] border border-line/80 bg-canvas"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-line/75 bg-[#17110E]">
-                  <Image
-                    src={withBasePath(image.src)}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
-                  />
-                </div>
-                <figcaption className="space-y-2 p-4">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                    {image.label}
-                  </div>
-                  <p className="text-sm leading-7 text-ink-muted">{image.caption}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {previewNote ? (
-        <p className="max-w-4xl text-sm leading-7 text-ink-muted">{previewNote}</p>
-      ) : null}
-    </div>
+    <ProjectDetailGallery
+      title={item.title}
+      summary={item.summary}
+      tags={item.tags}
+      previewLabel={previewLabel}
+      previewNote={previewNote}
+      detailImage={item.detailImage}
+      zoomLabel={zoomLabel}
+      closeLabel={closeLabel}
+    />
   );
 }
 
@@ -178,10 +117,14 @@ function ProjectPreviewSurface({
   item,
   previewLabel,
   previewNote,
+  zoomLabel,
+  closeLabel,
 }: {
   item: PersonalProjectItem;
   previewLabel: string;
   previewNote?: string;
+  zoomLabel: string;
+  closeLabel: string;
 }) {
   if (item.detailImage.kind === "gallery") {
     return (
@@ -189,6 +132,8 @@ function ProjectPreviewSurface({
         item={item}
         previewLabel={previewLabel}
         previewNote={previewNote}
+        zoomLabel={zoomLabel}
+        closeLabel={closeLabel}
       />
     );
   }
@@ -394,6 +339,8 @@ export default async function PersonalProjectDetailPage({
           item={project}
           previewLabel={copy.projectDetailPreviewLabel}
           previewNote={previewNote}
+          zoomLabel={copy.projectDetailImageZoomLabel}
+          closeLabel={copy.projectDetailClosePreviewLabel}
         />
         {project.detailVideo ? <ProjectPreviewVideo video={project.detailVideo} /> : null}
       </section>
