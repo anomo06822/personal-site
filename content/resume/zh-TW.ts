@@ -313,7 +313,7 @@ export const resumeZhTW: ResumeContent = {
             "16 秒 rerun demo 從 true lounge baseline 重新派送 PRD36、ARC36、ENG36，驗證 district 移動、live status 與 world feed 是否和 dispatch 結果一致。",
         },
         previewNote:
-          "目前專案頁直接使用這次整理的 AIPW media pack：`01` 到 `03` 來自 browser-rendered workspace shell，`04` 與 `05` 來自執行中的 Electron app，另附一段 16 秒的 world movement rerun。",
+          "目前專案頁直接使用最新整理的 AIPW media pack：`01` 到 `05` 為 2026-03-17 重新輸出的 Claude Code 配色正式截圖，並已排除先前 popup / onboarding overlay 擋住畫面的問題；另附一段 16 秒的 world movement rerun。",
         feedback: {
           type: "disabled",
           message:

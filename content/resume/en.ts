@@ -315,7 +315,7 @@ export const resumeEn: ResumeContent = {
             "16-second rerun demo that starts from a true lounge baseline, then re-dispatches PRD36, ARC36, and ENG36 to verify district movement, live status, and world feed behavior.",
         },
         previewNote:
-          "Current project media comes directly from the new AIPW media pack: `01` to `03` from the browser-rendered workspace shell, `04` and `05` from the running Electron app, plus a 16-second world movement rerun.",
+          "Current project media comes from the refreshed AIPW media pack: `01` to `05` are the clean 2026-03-17 Claude Code theme screenshots, captured after removing the popup / onboarding overlay issue, plus the same 16-second world movement rerun.",
         feedback: {
           type: "disabled",
           message:
