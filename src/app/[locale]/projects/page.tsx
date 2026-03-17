@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectCardPreview } from "@/components/project-card-preview";
 import { getPersonalProjects } from "@/lib/resume";
 import { getProjectHref, isLocale, siteCopy } from "@/lib/site";
 import type { Locale, PersonalProjectItem } from "@/lib/types";
@@ -29,11 +30,19 @@ function ProjectListItem({
   index,
   locale,
   detailCtaLabel,
+  previewLabel,
+  previewZoomLabel,
+  closePreviewLabel,
+  placeholderPreviewLabel,
 }: {
   item: PersonalProjectItem;
   index: number;
   locale: Locale;
   detailCtaLabel: string;
+  previewLabel: string;
+  previewZoomLabel: string;
+  closePreviewLabel: string;
+  placeholderPreviewLabel: string;
 }) {
   return (
     <article className="card-surface group relative overflow-hidden p-6 sm:p-7">
@@ -46,7 +55,7 @@ function ProjectListItem({
         }}
       />
 
-      <div className="relative grid gap-5 lg:grid-cols-[72px_minmax(0,1fr)_auto] lg:items-start">
+      <div className="relative grid gap-6 lg:grid-cols-[72px_minmax(0,1fr)] xl:grid-cols-[72px_minmax(0,0.92fr)_minmax(320px,0.78fr)] xl:items-start">
         <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-accent/22 bg-[var(--accent-soft)] font-mono text-[13px] uppercase tracking-[0.26em] text-accent">
           {String(index + 1).padStart(2, "0")}
         </div>
@@ -77,26 +86,38 @@ function ProjectListItem({
               {item.note}
             </div>
           ) : null}
+
+          <div className="flex flex-wrap gap-3 pt-1">
+            <Link
+              href={getProjectHref(locale, item.slug)}
+              className="inline-flex min-h-11 items-center rounded-full border border-accent/35 bg-[var(--accent-soft)] px-5 text-sm text-ink transition group-hover:border-accent/60 group-hover:bg-panel-strong"
+            >
+              {detailCtaLabel}
+            </Link>
+
+            {item.href && item.hrefLabel ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/72 px-5 text-sm text-ink transition hover:border-accent/50 hover:bg-panel-strong"
+              >
+                {item.hrefLabel}
+              </a>
+            ) : null}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 lg:flex-col lg:items-end">
-          <Link
-            href={getProjectHref(locale, item.slug)}
-            className="inline-flex min-h-11 items-center rounded-full border border-accent/35 bg-[var(--accent-soft)] px-5 text-sm text-ink transition group-hover:border-accent/60 group-hover:bg-panel-strong"
-          >
-            {detailCtaLabel}
-          </Link>
-
-          {item.href && item.hrefLabel ? (
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center rounded-full border border-line bg-canvas-elevated/72 px-5 text-sm text-ink transition hover:border-accent/50 hover:bg-panel-strong"
-            >
-              {item.hrefLabel}
-            </a>
-          ) : null}
+        <div className="lg:col-start-2 xl:col-start-3">
+          <ProjectCardPreview
+            title={item.title}
+            summary={item.summary}
+            detailImage={item.detailImage}
+            previewLabel={previewLabel}
+            previewZoomLabel={previewZoomLabel}
+            closePreviewLabel={closePreviewLabel}
+            placeholderPreviewLabel={placeholderPreviewLabel}
+          />
         </div>
       </div>
     </article>
@@ -166,6 +187,10 @@ export default async function ProjectsPage({
                 index={index}
                 locale={locale}
                 detailCtaLabel={copy.detailCtaLabel}
+                previewLabel={copy.previewLabel}
+                previewZoomLabel={copy.previewZoomLabel}
+                closePreviewLabel={copy.closePreviewLabel}
+                placeholderPreviewLabel={copy.placeholderPreviewLabel}
               />
             ))}
           </div>

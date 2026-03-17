@@ -1,65 +1,48 @@
 import type { HomeContent } from "../../src/lib/types";
 
 export const homeEn: HomeContent = {
-  heroEyebrow: "Site Guide / Overview",
-  heroTitle: "Choose an entry point, then go deeper.",
+  heroEyebrow: "Entry / Decision Home",
+  heroTitle: "Choose the reading path that gets you to the useful page first.",
   heroIntro:
-    "The home page is only for navigation. Use Projects for builds, Writing for technical thinking, Resume for background, and Connect when you want to reach out.",
+    "This is not a second resume. It is the fastest way to decide where to start: hiring conversations go to Resume and Connect, technical readers go to Projects and Writing.",
   heroTags: ["Projects", "Writing", "Resume", "Connect"],
-  heroNoticeTitle: "How to use this site",
-  heroNoticeBody:
-    "If you already know your goal, skip the overview and go straight to the matching section.",
-  heroMapEyebrow: "Tab Map",
-  heroMapIntro: "Five entry points, each with a different reading job.",
-  tabsEyebrow: "Tab Guide",
-  tabsTitle: "Each entry point does one job.",
+  tabsEyebrow: "Evidence Preview",
+  tabsTitle: "See a few real signals before you decide where to go deeper.",
   tabsIntro:
-    "Do not read the whole site front to back unless you need to. Start with the closest match.",
+    "The home page previews the strongest material from each section instead of rewriting the full content.",
   tabs: [
     {
-      routeKey: "home",
-      eyebrow: "Start Here",
-      title: "Overview",
-      description:
-        "Get the site structure quickly, then choose where to go next.",
-      highlights: [
-        "Best for a first-time visitor.",
-        "Focused on navigation, not repeated resume detail.",
-      ],
-      hrefLabel: "Stay on overview",
-    },
-    {
       routeKey: "projects",
-      eyebrow: "Build Index",
+      eyebrow: "Build Evidence",
       title: "Projects",
       description:
-        "Browse public personal projects and open detail pages when needed.",
+        "Look at the public builds first, then open detail pages only when the work is relevant.",
       highlights: [
-        "Best when you want to see actual builds first.",
-        "Personal work stays separate from broader work history.",
+        "Previews the latest public personal projects.",
+        "Keeps the full detail pages for deeper reading.",
       ],
       hrefLabel: "Open projects",
     },
     {
       routeKey: "blog",
-      eyebrow: "Thinking Layer",
+      eyebrow: "Reasoning Layer",
       title: "Writing",
       description:
-        "Read how architecture, operability, and delivery tradeoffs are explained.",
+        "Use writing to inspect architecture, operability, and delivery tradeoffs that project cards only hint at.",
       highlights: [
-        "Best for understanding thinking, not just outputs.",
-        "Adds reasoning that project pages do not show on their own.",
+        "Best when you want methods and tradeoffs.",
+        "The preview stays aligned with the newest published essays.",
       ],
       hrefLabel: "Open writing",
     },
     {
       routeKey: "resume",
-      eyebrow: "Public Resume",
+      eyebrow: "Career Signal",
       title: "Resume",
       description:
-        "See the public-facing background, representative experience, and work arc.",
+        "Use the public resume to scan role fit, career arc, and representative operating context.",
       highlights: [
-        "Useful when you need a compact experience overview.",
+        "Best for fast first-pass role evaluation.",
         "Separated from Projects so ownership stays easier to read.",
       ],
       hrefLabel: "Open resume",
@@ -69,42 +52,36 @@ export const homeEn: HomeContent = {
       eyebrow: "Public Paths",
       title: "Connect",
       description:
-        "Find the public contact paths and use the right one directly.",
+        "Use a public contact path only when the direction is already clear.",
       highlights: [
-        "LinkedIn, GitHub, and email are grouped here.",
-        "Useful for recruiters, collaborators, and technical conversations.",
+        "LinkedIn, GitHub, and email are grouped in one place.",
+        "Useful for recruiting, collaboration, and technical conversations.",
       ],
       hrefLabel: "Open contact paths",
     },
   ],
-  journeysEyebrow: "Reading Paths",
-  journeysTitle: "Common paths.",
+  journeysEyebrow: "Audience Paths",
+  journeysTitle: "Pick the path closest to your intent.",
   journeysIntro:
-    "If you do not want the full tour, these paths get to the right context faster.",
+    "You do not need a full site tour first. Start with the right first step, then go deeper only if it matters.",
   journeys: [
     {
-      audience: "First-time visitor",
-      title: "Build a quick mental map first",
-      summary:
-        "Understand how the site is organized, then choose where to go deeper.",
-      routeKeys: ["home", "projects", "blog"],
-      note: "Best for a quick scan of the whole site.",
-    },
-    {
-      audience: "Recruiting / Hiring",
+      id: "hiring",
+      audience: "Hiring / Recruiting",
       title: "Review public context, then decide whether to reach out",
       summary:
-        "Go directly into the public resume, then use the contact page if needed.",
-      routeKeys: ["home", "resume", "contact"],
-      note: "Best for recruiters, hiring managers, or partnership conversations.",
+        "If the goal is role fit or partnership fit, start with the resume and use Connect only when the direction is relevant.",
+      routeKeys: ["resume", "contact"],
+      note: "Best for recruiters, hiring managers, and partnership conversations.",
     },
     {
-      audience: "Technical reader",
-      title: "See projects first, then read the thinking behind them",
+      id: "technical-reader",
+      audience: "Technical Reader",
+      title: "See the builds first, then read the reasoning",
       summary:
-        "Use projects for the surface area, then writing for the reasoning.",
-      routeKeys: ["projects", "blog", "contact"],
-      note: "Best for readers who care about implementation choices and technical framing.",
+        "Use Projects for the surface area and Writing for the architecture and operability judgment behind it.",
+      routeKeys: ["projects", "blog"],
+      note: "Best for engineers, technical collaborators, and readers who care about implementation choices.",
     },
   ],
   guideEyebrow: "Public Scope",

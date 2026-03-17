@@ -28,6 +28,10 @@ type PageViewEvent = {
   page_path: string;
 };
 
+type AnalyticsEventParams =
+  | PageViewEvent
+  | Record<string, string | number | boolean>;
+
 interface Gtag {
   (command: "js", value: Date): void;
   (command: "config", targetId: string, config: GtagConfig): void;
@@ -36,7 +40,7 @@ interface Gtag {
     mode: "default",
     config: GtagConsentConfig,
   ): void;
-  (command: "event", eventName: "page_view", params: PageViewEvent): void;
+  (command: "event", eventName: string, params: AnalyticsEventParams): void;
 }
 
 declare global {

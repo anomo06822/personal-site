@@ -144,6 +144,7 @@ export type HomeTabItem = {
 };
 
 export type HomeJourneyItem = {
+  id: string;
   audience: string;
   title: string;
   summary: string;
@@ -162,10 +163,6 @@ export type HomeContent = {
   heroTitle: string;
   heroIntro: string;
   heroTags: string[];
-  heroNoticeTitle: string;
-  heroNoticeBody: string;
-  heroMapEyebrow: string;
-  heroMapIntro: string;
   tabsEyebrow: string;
   tabsTitle: string;
   tabsIntro: string;

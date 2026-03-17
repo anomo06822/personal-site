@@ -1,110 +1,87 @@
 import type { HomeContent } from "../../src/lib/types";
 
 export const homeZhTW: HomeContent = {
-  heroEyebrow: "Site Guide / Overview",
-  heroTitle: "先選入口，再深入閱讀。",
+  heroEyebrow: "Entry / Decision Home",
+  heroTitle: "先選你的閱讀路徑，再進入最值得看的那一頁。",
   heroIntro:
-    "首頁只做導覽。想看作品進專案，想看技術思考進文章，想看背景進履歷，想聯繫就直接走聯繫頁。",
+    "這裡不是第二份履歷，而是幫你更快做第一個判斷。招募方先看公開履歷與聯繫，技術讀者先看專案與文章。",
   heroTags: ["專案", "技術文章", "履歷", "聯繫"],
-  heroNoticeTitle: "使用方式",
-  heroNoticeBody:
-    "如果你已經知道目的，不用停留在首頁，直接進入對應分頁即可。",
-  heroMapEyebrow: "Tab Map",
-  heroMapIntro: "五個入口，各自處理不同閱讀目的。",
-  tabsEyebrow: "Tab Guide",
-  tabsTitle: "每個入口只做一件事。",
+  tabsEyebrow: "Evidence Preview",
+  tabsTitle: "先看幾個真實訊號，再決定往哪裡深讀。",
   tabsIntro:
-    "不用從頭讀到尾，直接從最接近你目的的入口開始。",
+    "首頁只預覽各分頁最值得先看的內容，不把完整資訊重寫一遍。",
   tabs: [
     {
-      routeKey: "home",
-      eyebrow: "Start Here",
-      title: "概覽",
-      description:
-        "快速理解網站結構，決定下一步該往哪裡看。",
-      highlights: [
-        "適合第一次進站。",
-        "重點是導覽，不重複履歷內容。",
-      ],
-      hrefLabel: "留在概覽頁",
-    },
-    {
       routeKey: "projects",
-      eyebrow: "Build Index",
+      eyebrow: "Build Evidence",
       title: "專案",
       description:
-        "集中查看公開個人專案與各自的 detail 頁入口。",
+        "先看我實際做了哪些公開作品，再決定要不要進 detail 頁。",
       highlights: [
-        "適合先看我實際做了什麼。",
-        "個人作品和工作經歷分開整理。",
+        "預覽最新公開個人專案。",
+        "保留完整 detail 頁做深入閱讀。",
       ],
-      hrefLabel: "看專案",
+      hrefLabel: "前往專案",
     },
     {
       routeKey: "blog",
-      eyebrow: "Thinking Layer",
+      eyebrow: "Reasoning Layer",
       title: "技術文章",
       description:
-        "看 architecture、operability 與 delivery 的思考與取捨。",
+        "補足專案頁沒有展開的架構思考、operability 與 delivery 取捨。",
       highlights: [
-        "適合看方法，不只看結果。",
-        "補足專案頁看不到的推理過程。",
+        "適合想看方法與判斷依據的人。",
+        "文章清單自動反映最新公開內容。",
       ],
-      hrefLabel: "看文章",
+      hrefLabel: "前往文章",
     },
     {
       routeKey: "resume",
-      eyebrow: "Public Resume",
+      eyebrow: "Career Signal",
       title: "履歷",
       description:
-        "看公開版背景、代表經歷與整理過的工作脈絡。",
+        "用公開履歷快速掌握角色定位、經驗主線與代表成果。",
       highlights: [
-        "適合快速掌握經驗脈絡。",
-        "和專案頁分開，避免 ownership 混在一起。",
+        "適合第一輪判斷角色匹配度。",
+        "與專案頁分開，避免 ownership 混在一起。",
       ],
-      hrefLabel: "看履歷",
+      hrefLabel: "前往履歷",
     },
     {
       routeKey: "contact",
       eyebrow: "Public Paths",
       title: "聯繫",
       description:
-        "集中公開聯絡方式，方便直接走對的入口開始對話。",
+        "如果方向已經明確，直接走公開聯絡入口開始對話。",
       highlights: [
-        "可從 LinkedIn、GitHub 或 email 開始。",
+        "保留 LinkedIn、GitHub 與 email 三個公開入口。",
         "適合招募、合作或技術交流。",
       ],
-      hrefLabel: "看聯繫",
+      hrefLabel: "前往聯繫",
     },
   ],
-  journeysEyebrow: "Reading Paths",
-  journeysTitle: "常見走法。",
+  journeysEyebrow: "Audience Paths",
+  journeysTitle: "先選最接近你目的的入口。",
   journeysIntro:
-    "如果你不是要整站都看，下面是更直接的路徑。",
+    "你不需要先讀完整站。先走對第一步，再決定要不要深入。",
   journeys: [
     {
-      audience: "第一次來訪",
-      title: "先建立網站地圖",
-      summary:
-        "先知道網站怎麼分工，再決定往哪個內容深讀。",
-      routeKeys: ["home", "projects", "blog"],
-      note: "適合想先快速掃過全站的人。",
-    },
-    {
+      id: "hiring",
       audience: "招募 / Hiring",
       title: "先看公開背景，再決定是否聯繫",
       summary:
-        "直接進公開履歷，再看聯繫入口。",
-      routeKeys: ["home", "resume", "contact"],
-      note: "適合 recruiter、hiring manager 或合作窗口。",
+        "如果你要快速判斷角色匹配度，先看履歷；方向合適再走聯繫頁。",
+      routeKeys: ["resume", "contact"],
+      note: "適合 recruiter、hiring manager、合作窗口。",
     },
     {
+      id: "technical-reader",
       audience: "技術讀者",
-      title: "先看作品，再補文章脈絡",
+      title: "先看作品，再補思考脈絡",
       summary:
-        "從專案理解題目，再用文章看方法與取捨。",
-      routeKeys: ["projects", "blog", "contact"],
-      note: "適合對實作、設計取捨或技術寫作有興趣的人。",
+        "先從專案看實際產出，再用文章理解架構、operability 與取捨。",
+      routeKeys: ["projects", "blog"],
+      note: "適合工程師、技術合作者與深度讀者。",
     },
   ],
   guideEyebrow: "Public Scope",

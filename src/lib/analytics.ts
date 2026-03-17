@@ -1,8 +1,15 @@
+import type { RouteKey } from "./types";
 import { siteConfig, withBasePath } from "./site";
 import { stripBasePath } from "./utils";
 
 export const gaMeasurementId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? "";
+
+type OverviewRouteClickParams = {
+  sourceSection: string;
+  audiencePath: string;
+  targetRoute: Exclude<RouteKey, "home">;
+};
 
 const analyticsHost = new URL(siteConfig.siteUrl).hostname;
 
@@ -49,4 +56,32 @@ export function getTrackableAnalyticsPath(pathname: string) {
 
 export function buildAnalyticsPageLocation(origin: string, pagePath: string) {
   return `${origin}${pagePath}`;
+}
+
+export function trackOverviewRouteClick({
+  sourceSection,
+  audiencePath,
+  targetRoute,
+}: OverviewRouteClickParams) {
+  if (typeof window === "undefined" || !isAnalyticsHost(window.location.hostname)) {
+    return;
+  }
+
+  const gtag = (window as Window & {
+    gtag?: (
+      command: "event",
+      eventName: string,
+      params: Record<string, string>,
+    ) => void;
+  }).gtag;
+
+  if (typeof gtag !== "function") {
+    return;
+  }
+
+  gtag("event", "overview_route_click", {
+    source_section: sourceSection,
+    audience_path: audiencePath,
+    target_route: targetRoute,
+  });
 }
