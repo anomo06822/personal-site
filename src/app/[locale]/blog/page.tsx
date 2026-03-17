@@ -59,6 +59,11 @@ export default async function BlogPage({
           locale={locale}
           posts={posts}
           allTopicsLabel={copy.blog.allTopics}
+          allFormatsLabel={copy.blog.allFormats}
+          contentTypeLabels={{
+            pillar: copy.blog.pillarLabel,
+            "news-analysis": copy.blog.newsAnalysisLabel,
+          }}
           emptyState={copy.blog.emptyState}
           readTimeLabel={copy.common.readTime}
           newBadgeLabel={copy.blog.newBadgeLabel}

@@ -112,6 +112,7 @@ export function parsePostFile({ locale, fileName, source, siteUrl, basePath }) {
     slug,
     title: requireString(data.title, "title"),
     description: requireString(data.description, "description"),
+    contentType: data.contentType === "news-analysis" ? "news-analysis" : "pillar",
     excerpt: extractExcerpt(source),
     publishedAt: normalizeDate(data.publishedAt),
     tags: normalizeTags(data.tags),
@@ -170,6 +171,11 @@ export function buildArticleGroups(articles, locales = DEFAULT_LOCALES) {
         publishedAt: group.publishedAt,
         locales: availableLocales,
         tags: Array.from(group.tags.values()).sort((left, right) => left.localeCompare(right)),
+        contentType: group.locales
+          .map((locale) => group.titleByLocale[locale] ? locale : null)
+          .filter(Boolean).length > 0
+          ? articles.find((article) => article.articleId === group.articleId)?.contentType ?? "pillar"
+          : "pillar",
         titleByLocale: group.titleByLocale,
         descriptionByLocale: group.descriptionByLocale,
         excerptByLocale: group.excerptByLocale,

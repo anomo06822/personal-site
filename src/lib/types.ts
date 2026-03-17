@@ -247,11 +247,13 @@ export type ContactLink = {
 };
 
 export type BlogPostMeta = {
+  articleId: string;
   slug: string;
   locale: Locale;
   title: string;
   description: string;
   publishedAt: string;
+  contentType: "pillar" | "news-analysis";
   tags: string[];
   readingTime: number;
   published: boolean;

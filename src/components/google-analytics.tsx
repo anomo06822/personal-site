@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   buildAnalyticsPageLocation,
   gaMeasurementId,
   getTrackableAnalyticsPath,
   isAnalyticsHost,
+  trackWhitelistedAttribution,
 } from "@/lib/analytics";
 
 type GtagConsentConfig = {
@@ -100,7 +101,9 @@ function ensureGtagBootstrap(measurementId: string) {
 
 export function GoogleAnalytics() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const lastTrackedPathRef = useRef<string | null>(null);
+  const lastAttributionRef = useRef<string | null>(null);
   const isEnabled =
     gaMeasurementId.length > 0 && isAnalyticsHost(window.location.hostname);
   const pagePath = pathname ? getTrackableAnalyticsPath(pathname) : null;
@@ -140,6 +143,20 @@ export function GoogleAnalytics() {
       window.cancelAnimationFrame(frameId);
     };
   }, [isEnabled, pagePath]);
+
+  useEffect(() => {
+    if (!isEnabled || !pagePath || typeof window.gtag !== "function") {
+      return;
+    }
+
+    const fingerprint = `${pagePath}?${searchParams.toString()}`;
+    if (lastAttributionRef.current === fingerprint) {
+      return;
+    }
+
+    trackWhitelistedAttribution(window.gtag, searchParams);
+    lastAttributionRef.current = fingerprint;
+  }, [isEnabled, pagePath, searchParams]);
 
   return null;
 }

@@ -18,6 +18,8 @@ type BlogFilterProps = {
   locale: Locale;
   posts: BlogPostMeta[];
   allTopicsLabel: string;
+  allFormatsLabel: string;
+  contentTypeLabels: Record<BlogPostMeta["contentType"], string>;
   emptyState: string;
   readTimeLabel: string;
   newBadgeLabel: string;
@@ -28,46 +30,77 @@ export function BlogFilter({
   locale,
   posts,
   allTopicsLabel,
+  allFormatsLabel,
+  contentTypeLabels,
   emptyState,
   readTimeLabel,
   newBadgeLabel,
   buildTimestamp,
 }: BlogFilterProps) {
+  const contentTypes = Array.from(new Set(posts.map((post) => post.contentType)));
   const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort(
     (left, right) => left.localeCompare(right),
   );
   const hasTagFilter = tags.length > 0;
+  const hasTypeFilter = contentTypes.length > 0;
   const [activeTag, setActiveTag] = useState("all");
+  const [activeContentType, setActiveContentType] = useState<"all" | BlogPostMeta["contentType"]>("all");
   const deferredTag = useDeferredValue(activeTag);
-  const visiblePosts =
-    deferredTag === "all"
-      ? posts
-      : posts.filter((post) => post.tags.includes(deferredTag));
+  const deferredContentType = useDeferredValue(activeContentType);
+  const visiblePosts = posts.filter((post) => {
+    const typeMatches = deferredContentType === "all" || post.contentType === deferredContentType;
+    const tagMatches = deferredTag === "all" || post.tags.includes(deferredTag);
+    return typeMatches && tagMatches;
+  });
   const visibleGroups = groupItemsByMonth(locale, visiblePosts);
 
   return (
     <div className="space-y-8">
-      {hasTagFilter ? (
+      {hasTypeFilter || hasTagFilter ? (
         <div className="card-surface p-5 sm:p-6">
-          <div className="flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={() => startTransition(() => setActiveTag("all"))}
-              className={`tag-chip ${activeTag === "all" ? "tag-chip-active" : ""}`}
-            >
-              {allTopicsLabel}
-            </button>
-            {tags.map((tag) => (
+          {hasTypeFilter ? (
+            <div className="flex flex-wrap gap-3">
               <button
-                key={tag}
                 type="button"
-                onClick={() => startTransition(() => setActiveTag(tag))}
-                className={`tag-chip ${activeTag === tag ? "tag-chip-active" : ""}`}
+                onClick={() => startTransition(() => setActiveContentType("all"))}
+                className={`tag-chip ${activeContentType === "all" ? "tag-chip-active" : ""}`}
               >
-                {tag}
+                {allFormatsLabel}
               </button>
-            ))}
-          </div>
+              {contentTypes.map((contentType) => (
+                <button
+                  key={contentType}
+                  type="button"
+                  onClick={() => startTransition(() => setActiveContentType(contentType))}
+                  className={`tag-chip ${activeContentType === contentType ? "tag-chip-active" : ""}`}
+                >
+                  {contentTypeLabels[contentType]}
+                </button>
+              ))}
+            </div>
+          ) : null}
+
+          {hasTagFilter ? (
+            <div className={`${hasTypeFilter ? "mt-4" : ""} flex flex-wrap gap-3`}>
+              <button
+                type="button"
+                onClick={() => startTransition(() => setActiveTag("all"))}
+                className={`tag-chip ${activeTag === "all" ? "tag-chip-active" : ""}`}
+              >
+                {allTopicsLabel}
+              </button>
+              {tags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => startTransition(() => setActiveTag(tag))}
+                  className={`tag-chip ${activeTag === tag ? "tag-chip-active" : ""}`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       ) : null}
 
@@ -109,6 +142,9 @@ export function BlogFilter({
                           <div className="eyebrow">
                             {formatLongDate(locale, post.publishedAt)}
                           </div>
+                          <span className="rounded-full border border-line-strong/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
+                            {contentTypeLabels[post.contentType]}
+                          </span>
                           {showNewBadge ? (
                             <span className="rounded-full border border-accent/35 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                               {newBadgeLabel}

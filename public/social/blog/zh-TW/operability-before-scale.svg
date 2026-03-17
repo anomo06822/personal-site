@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="52" y1="42" x2="1150" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12263d"/>
+      <stop offset="0.5" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="url(#bg)"/>
+  <rect x="56" y="56" width="1088" height="518" rx="24" fill="rgba(15,23,42,0.42)" stroke="rgba(255,255,255,0.16)"/>
+  <text x="92" y="118" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Jarvis Huang / personal-site</text>
+  <text x="92" y="190" fill="#ccfbf1" font-family="Arial, sans-serif" font-size="20" font-weight="700">pillar</text>
+  <foreignObject x="92" y="230" width="980" height="180">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="color:#f8fafc;font-family:'Noto Sans TC',Arial,sans-serif;font-size:54px;font-weight:700;line-height:1.18;">
+      在談 scale 之前，我更在意 operability
+    </div>
+  </foreignObject>
+  <foreignObject x="92" y="438" width="920" height="96">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="color:rgba(248,250,252,0.82);font-family:'Noto Sans TC',Arial,sans-serif;font-size:28px;line-height:1.4;">
+      為什麼發版流程、可觀測性與除錯習慣，應該比平台複雜度更早成形。
+    </div>
+  </foreignObject>
+</svg>

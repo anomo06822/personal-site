@@ -11,6 +11,12 @@ type OverviewRouteClickParams = {
   targetRoute: Exclude<RouteKey, "home">;
 };
 
+type AnalyticsGtag = (
+  command: "event",
+  eventName: string,
+  params: Record<string, string>,
+) => void;
+
 const analyticsHost = new URL(siteConfig.siteUrl).hostname;
 
 function normalizePathname(pathname: string) {
@@ -83,5 +89,68 @@ export function trackOverviewRouteClick({
     source_section: sourceSection,
     audience_path: audiencePath,
     target_route: targetRoute,
+  });
+}
+
+export function getWhitelistedAttribution(searchParams: URLSearchParams) {
+  const source = searchParams.get("utm_source")?.trim() ?? "";
+  const medium = searchParams.get("utm_medium")?.trim() ?? "";
+  const campaign = searchParams.get("utm_campaign")?.trim() ?? "";
+  const content = searchParams.get("utm_content")?.trim() ?? "";
+
+  if (!source && !medium && !campaign && !content) {
+    return null;
+  }
+
+  return {
+    source,
+    medium,
+    campaign,
+    content,
+  };
+}
+
+export function getReferrerHost(referrer: string) {
+  if (!referrer) {
+    return "";
+  }
+
+  try {
+    return new URL(referrer).hostname;
+  } catch {
+    return "";
+  }
+}
+
+export function readAnalyticsMeta(name: string) {
+  if (typeof document === "undefined") {
+    return "";
+  }
+
+  return (
+    document
+      .querySelector<HTMLMetaElement>(`meta[name="${name}"]`)
+      ?.content?.trim() ?? ""
+  );
+}
+
+export function trackWhitelistedAttribution(
+  gtag: AnalyticsGtag,
+  searchParams: URLSearchParams,
+) {
+  const attribution = getWhitelistedAttribution(searchParams);
+
+  if (!attribution) {
+    return;
+  }
+
+  gtag("event", "whitelisted_landing_attribution", {
+    utm_source: attribution.source,
+    utm_medium: attribution.medium,
+    utm_campaign: attribution.campaign,
+    utm_content: attribution.content,
+    article_id: readAnalyticsMeta("ps:article-id"),
+    locale: readAnalyticsMeta("ps:locale"),
+    referrer_host: getReferrerHost(document.referrer),
   });
 }

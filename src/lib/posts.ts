@@ -55,6 +55,10 @@ function parseTags(value: unknown) {
   return value.filter((entry): entry is string => typeof entry === "string");
 }
 
+function parseContentType(value: unknown): BlogPostMeta["contentType"] {
+  return value === "news-analysis" ? "news-analysis" : "pillar";
+}
+
 const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
   const localeDir = path.join(postsRoot, locale);
 
@@ -82,11 +86,13 @@ const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
 
     return {
       meta: {
+        articleId: requireString(frontmatter.articleId, slug),
         slug,
         locale,
         title: requireString(frontmatter.title),
         description: requireString(frontmatter.description),
         publishedAt: requireDateString(frontmatter.publishedAt),
+        contentType: parseContentType(frontmatter.contentType),
         tags: parseTags(frontmatter.tags),
         readingTime: estimateReadingTime(source),
         published: frontmatter.published ?? false,
@@ -165,3 +171,45 @@ export const getAvailableTags = cache((locale: Locale) => {
     left.localeCompare(right),
   );
 });
+
+export const getAvailableContentTypes = cache((locale: Locale) =>
+  Array.from(new Set(getPublishedPosts(locale).map((post) => post.contentType))).sort(),
+);
+
+export const getAlternatePostByArticleId = cache(
+  (articleId: string, locale: Locale) =>
+    getPublishedPosts(locale).find((post) => post.articleId === articleId) ?? null,
+);
+
+export const getRelatedPosts = cache(
+  (locale: Locale, articleId: string, count = 3) => {
+    const current = getPublishedPosts(locale).find((post) => post.articleId === articleId);
+
+    if (!current) {
+      return [];
+    }
+
+    return getPublishedPosts(locale)
+      .filter((post) => post.articleId !== articleId)
+      .map((post) => {
+        const sharedTags = post.tags.filter((tag) => current.tags.includes(tag)).length;
+        const sameTypeBonus = post.contentType === current.contentType ? 2 : 0;
+        return {
+          post,
+          score: sharedTags * 3 + sameTypeBonus,
+        };
+      })
+      .sort((left, right) => {
+        if (right.score !== left.score) {
+          return right.score - left.score;
+        }
+
+        return (
+          new Date(right.post.publishedAt).getTime() -
+          new Date(left.post.publishedAt).getTime()
+        );
+      })
+      .slice(0, count)
+      .map((entry) => entry.post);
+  },
+);

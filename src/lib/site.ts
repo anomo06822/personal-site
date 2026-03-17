@@ -128,10 +128,15 @@ export const siteCopy = {
         "聚焦 platform architecture、operability、engineering delivery 與可維運系統的思考與實作取捨。",
       listTitle: "文章時間軸",
       allTopics: "全部主題",
+      allFormats: "全部形式",
+      pillarLabel: "Pillar",
+      newsAnalysisLabel: "News Analysis",
       newBadgeLabel: "NEW",
       emptyState: "目前這個分類還沒有文章。",
-      endCtaTitle: "想看完整背景？",
-      endCtaBody: "如果你想了解這些文章背後的實戰脈絡，下一步直接看完整履歷。",
+      endCtaTitle: "下一步閱讀",
+      endCtaBody: "先延續閱讀相關文章，再決定是否切到完整履歷背景。",
+      relatedPostsTitle: "相關文章",
+      resumeSecondaryCta: "再看完整履歷",
     },
     contact: {
       eyebrow: "Connect / Public Contact",
@@ -166,7 +171,7 @@ export const siteCopy = {
       switchToDarkTheme: "切換到深色模式",
       builtWith: "使用 Next.js 靜態匯出，部署於 GitHub Pages。",
       analyticsNotice:
-        "本站僅使用匿名 GA4 頁面瀏覽與首頁站內導流統計，不追蹤表單內容、外部連結或下載行為。",
+        "本站僅使用匿名 GA4 頁面瀏覽與白名單歸因欄位，僅記錄 utm source / medium / campaign / content、articleId、locale 與 referrer host，不追蹤表單內容與站外互動細節。",
       relatedTopics: "主題",
     },
   },
@@ -265,11 +270,16 @@ export const siteCopy = {
         "Short essays on platform architecture, operability, engineering delivery, and the tradeoffs behind systems that need to keep running.",
       listTitle: "Article Timeline",
       allTopics: "All topics",
+      allFormats: "All formats",
+      pillarLabel: "Pillar",
+      newsAnalysisLabel: "News Analysis",
       newBadgeLabel: "NEW",
       emptyState: "There are no published posts for this topic yet.",
-      endCtaTitle: "Want the operating context behind this work?",
+      endCtaTitle: "Keep reading",
       endCtaBody:
-        "The resume gives the practical background behind the systems, delivery patterns, and team decisions discussed here.",
+        "Continue with related articles first, then jump to the full resume if you want the broader operating context.",
+      relatedPostsTitle: "Related articles",
+      resumeSecondaryCta: "Open full resume",
     },
     contact: {
       eyebrow: "Connect / Public Contact",
@@ -304,7 +314,7 @@ export const siteCopy = {
       switchToDarkTheme: "Switch to dark mode",
       builtWith: "Built with Next.js static export and published via GitHub Pages.",
       analyticsNotice:
-        "This site uses anonymous GA4 pageviews and home-page internal route clicks only. It does not track form content, outbound links, or downloads.",
+        "This site uses anonymous GA4 pageviews plus whitelisted attribution fields only: utm source / medium / campaign / content, articleId, locale, and referrer host. It does not track form content or outbound interaction details.",
       relatedTopics: "Topics",
     },
   },
@@ -349,4 +359,13 @@ export function withBasePath(pathname: string) {
   }
 
   return `${siteConfig.basePath}${pathname}`;
+}
+
+export function getAbsoluteSiteUrl(pathname: string) {
+  const origin = new URL(siteConfig.siteUrl).origin;
+  return new URL(withBasePath(pathname), origin).toString();
+}
+
+export function getBlogSocialImagePath(locale: Locale, slug: string) {
+  return withBasePath(`/social/blog/${locale}/${slug}.svg`);
 }
