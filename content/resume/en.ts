@@ -246,11 +246,11 @@ export const resumeEn: ResumeContent = {
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
-          "A personal productivity workspace built with Electron, React, and .NET 10 to bring desktop workflows, task management, and agent capabilities into one product foundation.",
+          "A desktop productivity workspace built with Electron, React, and .NET 10 that brings notes, boards, task management, agent dispatch, and world simulation into one evolving product foundation.",
         bullets: [
-          "The stack combines an Electron shell, a React + TypeScript + Tailwind v4 frontend, and a .NET 10 vertical-slice API with EF Core and PostgreSQL.",
-          "The current product surface already includes tasks, projects, agents, roles, dispatch, and asset APIs as the core workspace building blocks.",
-          "It also includes local MCP integration and a desktop-first development flow so AI-assisted workflows can plug directly into the workspace.",
+          "The same desktop shell already connects a note library, reusable templates, delivery / focus / portfolio boards, centralized task triage, and context rails so daily execution does not fragment across tools.",
+          "Agent Command Center turns role binding, dispatch runs, timeline, artifacts, and intervention controls into an operable execution surface instead of hidden background automation.",
+          "Agent World adds a pixel-art live office view for districts, staff distribution, focus / blocked / idle status, and rerun verification, while the product core stays on .NET 10 vertical-slice API, PostgreSQL, and local MCP integration.",
         ],
         tags: [
           "Electron",
@@ -258,23 +258,72 @@ export const resumeEn: ResumeContent = {
           "TypeScript",
           ".NET 10",
           "Productivity",
+          "Agent Ops",
         ],
         detailIntro: [
-          "The goal is not a single-purpose utility, but a workspace that keeps task management, agent orchestration, desktop workflows, and personal data assets inside one product surface.",
-          "Electron acts as the desktop shell, React + TypeScript + Tailwind v4 shape the UI, and a .NET 10 vertical-slice API handles data and workflow logic behind it.",
-          "I treat it as a long-running personal product foundation, so local MCP support, desktop-first development flow, and future AI-assisted workflows are part of the design from the start.",
+          "This project is not meant to be a single AI utility. It is a desktop workspace that keeps the daily loop of capture → decide → execute → review inside one product surface so notes, boards, tasks, and agent execution stay aligned.",
+          "The current product already exposes Workspace, Boards, Task Management, Agent Command Center, and Agent World as distinct but connected surfaces. The intent is not feature sprawl, but to keep daily planning, dispatch control, and execution visibility inside the same operating shell.",
+          "Electron provides the desktop shell, React + TypeScript + Tailwind v4 shape the frontend, and a .NET 10 vertical-slice API with EF Core PostgreSQL provides the data and workflow backbone. Local MCP and desktop-first development flow are part of the design so future AI-assisted workflows can plug into the same workspace cleanly.",
         ],
         detailImage: {
-          kind: "placeholder",
-          alt: "AI Productivity Workspace placeholder preview",
+          kind: "gallery",
+          alt: "AI Productivity Workspace demo gallery",
+          images: [
+            {
+              src: "/images/projects/ai-productivity-workspace/01-workspace.png",
+              alt: "AI Productivity Workspace workspace surface",
+              label: "Workspace",
+              caption:
+                "Primary daily shell for note capture, reusable templates, quick edits, and context rails, with an onboarding playbook that reinforces capture → decide → execute → review.",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/02-boards.png",
+              alt: "AI Productivity Workspace boards surface",
+              label: "Boards",
+              caption:
+                "Board center for delivery, focus, and portfolio views, keeping backlog, in-progress work, completed slices, blockers, and hold lanes inside the same workspace.",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/03-task-management.png",
+              alt: "AI Productivity Workspace task management surface",
+              label: "Task Management",
+              caption:
+                "Central task triage surface for open slices, blockers, focus queues, and project filters so daily execution can be reviewed from one list-driven workflow.",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/04-agent-command.png",
+              alt: "AI Productivity Workspace agent command center",
+              label: "Agent Command",
+              caption:
+                "Operator view for dispatch health, gate, attention, timeline, artifacts, and intervention controls, making agent execution inspectable and correctable.",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/05-agent-world.png",
+              alt: "AI Productivity Workspace agent world",
+              label: "Agent World",
+              caption:
+                "Pixel-art district radar for staff distribution, focus / blocked / idle state, and live district feed so agent movement becomes visible rather than abstract log output.",
+            },
+          ],
         },
+        detailVideo: {
+          src: "/videos/projects/ai-productivity-workspace/world-rerun-clean-baseline.mp4",
+          posterSrc: "/images/projects/ai-productivity-workspace/06-world-movement-poster.png",
+          alt: "AI Productivity Workspace world movement rerun video",
+          label: "World Movement",
+          caption:
+            "16-second rerun demo that starts from a true lounge baseline, then re-dispatches PRD36, ARC36, and ENG36 to verify district movement, live status, and world feed behavior.",
+        },
+        previewNote:
+          "Current project media comes directly from the new AIPW media pack: `01` to `03` from the browser-rendered workspace shell, `04` and `05` from the running Electron app, plus a 16-second world movement rerun.",
         feedback: {
           type: "disabled",
           message:
             "This repository is not public yet. GitHub issue feedback will open after the public cleanup and release path are ready.",
         },
-        imageAlt: "AI Productivity Workspace app preview",
-        note: "The repository is not public yet. The GitHub link will be added after the cleanup for public release is done.",
+        imageAlt: "AI Productivity Workspace demo gallery",
+        note:
+          "The repository is not public yet. This page now uses actual product screens and a world movement demo, and the GitHub link will be added after the public cleanup is done.",
       },
       {
         slug: "phalanx-chronicle",

@@ -101,6 +101,14 @@ export type PersonalProjectDetailImage = {
   }>;
 };
 
+export type PersonalProjectDetailVideo = {
+  src: string;
+  posterSrc?: string;
+  alt: string;
+  label: string;
+  caption: string;
+};
+
 export type PersonalProjectFeedback =
   | {
       type: "github-issue";
@@ -116,6 +124,7 @@ export type PersonalProjectItem = ShowcaseProjectItem & {
   slug: string;
   detailIntro: string[];
   detailImage: PersonalProjectDetailImage;
+  detailVideo?: PersonalProjectDetailVideo;
   previewNote?: string;
   feedback: PersonalProjectFeedback;
 };

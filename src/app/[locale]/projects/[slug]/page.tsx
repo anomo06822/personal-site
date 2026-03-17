@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { PersonalProjectFeedbackForm } from "@/components/personal-project-feedback-form";
 import { getAllPersonalProjectParams, getPersonalProject } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
-import type { PersonalProjectItem } from "@/lib/types";
+import type { PersonalProjectDetailVideo, PersonalProjectItem } from "@/lib/types";
 
 function SectionHeading({
   id,
@@ -202,6 +202,33 @@ function ProjectPreviewSurface({
   );
 }
 
+function ProjectPreviewVideo({ video }: { video: PersonalProjectDetailVideo }) {
+  return (
+    <div className="overflow-hidden rounded-[32px] border border-line/80 bg-canvas-elevated/78 p-4 shadow-[0_24px_60px_rgba(10,12,12,0.14)] sm:p-6">
+      <div className="space-y-4">
+        <div className="overflow-hidden rounded-[28px] border border-line/75 bg-[#0F1115]">
+          <video
+            controls
+            preload="metadata"
+            className="block h-auto w-full"
+            aria-label={video.alt}
+            poster={video.posterSrc ? withBasePath(video.posterSrc) : undefined}
+          >
+            <source src={withBasePath(video.src)} type="video/mp4" />
+          </video>
+        </div>
+
+        <div className="space-y-2 px-1">
+          <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+            {video.label}
+          </div>
+          <p className="max-w-4xl text-sm leading-7 text-ink-muted">{video.caption}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProjectSidebarMark({ item }: { item: PersonalProjectItem }) {
   if (item.detailImage.kind !== "gallery" || !item.detailImage.logoSrc) {
     return null;
@@ -368,6 +395,7 @@ export default async function PersonalProjectDetailPage({
           previewLabel={copy.projectDetailPreviewLabel}
           previewNote={previewNote}
         />
+        {project.detailVideo ? <ProjectPreviewVideo video={project.detailVideo} /> : null}
       </section>
 
       <section className="space-y-4">

@@ -244,11 +244,11 @@ export const resumeZhTW: ResumeContent = {
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
-          "以 Electron、React 與 .NET 10 組成的個人生產力工作區，目標是把桌面工作流、任務管理與 agent 能力收斂到同一個可持續演進的產品骨架。",
+          "以 Electron、React 與 .NET 10 打造的 desktop productivity workspace，把 notes、boards、task management、agent dispatch 與 world simulation 收斂到同一個可持續演進的產品骨架。",
         bullets: [
-          "桌面殼層採用 Electron，前端使用 React + TypeScript + Tailwind v4，後端是 .NET 10 vertical-slice API 搭配 EF Core 與 PostgreSQL。",
-          "目前已整理 tasks、projects、agents、roles、dispatch 與 assets APIs，作為持續擴充的 workspace 核心。",
-          "也納入本機 MCP 與 desktop dev workflow，讓 AI-assisted workflow 可以直接接進自己的 daily workspace。",
+          "同一個桌面殼層內已接起 note library、delivery / focus / portfolio boards、task triage 與 context rail，讓日常執行不必在多個工具間切換。",
+          "Agent Command Center 把 role binding、dispatch run、timeline、artifacts 與 intervention controls 收成可操作的 agent execution surface，而不是只停在背景自動化。",
+          "Agent World 用 pixel-art 辦公區視圖顯示 district、staff、focus / blocked / idle 狀態與 rerun 驗證；底層仍維持 .NET 10 vertical-slice API、PostgreSQL 與本機 MCP 整合。",
         ],
         tags: [
           "Electron",
@@ -256,23 +256,72 @@ export const resumeZhTW: ResumeContent = {
           "TypeScript",
           ".NET 10",
           "Productivity",
+          "Agent Ops",
         ],
         detailIntro: [
-          "這個專案的核心想法不是單點工具，而是把任務管理、agent orchestration、桌面工作流與資料資產放進同一個 workspace。",
-          "目前以 Electron 桌面殼層承接日常操作，再用 React + TypeScript + Tailwind v4 建出前端表面；後端則以 .NET 10 vertical-slice API 處理資料與流程。",
-          "我把它當成長期演進的個人產品骨架，因此也把 local MCP、desktop-first dev workflow 與後續 AI-assisted workflow 一起納入設計。",
+          "這個專案不是單點 AI 工具，而是把 capture → decide → execute → review 的日常流程收進同一個 desktop workspace，讓 notes、boards、tasks 與 agent execution 可以互相對上。",
+          "產品表面目前已經長出 Workspace、Boards、Task Management、Agent Command Center 與 Agent World 幾個核心畫面，重點不是堆功能，而是把 daily loop、dispatch control 與 execution visibility 放在同一個操作表面。",
+          "技術上以 Electron 承接桌面殼層，React + TypeScript + Tailwind v4 建構前端，.NET 10 vertical-slice API + EF Core PostgreSQL 提供資料與流程骨架，同時保留 local MCP 與 desktop-first dev workflow 作為後續 AI-assisted workflow 的接點。",
         ],
         detailImage: {
-          kind: "placeholder",
-          alt: "AI Productivity Workspace placeholder preview",
+          kind: "gallery",
+          alt: "AI Productivity Workspace demo gallery",
+          images: [
+            {
+              src: "/images/projects/ai-productivity-workspace/01-workspace.png",
+              alt: "AI Productivity Workspace workspace surface",
+              label: "Workspace",
+              caption:
+                "主工作區把 note library、template library、quick edit 與 context rail 放在同一個 daily shell，並用 onboarding playbook 串起 capture → decide → execute → review。",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/02-boards.png",
+              alt: "AI Productivity Workspace boards surface",
+              label: "Boards",
+              caption:
+                "Boards 把 delivery、focus 與 portfolio 視角集中到同一個 board center，讓 backlog、in progress、done、blocked 與 hold lane 都能接到 active workspace。",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/03-task-management.png",
+              alt: "AI Productivity Workspace task management surface",
+              label: "Task Management",
+              caption:
+                "集中式 task management 提供 triage strip、slice view、focus queue 與 project filter，讓 daily execution 和 blockers 可以在同一個列表面上被整理。",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/04-agent-command.png",
+              alt: "AI Productivity Workspace agent command center",
+              label: "Agent Command",
+              caption:
+                "Agent Command Center 用 health、gate、attention、timeline 與 artifacts 把 dispatch run 變成可以觀察、介入與補救的 operator surface。",
+            },
+            {
+              src: "/images/projects/ai-productivity-workspace/05-agent-world.png",
+              alt: "AI Productivity Workspace agent world",
+              label: "Agent World",
+              caption:
+                "Agent World 以 pixel-art district radar 呈現 staff 分布、focus / blocked / idle 狀態與 live district feed，讓 agent movement 不再只是抽象事件紀錄。",
+            },
+          ],
         },
+        detailVideo: {
+          src: "/videos/projects/ai-productivity-workspace/world-rerun-clean-baseline.mp4",
+          posterSrc: "/images/projects/ai-productivity-workspace/06-world-movement-poster.png",
+          alt: "AI Productivity Workspace world movement rerun video",
+          label: "World Movement",
+          caption:
+            "16 秒 rerun demo 從 true lounge baseline 重新派送 PRD36、ARC36、ENG36，驗證 district 移動、live status 與 world feed 是否和 dispatch 結果一致。",
+        },
+        previewNote:
+          "目前專案頁直接使用這次整理的 AIPW media pack：`01` 到 `03` 來自 browser-rendered workspace shell，`04` 與 `05` 來自執行中的 Electron app，另附一段 16 秒的 world movement rerun。",
         feedback: {
           type: "disabled",
           message:
             "這個 repository 目前尚未公開；等公開版整理完成後，才會開放 GitHub issue feedback。",
         },
-        imageAlt: "AI Productivity Workspace app preview",
-        note: "Repository 目前尚未公開，整理完成後會再補上 GitHub 連結。",
+        imageAlt: "AI Productivity Workspace demo gallery",
+        note:
+          "Repository 目前尚未公開；這一頁展示的是目前已整理完成的實際產品畫面與 world movement demo，之後公開時再補上 GitHub 連結。",
       },
       {
         slug: "phalanx-chronicle",
