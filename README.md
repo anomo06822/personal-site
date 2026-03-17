@@ -29,6 +29,7 @@ http://localhost:3000/personal-site/
 pnpm dev
 pnpm build
 pnpm build:release
+pnpm export-social-manifest
 pnpm lint
 pnpm typecheck
 ```
@@ -77,3 +78,4 @@ The included GitHub Actions workflow publishes the static `out/` directory to Pa
 
 - `out/downloads/jarvis-huang-resume-en.pdf`
 - `out/downloads/jarvis-huang-resume-zh-tw.pdf`
+- `out/social/social-manifest.json`

@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "build:release": "pnpm build && node ./scripts/generate-resume-pdfs.mjs",
+    "build:release": "pnpm build && node ./scripts/export-social-manifest.mjs && node ./scripts/generate-resume-pdfs.mjs",
+    "export-social-manifest": "node ./scripts/export-social-manifest.mjs",
+    "test:social-manifest": "node --test ./scripts/export-social-manifest.test.mjs",
     "generate-resume-pdfs": "node ./scripts/generate-resume-pdfs.mjs",
     "start": "next start",
     "preview:export": "./scripts/preview-export.sh",
