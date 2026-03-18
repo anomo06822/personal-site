@@ -254,6 +254,9 @@ export type BlogPostMeta = {
   description: string;
   publishedAt: string;
   contentType: "pillar" | "news-analysis";
+  articleRole: "primary" | "support";
+  aiGenerated: boolean;
+  heroImagePath?: string | null;
   tags: string[];
   readingTime: number;
   published: boolean;

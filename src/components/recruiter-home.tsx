@@ -12,6 +12,11 @@ import type {
   ResumeImpactPoint,
   RouteKey,
 } from "@/lib/types";
+import {
+  formatPostTagLabel,
+  getVisiblePostTags,
+  PostSignalBadges,
+} from "@/components/post-signals";
 
 type DecisionRoute = Exclude<RouteKey, "home">;
 
@@ -347,11 +352,15 @@ function WritingEvidenceCard({
                 </p>
               </div>
 
-              {post.tags.length ? (
+              <div className="flex flex-wrap gap-2">
+                <PostSignalBadges locale={locale} post={post} />
+              </div>
+
+              {getVisiblePostTags(post).length ? (
                 <div className="flex flex-wrap gap-2">
-                  {post.tags.slice(0, 3).map((tag) => (
+                  {getVisiblePostTags(post).slice(0, 3).map((tag) => (
                     <span key={tag} className="tag-chip">
-                      {tag}
+                      {formatPostTagLabel(tag)}
                     </span>
                   ))}
                 </div>

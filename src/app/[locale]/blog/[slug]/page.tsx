@@ -16,6 +16,11 @@ import {
   isLocale,
   siteCopy,
 } from "@/lib/site";
+import {
+  formatPostTagLabel,
+  getVisiblePostTags,
+  PostSignalBadges,
+} from "@/components/post-signals";
 import { formatLongDate } from "@/lib/utils";
 
 export const dynamicParams = false;
@@ -44,7 +49,7 @@ export async function generateMetadata({
   const alternateLocale = getAlternateLocale(locale);
   const alternatePost = getAlternatePostByArticleId(post.articleId, alternateLocale);
   const canonicalUrl = getAbsoluteSiteUrl(getRouteHref(locale, "blog", post.slug));
-  const socialImageUrl = getAbsoluteSiteUrl(getBlogSocialImagePath(locale, post.slug));
+  const socialImageUrl = getAbsoluteSiteUrl(getBlogSocialImagePath(locale, post.slug, post.heroImagePath));
 
   return {
     title: post.title,
@@ -100,7 +105,7 @@ export default async function BlogPostPage({
   const relatedPosts = getRelatedPosts(locale, post.meta.articleId, 3);
   const canonicalUrl = getAbsoluteSiteUrl(getRouteHref(locale, "blog", post.meta.slug));
   const socialImageUrl = getAbsoluteSiteUrl(
-    getBlogSocialImagePath(locale, post.meta.slug),
+    getBlogSocialImagePath(locale, post.meta.slug, post.meta.heroImagePath),
   );
   const jsonLd = {
     "@context": "https://schema.org",
@@ -152,13 +157,19 @@ export default async function BlogPostPage({
           </span>
         </div>
         <div className="mt-5 flex flex-wrap gap-2">
-          {post.meta.tags.map((tag) => (
+          <span className="tag-chip">{post.meta.contentType}</span>
+          <PostSignalBadges locale={locale} post={post.meta} />
+          {getVisiblePostTags(post.meta).map((tag) => (
             <span key={tag} className="tag-chip">
-              {tag}
+              {formatPostTagLabel(tag)}
             </span>
           ))}
-          <span className="tag-chip">{post.meta.contentType}</span>
         </div>
+        {post.meta.aiGenerated ? (
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-ink-muted">
+            {copy.blog.aiGeneratedNote}
+          </p>
+        ) : null}
       </section>
 
       <section className="card-surface p-7 sm:p-8">

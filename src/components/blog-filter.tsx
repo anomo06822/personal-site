@@ -13,6 +13,11 @@ import {
   isRecentPost,
 } from "@/lib/utils";
 import type { BlogPostMeta, Locale } from "@/lib/types";
+import {
+  formatPostTagLabel,
+  getVisiblePostTags,
+  PostSignalBadges,
+} from "@/components/post-signals";
 
 type BlogFilterProps = {
   locale: Locale;
@@ -96,7 +101,7 @@ export function BlogFilter({
                   onClick={() => startTransition(() => setActiveTag(tag))}
                   className={`tag-chip ${activeTag === tag ? "tag-chip-active" : ""}`}
                 >
-                  {tag}
+                  {formatPostTagLabel(tag)}
                 </button>
               ))}
             </div>
@@ -145,6 +150,7 @@ export function BlogFilter({
                           <span className="rounded-full border border-line-strong/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
                             {contentTypeLabels[post.contentType]}
                           </span>
+                          <PostSignalBadges locale={locale} post={post} />
                           {showNewBadge ? (
                             <span className="rounded-full border border-accent/35 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                               {newBadgeLabel}
@@ -172,11 +178,11 @@ export function BlogFilter({
                           </div>
                         </div>
 
-                        {post.tags.length ? (
+                        {getVisiblePostTags(post).length ? (
                           <div className="mt-5 flex flex-wrap gap-2">
-                            {post.tags.map((tag) => (
+                            {getVisiblePostTags(post).map((tag) => (
                               <span key={tag} className="tag-chip">
-                                {tag}
+                                {formatPostTagLabel(tag)}
                               </span>
                             ))}
                           </div>

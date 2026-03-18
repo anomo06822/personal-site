@@ -47,6 +47,18 @@ function requireDateString(value: unknown) {
   throw new Error("Expected a valid date value in post frontmatter.");
 }
 
+function parseOptionalString(value: unknown) {
+  if (typeof value === "string" && value.trim().length > 0) {
+    return value.trim();
+  }
+
+  return null;
+}
+
+function parseBoolean(value: unknown) {
+  return value === true;
+}
+
 function parseTags(value: unknown) {
   if (!Array.isArray(value)) {
     return [];
@@ -57,6 +69,10 @@ function parseTags(value: unknown) {
 
 function parseContentType(value: unknown): BlogPostMeta["contentType"] {
   return value === "news-analysis" ? "news-analysis" : "pillar";
+}
+
+function parseArticleRole(value: unknown): BlogPostMeta["articleRole"] {
+  return value === "support" ? "support" : "primary";
 }
 
 const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
@@ -93,6 +109,9 @@ const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
         description: requireString(frontmatter.description),
         publishedAt: requireDateString(frontmatter.publishedAt),
         contentType: parseContentType(frontmatter.contentType),
+        articleRole: parseArticleRole(frontmatter.articleRole),
+        aiGenerated: parseBoolean(frontmatter.aiGenerated),
+        heroImagePath: parseOptionalString(frontmatter.heroImagePath),
         tags: parseTags(frontmatter.tags),
         readingTime: estimateReadingTime(source),
         published: frontmatter.published ?? false,

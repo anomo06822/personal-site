@@ -131,6 +131,9 @@ export const siteCopy = {
       allFormats: "全部形式",
       pillarLabel: "Pillar",
       newsAnalysisLabel: "News Analysis",
+      techNewsLabel: "Tech News",
+      aiGeneratedLabel: "AI 產生",
+      aiGeneratedNote: "這篇文章由 AI 先生成草稿，再經人工審閱與發布。",
       newBadgeLabel: "NEW",
       emptyState: "目前這個分類還沒有文章。",
       endCtaTitle: "下一步閱讀",
@@ -273,6 +276,9 @@ export const siteCopy = {
       allFormats: "All formats",
       pillarLabel: "Pillar",
       newsAnalysisLabel: "News Analysis",
+      techNewsLabel: "Tech News",
+      aiGeneratedLabel: "AI Generated",
+      aiGeneratedNote: "This article started as an AI-generated draft and was reviewed before publication.",
       newBadgeLabel: "NEW",
       emptyState: "There are no published posts for this topic yet.",
       endCtaTitle: "Keep reading",
@@ -366,6 +372,11 @@ export function getAbsoluteSiteUrl(pathname: string) {
   return new URL(withBasePath(pathname), origin).toString();
 }
 
-export function getBlogSocialImagePath(locale: Locale, slug: string) {
+export function getBlogSocialImagePath(locale: Locale, slug: string, heroImagePath?: string | null) {
+  const normalizedHeroImagePath = heroImagePath?.trim();
+  if (normalizedHeroImagePath) {
+    return withBasePath(normalizedHeroImagePath.startsWith("/") ? normalizedHeroImagePath : `/${normalizedHeroImagePath}`);
+  }
+
   return withBasePath(`/social/blog/${locale}/${slug}.svg`);
 }
