@@ -208,12 +208,6 @@ export default async function BlogPostPage({
             >
               {copy.common.backToBlog}
             </Link>
-            <Link
-              href={getRouteHref(locale, "resume")}
-              className="inline-flex min-h-11 items-center rounded-full border border-line-strong/80 px-5 text-sm text-ink-muted transition hover:border-accent/40 hover:text-ink"
-            >
-              {copy.blog.resumeSecondaryCta}
-            </Link>
           </div>
         </div>
       </section>

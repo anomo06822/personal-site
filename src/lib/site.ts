@@ -137,9 +137,8 @@ export const siteCopy = {
       newBadgeLabel: "NEW",
       emptyState: "目前這個分類還沒有文章。",
       endCtaTitle: "下一步閱讀",
-      endCtaBody: "先延續閱讀相關文章，再決定是否切到完整履歷背景。",
+      endCtaBody: "延續閱讀相關文章，沿著同一組技術脈絡繼續往下看。",
       relatedPostsTitle: "相關文章",
-      resumeSecondaryCta: "再看完整履歷",
     },
     contact: {
       eyebrow: "Connect / Public Contact",
@@ -283,9 +282,8 @@ export const siteCopy = {
       emptyState: "There are no published posts for this topic yet.",
       endCtaTitle: "Keep reading",
       endCtaBody:
-        "Continue with related articles first, then jump to the full resume if you want the broader operating context.",
+        "Continue with related articles and stay within the same technical thread.",
       relatedPostsTitle: "Related articles",
-      resumeSecondaryCta: "Open full resume",
     },
     contact: {
       eyebrow: "Connect / Public Contact",
