@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BlogHeroImage } from "@/components/blog-hero-image";
 import {
   getAllPublishedPostParams,
   getAlternatePostByArticleId,
@@ -170,6 +171,15 @@ export default async function BlogPostPage({
             {copy.blog.aiGeneratedNote}
           </p>
         ) : null}
+        <BlogHeroImage
+          locale={locale}
+          slug={post.meta.slug}
+          heroImagePath={post.meta.heroImagePath}
+          title={post.meta.title}
+          priority
+          size="hero"
+          className="mt-8"
+        />
       </section>
 
       <section className="card-surface p-7 sm:p-8">

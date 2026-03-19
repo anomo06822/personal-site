@@ -6,6 +6,7 @@ import {
   useDeferredValue,
   useState,
 } from "react";
+import { BlogHeroImage } from "@/components/blog-hero-image";
 import { getRouteHref } from "@/lib/site";
 import {
   formatLongDate,
@@ -143,50 +144,62 @@ export function BlogFilter({
                       <span className="absolute left-0 top-6 h-[14px] w-[14px] rounded-full border-2 border-accent bg-canvas shadow-[0_0_0_6px_color-mix(in_srgb,var(--canvas)_86%,transparent)] transition group-hover:scale-110" />
 
                       <article className="card-surface p-6 transition group-hover:-translate-y-1 group-hover:border-accent/50 group-hover:bg-panel-strong/90 sm:p-7">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <div className="eyebrow">
-                            {formatLongDate(locale, post.publishedAt)}
-                          </div>
-                          <span className="rounded-full border border-line-strong/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-                            {contentTypeLabels[post.contentType]}
-                          </span>
-                          <PostSignalBadges locale={locale} post={post} />
-                          {showNewBadge ? (
-                            <span className="rounded-full border border-accent/35 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                              {newBadgeLabel}
-                            </span>
-                          ) : null}
-                        </div>
+                        <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                          <BlogHeroImage
+                            locale={locale}
+                            slug={post.slug}
+                            heroImagePath={post.heroImagePath}
+                            title={post.title}
+                            className="w-full shrink-0 lg:w-[21rem]"
+                          />
 
-                        <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                          <div className="max-w-3xl space-y-3">
-                            <h2 className="text-2xl font-semibold tracking-tight text-ink">
-                              {post.title}
-                            </h2>
-                            <p className="text-sm leading-7 text-ink-muted sm:text-base sm:leading-8">
-                              {post.description}
-                            </p>
-                          </div>
-
-                          <div className="flex shrink-0 items-center gap-4 text-sm text-ink-muted lg:pt-1">
-                            <span>
-                              {post.readingTime} {readTimeLabel}
-                            </span>
-                            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
-                              Open /
-                            </span>
-                          </div>
-                        </div>
-
-                        {getVisiblePostTags(post).length ? (
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {getVisiblePostTags(post).map((tag) => (
-                              <span key={tag} className="tag-chip">
-                                {formatPostTagLabel(tag)}
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-3">
+                              <div className="eyebrow">
+                                {formatLongDate(locale, post.publishedAt)}
+                              </div>
+                              <span className="rounded-full border border-line-strong/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
+                                {contentTypeLabels[post.contentType]}
                               </span>
-                            ))}
+                              <PostSignalBadges locale={locale} post={post} />
+                              {showNewBadge ? (
+                                <span className="rounded-full border border-accent/35 bg-[var(--accent-soft)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                                  {newBadgeLabel}
+                                </span>
+                              ) : null}
+                            </div>
+
+                            <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                              <div className="max-w-3xl space-y-3">
+                                <h2 className="text-2xl font-semibold tracking-tight text-ink">
+                                  {post.title}
+                                </h2>
+                                <p className="text-sm leading-7 text-ink-muted sm:text-base sm:leading-8">
+                                  {post.description}
+                                </p>
+                              </div>
+
+                              <div className="flex shrink-0 items-center gap-4 text-sm text-ink-muted lg:pt-1">
+                                <span>
+                                  {post.readingTime} {readTimeLabel}
+                                </span>
+                                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+                                  Open /
+                                </span>
+                              </div>
+                            </div>
+
+                            {getVisiblePostTags(post).length ? (
+                              <div className="mt-5 flex flex-wrap gap-2">
+                                {getVisiblePostTags(post).map((tag) => (
+                                  <span key={tag} className="tag-chip">
+                                    {formatPostTagLabel(tag)}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : null}
                           </div>
-                        ) : null}
+                        </div>
                       </article>
                     </Link>
                   );

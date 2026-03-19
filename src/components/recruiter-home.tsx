@@ -1,4 +1,5 @@
 import { OverviewRouteLink } from "@/components/overview-route-link";
+import { BlogHeroImage } from "@/components/blog-hero-image";
 import type { ReactNode } from "react";
 import { formatLongDate } from "@/lib/utils";
 import type {
@@ -335,7 +336,13 @@ function WritingEvidenceCard({
             key={post.slug}
             className="rounded-[24px] border border-line/75 bg-canvas-elevated/70 p-5"
           >
-            <div className="space-y-3">
+            <div className="space-y-4">
+              <BlogHeroImage
+                locale={locale}
+                slug={post.slug}
+                heroImagePath={post.heroImagePath}
+                title={post.title}
+              />
               <div className="flex flex-wrap items-center gap-3 text-sm text-ink-muted">
                 <div className="eyebrow">{formatLongDate(locale, post.publishedAt)}</div>
                 <span>
