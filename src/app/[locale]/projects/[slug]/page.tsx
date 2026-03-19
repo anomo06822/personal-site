@@ -6,7 +6,11 @@ import { ProjectDetailGallery } from "@/components/project-detail-gallery";
 import { PersonalProjectFeedbackForm } from "@/components/personal-project-feedback-form";
 import { getAllPersonalProjectParams, getPersonalProject } from "@/lib/resume";
 import { getRouteHref, isLocale, siteConfig, siteCopy, withBasePath } from "@/lib/site";
-import type { PersonalProjectDetailVideo, PersonalProjectItem } from "@/lib/types";
+import type {
+  PersonalProjectDetailSection,
+  PersonalProjectDetailVideo,
+  PersonalProjectItem,
+} from "@/lib/types";
 
 function SectionHeading({
   id,
@@ -174,6 +178,118 @@ function ProjectPreviewVideo({ video }: { video: PersonalProjectDetailVideo }) {
   );
 }
 
+function ProjectStorySection({
+  section,
+}: {
+  section: PersonalProjectDetailSection;
+}) {
+  const hasCards = Boolean(section.cards?.length);
+
+  return (
+    <section className="space-y-4">
+      <SectionHeading id={section.id} title={section.title} />
+
+      <div
+        className={
+          hasCards
+            ? "grid gap-5 xl:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]"
+            : "space-y-5"
+        }
+      >
+        <div className="space-y-5">
+          {section.spotlight ? (
+            <div className="overflow-hidden rounded-[32px] border border-line/80 bg-canvas-elevated/78 p-4 shadow-[0_24px_60px_rgba(10,12,12,0.14)] sm:p-6">
+              <div className="space-y-4">
+                <div className="overflow-hidden rounded-[28px] border border-line/75 bg-[#110E0C]">
+                  <Image
+                    src={withBasePath(section.spotlight.src)}
+                    alt={section.spotlight.alt}
+                    width={1536}
+                    height={1024}
+                    className="h-auto w-full"
+                  />
+                </div>
+
+                <div className="space-y-2 px-1">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    {section.spotlight.label}
+                  </div>
+                  <p className="max-w-4xl text-sm leading-7 text-ink-muted">
+                    {section.spotlight.caption}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          <div className="subtle-panel space-y-5 p-6 sm:p-7">
+            {section.eyebrow ? (
+              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+                {section.eyebrow}
+              </div>
+            ) : null}
+
+            {section.intro ? (
+              <p className="max-w-4xl text-base leading-8 text-ink">{section.intro}</p>
+            ) : null}
+
+            {section.paragraphs?.length ? (
+              <div className="space-y-3">
+                {section.paragraphs.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="max-w-4xl text-sm leading-7 text-ink-muted sm:text-base sm:leading-8"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+
+            {section.bullets?.length ? (
+              <ul className="space-y-3 text-sm leading-7 text-ink-muted">
+                {section.bullets.map((bullet) => (
+                  <li key={bullet} className="flex gap-3">
+                    <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            {section.note ? (
+              <div className="rounded-[24px] border border-accent/16 bg-[var(--accent-soft)] px-5 py-4 text-sm leading-7 text-ink-muted">
+                {section.note}
+              </div>
+            ) : null}
+          </div>
+        </div>
+
+        {hasCards ? (
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+            {section.cards?.map((card) => (
+              <div
+                key={`${card.title}-${card.body}`}
+                className="subtle-panel space-y-3 p-5 sm:p-6"
+              >
+                {card.eyebrow ? (
+                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    {card.eyebrow}
+                  </div>
+                ) : null}
+                <h3 className="text-xl font-semibold tracking-tight text-ink">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-7 text-ink-muted">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 function ProjectSidebarMark({ item }: { item: PersonalProjectItem }) {
   if (item.detailImage.kind !== "gallery" || !item.detailImage.logoSrc) {
     return null;
@@ -261,6 +377,7 @@ export default async function PersonalProjectDetailPage({
     (project?.detailImage.kind === "placeholder"
       ? copy.projectDetailPreviewNote
       : undefined);
+  const detailSections = project?.detailSections ?? [];
 
   if (!project) {
     notFound();
@@ -303,6 +420,11 @@ export default async function PersonalProjectDetailPage({
               <a href="#image" className="tag-chip tag-chip-active">
                 {copy.projectDetailImageLabel}
               </a>
+              {detailSections.map((section) => (
+                <a key={section.id} href={`#${section.id}`} className="tag-chip tag-chip-active">
+                  {section.navLabel}
+                </a>
+              ))}
               <a href="#overview" className="tag-chip tag-chip-active">
                 {copy.projectDetailOverviewLabel}
               </a>
@@ -344,6 +466,10 @@ export default async function PersonalProjectDetailPage({
         />
         {project.detailVideo ? <ProjectPreviewVideo video={project.detailVideo} /> : null}
       </section>
+
+      {detailSections.map((section) => (
+        <ProjectStorySection key={section.id} section={section} />
+      ))}
 
       <section className="space-y-4">
         <SectionHeading id="overview" title={copy.projectDetailOverviewLabel} />

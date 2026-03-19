@@ -109,6 +109,28 @@ export type PersonalProjectDetailVideo = {
   caption: string;
 };
 
+export type PersonalProjectDetailSection = {
+  id: string;
+  navLabel: string;
+  title: string;
+  eyebrow?: string;
+  intro?: string;
+  paragraphs?: string[];
+  cards?: Array<{
+    eyebrow?: string;
+    title: string;
+    body: string;
+  }>;
+  bullets?: string[];
+  spotlight?: {
+    src: string;
+    alt: string;
+    label: string;
+    caption: string;
+  };
+  note?: string;
+};
+
 export type PersonalProjectFeedback =
   | {
       type: "github-issue";
@@ -125,6 +147,7 @@ export type PersonalProjectItem = ShowcaseProjectItem & {
   detailIntro: string[];
   detailImage: PersonalProjectDetailImage;
   detailVideo?: PersonalProjectDetailVideo;
+  detailSections?: PersonalProjectDetailSection[];
   previewNote?: string;
   feedback: PersonalProjectFeedback;
 };

@@ -246,9 +246,10 @@ export const resumeEn: ResumeContent = {
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
-          "A desktop productivity workspace built with Electron, React, and .NET 10 that brings notes, boards, task management, agent dispatch, and world simulation into one evolving product foundation.",
+          "A desktop productivity workspace built with Electron, React, and .NET 10 that brings notes, boards, task management, agent dispatch, world simulation, and a governed tech-news-to-distribution content lane into one evolving product foundation.",
         bullets: [
           "The same desktop shell already connects a note library, reusable templates, delivery / focus / portfolio boards, centralized task triage, and context rails so daily execution does not fragment across tools.",
+          "Content Studio now turns Codex-led tech-news signal intake, topic shortlist, draft bundles, channel drafts, and publish / performance feedback into an article-centric control plane.",
           "Agent Command Center turns role binding, dispatch runs, timeline, artifacts, and intervention controls into an operable execution surface instead of hidden background automation.",
           "Agent World adds a pixel-art live office view for districts, staff distribution, focus / blocked / idle status, and rerun verification, while the product core stays on .NET 10 vertical-slice API, PostgreSQL, and local MCP integration.",
         ],
@@ -259,10 +260,13 @@ export const resumeEn: ResumeContent = {
           ".NET 10",
           "Productivity",
           "Agent Ops",
+          "Content Ops",
         ],
         detailIntro: [
-          "This project is not meant to be a single AI utility. It is a desktop workspace that keeps the daily loop of capture → decide → execute → review inside one product surface so notes, boards, tasks, and agent execution stay aligned.",
-          "The current product already exposes Workspace, Boards, Task Management, Agent Command Center, and Agent World as distinct but connected surfaces. The intent is not feature sprawl, but to keep daily planning, dispatch control, and execution visibility inside the same operating shell.",
+          "This project is not meant to be a single AI utility. It is a desktop workspace that keeps the daily loop of capture → decide → execute → review inside one product surface so notes, boards, tasks, content pipeline, and agent execution stay aligned.",
+          "The current product already exposes Workspace, Boards, Task Management, Agent Command Center, Content Studio, and Agent World as distinct but connected surfaces. The intent is not feature sprawl, but to keep daily planning, dispatch control, editorial workflow, and execution visibility inside the same operating shell.",
+          "One of the more public-facing recent evolutions is the tech-news lane: a Codex job handles signal intake first, then AIPW uses an article-centric control plane to manage topics, drafts, publish gates, and feedback before adapting the result to personal-site, LinkedIn, and X.",
+          "That makes personal-site growth part of the product itself rather than an external writing routine. Note-first research, review gates, channel drafts, publish jobs, and performance snapshots now fit inside the same operating model.",
           "Electron provides the desktop shell, React + TypeScript + Tailwind v4 shape the frontend, and a .NET 10 vertical-slice API with EF Core PostgreSQL provides the data and workflow backbone. Local MCP and desktop-first development flow are part of the design so future AI-assisted workflows can plug into the same workspace cleanly.",
         ],
         detailImage: {
@@ -304,8 +308,71 @@ export const resumeEn: ResumeContent = {
               caption:
                 "Pixel-art district radar for staff distribution, focus / blocked / idle state, and live district feed so agent movement becomes visible rather than abstract log output.",
             },
+            {
+              src: "/images/projects/ai-productivity-workspace/07-tech-news-workflow-control-plane.png",
+              alt: "AI Productivity Workspace tech-news workflow control plane blueprint",
+              label: "Workflow Blueprint",
+              caption:
+                "Dark workflow blueprint that maps the current tech-news operating chain: Codex-led signal intake, an internal content control plane, channel-specific distribution, and a feedback loop back into the next cycle.",
+            },
           ],
         },
+        detailSections: [
+          {
+            id: "workflow",
+            navLabel: "Workflow",
+            title: "Tech-news workflow",
+            eyebrow: "CONTENT CONTROL PLANE",
+            intro:
+              "One of the more meaningful recent additions is not another AI writing screen, but a governed content workflow that connects research, editorial packaging, distribution, and learning inside the same product.",
+            paragraphs: [
+              "The lane starts before the editor. A Codex job ingests tech-news signals, normalizes feeds, URLs, and raw notes, and produces source materials, topic candidates, and evidence blocks that can be traced later.",
+              "Once the work enters AIPW, it lives inside an article-centric content control plane. Source materials, topic candidates, content articles, prompt bundles, channel drafts, publish jobs, and performance snapshots all share the same operating context instead of drifting across separate tools.",
+              "Distribution then follows channel semantics rather than copy-paste reuse. The personal site stays the full article + hero image surface, while LinkedIn and X default to summary-led posts that point back to the canonical article.",
+            ],
+            cards: [
+              {
+                eyebrow: "01 Intake",
+                title: "Codex-driven signal intake",
+                body:
+                  "Tech-news signals are collected, normalized, and bundled first so drafting starts from structured evidence instead of loose links.",
+              },
+              {
+                eyebrow: "02 Control Plane",
+                title: "Article-centric editorial system",
+                body:
+                  "AIPW keeps source, topic, article, prompt bundle, review gate, and publish job inside one article lifecycle so the workflow stays traceable.",
+              },
+              {
+                eyebrow: "03 Distribution",
+                title: "Channel semantics over copy-paste",
+                body:
+                  "Site, LinkedIn, and X each get their own output semantics, while channel drafts and publish payloads still stay bound to the same canonical article.",
+              },
+              {
+                eyebrow: "04 Feedback",
+                title: "Publish and learning loop",
+                body:
+                  "Publish results, audience response, and performance snapshots return to the next round of topic judgment and editorial tuning.",
+              },
+            ],
+            bullets: [
+              "personal-site: full article + hero image as the canonical publication surface.",
+              "LinkedIn: summary post + canonical link with a professional distribution shape.",
+              "X: thread or short summary + link for faster signal amplification.",
+              "Feedback layer: publish status, channel outcomes, and performance signals feed the next editorial cycle.",
+            ],
+            spotlight: {
+              src: "/images/projects/ai-productivity-workspace/07-tech-news-workflow-control-plane.png",
+              alt: "AI Productivity Workspace tech-news workflow control plane blueprint",
+              label: "Workflow Blueprint",
+              caption:
+                "Claude Code-themed dark blueprint that explains the current operating model: Codex intake -> Content Control Plane -> Distribution -> feedback loop.",
+            },
+            note:
+              "This section intentionally mixes real product screens with one explanatory blueprint. The screens show what already exists; the blueprint makes the operating model legible in public.",
+          },
+        ],
         detailVideo: {
           src: "/videos/projects/ai-productivity-workspace/world-rerun-clean-baseline.mp4",
           posterSrc: "/images/projects/ai-productivity-workspace/06-world-movement-poster.png",
@@ -315,7 +382,7 @@ export const resumeEn: ResumeContent = {
             "16-second rerun demo that starts from a true lounge baseline, then re-dispatches PRD36, ARC36, and ENG36 to verify district movement, live status, and world feed behavior.",
         },
         previewNote:
-          "Current project media comes from the refreshed AIPW media pack: `01` to `05` are the clean 2026-03-17 Claude Code theme screenshots, captured after removing the popup / onboarding overlay issue, plus the same 16-second world movement rerun.",
+          "Current project media now mixes the refreshed AIPW media pack with one workflow blueprint: `01` to `05` are clean 2026-03-17 Claude Code theme screenshots, `07` is the 2026-03-19 tech-news workflow control-plane visual, plus the same 16-second world movement rerun.",
         feedback: {
           type: "disabled",
           message:
@@ -323,7 +390,7 @@ export const resumeEn: ResumeContent = {
         },
         imageAlt: "AI Productivity Workspace demo gallery",
         note:
-          "The repository is not public yet. This page now uses actual product screens and a world movement demo, and the GitHub link will be added after the public cleanup is done.",
+          "The repository is not public yet. This page now mixes actual product screens, one workflow blueprint, and the world movement demo; the GitHub link will be added after the public cleanup is done.",
       },
       {
         slug: "phalanx-chronicle",

@@ -244,9 +244,10 @@ export const resumeZhTW: ResumeContent = {
         title: "ai-productivity-workspace",
         subtitle: "Private GitHub repository",
         summary:
-          "以 Electron、React 與 .NET 10 打造的 desktop productivity workspace，把 notes、boards、task management、agent dispatch 與 world simulation 收斂到同一個可持續演進的產品骨架。",
+          "以 Electron、React 與 .NET 10 打造的 desktop productivity workspace，不只整合 notes、boards、task management、agent dispatch 與 world simulation，也把 tech-news intake、content control plane 與 personal-site / LinkedIn / X distribution 收斂到同一個可持續演進的產品骨架。",
         bullets: [
           "同一個桌面殼層內已接起 note library、delivery / focus / portfolio boards、task triage 與 context rail，讓日常執行不必在多個工具間切換。",
+          "Content Studio 現在把 codex 驅動的 tech-news signal intake、topic shortlist、draft bundle、channel drafts 與 publish / performance feedback 收成 article-centric control plane。",
           "Agent Command Center 把 role binding、dispatch run、timeline、artifacts 與 intervention controls 收成可操作的 agent execution surface，而不是只停在背景自動化。",
           "Agent World 用 pixel-art 辦公區視圖顯示 district、staff、focus / blocked / idle 狀態與 rerun 驗證；底層仍維持 .NET 10 vertical-slice API、PostgreSQL 與本機 MCP 整合。",
         ],
@@ -257,10 +258,13 @@ export const resumeZhTW: ResumeContent = {
           ".NET 10",
           "Productivity",
           "Agent Ops",
+          "Content Ops",
         ],
         detailIntro: [
-          "這個專案不是單點 AI 工具，而是把 capture → decide → execute → review 的日常流程收進同一個 desktop workspace，讓 notes、boards、tasks 與 agent execution 可以互相對上。",
-          "產品表面目前已經長出 Workspace、Boards、Task Management、Agent Command Center 與 Agent World 幾個核心畫面，重點不是堆功能，而是把 daily loop、dispatch control 與 execution visibility 放在同一個操作表面。",
+          "這個專案不是單點 AI 工具，而是把 capture → decide → execute → review 的日常流程收進同一個 desktop workspace，讓 notes、boards、tasks、content pipeline 與 agent execution 可以互相對上。",
+          "產品表面目前已經長出 Workspace、Boards、Task Management、Agent Command Center、Content Studio 與 Agent World 幾個核心畫面，重點不是堆功能，而是把 daily loop、dispatch control、editorial workflow 與 execution visibility 放在同一個操作表面。",
+          "最近比較有辨識度的變化，是把 tech-news workflow 收斂成一條可治理的 content lane：Codex job 先做 signal intake，AIPW 內部再用 article-centric control plane 管 topic、draft、publish 與 feedback，最後按 personal-site / LinkedIn / X 的 channel semantics 做分發。",
+          "這讓 personal-site growth 不再只是外部寫作流程，而是能和 note-first research、review gate、channel drafts、publish jobs 與 performance snapshots 接到同一個產品骨架裡。",
           "技術上以 Electron 承接桌面殼層，React + TypeScript + Tailwind v4 建構前端，.NET 10 vertical-slice API + EF Core PostgreSQL 提供資料與流程骨架，同時保留 local MCP 與 desktop-first dev workflow 作為後續 AI-assisted workflow 的接點。",
         ],
         detailImage: {
@@ -302,8 +306,71 @@ export const resumeZhTW: ResumeContent = {
               caption:
                 "Agent World 以 pixel-art district radar 呈現 staff 分布、focus / blocked / idle 狀態與 live district feed，讓 agent movement 不再只是抽象事件紀錄。",
             },
+            {
+              src: "/images/projects/ai-productivity-workspace/07-tech-news-workflow-control-plane.png",
+              alt: "AI Productivity Workspace tech-news workflow control plane blueprint",
+              label: "Workflow Blueprint",
+              caption:
+                "暗色 workflow blueprint 將目前的 tech-news pipeline 畫成一張控制面圖：Codex job 先做 signal intake，AIPW 內部收成 Content Control Plane，再按 personal-site / LinkedIn / X 的 channel semantics 做分發，最後把 publish results 與 audience response 回灌下一輪。",
+            },
           ],
         },
+        detailSections: [
+          {
+            id: "workflow",
+            navLabel: "工作流",
+            title: "Tech-news workflow",
+            eyebrow: "CONTENT CONTROL PLANE",
+            intro:
+              "AIPW 最近一個比較值得公開展示的能力，不是又多了一個 AI 寫作頁，而是把研究、編輯、分發與回收收成一條可以治理的內容工作流。",
+            paragraphs: [
+              "這條 lane 的起點不是 editor，而是 codex job 對 tech-news signal 的 intake。先把 feeds、URL、raw notes 與外部訊號整理成 source materials、topic candidates 與 evidence block，避免後面的 draft 直接建立在鬆散連結上。",
+              "內容進入 AIPW 後，會落在 article-centric content control plane 裡：source materials、topic candidates、content articles、prompt bundles、channel drafts、publish jobs 與 performance snapshots 共用同一個操作上下文，而不是分散在不同工具之間。",
+              "最後的 distribution 也不是把同一段 copy 硬縮到所有平台，而是按 channel semantics 分流。personal-site 保持 full article + hero image，LinkedIn 與 X 則預設成 summary-led post / thread，再回指 canonical article。",
+            ],
+            cards: [
+              {
+                eyebrow: "01 Intake",
+                title: "Codex-driven signal intake",
+                body:
+                  "Tech-news 先經過 codex job 的收集、正規化與 bundling，輸出可追蹤的素材、主題候選與 evidence，而不是直接跳進草稿器。",
+              },
+              {
+                eyebrow: "02 Control Plane",
+                title: "Article-centric editorial system",
+                body:
+                  "AIPW 內部用同一套 article context 管 source、topic、draft、bundle version、review gate 與 publish job，讓內容工作流具備 traceability。",
+              },
+              {
+                eyebrow: "03 Distribution",
+                title: "Channel semantics over copy-paste",
+                body:
+                  "site、LinkedIn、X 各自有不同輸出語義，channel drafts 與 publish payload 會跟 canonical article 綁在同一個 lifecycle 下。",
+              },
+              {
+                eyebrow: "04 Feedback",
+                title: "Publish and learning loop",
+                body:
+                  "publish result、audience response 與 performance snapshot 會回到下一輪 topic judgment 和 editorial tuning，而不是發完就斷線。",
+              },
+            ],
+            bullets: [
+              "personal-site：full article + hero image，作為 canonical publication surface。",
+              "LinkedIn：summary post + canonical link，偏 professional viewpoint 與擴散。",
+              "X：thread 或短摘要 + link，偏快節奏分發與 signal amplification。",
+              "回收層：publish status、distribution result 與 performance signal 再回灌 topic scoring 與 draft tuning。",
+            ],
+            spotlight: {
+              src: "/images/projects/ai-productivity-workspace/07-tech-news-workflow-control-plane.png",
+              alt: "AI Productivity Workspace tech-news workflow control plane blueprint",
+              label: "Workflow Blueprint",
+              caption:
+                "Claude Code 風格的 dark blueprint，用來說明目前 AIPW 內容工作流的真實 operating model：Codex intake -> Content Control Plane -> Distribution -> feedback loop。",
+            },
+            note:
+              "這一段刻意混合真實產品畫面與一張 workflow blueprint。前者證明產品表面已經落地，後者則用來把內容控制面的 operating model 講清楚。",
+          },
+        ],
         detailVideo: {
           src: "/videos/projects/ai-productivity-workspace/world-rerun-clean-baseline.mp4",
           posterSrc: "/images/projects/ai-productivity-workspace/06-world-movement-poster.png",
@@ -313,7 +380,7 @@ export const resumeZhTW: ResumeContent = {
             "16 秒 rerun demo 從 true lounge baseline 重新派送 PRD36、ARC36、ENG36，驗證 district 移動、live status 與 world feed 是否和 dispatch 結果一致。",
         },
         previewNote:
-          "目前專案頁直接使用最新整理的 AIPW media pack：`01` 到 `05` 為 2026-03-17 重新輸出的 Claude Code 配色正式截圖，並已排除先前 popup / onboarding overlay 擋住畫面的問題；另附一段 16 秒的 world movement rerun。",
+          "目前專案頁混合了最新整理的 AIPW media pack 與一張 workflow blueprint：`01` 到 `05` 為 2026-03-17 重新輸出的 Claude Code 配色正式截圖，`07` 為 2026-03-19 製作的 tech-news workflow control-plane 視覺；另附一段 16 秒的 world movement rerun。",
         feedback: {
           type: "disabled",
           message:
@@ -321,7 +388,7 @@ export const resumeZhTW: ResumeContent = {
         },
         imageAlt: "AI Productivity Workspace demo gallery",
         note:
-          "Repository 目前尚未公開；這一頁展示的是目前已整理完成的實際產品畫面與 world movement demo，之後公開時再補上 GitHub 連結。",
+          "Repository 目前尚未公開；這一頁現在同時展示實際產品畫面、workflow blueprint 與 world movement demo，等公開版整理完成後再補上 GitHub 連結。",
       },
       {
         slug: "phalanx-chronicle",
