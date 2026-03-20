@@ -393,6 +393,123 @@ export const resumeEn: ResumeContent = {
           "The repository is not public yet. This page now mixes actual product screens, one workflow blueprint, and the world movement demo; the GitHub link will be added after the public cleanup is done.",
       },
       {
+        slug: "membership-platform-flutter",
+        title: "membership-platform-flutter",
+        subtitle: "Private GitHub repository",
+        summary:
+          "A 0→1 membership platform monorepo that pairs a Gourmet-branded Flutter member app with a NestJS modular-monolith backend, shared API contracts, and cross-platform design tokens.",
+        bullets: [
+          "The member app already ships OTP login and verification, a Gourmet home surface, a dynamic QR member card, wallet history, and editable profile flows.",
+          "The backend baseline covers auth, member profile, member card token, wallet, coupon, and POS points-earn slices under one modular-monolith foundation.",
+          "Keeping Flutter, NestJS, OpenAPI, and design tokens in one repo makes mobile UX, API contracts, and delivery slices evolve together instead of drifting apart.",
+        ],
+        tags: [
+          "Flutter",
+          "Dart",
+          "NestJS",
+          "TypeScript",
+          "Monorepo",
+          "Membership",
+        ],
+        detailIntro: [
+          "This project is built as a greenfield membership platform rather than a single demo screen set. The intent is to keep member experience, service contracts, and delivery structure aligned from the first slice.",
+          "The current shipped loop focuses on the member-facing surfaces that have to feel coherent early: OTP login, Gourmet-branded home, dynamic QR member card, wallet balance and history, and profile editing.",
+          "Under the UI, the repo already carries a NestJS modular monolith, OpenAPI baseline, design tokens, ADRs, and local runbooks so future coupon, activity, notification, and integration slices can grow on a stable backbone.",
+        ],
+        detailImage: {
+          kind: "gallery",
+          alt: "Membership Platform Flutter demo gallery",
+          images: [
+            {
+              src: "/images/projects/membership-platform-flutter/01-home.png",
+              alt: "Membership Platform Flutter home screen",
+              label: "Home",
+              caption:
+                "The Gourmet home surface combines greeting, wallet balance preview, member-card entry, and quick member actions into a single member-facing landing screen.",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/02-member-card.png",
+              alt: "Membership Platform Flutter member card screen",
+              label: "Member Card",
+              caption:
+                "Dynamic QR card view with branded presentation, countdown, and refresh behavior so the membership token stays usable as an operational screen, not just a static mock.",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/03-wallet.png",
+              alt: "Membership Platform Flutter wallet screen",
+              label: "Wallet",
+              caption:
+                "Point balance summary and transaction history are grouped into one wallet workflow so earn, spend, and expiry context remain visible together.",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/04-profile.png",
+              alt: "Membership Platform Flutter profile screen",
+              label: "Profile",
+              caption:
+                "Member profile editing keeps identity fields, contact info, and account maintenance inside the same branded shell instead of sending users into a generic settings page.",
+            },
+          ],
+        },
+        detailSections: [
+          {
+            id: "member-loop",
+            navLabel: "Experience",
+            title: "Core member loop",
+            eyebrow: "GOURMET MEMBER APP",
+            intro:
+              "The first shipped slice focuses on the member loop that has to work early in a real loyalty product, not on placeholder marketing screens.",
+            paragraphs: [
+              "The member app already connects OTP authentication, branded home entry, member-card token access, wallet summary, and profile maintenance in one consistent shell. That gives the project a usable baseline for future retail and CRM integration work.",
+              "The UI work is only one layer. The repo also keeps backend modules, contract definitions, and design tokens beside the Flutter code so later coupon, activity, and notification work can extend the same operating model instead of creating parallel prototypes.",
+            ],
+            cards: [
+              {
+                eyebrow: "01 Auth",
+                title: "OTP-first member entry",
+                body:
+                  "Phone-based OTP flow is the first authentication slice, keeping onboarding light while preserving a real session boundary.",
+              },
+              {
+                eyebrow: "02 Card",
+                title: "Operational membership token",
+                body:
+                  "The member card is treated as a working token surface with refresh and expiry behavior, not just a decorative QR placeholder.",
+              },
+              {
+                eyebrow: "03 Wallet",
+                title: "Points visibility inside the app shell",
+                body:
+                  "Balance, pending value, and transaction history stay in one wallet view so members can understand state changes without leaving the app flow.",
+              },
+              {
+                eyebrow: "04 Platform",
+                title: "Monorepo-backed delivery baseline",
+                body:
+                  "Flutter app, NestJS backend, OpenAPI baseline, and design tokens stay in the same repo so product slices can ship with less contract drift.",
+              },
+            ],
+            bullets: [
+              "Flutter member app uses feature-first layered architecture.",
+              "NestJS backend follows a modular-monolith structure for auth, member, wallet, coupon, and integration slices.",
+              "OpenAPI and design tokens are versioned in-repo to reduce UI / API drift.",
+              "Current media pack uses real Flutter golden captures from the app, not stitched marketing comps.",
+            ],
+            note:
+              "The repository is still private, but the screenshots come from the actual app test suite and reflect the current shipped member flows.",
+          },
+        ],
+        previewNote:
+          "Current project media uses four Flutter golden captures from the real member app: Home, Member Card, Wallet, and Profile.",
+        feedback: {
+          type: "disabled",
+          message:
+            "This repository is not public yet. GitHub issue feedback will open after the release path and public cleanup are ready.",
+        },
+        imageAlt: "Membership Platform Flutter member app gallery",
+        note:
+          "The repository is still private. The public project page now uses real app captures so the product surface is visible before the repo is opened.",
+      },
+      {
         slug: "phalanx-chronicle",
         title: "phalanx-chronicle",
         subtitle: "anomo06822/phalanx-chronicle",

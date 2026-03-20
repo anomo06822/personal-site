@@ -391,6 +391,123 @@ export const resumeZhTW: ResumeContent = {
           "Repository 目前尚未公開；這一頁現在同時展示實際產品畫面、workflow blueprint 與 world movement demo，等公開版整理完成後再補上 GitHub 連結。",
       },
       {
+        slug: "membership-platform-flutter",
+        title: "membership-platform-flutter",
+        subtitle: "Private GitHub repository",
+        summary:
+          "以 Gourmet 會員體驗為主軸的 0→1 平台 monorepo，將 Flutter member app、NestJS modular monolith、OpenAPI contract 與 cross-platform design tokens 放在同一個交付骨架裡。",
+        bullets: [
+          "member app 已經落地 OTP login / verify、Gourmet 首頁、動態 QR 會員卡、點數錢包與會員資料維護等核心會員流程。",
+          "backend baseline 已具備 auth、member profile、member card token、wallet、coupon 與 POS points-earn 等模組切片，作為後續會員平台演進基線。",
+          "把 Flutter、NestJS、OpenAPI 與 design tokens 放在同一個 repo，讓 mobile UX、API contract 與交付切片可以一起往前推，而不是各自漂移。",
+        ],
+        tags: [
+          "Flutter",
+          "Dart",
+          "NestJS",
+          "TypeScript",
+          "Monorepo",
+          "Membership",
+        ],
+        detailIntro: [
+          "這個專案從一開始就不是單純做幾個會員畫面，而是把會員體驗、服務契約與交付結構一起建立成可演進的平台骨架。",
+          "目前已經落地的主線聚焦在最需要先跑通的會員 loop：OTP 登入、Gourmet 首頁、動態 QR 會員卡、點數錢包與會員資料維護，讓產品表面先具備可用性。",
+          "在 UI 之外，repo 也已經把 NestJS modular monolith、OpenAPI baseline、design tokens、ADR 與 runbook 放進同一個 monorepo，作為後續 coupon、activity、notification 與整合切片的穩定基礎。",
+        ],
+        detailImage: {
+          kind: "gallery",
+          alt: "Membership Platform Flutter demo gallery",
+          images: [
+            {
+              src: "/images/projects/membership-platform-flutter/01-home.png",
+              alt: "Membership Platform Flutter home screen",
+              label: "Home",
+              caption:
+                "Gourmet 首頁把 greeting、點數預覽、會員卡入口與 quick actions 收在同一個 member-facing landing screen 上，先建立日常會員操作入口。",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/02-member-card.png",
+              alt: "Membership Platform Flutter member card screen",
+              label: "Member Card",
+              caption:
+                "會員卡頁不是靜態 QR mock，而是包含品牌化呈現、倒數與 refresh 行為的可操作 token surface。",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/03-wallet.png",
+              alt: "Membership Platform Flutter wallet screen",
+              label: "Wallet",
+              caption:
+                "錢包頁把 points summary、pending / expiry context 與交易明細放在同一條流程中，避免會員只能看到片段資訊。",
+            },
+            {
+              src: "/images/projects/membership-platform-flutter/04-profile.png",
+              alt: "Membership Platform Flutter profile screen",
+              label: "Profile",
+              caption:
+                "會員資料頁把 identity、聯絡方式與維護入口留在同一個品牌殼層內，而不是退回通用設定頁。",
+            },
+          ],
+        },
+        detailSections: [
+          {
+            id: "member-loop",
+            navLabel: "會員體驗",
+            title: "核心會員流程",
+            eyebrow: "GOURMET MEMBER APP",
+            intro:
+              "第一條可展示的交付切片聚焦在真實會員產品最早要跑通的 loop，而不是只做 marketing shell。",
+            paragraphs: [
+              "目前 member app 已經把 OTP authentication、首頁入口、會員卡 token、wallet summary 與 profile 維護串進同一個 shell 裡，作為後續 retail / CRM integration 的起點。",
+              "這個 repo 的重點不只在 app 畫面。Flutter app、backend modules、OpenAPI contract 與 design tokens 同時放在 monorepo 內，讓後續 coupon、activity 與 notification 的擴充能沿著同一個 operating model 前進。",
+            ],
+            cards: [
+              {
+                eyebrow: "01 Auth",
+                title: "OTP-first member entry",
+                body:
+                  "以手機 OTP 作為第一條會員登入切片，降低 onboarding friction，同時保留真實 session 邊界。",
+              },
+              {
+                eyebrow: "02 Card",
+                title: "Operational membership token",
+                body:
+                  "會員卡被當成真正可用的 token surface 來設計，包含刷新與失效行為，而不是只放靜態 QR。",
+              },
+              {
+                eyebrow: "03 Wallet",
+                title: "Points visibility in one shell",
+                body:
+                  "balance、pending value 與交易明細放在同一頁裡，讓會員能直接理解點數狀態如何變化。",
+              },
+              {
+                eyebrow: "04 Platform",
+                title: "Monorepo-backed delivery baseline",
+                body:
+                  "Flutter、NestJS、OpenAPI 與 design tokens 共用同一個 repo，降低產品切片往前推時的契約漂移。",
+              },
+            ],
+            bullets: [
+              "Flutter member app 採 feature-first layered architecture。",
+              "NestJS backend 以 modular monolith 組織 auth、member、wallet、coupon 與 integration slices。",
+              "OpenAPI 與 design tokens 直接 version 在 repo 內，方便 app 與 backend 對齊。",
+              "目前對外展示的 media pack 直接使用 Flutter golden captures，而不是另外拼裝的 marketing mockups。",
+            ],
+            note:
+              "Repository 目前仍是 private，但專案頁使用的都是實際 app 測試輸出的畫面，因此能真實反映目前已經落地的會員流程。",
+          },
+        ],
+        previewNote:
+          "目前專案頁採用 4 張來自真實 Flutter app 的 golden captures：Home、Member Card、Wallet、Profile。",
+        feedback: {
+          type: "disabled",
+          message:
+            "這個 repository 目前尚未公開；等 release path 與公開整理完成後，才會開放 GitHub issue feedback。",
+        },
+        imageAlt: "Membership Platform Flutter member app gallery",
+        note:
+          "Repository 目前仍未公開；專案頁先以真實 app 截圖展示產品表面，之後再補上公開 repo 連結。",
+      },
+      {
         slug: "phalanx-chronicle",
         title: "phalanx-chronicle",
         subtitle: "anomo06822/phalanx-chronicle",
