@@ -1,0 +1,89 @@
+---
+articleId: 'vercel-agents-md-outperforms-skills'
+slug: 'vercel-agents-md-outperforms-skills'
+locale: 'en'
+title: 'Vercel''s eval gives a counter-intuitive answer: Why AGENTS.md is more reliable than skills'
+description: 'For most teams, the `AGENTS.md` class resident context should be the default layer, and skills and retrieval should be supplementary layers; the focus of competition is shifting from "better at checking" to "better at forgetting".'
+publishedAt: '2026-03-21'
+contentType: 'news-analysis'
+articleRole: 'primary'
+aiGenerated: true
+heroImagePath: 'social/blog/en/vercel-agents-md-outperforms-skills.svg'
+tags:
+  - 'tech-news reaction'
+  - 'news-analysis'
+  - 'zh-TW'
+  - 'tech-news'
+published: true
+---
+
+### TL;DR
+Vercel's Next.js 16 agent eval on 2026-01-27 shows that the compressed docs index is resident in `AGENTS.md`, which is more stable than skills-based active retrieval, and can even reach 100% pass rate.
+What's really important is not to add another layer of clever mechanics, but to make high-priority rules visible at the starting point of reasoning every time.
+For adoption, you can first establish three layers of context: the resident layer (`AGENTS.md`) for default, skills for process supplement, retrieval for long-tail query, and use version management and eval to maintain reliability.
+
+### what happened
+Vercel published an article on 2026-01-27, disclosing its agent eval results for the Next.js 16 API. During the test, they put the compressed docs index directly into `AGENTS.md` so that the agent could read the same set of key rules at the beginning of each task.
+In comparison, the skills mode requires the agent to actively trigger searches and calls in the process, and the path variation is high. The result is that the `AGENTS.md` strategy shows higher consistency in this test scenario and reaches 100% pass rate.
+
+### Why is this worth noting?
+This is noteworthy not because of the markdown file itself, but because it puts the question of whether knowledge is reliably accessible back to the center. What is really noteworthy is not whether you can check it, but whether you see the right premise first every time.
+If you put it back into the team's daily routine, you should first ask: Which rules do not allow omissions? Which rules, if omitted, will directly lead to incorrect delivery? This means that the competitive point is shifting from "quantity of knowledge sources" to "quality of contextual distribution".
+
+### Insight 1 — Insight 1: Reliability is a distribution issue, not just a knowledge issue
+**What is really noteworthy is not whether the model can be checked, but whether the key knowledge obtained in the task is consistent. **
+
+The advantage of skills and retrieval is flexibility, but flexibility also means path variability: when it is triggered, which segment is grabbed, and whether it is referenced correctly, all may affect the final behavior. For evaluation and delivery, these variations are directly reflected as quality fluctuations.
+The value of `AGENTS.md` lies in presetting high-priority rules as permanent prerequisites, reducing the cost of rechecking and reinterpreting each time. Especially in high-frequency tasks (framework conventions, output formats, disabled operations), this stability is often more useful than the amount of knowledge.
+
+- Implication: First, take stock of "high-frequency and high-cost" errors, push the corresponding rules into the resident layer, and let the agent start from the same set of baselines every time.
+
+### Insight 2 — Insight 2: Replicability determines diffusion speed
+**What will really be copied is usually not the most complete system, but the easiest to understand system. **
+
+Most teams do not have the resources to build a complete skill pack and retrieval pipeline first, but they must quickly incorporate agents into delivery. `AGENTS.md` spreads quickly. The key is that it has a low deployment threshold, can be code reviewed, and can be versioned with the repo.
+From a platform operation perspective, this allows best practices to be circulated in "file format" rather than tied to specific infrastructure. When practices are easier to transport, it's easier for the community to develop reusable routines.
+
+- Implication: Treat file compression capabilities as platform capabilities, establish templates, review standards, and update rhythms to reduce cross-project copy costs.
+
+### Insight 3 — Insight 3: Not a choice between two, but a rearrangement of the context hierarchy
+**The question is not whether it can be done, but whether it can be done stably, observably, and maintainably. **
+
+This is not a single conclusion that `AGENTS.md` defeats skills, but a sequential reset of the context layering strategy. The first layer should be the resident baseline rule (`AGENTS.md`); the second layer is the tool process of skills; the third layer is then handed over to retrieval to solve the long-tail problem.
+When the team first ensures consistency and then expands coverage, delivery risks and communication friction will be reduced. This is also key to aligning architectural decisions with delivery decisions.
+
+- Implication: Establish a three-layer SLA: the resident layer ensures visibility every time, the skills layer ensures callability, and the retrieval layer ensures source traceability.
+
+### Second-order impact on engineering and delivery
+The second-order impact of this signal is more obvious at the team operation level:
+1. Adoption cost: Creating the resident layer first can quickly go online without rebuilding infra, reducing initial introduction costs.
+2. Operability: After the context is fixed, error types are more concentrated, and incident triage and rollback strategies are clearer.
+3. Observability / Debugability: Sharing the same baseline can narrow the scope of troubleshooting and make it easier to distinguish whether it is a rule, tool or data problem.
+4. Cognitive load: Engineers and reviewers do not have to memorize implicit specifications over and over again, and their mental load is reduced.
+5. Ownership boundary: The responsibilities of file owner, tool owner, and knowledge base owner can be clearly divided.
+6. Evaluation burden: Baseline consistency can be measured first, and then long-tail capabilities can be measured to avoid confusing the problem into a single indicator.
+
+### My adoption advice
+Recommended order:
+1. Create `AGENTS.md` v1: only release high-frequency, error-prone, rules that must be followed (within 15 rules).
+2. Add owner, version, and invalidation conditions to each rule: it must be updated after framework upgrade and accident review.
+3. Skills only carries process and tool calls: to avoid repeatedly writing baseline rules.
+4. retrieval sets a trigger threshold: only dealing with long-tail issues that require source support.
+5. Fixed eval every week: Track baseline errors, calling errors, and retrieval errors separately to form an executable correction backlog.
+
+### Risks and Limitations
+Main limitations and risks:
+1. Length inflation: Too long resident content will dilute the focus and actually reduce the hit rate.
+2. Outdated version: The rules are not updated with the framework, resulting in stable but outdated bugs.
+3. Misinterpretation of indicators: A high pass rate may only mean that the test set is consistent, but does not mean that it is fully reliable in the real world.
+4. Security and compliance: High-privilege operations cannot rely solely on text rules, but still require permission control and auditing.
+5. Migration costs: Existing skill/retrieval investments require reorganization of labor division, and there will be process adjustment costs in the short term.
+
+### final judgment
+Final judgment: In the next year, the winner of agent context will not be who has access to the most sources of knowledge, but who can fix the most critical 5% rules at the starting point of every reasoning using the smallest context, highest visibility, and sustainable verification.
+
+### Further reading/CTA
+If you are designing agent-facing docs, first do a 90-minute rule compression: pick out 15 high-cost rules, generate `AGENTS.md` v1, and use the same question set to compare the differences before and after importing. Full analysis page: https://anomo06822.github.io/personal-site/zh-TW/blog/vercel-agents-md-outperforms-skills
+### Sources and References
+- [Vercel uses eval to prove that AGENTS.md is more reliable than skills, and the agent context distribution strategy begins to take shape.](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) · Vercel · 2026-01-27
+

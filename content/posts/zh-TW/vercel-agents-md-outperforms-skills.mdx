@@ -1,0 +1,89 @@
+---
+articleId: 'vercel-agents-md-outperforms-skills'
+slug: 'vercel-agents-md-outperforms-skills'
+locale: 'zh-TW'
+title: 'Vercel 的 eval 給了一個反直覺答案：AGENTS.md 為什麼比 skills 更可靠'
+description: '對多數團隊，`AGENTS.md` 類常駐 context 應是預設層，skills 與 retrieval 應是補充層；競爭焦點正從「更會查」移到「更不會忘」。'
+publishedAt: '2026-03-21'
+contentType: 'news-analysis'
+articleRole: 'primary'
+aiGenerated: true
+heroImagePath: 'social/blog/zh-TW/vercel-agents-md-outperforms-skills.svg'
+tags:
+  - 'tech-news reaction'
+  - 'news-analysis'
+  - 'zh-TW'
+  - 'tech-news'
+published: true
+---
+
+### TL;DR
+Vercel 在 2026-01-27 的 Next.js 16 agent eval 顯示：把壓縮 docs index 常駐在 `AGENTS.md`，比 skills 式主動檢索更穩，甚至達到 100% pass rate。
+真正重要的不是再加一層聰明機制，而是讓高優先規則每次都在推理起點被看見。
+採用上可先建立三層 context：常駐層（`AGENTS.md`）作預設，skills 作流程補充，retrieval 作長尾查詢，並用版本治理與 eval 保持可靠性。
+
+### 發生了什麼
+Vercel 在 2026-01-27 發佈文章，公開其針對 Next.js 16 API 的 agent eval 結果。測試中，他們把壓縮後的 docs index 直接放進 `AGENTS.md`，使 agent 在每次任務開始時都能讀到同一組關鍵規則。
+相較之下，skills 模式需要 agent 在流程中主動觸發查找與調用，路徑變異較高。結果是 `AGENTS.md` 策略在該測試場景展現更高一致性，並達到 100% pass rate。
+
+### 這件事為什麼值得注意
+這件事值得注意，不是因為 markdown 檔案本身，而是因為它把「知識是否可被穩定拿到」放回中心。真正值得注意的不是會不會查，而是每次是否都先看到對的前提。
+如果把它放回團隊日常，應該先問的是：哪些規則不允許遺漏？哪些規則一旦遺漏，會直接造成錯誤交付？這代表競爭點正在從「知識來源數量」移到「上下文分發品質」。
+
+### Insight 1 — Insight 1：可靠性是分發問題，不只是知識問題
+**真正值得注意的不是模型會不會查，而是任務中拿到的關鍵知識是否一致。**
+
+skills 與 retrieval 的優勢是彈性，但彈性也意味著路徑變異：何時觸發、抓到哪段、是否被正確引用，都可能影響最終行為。對評估與交付來說，這些變異會直接反映成品質波動。
+`AGENTS.md` 的價值在於把高優先規則前置成常駐前提，減少每次重查與重解釋成本。尤其在高頻任務（框架慣例、輸出格式、禁用操作）中，這種穩定性常比知識總量更有用。
+
+- Implication: 先盤點「高頻且高代價」錯誤，把對應規則壓進常駐層，讓 agent 每次都從同一組基線起跑。
+
+### Insight 2 — Insight 2：可複製性決定擴散速度
+**真正會被複製的，通常不是最完整的系統，而是最容易理解的系統。**
+
+多數團隊沒有資源先建完整 skill pack 與檢索管線，卻必須快速把 agent 納入交付。`AGENTS.md` 擴散快，關鍵在部署門檻低、可 code review、可隨 repo 版本化。
+從平台運營角度看，這讓最佳實務以「檔案格式」流通，而不是綁在特定基礎設施。當做法更容易被搬運，社群就更容易形成可重用慣例。
+
+- Implication: 把文件壓縮能力當平台能力經營，建立模板、審查標準與更新節奏，降低跨專案複製成本。
+
+### Insight 3 — Insight 3：不是二選一，而是 context hierarchy 重排
+**問題不是能不能做，而是能不能穩定、可觀測、可維運地做。**
+
+這不是 `AGENTS.md` 打敗 skills 的單點結論，而是 context 分層策略的順序重設。第 1 層應是常駐基線規則（`AGENTS.md`）；第 2 層才是 skills 的工具流程；第 3 層再交給 retrieval 解長尾問題。
+當團隊先保一致性，再擴覆蓋率，交付風險與溝通摩擦都會下降。這也是把架構決策與交付決策對齊的關鍵。
+
+- Implication: 建立三層 SLA：常駐層保證每次可見、skills 層保證可調用、retrieval 層保證來源可追溯。
+
+### 對工程與交付的二階影響
+這個訊號的二階影響在團隊運作層面更明顯：
+1. Adoption cost：先做常駐層可在不重建 infra 的前提快速上線，降低初期導入成本。
+2. Operability：上下文固定後，錯誤型態更集中，incident triage 與回滾策略更清楚。
+3. Observability / Debugability：共享同一基線可縮小排錯範圍，更容易分辨是規則、工具還是資料問題。
+4. Cognitive load：工程師與 reviewer 不必反覆記憶隱性規範，心智負擔下降。
+5. Ownership boundary：文件 owner、工具 owner、知識庫 owner 的責任可明確切分。
+6. Evaluation burden：可先測基線一致性，再測長尾能力，避免把問題混成單一指標。
+
+### 我的採用建議
+建議採用順序：
+1. 建立 `AGENTS.md` v1：只放高頻、易錯、必須遵守的規則（15 條以內）。
+2. 為每條規則加上 owner、版本、失效條件：框架升版與事故復盤後必更新。
+3. skills 僅承載流程與工具調用：避免重複寫入基線規則。
+4. retrieval 設觸發門檻：只處理長尾、需要來源佐證的問題。
+5. 每週固定 eval：分開追蹤基線錯誤、調用錯誤、檢索錯誤，形成可執行的修正 backlog。
+
+### 風險與限制
+主要限制與風險：
+1. 長度膨脹：常駐內容過長會稀釋重點，反而降低命中率。
+2. 版本過期：規則未隨框架更新，會造成穩定但過時的錯誤。
+3. 指標誤讀：高 pass rate 可能僅代表測試集契合，不等於真實世界全面可靠。
+4. 安全與合規：高權限操作不能只靠文字規則，仍需權限控制與審計。
+5. 遷移成本：既有 skill/retrieval 投資需重整分工，短期會有流程調整成本。
+
+### 最後判斷
+最後判斷：未來一年，agent context 的勝負不在誰接了最多知識來源，而在誰能把最關鍵的 5% 規則，用最小上下文、最高可見性、可持續驗證的方式，固定在每一次推理起點。
+
+### 延伸閱讀 / CTA
+如果你正在設計 agent-facing docs，先做一次 90 分鐘規則壓縮：挑出 15 條高代價規則，產生 `AGENTS.md` v1，並用同一題組比較導入前後差異。完整分析頁面： https://anomo06822.github.io/personal-site/zh-TW/blog/vercel-agents-md-outperforms-skills
+### 來源與參考
+- [Vercel 用 eval 證明 AGENTS.md 比 skills 更可靠，agent context 分發策略開始定型](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) · Vercel · 2026-01-27
+
