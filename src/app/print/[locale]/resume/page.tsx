@@ -35,18 +35,18 @@ const printEyebrows: Record<
   }
 > = {
   "zh-TW": {
-    dossier: "Public Resume / Dossier",
-    summary: "履歷摘要",
+    dossier: "Public Experience / Dossier",
+    summary: "個人經歷摘要",
     contact: "公開入口",
     highlights: "關鍵訊號",
     experience: "經歷主線",
     skills: "核心技能",
     featured: "代表成果",
     projects: "作品證明",
-    certifications: "證照與獎項",
+    certifications: "獎項",
   },
   en: {
-    dossier: "Public Resume / Dossier",
+    dossier: "Public Experience / Dossier",
     summary: "Profile Digest",
     contact: "Public Paths",
     highlights: "Impact Signals",
@@ -54,7 +54,7 @@ const printEyebrows: Record<
     skills: "Core Stack",
     featured: "Selected Wins",
     projects: "Build Proof",
-    certifications: "Credentials",
+    certifications: "Awards",
   },
 };
 
@@ -86,7 +86,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: locale === "zh-TW" ? "履歷 PDF" : "Resume PDF",
+    title: locale === "zh-TW" ? "個人經歷 PDF" : "Personal Experience PDF",
     description: siteConfig.siteDescription[locale],
     robots: {
       index: false,

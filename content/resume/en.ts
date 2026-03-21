@@ -678,12 +678,8 @@ export const resumeEn: ResumeContent = {
       tags: ["Hackathon", "Prototype", "Production Launch"],
     },
   ],
+  cloudCredentials: [],
   certifications: [
-    {
-      title: "Google Cloud Big Data and Machine Learning Fundamentals",
-      issuer: "Google Cloud",
-      year: "2021",
-    },
     {
       title: "Newegg Global Hackathon - 1st Place",
       issuer: "Newegg",
@@ -851,7 +847,7 @@ export const resumeEn: ResumeContent = {
     slideCount: 9,
     languageLabel: "Chinese deck",
     note:
-      "The resume PDF stays as the fast download format. This deck gives a more guided introduction to the same background and project context.",
+      "The personal experience PDF stays as the fast download format. This deck gives a more guided introduction to the same background and project context.",
   },
   pdf: {
     fileName: pdfManifest.en.fileName,

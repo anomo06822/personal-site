@@ -9,8 +9,8 @@ export default function NotFound() {
           This page does not exist in the exported site.
         </h1>
         <p className="text-base leading-8 text-ink-muted">
-          Use one of the language entry points to continue browsing the resume
-          and blog.
+          Use one of the language entry points to continue browsing personal
+          experience, projects, and writing.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link

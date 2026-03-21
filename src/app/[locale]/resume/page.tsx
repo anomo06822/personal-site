@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CloudCertifications } from "@/components/cloud-certifications";
 import { ExperienceGallery } from "@/components/experience-gallery";
 import { ImpactRibbon } from "@/components/impact-ribbon";
+import { PublicProfileEvidence } from "@/components/public-profile-evidence";
 import { ResumePresentationPreview } from "@/components/resume-presentation-preview";
 import { ResumeHero } from "@/components/resume-hero";
+import { getPublicProfileStats } from "@/lib/public-profile-stats";
 import {
   getResume,
   getResumePdfDownloadHref,
@@ -35,7 +38,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: locale === "zh-TW" ? "履歷" : "Resume",
+    title: locale === "zh-TW" ? "個人經歷" : "Personal Experience",
     description: siteConfig.siteDescription[locale],
   };
 }
@@ -319,7 +322,11 @@ export default async function ResumePage({
 
   const copy = siteCopy[locale];
   const resume = getResume(locale);
+  const publicProfileStats = getPublicProfileStats();
   const aboutBody = resume.about.slice(1);
+  const cloudCredentials = resume.cloudCredentials.filter((item) =>
+    item.verificationUrl.trim(),
+  );
   const resumePdfHref = getResumePdfDownloadHref(locale);
   const resumePresentationHref = getResumePresentationDownloadHref(locale);
   const personalProjects = resume.projectShowcase.personal;
@@ -440,6 +447,24 @@ export default async function ResumePage({
         </article>
       </section>
 
+      {cloudCredentials.length ? (
+        <CloudCertifications
+          locale={locale}
+          items={cloudCredentials}
+          title={copy.resume.cloudCertificationsTitle}
+          intro={copy.resume.cloudCertificationsIntro}
+          verifyLabel={copy.resume.cloudCertificationsVerifyLabel}
+          issuedLabel={copy.resume.cloudCertificationsIssuedLabel}
+          expiresLabel={copy.resume.cloudCertificationsExpiresLabel}
+          issuerLabel={copy.resume.cloudCertificationsIssuerLabel}
+          credentialIdLabel={copy.resume.cloudCertificationsCredentialIdLabel}
+          noteLabel={copy.resume.cloudCertificationsNoteLabel}
+          activeLabel={copy.resume.cloudCertificationsActiveLabel}
+          expiredLabel={copy.resume.cloudCertificationsExpiredLabel}
+          noExpiryLabel={copy.resume.cloudCertificationsNoExpiryLabel}
+        />
+      ) : null}
+
       <section className="space-y-4">
         <SectionHeading title={copy.resume.featuredTitle} />
         <div className="grid gap-4 lg:grid-cols-3">
@@ -512,29 +537,31 @@ export default async function ResumePage({
         </div>
       </section>
 
-      <section className="space-y-4">
-        <SectionHeading title={copy.resume.certificationsTitle} />
-        <article className="subtle-panel p-6 sm:p-7">
-          <div className="space-y-4">
-            {resume.certifications.map((item) => (
-              <div
-                key={item.title}
-                className="border-b border-line pb-4 last:border-b-0 last:pb-0"
-              >
-                <div className="text-base font-medium text-ink">{item.title}</div>
-                <div className="mt-1 text-sm leading-7 text-ink-muted">
-                  {item.issuer} / {item.year}
-                </div>
-                {item.note ? (
+      {resume.certifications.length ? (
+        <section className="space-y-4">
+          <SectionHeading title={copy.resume.certificationsTitle} />
+          <article className="subtle-panel p-6 sm:p-7">
+            <div className="space-y-4">
+              {resume.certifications.map((item) => (
+                <div
+                  key={item.title}
+                  className="border-b border-line pb-4 last:border-b-0 last:pb-0"
+                >
+                  <div className="text-base font-medium text-ink">{item.title}</div>
                   <div className="mt-1 text-sm leading-7 text-ink-muted">
-                    {item.note}
+                    {item.issuer} / {item.year}
                   </div>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
+                  {item.note ? (
+                    <div className="mt-1 text-sm leading-7 text-ink-muted">
+                      {item.note}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </article>
+        </section>
+      ) : null}
 
       {experienceGallery?.items.length ? (
         <section className="space-y-4">
@@ -548,6 +575,37 @@ export default async function ResumePage({
           />
         </section>
       ) : null}
+
+      <PublicProfileEvidence
+        locale={locale}
+        github={publicProfileStats.github}
+        leetcode={publicProfileStats.leetcode}
+        title={copy.resume.evidenceTitle}
+        intro={copy.resume.evidenceIntro}
+        generatedLabel={copy.resume.evidenceGeneratedLabel}
+        unavailableTitle={copy.resume.evidenceUnavailableTitle}
+        unavailableBody={copy.resume.evidenceUnavailableBody}
+        githubTitle={copy.resume.githubEvidenceTitle}
+        githubBody={copy.resume.githubEvidenceBody}
+        githubCtaLabel={copy.resume.githubEvidenceCtaLabel}
+        githubTotalLabel={copy.resume.githubEvidenceTotalLabel}
+        githubRecentReposLabel={copy.resume.githubEvidenceRecentReposLabel}
+        githubNoReposLabel={copy.resume.githubEvidenceNoReposLabel}
+        githubLegendLowLabel={copy.resume.githubEvidenceLegendLowLabel}
+        githubLegendHighLabel={copy.resume.githubEvidenceLegendHighLabel}
+        leetcodeTitle={copy.resume.leetcodeEvidenceTitle}
+        leetcodeBody={copy.resume.leetcodeEvidenceBody}
+        leetcodeCtaLabel={copy.resume.leetcodeEvidenceCtaLabel}
+        leetcodeSolvedLabel={copy.resume.leetcodeEvidenceSolvedLabel}
+        leetcodeRankingLabel={copy.resume.leetcodeEvidenceRankingLabel}
+        leetcodeReputationLabel={copy.resume.leetcodeEvidenceReputationLabel}
+        leetcodeStreakLabel={copy.resume.leetcodeEvidenceStreakLabel}
+        leetcodeActiveDaysLabel={copy.resume.leetcodeEvidenceActiveDaysLabel}
+        leetcodeContestLabel={copy.resume.leetcodeEvidenceContestLabel}
+        leetcodeDifficultyLabel={copy.resume.leetcodeEvidenceDifficultyLabel}
+        leetcodeMissingLabel={copy.resume.leetcodeEvidenceMissingLabel}
+        leetcodeUnavailableLabel={copy.resume.leetcodeEvidenceUnavailableLabel}
+      />
     </div>
   );
 }

@@ -4,8 +4,8 @@ export const homeZhTW: HomeContent = {
   heroEyebrow: "Entry / Decision Home",
   heroTitle: "先選你的閱讀路徑，再進入最值得看的那一頁。",
   heroIntro:
-    "這裡不是第二份履歷，而是幫你更快做第一個判斷。招募方先看公開履歷與聯繫，技術讀者先看專案與文章。",
-  heroTags: ["專案", "技術文章", "履歷", "聯繫"],
+    "這裡不是第二版個人經歷頁，而是幫你更快做第一個判斷。招募方先看公開個人經歷與聯繫，技術讀者先看專案與文章。",
+  heroTags: ["專案", "技術文章", "個人經歷", "聯繫"],
   tabsEyebrow: "Evidence Preview",
   tabsTitle: "先看幾個真實訊號，再決定往哪裡深讀。",
   tabsIntro:
@@ -38,14 +38,14 @@ export const homeZhTW: HomeContent = {
     {
       routeKey: "resume",
       eyebrow: "Career Signal",
-      title: "履歷",
+      title: "個人經歷",
       description:
-        "用公開履歷快速掌握角色定位、經驗主線與代表成果。",
+        "用公開個人經歷快速掌握角色定位、經驗主線與代表成果。",
       highlights: [
         "適合第一輪判斷角色匹配度。",
         "與專案頁分開，避免 ownership 混在一起。",
       ],
-      hrefLabel: "前往履歷",
+      hrefLabel: "前往個人經歷",
     },
     {
       routeKey: "contact",
@@ -70,7 +70,7 @@ export const homeZhTW: HomeContent = {
       audience: "招募 / Hiring",
       title: "先看公開背景，再決定是否聯繫",
       summary:
-        "如果你要快速判斷角色匹配度，先看履歷；方向合適再走聯繫頁。",
+        "如果你要快速判斷角色匹配度，先看個人經歷；方向合適再走聯繫頁。",
       routeKeys: ["resume", "contact"],
       note: "適合 recruiter、hiring manager、合作窗口。",
     },
@@ -93,7 +93,7 @@ export const homeZhTW: HomeContent = {
       eyebrow: "What is here",
       title: "公開且可持續維護的內容",
       description:
-        "只保留適合公開、可長期維護的專案、文章、履歷摘要與聯繫入口。",
+        "只保留適合公開、可長期維護的專案、文章、個人經歷摘要與聯繫入口。",
     },
     {
       eyebrow: "What is not",

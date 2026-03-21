@@ -13,6 +13,16 @@ export function formatLongDate(locale: Locale, value: string) {
   }).format(new Date(value));
 }
 
+export function formatNumber(locale: Locale, value: number) {
+  return new Intl.NumberFormat(localeMap[locale]).format(value);
+}
+
+export function formatShortMonth(locale: Locale, value: string) {
+  return new Intl.DateTimeFormat(localeMap[locale], {
+    month: "short",
+  }).format(new Date(value));
+}
+
 export function formatMonthYear(locale: Locale, value: string) {
   return new Intl.DateTimeFormat(localeMap[locale], {
     year: "numeric",

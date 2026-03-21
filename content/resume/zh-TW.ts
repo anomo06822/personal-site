@@ -676,12 +676,8 @@ export const resumeZhTW: ResumeContent = {
       tags: ["Hackathon", "Prototype", "Production Launch"],
     },
   ],
+  cloudCredentials: [],
   certifications: [
-    {
-      title: "Google Cloud Big Data and Machine Learning Fundamentals",
-      issuer: "Google Cloud",
-      year: "2021",
-    },
     {
       title: "Newegg Global Hackathon - 1st Place",
       issuer: "Newegg",
@@ -849,7 +845,7 @@ export const resumeZhTW: ResumeContent = {
     slideCount: 9,
     languageLabel: "中文",
     note:
-      "履歷頁保留 PDF 方便快速下載；這份 deck 則適合用來快速理解完整的自我介紹脈絡與敘事節奏。",
+      "個人經歷頁保留 PDF 方便快速下載；這份 deck 則適合用來快速理解完整的自我介紹脈絡與敘事節奏。",
   },
   pdf: {
     fileName: pdfManifest["zh-TW"].fileName,

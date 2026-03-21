@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build --webpack",
+    "build": "node ./scripts/generate-public-profile-stats.mjs && next build --webpack",
     "build:release": "pnpm build && node ./scripts/export-social-manifest.mjs && node ./scripts/generate-resume-pdfs.mjs",
+    "generate-public-profile-stats": "node ./scripts/generate-public-profile-stats.mjs",
     "export-social-manifest": "node ./scripts/export-social-manifest.mjs",
     "test:social-manifest": "node --test ./scripts/export-social-manifest.test.mjs",
     "generate-resume-pdfs": "node ./scripts/generate-resume-pdfs.mjs",

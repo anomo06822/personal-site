@@ -1,6 +1,6 @@
 # Jarvis Personal Site
 
-Next.js App Router site for a bilingual personal resume and technical blog, designed for GitHub Pages static hosting.
+Next.js App Router site for a bilingual personal experience page and technical blog, designed for GitHub Pages static hosting.
 
 ## Stack
 
@@ -29,10 +29,34 @@ http://localhost:3000/personal-site/
 pnpm dev
 pnpm build
 pnpm build:release
+pnpm generate-public-profile-stats
 pnpm export-social-manifest
 pnpm lint
 pnpm typecheck
 ```
+
+## Public Profile Evidence
+
+The personal experience page includes a build-time evidence module for GitHub and LeetCode. The build generates `content/generated/public-profile-stats.json` before `next build`, so the exported site stays fully static.
+
+### Environment Variables
+
+- `GITHUB_PROFILE_STATS_USERNAME`: GitHub username to fetch. Defaults to `anomo06822` when unset.
+- `GITHUB_PROFILE_STATS_TOKEN`: Optional GitHub token for GraphQL contribution calendar access. When missing, the build falls back to parsing the public GitHub profile page.
+- `LEETCODE_USERNAME`: Optional LeetCode username. When missing or the request fails, the build writes a fallback payload and the site renders an unavailable state instead of failing.
+
+### Local Usage
+
+```bash
+pnpm generate-public-profile-stats
+pnpm build
+```
+
+### GitHub Actions Configuration
+
+- Add `GITHUB_PROFILE_STATS_TOKEN` as a repository secret if you want the GitHub GraphQL path.
+- Add `GITHUB_PROFILE_STATS_USERNAME` and `LEETCODE_USERNAME` as repository variables for the Pages deploy workflow.
+- None of these values are exposed to the client bundle except the generated public stats JSON.
 
 ## GA4 Analytics
 

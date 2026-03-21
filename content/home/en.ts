@@ -4,8 +4,8 @@ export const homeEn: HomeContent = {
   heroEyebrow: "Entry / Decision Home",
   heroTitle: "Choose the reading path that gets you to the useful page first.",
   heroIntro:
-    "This is not a second resume. It is the fastest way to decide where to start: hiring conversations go to Resume and Connect, technical readers go to Projects and Writing.",
-  heroTags: ["Projects", "Writing", "Resume", "Connect"],
+    "This is not a duplicate personal experience page. It is the fastest way to decide where to start: hiring conversations go to Personal Experience and Connect, technical readers go to Projects and Writing.",
+  heroTags: ["Projects", "Writing", "Personal Experience", "Connect"],
   tabsEyebrow: "Evidence Preview",
   tabsTitle: "See a few real signals before you decide where to go deeper.",
   tabsIntro:
@@ -38,14 +38,14 @@ export const homeEn: HomeContent = {
     {
       routeKey: "resume",
       eyebrow: "Career Signal",
-      title: "Resume",
+      title: "Personal Experience",
       description:
-        "Use the public resume to scan role fit, career arc, and representative operating context.",
+        "Use the public personal experience page to scan role fit, career arc, and representative operating context.",
       highlights: [
         "Best for fast first-pass role evaluation.",
         "Separated from Projects so ownership stays easier to read.",
       ],
-      hrefLabel: "Open resume",
+      hrefLabel: "Open personal experience",
     },
     {
       routeKey: "contact",
@@ -70,7 +70,7 @@ export const homeEn: HomeContent = {
       audience: "Hiring / Recruiting",
       title: "Review public context, then decide whether to reach out",
       summary:
-        "If the goal is role fit or partnership fit, start with the resume and use Connect only when the direction is relevant.",
+        "If the goal is role fit or partnership fit, start with Personal Experience and use Connect only when the direction is relevant.",
       routeKeys: ["resume", "contact"],
       note: "Best for recruiters, hiring managers, and partnership conversations.",
     },
@@ -93,7 +93,7 @@ export const homeEn: HomeContent = {
       eyebrow: "What is here",
       title: "Public content that can be maintained over time",
       description:
-        "Only projects, writing, public resume context, and contact paths that make sense to keep public are included here.",
+        "Only projects, writing, public personal experience context, and contact paths that make sense to keep public are included here.",
     },
     {
       eyebrow: "What is not",

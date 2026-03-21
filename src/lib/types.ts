@@ -58,6 +58,84 @@ export type ResumeImpactPoint = {
   detail: string;
 };
 
+export type GitHubContributionDay = {
+  date: string;
+  count: number;
+  color: string;
+  level: number;
+  weekday: number;
+};
+
+export type GitHubContributionWeek = {
+  firstDay: string;
+  contributionDays: GitHubContributionDay[];
+};
+
+export type GitHubContributionLegendItem = {
+  level: number;
+  color: string;
+};
+
+export type GitHubRecentRepository = {
+  name: string;
+  url: string;
+  description?: string;
+  pushedAt?: string;
+  primaryLanguage?: {
+    name: string;
+    color?: string | null;
+  };
+};
+
+export type GitHubProfileStats = {
+  username: string;
+  profileUrl: string;
+  yearTotal: number;
+  generatedAt: string;
+  weeks: GitHubContributionWeek[];
+  legend: GitHubContributionLegendItem[];
+  recentRepositories: GitHubRecentRepository[];
+  available: boolean;
+  source: "graphql" | "html-fallback" | "unavailable";
+  error?: string;
+};
+
+export type LeetCodeDifficultyCount = {
+  difficulty: "All" | "Easy" | "Medium" | "Hard";
+  count: number;
+  submissions?: number;
+};
+
+export type LeetCodeContestSummary = {
+  rating: number;
+  attendedContestsCount: number;
+  globalRanking: number;
+  topPercentage: number;
+};
+
+export type LeetCodeProfileStats = {
+  username: string;
+  profileUrl?: string;
+  generatedAt: string;
+  solvedCount: number;
+  ranking?: number;
+  reputation?: number;
+  difficultyCounts: LeetCodeDifficultyCount[];
+  streakOrActiveDays: {
+    streak: number;
+    totalActiveDays: number;
+  };
+  contest?: LeetCodeContestSummary | null;
+  available: boolean;
+  source: "graphql" | "unavailable";
+  error?: string;
+};
+
+export type PublicProfileStats = {
+  github: GitHubProfileStats;
+  leetcode: LeetCodeProfileStats;
+};
+
 export type FeaturedItem = {
   title: string;
   summary: string;
@@ -207,6 +285,17 @@ export type Certification = {
   note?: string;
 };
 
+export type CloudCredential = {
+  title: string;
+  provider: "microsoft-azure" | "google-cloud";
+  issuer: string;
+  issuedAt: string;
+  expiresAt?: string;
+  verificationUrl: string;
+  credentialId?: string;
+  note?: string;
+};
+
 export type SkillGroup = {
   label: string;
   skills: string[];
@@ -255,6 +344,7 @@ export type ResumeContent = {
   featured: FeaturedItem[];
   projectShowcase: ProjectShowcase;
   projects: ProjectItem[];
+  cloudCredentials: CloudCredential[];
   certifications: Certification[];
   presentation?: ResumePresentationContent;
   experienceGallery?: ExperienceGalleryContent;
