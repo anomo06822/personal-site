@@ -2,8 +2,8 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-03-23T05:59:14.152Z",
-    "yearTotal": 201,
+    "generatedAt": "2026-03-23T07:05:24.711Z",
+    "yearTotal": 203,
     "weeks": [
       {
         "firstDay": "2025-03-23",
@@ -2825,9 +2825,9 @@
           },
           {
             "date": "2026-03-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
+            "count": 2,
+            "color": "#9be9a8",
+            "level": 1,
             "weekday": 1
           }
         ]
@@ -2857,21 +2857,21 @@
     ],
     "recentRepositories": [
       {
+        "name": "personal-site",
+        "url": "https://github.com/anomo06822/personal-site",
+        "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
+        "pushedAt": "2026-03-23T06:32:44Z",
+        "primaryLanguage": {
+          "name": "TypeScript"
+        }
+      },
+      {
         "name": "phalanx-chronicle",
         "url": "https://github.com/anomo06822/phalanx-chronicle",
         "description": "Unity SRPG MVP prototype and planning docs for Phalanx Chronicle",
         "pushedAt": "2026-03-21T13:58:12Z",
         "primaryLanguage": {
           "name": "C#"
-        }
-      },
-      {
-        "name": "personal-site",
-        "url": "https://github.com/anomo06822/personal-site",
-        "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
-        "pushedAt": "2026-03-21T09:56:20Z",
-        "primaryLanguage": {
-          "name": "TypeScript"
         }
       },
       {
@@ -2889,7 +2889,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-03-23T05:59:14.152Z",
+    "generatedAt": "2026-03-23T07:05:24.711Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {
