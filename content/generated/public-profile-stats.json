@@ -2,7 +2,7 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-03-23T09:05:22.034Z",
+    "generatedAt": "2026-03-23T09:14:15.117Z",
     "yearTotal": 206,
     "weeks": [
       {
@@ -2860,7 +2860,7 @@
         "name": "personal-site",
         "url": "https://github.com/anomo06822/personal-site",
         "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
-        "pushedAt": "2026-03-23T07:27:58Z",
+        "pushedAt": "2026-03-23T09:05:45Z",
         "primaryLanguage": {
           "name": "MDX"
         }
@@ -2889,7 +2889,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-03-23T09:05:22.034Z",
+    "generatedAt": "2026-03-23T09:14:15.117Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {
