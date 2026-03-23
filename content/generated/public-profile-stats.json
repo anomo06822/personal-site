@@ -2,63 +2,9 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-03-21T09:56:07.450Z",
-    "yearTotal": 199,
+    "generatedAt": "2026-03-23T05:59:14.152Z",
+    "yearTotal": 201,
     "weeks": [
-      {
-        "firstDay": "2025-03-16",
-        "contributionDays": [
-          {
-            "date": "2025-03-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-03-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-03-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-03-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-03-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-03-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-03-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
       {
         "firstDay": "2025-03-23",
         "contributionDays": [
@@ -2860,10 +2806,29 @@
           },
           {
             "date": "2026-03-21",
-            "count": 9,
-            "color": "#40c463",
-            "level": 2,
+            "count": 11,
+            "color": "#30a14e",
+            "level": 3,
             "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-03-22",
+        "contributionDays": [
+          {
+            "date": "2026-03-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-03-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
           }
         ]
       }
@@ -2892,10 +2857,19 @@
     ],
     "recentRepositories": [
       {
+        "name": "phalanx-chronicle",
+        "url": "https://github.com/anomo06822/phalanx-chronicle",
+        "description": "Unity SRPG MVP prototype and planning docs for Phalanx Chronicle",
+        "pushedAt": "2026-03-21T13:58:12Z",
+        "primaryLanguage": {
+          "name": "C#"
+        }
+      },
+      {
         "name": "personal-site",
         "url": "https://github.com/anomo06822/personal-site",
         "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
-        "pushedAt": "2026-03-21T09:09:17Z",
+        "pushedAt": "2026-03-21T09:56:20Z",
         "primaryLanguage": {
           "name": "TypeScript"
         }
@@ -2908,15 +2882,6 @@
         "primaryLanguage": {
           "name": "TypeScript"
         }
-      },
-      {
-        "name": "phalanx-chronicle",
-        "url": "https://github.com/anomo06822/phalanx-chronicle",
-        "description": "Unity SRPG MVP prototype and planning docs for Phalanx Chronicle",
-        "pushedAt": "2026-03-15T12:49:10Z",
-        "primaryLanguage": {
-          "name": "C#"
-        }
       }
     ],
     "available": true,
@@ -2924,7 +2889,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-03-21T09:56:07.450Z",
+    "generatedAt": "2026-03-23T05:59:14.152Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {

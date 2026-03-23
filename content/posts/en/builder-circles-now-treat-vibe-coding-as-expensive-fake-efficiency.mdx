@@ -1,0 +1,83 @@
+---
+articleId: 'builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency'
+slug: 'builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency'
+locale: 'en'
+title: 'Why Builder Circle Begins to View Vibe Coding as Expensive and Pseudo-Efficient'
+description: 'Since March, the community’s focus on Vibe Coding has shifted from “doing it quickly” to “who is responsible.” When a prototype is mistaken for a product, the development time saved by the team is often doubled in maintenance, rework, and handover costs.'
+publishedAt: '2026-03-23'
+contentType: 'news-analysis'
+articleRole: 'primary'
+aiGenerated: true
+heroImagePath: 'social/blog/en/builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency.svg'
+tags:
+  - 'management-news reaction'
+  - 'news-analysis'
+  - 'zh-TW'
+  - 'management-news'
+published: true
+---
+
+The real danger is not that Vibe coding can't be done, but that it's too easy to make you think it's done.
+
+Starting in mid-March 2026, the discussion in the Builder community took a clear turn. From Lovable-related high-interaction posts to practical responses from X and Reddit, everyone no longer debates "whether AI can be written", but asks "who will maintain this code, how will it be observed, and how will it be rolled back if something goes wrong?" This isn’t an emotional rebound, it’s delivering reality back.
+
+If you are a technical director, platform builder, PM or engineering manager, the decision you have to make now is not whether to use AI production code, but which process to put it in, so as to retain the speed of exploration without compromising the engineering discipline of production.
+
+## What was revised this time was not the tool capabilities, but the completion definition.
+
+Vibe coding speeds up the first 70% of visual progress: the interface is out, the process can be run, and the demo looks like a product. The problem is that the difficulty in production is usually not in the screen, but in the invisible constraints: permission boundaries, data consistency, abnormal paths, and dependent service failure handling.
+
+What really matters is not "whether you can make a feature in one day", but "whether you dare to change, dare to upgrade, or dare to roll back three months later." When a team uses a visual sense of completion as a progress indicator, schedules and commitments will be systematically optimistic, and delays will be concentrated in the most expensive tail phase.
+
+## Three engineering signals that are often ignored
+
+### 1. The sense of completion is not the degree of completion
+**What makes you faster is presentation, not delivery of facts. **
+
+AI production code is best at giving you a feeling of "near completion" quickly, which will directly flatten the boundaries of planning, verification, and launch. The most common consequence is that features are declared complete first, and testing, monitoring, and rollback strategies are relegated to afterthoughts.
+
+In practice, "completion" should be changed to evidence-driven: `功能驗證`, `關鍵測試`, `可觀測性`, `可回滾` must be established at the same time to be considered deliverable.
+
+### 2. Technical debt repackaged as speed dividend
+**The cost has not disappeared, it has just been moved from the development period to the maintenance period. **
+
+The slowness of traditional development is mostly visible and manageable; the speed of Vibe coding often hides inconsistent naming, fragile coupling, and lack of error handling behind "runnability". In the short term, it’s efficiency, but in the long term, it will explode in incidents, regression bugs, and cross-person handovers.
+
+Especially when the code comes from multiple rounds of prompts and manual patching, the team's shared understanding of the system structure will decrease, the debug path will become longer, and the repair radius will become larger. This is why the question is not whether it can be done, but whether it can be done stably, observably, and maintainably.
+
+### 3. Reproducibility brings diffusion, but failure to maintain operation will lead to stuck retention.
+**What will really be copied is usually not the flashiest demo, but the process that is easiest to understand and take over. **
+
+Vibe coding lowers the threshold for "getting started", which is good; but team delivery is not a one-time demonstration, but a long-term evolution. When the output lacks design intent, decision records, and boundary documentation, functionality can be replicated but responsibilities cannot.
+
+This will directly affect the PM's demand rhythm and the manpower allocation of engineering management, because each change may reopen unknown areas, turning what should have been a linear iteration into an iterative exploration.
+
+## Second-order impact: Where will the costs hit first?
+
+The second-order impact of this wave of steering usually appears first in six aspects:
+
+- `adoption cost`: What you save is the time of the first draft, and what you make up is the cost of integration, governance and reconstruction.
+- `operability`: Without runbooks, on-call boundaries, and error budgets, failures turn into human problems.
+- `observability / debugability`: When indicators, tracking, and event correlation are insufficient, positioning costs rise rapidly.
+- `cognitive load`: The heterogeneous programming style increases the burden of understanding and makes it slower for new members to get started.
+- `ownership boundary`: There is no generation module with a clear owner, and changes will continue to leak out.
+- `evaluation burden`: Changes in the model and prompt words bring output drift, and stable evolution cannot occur without regression to the baseline.
+
+## Implementable adoption sequence
+
+To put AI production code back into the delivery process, it is recommended to use a three-stage approach rather than one amplification:
+
+1. `探索段`: Only used in low-risk internal processes, interface verification, and hypothesis testing. The goal is learning speed, not online speed.
+2. `試點段`: Limit a single business domain, specify the owner, establish a minimum testing and monitoring baseline, and each iteration must be rollable.
+3. `生產段`: Expand scope only after SLOs, observability, permissions models, and data migration strategies are in place.
+
+We should also make it clear what we should not do: do not use AI production code directly as a means of cost optimization and integrate it into the core transaction process. That’s not saving money, but exchanging governance debt for operational risk.
+
+## Risk boundaries and final judgment
+
+This is noteworthy not because the tools are getting better, but because teams are more likely to make mistakes on the definition of done. When review, test, rollback, and ownership are omitted at the same time, the problem will not disappear, but will only be delayed until it goes online and appear at a higher cost.
+
+Speed ​​can be lent to the model, but quality responsibility cannot be outsourced. Mistaking prototype for product is the most expensive cost of Vibe coding.
+### Sources and References
+- [The builder circle began to regard "Vibe Coding" as an expensive pseudo-efficiency](https://lovable.dev/) · Lovable · 2026-03-16
+

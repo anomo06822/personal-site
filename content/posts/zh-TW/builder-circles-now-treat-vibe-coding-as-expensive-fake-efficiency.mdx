@@ -1,0 +1,83 @@
+---
+articleId: 'builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency'
+slug: 'builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency'
+locale: 'zh-TW'
+title: 'Builder 圈為何開始把 Vibe Coding 視為昂貴偽效率'
+description: '三月以來，社群對 Vibe Coding 的焦點從「做得快」轉向「誰來負責」。當 prototype 被誤認成 product，團隊省下的開發時間，往往會在維運、返工與交接成本中加倍吐回去。'
+publishedAt: '2026-03-23'
+contentType: 'news-analysis'
+articleRole: 'primary'
+aiGenerated: true
+heroImagePath: 'social/blog/zh-TW/builder-circles-now-treat-vibe-coding-as-expensive-fake-efficiency.svg'
+tags:
+  - 'management-news reaction'
+  - 'news-analysis'
+  - 'zh-TW'
+  - 'management-news'
+published: true
+---
+
+真正危險的不是 Vibe coding 做不出來，而是它太容易讓你以為已經做完了。
+
+2026 年 3 月中旬開始，Builder 社群的討論明顯轉向。從 Lovable 相關高互動貼文，到 X 與 Reddit 的實務回應，大家不再爭論「AI 能不能寫」，而是追問「這段程式碼誰要維運、怎麼觀測、出了事怎麼回滾」。這不是情緒反彈，而是交付現實回來了。
+
+如果你是技術主管、平台 builder、PM 或工程管理者，現在要做的決策不是要不要用 AI 產碼，而是把它放在哪一段流程，才能保留探索速度，又不把 production 的工程紀律一起折價。
+
+## 這次被修正的，不是工具能力，而是完成定義
+
+Vibe coding 把前 70% 的可視進度壓得很快：介面出來了、流程能跑了、demo 看起來像產品了。問題是，production 的難點通常不在畫面，而在那些看不到的約束：權限邊界、資料一致性、異常路徑、相依服務失效處理。
+
+真正重要的不是「一天能不能做出功能」，而是「三個月後你還敢不敢改、敢不敢上、敢不敢回滾」。當團隊用視覺完成感當進度指標，排程與承諾就會系統性偏樂觀，最後把延遲集中到最昂貴的尾段。
+
+## 三個常被忽略的工程訊號
+
+### 1. 完成感不是完成度
+**你變快的是展示，不是交付事實。**
+
+AI 產碼最擅長快速給你「接近完成」的感覺，這會直接壓扁規劃、驗證、上線邊界。最常見的後果是：功能先被宣布完成，測試、監控與回滾策略被當成後補事項。
+
+實務上，應該把「完成」改成證據驅動：`功能驗證`、`關鍵測試`、`可觀測性`、`可回滾`四項同時成立，才算可交付。
+
+### 2. 技術債被重新包裝成速度紅利
+**成本沒有消失，只是從開發期搬到維運期。**
+
+傳統開發的慢，多半可見且可管理；Vibe coding 的快，常把命名不一致、耦合脆弱、錯誤處理缺漏藏在「可跑」背後。短期看是效率，長期會在 incident、回歸 bug、跨人交接時一次爆發。
+
+尤其當程式碼來自多輪 prompt 與手動修補，團隊對系統結構的共享理解會下降，debug 路徑變長，修復半徑變大。這也是為什麼問題不是能不能做，而是能不能穩定、可觀測、可維運地做。
+
+### 3. 可複製性帶來擴散，但不可維運會卡死留存
+**真正會被複製的，通常不是最炫的 demo，而是最容易理解與接手的流程。**
+
+Vibe coding 降低了「開始做」門檻，這很好；但團隊交付不是一次性展示，而是長期演進。當產出缺乏設計意圖、決策紀錄與邊界文件，功能可以被複製，責任卻無法被複製。
+
+這會直接影響 PM 的需求節奏與工程管理的人力配置，因為每次變更都可能重新打開未知區域，讓本來應該線性的迭代變成反覆探索。
+
+## 二階影響：成本會先打到哪裡
+
+這波轉向的二階影響，通常先出現在六個面向：
+
+- `adoption cost`：省下的是初稿時間，補上的是整合、治理與重構成本。
+- `operability`：沒有 runbook、on-call 邊界與 error budget，故障就會轉成人力問題。
+- `observability / debugability`：指標、追蹤、事件關聯不足時，定位成本急速上升。
+- `cognitive load`：異質程式風格增加理解負擔，新成員上手更慢。
+- `ownership boundary`：沒有明確 owner 的生成模組，改動會持續外溢。
+- `evaluation burden`：模型與提示詞變動帶來輸出漂移，沒有回歸基線就無法穩定演進。
+
+## 可落地的採用順序
+
+把 AI 產碼放回交付流程，建議用三段式，而不是一次放大：
+
+1. `探索段`：只用在低風險內部流程、介面驗證、假設測試，目標是學習速度，不是上線速度。
+2. `試點段`：限定單一業務域，指定 owner，建立最低測試與監控基線，每次迭代都要可回滾。
+3. `生產段`：只有在 SLO、可觀測性、權限模型、資料遷移策略到位後，才擴大範圍。
+
+不該做的事也要講清楚：不要把 AI 產碼直接當成本優化手段，套進核心交易流程。那不是省錢，而是把治理債換成營運風險。
+
+## 風險邊界與最後判斷
+
+這件事值得注意，不是因為工具變強，而是因為團隊更容易在完成定義上犯錯。當 review、test、rollback、ownership 被同時省略，問題不會消失，只會延後到上線後，以更高代價出現。
+
+速度可以借給模型，品質責任不能外包。把 prototype 誤認成 product，才是 Vibe coding 最昂貴的成本。
+### 來源與參考
+- [Builder 圈開始把「Vibe Coding」當成一種昂貴的偽效率](https://lovable.dev/) · Lovable · 2026-03-16
+
