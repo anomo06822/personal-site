@@ -46,6 +46,14 @@ AIPW 最近比較重要的變化，是它把這些原本分散的階段收斂到
 
 這才是 content control plane 真正成立的地方。
 
+![](/personal-site/images/blog/automation-job-to-content-control-plane/inbox.png)
+
+*`Inbox` 現在承接的不是鬆散素材，而是白名單來源、手動 intake、research sync 共同構成的 intake gate。*
+
+![](/personal-site/images/blog/automation-job-to-content-control-plane/topics.png)
+
+*`Topics` 把 source lane、handled state、priority score 放回同一個 shortlist 面板，先回答「哪個值得寫」，不是「哪個可以直接生成」。*
+
 ### Insight 1：Automation job 的價值，不是找更多資料，而是先把 intake 做成契約
 
 多數人看到 automation，第一反應都是「AI 可以自己找新聞了」。但如果輸出格式不穩定、來源邊界不清楚、重跑後會把 queue 弄亂，那 automation 只是在把混亂搬到下一層。
@@ -69,6 +77,10 @@ AIPW 這條流程裡，automation job 真正重要的地方，不是它替你找
 
 很多 AI content tooling 的問題，不在於它不會寫，而在於它寫完之後什麼都留不下來。沒有上下文綁定、沒有版本、沒有 gate，最終只會得到一堆看起來像完成但實際上無法治理的 draft。
 
+![](/personal-site/images/blog/automation-job-to-content-control-plane/drafts.png)
+
+*`Drafting` 區塊直接把 workflow state、bundle version、review signals、publish blocker 放到同一張卡上，讓 draft 變成可審核的工作單位。*
+
 ### Insight 3：沒有 Distribution 與 Performance，control plane 其實還沒成立
 
 很多系統做到 draft generation 就覺得流程完成了。但真正要把內容當成系統經營，發出去之後的狀態也必須回到同一篇 article。
@@ -81,7 +93,19 @@ AIPW 這條流程裡，automation job 真正重要的地方，不是它替你找
 - 社群貼文是不是延續同一個 thesis
 - 圖片、摘要、平台 readiness 是否在同一個 publish decision 裡完成
 
+![](/personal-site/images/blog/automation-job-to-content-control-plane/distribution.png)
+
+*`Distribution` 列表顯示的不是單一社群貼文，而是同一篇 article 在 site、LinkedIn、X 之間的分發狀態。*
+
+![](/personal-site/images/blog/automation-job-to-content-control-plane/distribution-modal.png)
+
+*distribution modal 把 canonical URL、publish target、platform readiness、preview 與 hero image decision 收回同一個操作面。*
+
 `Performance` 解的則是 readback 問題。沒有這一層，內容流程只是在協助生產；有了這一層，才有機會真的做優化。當文章表現、刷新時間、quota、article rollup 都能回到同一個控制面，你才能開始問更高價值的問題：哪些題目真的值得寫？哪些分發方式真的有效？哪些內容只是看起來忙，實際上沒有形成複利？
+
+![](/personal-site/images/blog/automation-job-to-content-control-plane/performance.png)
+
+*`Performance` 把 GA4 property、manual refresh、quota 與 article rollup 拉回同一條流程，讓內容回饋不再停在外部 dashboard。*
 
 ### 對工程與交付的二階影響
 
