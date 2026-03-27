@@ -2,8 +2,8 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-03-24T13:06:51.748Z",
-    "yearTotal": 210,
+    "generatedAt": "2026-03-27T13:42:24.387Z",
+    "yearTotal": 213,
     "weeks": [
       {
         "firstDay": "2025-03-23",
@@ -2832,10 +2832,31 @@
           },
           {
             "date": "2026-03-24",
-            "count": 2,
+            "count": 3,
             "color": "#9be9a8",
             "level": 1,
             "weekday": 2
+          },
+          {
+            "date": "2026-03-25",
+            "count": 2,
+            "color": "#9be9a8",
+            "level": 1,
+            "weekday": 3
+          },
+          {
+            "date": "2026-03-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-03-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
           }
         ]
       }
@@ -2867,7 +2888,7 @@
         "name": "personal-site",
         "url": "https://github.com/anomo06822/personal-site",
         "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
-        "pushedAt": "2026-03-24T13:04:21Z",
+        "pushedAt": "2026-03-24T16:41:42Z",
         "primaryLanguage": {
           "name": "MDX"
         }
@@ -2896,7 +2917,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-03-24T13:06:51.748Z",
+    "generatedAt": "2026-03-27T13:42:24.387Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {
