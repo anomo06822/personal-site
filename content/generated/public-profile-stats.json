@@ -2,63 +2,9 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-03-28T08:05:05.156Z",
-    "yearTotal": 214,
+    "generatedAt": "2026-03-29T06:01:47.238Z",
+    "yearTotal": 215,
     "weeks": [
-      {
-        "firstDay": "2025-03-23",
-        "contributionDays": [
-          {
-            "date": "2025-03-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-03-24",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-03-25",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-03-26",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-03-27",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-03-28",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-03-29",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
       {
         "firstDay": "2025-03-30",
         "contributionDays": [
@@ -2860,10 +2806,22 @@
           },
           {
             "date": "2026-03-28",
+            "count": 1,
+            "color": "#9be9a8",
+            "level": 1,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-03-29",
+        "contributionDays": [
+          {
+            "date": "2026-03-29",
             "count": 0,
             "color": "#ebedf0",
             "level": 0,
-            "weekday": 6
+            "weekday": 0
           }
         ]
       }
@@ -2895,7 +2853,7 @@
         "name": "personal-site",
         "url": "https://github.com/anomo06822/personal-site",
         "description": "Jarvis Huang's bilingual resume and technical writing site built with Next.js and GitHub Pages",
-        "pushedAt": "2026-03-27T13:42:40Z",
+        "pushedAt": "2026-03-28T10:55:49Z",
         "primaryLanguage": {
           "name": "MDX"
         }
@@ -2924,7 +2882,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-03-28T08:05:05.156Z",
+    "generatedAt": "2026-03-29T06:01:47.238Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {
