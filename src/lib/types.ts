@@ -370,12 +370,21 @@ export type BlogPostMeta = {
   articleRole: "primary" | "support";
   aiGenerated: boolean;
   heroImagePath?: string | null;
+  attachments?: BlogPostAttachment[];
   tags: string[];
   readingTime: number;
   published: boolean;
 };
 
 export type BlogPostFrontmatter = Omit<BlogPostMeta, "readingTime">;
+
+export type BlogPostAttachment = {
+  title: string;
+  href: string;
+  fileName: string;
+  mimeType: string;
+  sizeBytes: number;
+};
 
 export type BlogPost = {
   meta: BlogPostMeta;

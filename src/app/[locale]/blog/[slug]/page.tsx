@@ -16,6 +16,7 @@ import {
   getRouteHref,
   isLocale,
   siteCopy,
+  withBasePath,
 } from "@/lib/site";
 import {
   formatPostTagLabel,
@@ -108,6 +109,7 @@ export default async function BlogPostPage({
   const socialImageUrl = getAbsoluteSiteUrl(
     getBlogSocialImagePath(locale, post.meta.slug, post.meta.heroImagePath),
   );
+  const attachments = post.meta.attachments ?? [];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -186,6 +188,49 @@ export default async function BlogPostPage({
         <div className="prose-article">{post.content}</div>
       </section>
 
+      {attachments.length ? (
+        <section className="subtle-panel p-6 sm:p-7">
+          <div className="space-y-5">
+            <div className="eyebrow">{copy.blog.attachmentsTitle}</div>
+            <p className="max-w-3xl text-base leading-8 text-ink-muted">
+              {copy.blog.attachmentsBody}
+            </p>
+            <div className="grid gap-3">
+              {attachments.map((attachment) => {
+                const downloadHref = withBasePath(
+                  attachment.href.startsWith("/") ? attachment.href : `/${attachment.href}`,
+                );
+
+                return (
+                  <a
+                    key={`${attachment.href}-${attachment.fileName}`}
+                    href={downloadHref}
+                    download={attachment.fileName}
+                    className="card-surface block p-5 transition hover:-translate-y-1 hover:border-accent/50"
+                  >
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="tag-chip">{attachmentBadgeLabel(attachment.fileName, attachment.mimeType)}</span>
+                      <span className="text-xs text-ink-muted">
+                        {formatFileSize(attachment.sizeBytes)}
+                      </span>
+                    </div>
+                    <h2 className="mt-3 text-lg font-semibold tracking-tight text-ink">
+                      {attachment.title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-7 text-ink-muted">
+                      {attachment.fileName}
+                    </p>
+                    <p className="mt-3 text-sm font-medium text-accent">
+                      {copy.blog.attachmentDownloadLabel}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="subtle-panel p-6 sm:p-7">
         <div className="space-y-6">
           <div className="eyebrow">{copy.blog.endCtaTitle}</div>
@@ -223,4 +268,37 @@ export default async function BlogPostPage({
       </section>
     </article>
   );
+}
+
+function attachmentBadgeLabel(fileName: string, mimeType: string) {
+  const extension = fileName.split(".").pop()?.trim().toUpperCase();
+  if (extension) {
+    return extension;
+  }
+
+  if (mimeType === "application/pdf") {
+    return "PDF";
+  }
+
+  if (mimeType.includes("presentation")) {
+    return "PPTX";
+  }
+
+  return "FILE";
+}
+
+function formatFileSize(sizeBytes: number) {
+  if (!Number.isFinite(sizeBytes) || sizeBytes <= 0) {
+    return "0 B";
+  }
+
+  if (sizeBytes < 1024) {
+    return `${sizeBytes} B`;
+  }
+
+  if (sizeBytes < 1024 * 1024) {
+    return `${(sizeBytes / 1024).toFixed(sizeBytes < 10 * 1024 ? 1 : 0)} KB`;
+  }
+
+  return `${(sizeBytes / (1024 * 1024)).toFixed(sizeBytes < 10 * 1024 * 1024 ? 1 : 0)} MB`;
 }

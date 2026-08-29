@@ -8,6 +8,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "./mdx-components";
 import {
+  type BlogPostAttachment,
   locales,
   type BlogPost,
   type BlogPostFrontmatter,
@@ -67,6 +68,41 @@ function parseTags(value: unknown) {
   return value.filter((entry): entry is string => typeof entry === "string");
 }
 
+function parseAttachments(value: unknown): BlogPostAttachment[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (!entry || typeof entry !== "object") {
+        return null;
+      }
+
+      const candidate = entry as Record<string, unknown>;
+      const title = typeof candidate.title === "string" ? candidate.title.trim() : "";
+      const href = typeof candidate.href === "string" ? candidate.href.trim() : "";
+      const fileName = typeof candidate.fileName === "string" ? candidate.fileName.trim() : "";
+      const mimeType = typeof candidate.mimeType === "string" ? candidate.mimeType.trim() : "";
+      const sizeBytes = typeof candidate.sizeBytes === "number" && Number.isFinite(candidate.sizeBytes)
+        ? Math.max(0, Math.round(candidate.sizeBytes))
+        : 0;
+
+      if (!title || !href || !fileName || !mimeType) {
+        return null;
+      }
+
+      return {
+        title,
+        href,
+        fileName,
+        mimeType,
+        sizeBytes,
+      } satisfies BlogPostAttachment;
+    })
+    .filter((entry): entry is BlogPostAttachment => Boolean(entry));
+}
+
 function parseContentType(value: unknown): BlogPostMeta["contentType"] {
   return value === "news-analysis" ? "news-analysis" : "pillar";
 }
@@ -112,6 +148,7 @@ const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
         articleRole: parseArticleRole(frontmatter.articleRole),
         aiGenerated: parseBoolean(frontmatter.aiGenerated),
         heroImagePath: parseOptionalString(frontmatter.heroImagePath),
+        attachments: parseAttachments(frontmatter.attachments),
         tags: parseTags(frontmatter.tags),
         readingTime: estimateReadingTime(source),
         published: frontmatter.published ?? false,
