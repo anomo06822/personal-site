@@ -19,6 +19,14 @@ import { estimateReadingTime, sortByPublishedAtDesc } from "./utils";
 
 const postsRoot = path.join(process.cwd(), "content", "posts");
 
+function normalizeRouteSlug(slug: string) {
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
+
 type ParsedPostFile = {
   meta: BlogPostMeta;
   source: string;
@@ -175,15 +183,16 @@ export const getFeaturedPosts = cache((locale: Locale, count = 2) =>
 export const getPostMetaBySlug = cache((locale: Locale, slug: string) =>
   readLocalePosts(locale)
     .map((entry) => entry.meta)
-    .find((entry) => entry.slug === slug && entry.published) ?? null,
+    .find((entry) => entry.slug === normalizeRouteSlug(slug) && entry.published) ?? null,
 );
 
 export async function getPostBySlug(
   locale: Locale,
   slug: string,
 ): Promise<BlogPost | null> {
+  const normalizedSlug = normalizeRouteSlug(slug);
   const file = readLocalePosts(locale).find(
-    (entry) => entry.meta.slug === slug && entry.meta.published,
+    (entry) => entry.meta.slug === normalizedSlug && entry.meta.published,
   );
 
   if (!file) {
