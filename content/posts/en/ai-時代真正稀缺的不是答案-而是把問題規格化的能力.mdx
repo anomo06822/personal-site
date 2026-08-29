@@ -1,0 +1,95 @@
+---
+articleId: 'ai-時代真正稀缺的不是答案-而是把問題規格化的能力'
+slug: 'ai-時代真正稀缺的不是答案-而是把問題規格化的能力'
+locale: 'en'
+title: 'What is truly scarce in the AI ​​era is not answers, but questions written into acceptable specifications'
+description: 'Models make it cheap to generate answers and make it easier for teams to move quickly in the wrong direction. To transform AI from a chat tool into a delivery capability, the key is not to accumulate more prompts, but to establish versionable problem specifications, information gap management, and verification loops.'
+publishedAt: '2026-08-29'
+contentType: 'pillar'
+articleRole: 'primary'
+aiGenerated: true
+heroImagePath: 'social/blog/en/ai-時代真正稀缺的不是答案-而是把問題規格化的能力.svg'
+tags:
+  - 'AI-enabled delivery'
+  - 'pillar'
+  - 'zh-TW'
+published: true
+---
+
+As the model gets better at answering, getting it to generate the answer becomes the easy part. The real difficulty is: before the generation starts, let the team and the AI ​​agree on "what problem is being solved"; after the answer comes out, prove that it has indeed solved the original problem.
+
+This is not a prompt word trick, but the interface design between humans and AI.
+
+A practical AI thinking framework will break down fuzzy requirements into goals, limitations, obstacles, known information, information gaps and success criteria. It requires the model to point out contradictions and unknown conditions before answering, and to recheck whether the output deviates from the original goal after answering. The product is no longer just a one-time prompt, but a problem specification that can be discussed, handed over, versioned and replayed.
+
+What is really noteworthy is not that there is another framework, but that the control interface for AI collaboration is changing. When the cost of generating answers continues to decrease, the team's bottleneck will shift from "can it produce content" to "can it define problems, manage unknown conditions, and verify results."
+
+## Prompt determines an answer, and specifications determine system boundaries.
+
+Common prompts often mix goals, background, constraints, output formats, and implicit assumptions into the same paragraph. As long as the task involves changing people, models, or a round of dialogue, the originally unstated conditions may disappear. The model can still produce smooth answers, but it's difficult for the team to tell whether the deviation comes from requirements, data, assumptions, or the generation process.
+
+The value of problem specification is to separate problem definition from solution generation. Goals answer what is to be achieved, constraints describe what cannot be sacrificed, obstacles describe where you are currently stuck, and success criteria determine what counts as accomplished. Specifications can remain stable, and execution can replace models, tools, or workflows.
+
+From an architectural perspective, this is an interface contract. Teams don't have to tie their intentions to a certain prompt or a specific vendor, and can use the same specification to compare different models and solutions. High-value tasks therefore merit assigning a problem owner, keeping versions, and documenting the reasons for each boundary change.
+
+## Make "don't know" a legitimate system state
+
+The most dangerous moment for AI is often not when it clearly answers incorrectly, but when it completes the missing context with reasonable sentences.
+
+As long as one of the areas where regulations apply, data timeliness, ERP field definitions, decision-making authority or customer scenarios is guessed wrong, subsequent inferences may be based on errors even if the structure is complete. Therefore, specifications cannot only record known information, but must also distinguish between confirmed facts, tentative assumptions and matters to be confirmed.
+
+Workflows also need to allow the AI ​​to pause responses. When it encounters an information gap, it should be able to ask questions, continue with clearly labeled assumptions, or stop producing a final answer. This is not about limiting autonomy, but keeping it within controllable boundaries.
+
+In practice, a lightweight preflight gate can be added before generation: requiring the model to list the missing information, assumptions used, and the impact of each assumption being wrong. High-risk gaps involving regulatory, financial, authority or core data definitions should not enter final delivery without confirmation.
+
+## Before acceptance, the answers are only candidate outputs.
+
+If the quality criteria are only "content is complete" or "seems reasonable", the team will not be able to stably compare models, reproduce failures, and know whether there will be any improvement in the next revision.
+
+Actionable acceptance criteria should at least state the necessary outputs, source requirements, edge cases, unacceptable results, and which original decision the answer must support. These conditions are used not only to check the format, but also to confirm whether the output actually advances the business or user goals.
+
+When problem specifications and acceptance conditions can be replayed, AI conversations begin to take on the nature of an operational process. Teams can save input specifications, model versions, key assumptions, outputs and acceptance results, and gradually build a minimum evaluation set. Failures can no longer be re-chatted to guess the reasons, but can be reproduced, classified and corrected.
+
+What will really spread within the team is usually not the most complete system, but the easiest to understand. A small specification, a few real cases and clear failure records are often easier to adopt and maintain than hundreds of prompts.
+
+## Costs don’t disappear, they just move to a more manageable position
+
+Problem specification increases upfront costs. The team must clarify the goals, constraints, and success conditions before production. It also needs to save specification versions, assumptions, and acceptance results. For one-off, low-risk, easily recoverable tasks, this process may be more expensive than the failure itself.
+
+But for high-impact or recurring tasks, this cost is exchanged for lower rework, review and handover costs. The cognitive load has not disappeared, but has moved from reading a large number of answers and guessing what went wrong afterward to identifying the real problems and unknown conditions beforehand. The latter is easier to be inspected by multiple people and is more suitable for forming organizational capabilities.
+
+Maintainability and observability depend on whether the team retains sufficient execution context. In addition to what the model outputs, you also need to be able to trace which version of the problem it is based on, what data it uses, and what gaps it makes assumptions about. The boundaries of authority and responsibility must also be clear: the problem owner defines goals and limitations, AI generates candidate solutions, domain experts are responsible for high-risk acceptance, and the platform team maintains tracking, permissions, and evaluation mechanisms.
+
+Normalization does not automatically prove that the answer is correct, it just makes verification and debugging possible. Without test cases, sample reviews, and failed upgrade paths, no matter how complete a template is, it will just end up being another form that no one actually uses.
+
+## Start with a task that will happen again
+
+Work that is suitable for priority introduction is work that will be performed repeatedly, requires handover across roles, has high error costs, or involves formal operational decisions. Quick brainstorming and low-risk, reversible tasks without having to apply the entire process from the start.
+
+The first round of experiments can only do four things:
+
+1. Pick a real task that will happen again within two weeks.
+2. Rewrite the requirements using six fields: goals, constraints, obstacles, known information, information gaps, and success criteria.
+3. The AI ​​is required to reveal contradictions and assumptions before generation, and is accepted based on success criteria after generation.
+4. Record the number of reworks, review times, and common failures to determine which fields deserve standardization or automation.
+
+Don’t start by building huge company-wide templates or automating all tasks at once. Don’t regard text fluency, length, or formatting integrity as the main quality indicators. First prove that a workflow can reduce observable rework or risk, and then expand to adjacent scenarios.
+
+## Normalization may also make errors more stable
+
+The biggest risk is formalizing the wrong problem. The more complete the format, the easier it is for the team to mistakenly believe that the problem has been understood correctly, leading to premature convergence. Another common failure is spec theater: every box is filled, but the real conflicts, unknown conditions, and trade-offs are not revealed.
+
+Acceptance metrics may also replace real results. The model can fully comply with the word count, format, and required paragraphs, but it does not improve the original business problem. Specifications themselves also expire; once regulations, data sources, system boundaries, or organizational responsibilities change, old constraints can allow the system to continue to produce consistent but incorrect answers.
+
+Therefore, specifications must be risk graded. Use the lightweight version for low-risk tasks; add source verification, domain review, and gates that prohibit automated decision-making for high-risk tasks. Key assumptions need to have a responsible person and a re-confirmation date to prevent temporary conditions from quietly becoming permanent facts.
+
+## final judgment
+
+What is truly scarce in the AI ​​era is not the ability to get answers, but the ability to turn vague questions into verifiable work objects.
+
+Prompt determines what an answer looks like; question specifications and acceptance systems determine whether a team can turn AI into delivery capabilities in a stable, observable, and maintainable manner. The better the model is at answering questions, the more the team needs to build mechanisms for it to pause and acknowledge the question first.
+
+If you’re designing your team’s AI workflow, the next step is no more collecting prompts. Pick a task that reoccurs this week, redefine it using six columns, and then compare the rework and review costs before and after normalization. What is truly worthy of expansion is not the answer that seems the smartest, but a way of working that can be verified, debugged, and reused.
+### Sources and References
+- [What is truly scarce in the AI ​​era is not answers, but the ability to formalize problems](heptabase://note/8949312c-9eaf-4cdd-ade5-fe455f3d4ff0) · Heptabase · 2026-08-29
+
