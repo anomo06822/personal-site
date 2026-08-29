@@ -2,1143 +2,9 @@
   "github": {
     "username": "anomo06822",
     "profileUrl": "https://github.com/anomo06822",
-    "generatedAt": "2026-04-04T17:13:29.463Z",
-    "yearTotal": 216,
+    "generatedAt": "2026-08-29T11:12:45.386Z",
+    "yearTotal": 215,
     "weeks": [
-      {
-        "firstDay": "2025-03-30",
-        "contributionDays": [
-          {
-            "date": "2025-03-30",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-03-31",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-04-01",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-04-02",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-04-03",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-04-04",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-04-05",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-04-06",
-        "contributionDays": [
-          {
-            "date": "2025-04-06",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-04-07",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-04-08",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-04-09",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-04-10",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-04-11",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-04-12",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-04-13",
-        "contributionDays": [
-          {
-            "date": "2025-04-13",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-04-14",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-04-15",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-04-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-04-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-04-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-04-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-04-20",
-        "contributionDays": [
-          {
-            "date": "2025-04-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-04-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-04-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-04-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-04-24",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-04-25",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-04-26",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-04-27",
-        "contributionDays": [
-          {
-            "date": "2025-04-27",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-04-28",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-04-29",
-            "count": 1,
-            "color": "#9be9a8",
-            "level": 1,
-            "weekday": 2
-          },
-          {
-            "date": "2025-04-30",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-05-01",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-05-02",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-05-03",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-05-04",
-        "contributionDays": [
-          {
-            "date": "2025-05-04",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-05-05",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-05-06",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-05-07",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-05-08",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-05-09",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-05-10",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-05-11",
-        "contributionDays": [
-          {
-            "date": "2025-05-11",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-05-12",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-05-13",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-05-14",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-05-15",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-05-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-05-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-05-18",
-        "contributionDays": [
-          {
-            "date": "2025-05-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-05-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-05-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-05-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-05-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-05-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-05-24",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-05-25",
-        "contributionDays": [
-          {
-            "date": "2025-05-25",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-05-26",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-05-27",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-05-28",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-05-29",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-05-30",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-05-31",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-06-01",
-        "contributionDays": [
-          {
-            "date": "2025-06-01",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-06-02",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-06-03",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-06-04",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-06-05",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-06-06",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-06-07",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-06-08",
-        "contributionDays": [
-          {
-            "date": "2025-06-08",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-06-09",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-06-10",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-06-11",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-06-12",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-06-13",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-06-14",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-06-15",
-        "contributionDays": [
-          {
-            "date": "2025-06-15",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-06-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-06-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-06-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-06-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-06-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-06-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-06-22",
-        "contributionDays": [
-          {
-            "date": "2025-06-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-06-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-06-24",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-06-25",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-06-26",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-06-27",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-06-28",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-06-29",
-        "contributionDays": [
-          {
-            "date": "2025-06-29",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-06-30",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-07-01",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-07-02",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-07-03",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-07-04",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-07-05",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-07-06",
-        "contributionDays": [
-          {
-            "date": "2025-07-06",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-07-07",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-07-08",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-07-09",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-07-10",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-07-11",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-07-12",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-07-13",
-        "contributionDays": [
-          {
-            "date": "2025-07-13",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-07-14",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-07-15",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-07-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-07-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-07-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-07-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-07-20",
-        "contributionDays": [
-          {
-            "date": "2025-07-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-07-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-07-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-07-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-07-24",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-07-25",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-07-26",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-07-27",
-        "contributionDays": [
-          {
-            "date": "2025-07-27",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-07-28",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-07-29",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-07-30",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-07-31",
-            "count": 1,
-            "color": "#9be9a8",
-            "level": 1,
-            "weekday": 4
-          },
-          {
-            "date": "2025-08-01",
-            "count": 1,
-            "color": "#9be9a8",
-            "level": 1,
-            "weekday": 5
-          },
-          {
-            "date": "2025-08-02",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-08-03",
-        "contributionDays": [
-          {
-            "date": "2025-08-03",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-08-04",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-08-05",
-            "count": 1,
-            "color": "#9be9a8",
-            "level": 1,
-            "weekday": 2
-          },
-          {
-            "date": "2025-08-06",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-08-07",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-08-08",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-08-09",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-08-10",
-        "contributionDays": [
-          {
-            "date": "2025-08-10",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-08-11",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-08-12",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-08-13",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-08-14",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-08-15",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-08-16",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
-      {
-        "firstDay": "2025-08-17",
-        "contributionDays": [
-          {
-            "date": "2025-08-17",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 0
-          },
-          {
-            "date": "2025-08-18",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 1
-          },
-          {
-            "date": "2025-08-19",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 2
-          },
-          {
-            "date": "2025-08-20",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 3
-          },
-          {
-            "date": "2025-08-21",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 4
-          },
-          {
-            "date": "2025-08-22",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 5
-          },
-          {
-            "date": "2025-08-23",
-            "count": 0,
-            "color": "#ebedf0",
-            "level": 0,
-            "weekday": 6
-          }
-        ]
-      },
       {
         "firstDay": "2025-08-24",
         "contributionDays": [
@@ -2866,6 +1732,1140 @@
             "weekday": 6
           }
         ]
+      },
+      {
+        "firstDay": "2026-04-05",
+        "contributionDays": [
+          {
+            "date": "2026-04-05",
+            "count": 1,
+            "color": "#9be9a8",
+            "level": 1,
+            "weekday": 0
+          },
+          {
+            "date": "2026-04-06",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-04-07",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-04-08",
+            "count": 2,
+            "color": "#9be9a8",
+            "level": 1,
+            "weekday": 3
+          },
+          {
+            "date": "2026-04-09",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-04-10",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-04-11",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-04-12",
+        "contributionDays": [
+          {
+            "date": "2026-04-12",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-04-13",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-04-14",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-04-15",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-04-16",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-04-17",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-04-18",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-04-19",
+        "contributionDays": [
+          {
+            "date": "2026-04-19",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-04-20",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-04-21",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-04-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-04-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-04-24",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-04-25",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-04-26",
+        "contributionDays": [
+          {
+            "date": "2026-04-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-04-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-04-28",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-04-29",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-04-30",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-05-01",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-05-02",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-05-03",
+        "contributionDays": [
+          {
+            "date": "2026-05-03",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-05-04",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-05-05",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-05-06",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-05-07",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-05-08",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-05-09",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-05-10",
+        "contributionDays": [
+          {
+            "date": "2026-05-10",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-05-11",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-05-12",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-05-13",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-05-14",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-05-15",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-05-16",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-05-17",
+        "contributionDays": [
+          {
+            "date": "2026-05-17",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-05-18",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-05-19",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-05-20",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-05-21",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-05-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-05-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-05-24",
+        "contributionDays": [
+          {
+            "date": "2026-05-24",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-05-25",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-05-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-05-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-05-28",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-05-29",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-05-30",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-05-31",
+        "contributionDays": [
+          {
+            "date": "2026-05-31",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-06-01",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-06-02",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-06-03",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-06-04",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-06-05",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-06-06",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-06-07",
+        "contributionDays": [
+          {
+            "date": "2026-06-07",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-06-08",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-06-09",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-06-10",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-06-11",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-06-12",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-06-13",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-06-14",
+        "contributionDays": [
+          {
+            "date": "2026-06-14",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-06-15",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-06-16",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-06-17",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-06-18",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-06-19",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-06-20",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-06-21",
+        "contributionDays": [
+          {
+            "date": "2026-06-21",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-06-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-06-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-06-24",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-06-25",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-06-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-06-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-06-28",
+        "contributionDays": [
+          {
+            "date": "2026-06-28",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-06-29",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-06-30",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-07-01",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-07-02",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-07-03",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-07-04",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-07-05",
+        "contributionDays": [
+          {
+            "date": "2026-07-05",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-07-06",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-07-07",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-07-08",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-07-09",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-07-10",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-07-11",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-07-12",
+        "contributionDays": [
+          {
+            "date": "2026-07-12",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-07-13",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-07-14",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-07-15",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-07-16",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-07-17",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-07-18",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-07-19",
+        "contributionDays": [
+          {
+            "date": "2026-07-19",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-07-20",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-07-21",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-07-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-07-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-07-24",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-07-25",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-07-26",
+        "contributionDays": [
+          {
+            "date": "2026-07-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-07-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-07-28",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-07-29",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-07-30",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-07-31",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-08-01",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-08-02",
+        "contributionDays": [
+          {
+            "date": "2026-08-02",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-08-03",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-08-04",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-08-05",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-08-06",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-08-07",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-08-08",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-08-09",
+        "contributionDays": [
+          {
+            "date": "2026-08-09",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-08-10",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-08-11",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-08-12",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-08-13",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-08-14",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-08-15",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-08-16",
+        "contributionDays": [
+          {
+            "date": "2026-08-16",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-08-17",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-08-18",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-08-19",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-08-20",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-08-21",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-08-22",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
+      },
+      {
+        "firstDay": "2026-08-23",
+        "contributionDays": [
+          {
+            "date": "2026-08-23",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 0
+          },
+          {
+            "date": "2026-08-24",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 1
+          },
+          {
+            "date": "2026-08-25",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 2
+          },
+          {
+            "date": "2026-08-26",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 3
+          },
+          {
+            "date": "2026-08-27",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 4
+          },
+          {
+            "date": "2026-08-28",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 5
+          },
+          {
+            "date": "2026-08-29",
+            "count": 0,
+            "color": "#ebedf0",
+            "level": 0,
+            "weekday": 6
+          }
+        ]
       }
     ],
     "legend": [
@@ -2899,24 +2899,6 @@
         "primaryLanguage": {
           "name": "MDX"
         }
-      },
-      {
-        "name": "phalanx-chronicle",
-        "url": "https://github.com/anomo06822/phalanx-chronicle",
-        "description": "Unity SRPG MVP prototype and planning docs for Phalanx Chronicle",
-        "pushedAt": "2026-03-21T13:58:12Z",
-        "primaryLanguage": {
-          "name": "C#"
-        }
-      },
-      {
-        "name": "xml-toolkit",
-        "url": "https://github.com/anomo06822/xml-toolkit",
-        "description": "xml-toolkit",
-        "pushedAt": "2026-03-16T03:16:56Z",
-        "primaryLanguage": {
-          "name": "TypeScript"
-        }
       }
     ],
     "available": true,
@@ -2924,7 +2906,7 @@
   },
   "leetcode": {
     "username": "",
-    "generatedAt": "2026-04-04T17:13:29.463Z",
+    "generatedAt": "2026-08-29T11:12:45.386Z",
     "solvedCount": 0,
     "difficultyCounts": [],
     "streakOrActiveDays": {
