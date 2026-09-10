@@ -1,0 +1,100 @@
+---
+articleId: "ai-workflow-tool-ownership"
+slug: "ai-workflow-tool-ownership"
+locale: "en"
+title: "Simplifying My AI Workflow: Clear Ownership for Knowledge, Work, and Publishing"
+description: "How I am retiring my custom Content Studio and assigning clear roles to Zotero, Heptabase, Linear, Codex, and Git, with complete article and image review before publication."
+publishedAt: "2026-09-11"
+contentType: "pillar"
+articleRole: "primary"
+aiGenerated: true
+tags: ["AI","workflow","knowledge-management","Codex"]
+published: true
+heroImagePath: "/social/blog/en/ai-workflow-tool-ownership.png"
+releaseHash: "c6aa79e028132d8ed5d38938ec4f0ea5afaa142e27cd1909e35f937178f50f67"
+---
+
+While reorganizing my personal AI workflow, I decided to retire the Content Studio I had been maintaining. Research and editable drafts would return to Heptabase. Codex would handle production and execution. Git and my personal-site repository would carry approved work through to publication.
+
+The decision started with a practical question: when notes, tasks, articles, and publication status live in different places, how much effort does it take to establish which version is current?
+
+A custom platform can put those features on one screen, but it also brings an editor, data models, synchronization, authentication, and background services to maintain. I started assigning clearer responsibilities: each kind of information should have a primary home, and each handoff should produce something I can verify.
+
+## Assign ownership before adding automation
+
+This is the division of work I now use for personal research, development, and writing. These are choices about my workflow, rather than limits on what the products can do.
+
+| Tool | Responsibility in my workflow | What it holds or delivers |
+| --- | --- | --- |
+| Zotero | Preserve literature and bibliographic records | Paper metadata, DOI and version, available PDFs, links to reading notes |
+| Heptabase | Develop understanding and edit content | Research comparisons, connections, decisions, topics, editable drafts |
+| Linear | Track work that needs a deliverable | Projects, issues, priorities, owners, dependencies, acceptance criteria, status |
+| Codex | Interpret requests and execute work | Research, code, content, tool use, verification, scheduling when requested |
+| image_gen | Produce article visuals | Cover images coordinated through Codex and reviewed by me |
+| Bitwarden Secrets Manager | Manage programmatic credentials | API keys, service tokens, access for authorized processes |
+| Slack | Support collaboration | Discussion, original message links, requested notifications |
+| Git / GitHub | Preserve traceable delivery versions | Code, approved articles and images, change history |
+| GitHub Actions / Pages | Build and deploy | Execution results for a specific commit and an accessible website |
+| personal-site | Provide the primary public home for content | Bilingual articles, stable URLs, the context around my work |
+| LinkedIn / X | Distribute content when requested | Channel-specific copy and article links |
+| GA4 | Observe feedback after publication | Article readership and traffic-source data |
+
+That is still a substantial list, but any single task usually touches only a few tools. Tool count is not my only measure of complexity. A more direct test is whether I know where to make a correction.
+
+## Zotero holds the literature; Heptabase holds my understanding
+
+When researching a subject, I put bibliographic records and PDFs in Zotero. Comparisons, questions, and judgments go into Heptabase. Zotero's support for bibliographic items, attachments, collections, and tags fits the source-management role. [Zotero's official guide](https://www.zotero.org/support/quick_start_guide)
+
+For example, when studying memory design in AI agents, I first need to establish which paper and version I am citing. I then compare how different methods use memory, where their limitations lie, and what might be useful in my own projects. The first activity needs dependable source records. The second needs room for ideas to change and connect.
+
+I have connected the Zotero and Heptabase literature workflow. When more research is needed, Codex checks existing items, saves selected literature, verifies attachments, and triggers and checks Heptabase synchronization as needed. Synced source cards and PDFs support reading, while my comparisons and conclusions retain their own context.
+
+That creates a route back to the evidence: a claim in an article can lead to a research note and then to the original publication. A file arriving in a knowledge base still needs its contents checked; its presence does not establish that an interpretation is sound.
+
+## Linear records commitments; Codex moves the work forward
+
+I use Linear when a piece of work needs delivery tracking: what should be completed, what takes priority, what it depends on, and what evidence will count as completion. This fits Linear's model of issues for individual work and projects for related deliverables. [Linear's official concepts guide](https://linear.app/docs/conceptual-model)
+
+Heptabase can preserve why I chose an approach. Linear holds the delivery status of that approach. Links connect the two and reduce the need to copy progress updates between systems.
+
+Suppose research suggests changing an API design. When formal tracking is useful, I link the relevant research from a Linear issue, establish acceptance criteria, and ask Codex to implement, test, and explain the changes. With authorization, the code and verification evidence return to that same issue. Reusable design conclusions go into Heptabase.
+
+A straightforward request to prepare an article does not need an issue just to satisfy a process. Linear joins that path when deadlines, collaboration, or explicit delivery tracking make it useful.
+
+Codex is my day-to-day execution entry point. I describe the outcome, and it uses the tools needed to produce a result I can check. Repeated procedures become skills; scheduling is added when there is an actual timing requirement. Keeping knowledge and work status in their assigned homes gives the next task a starting point beyond the previous conversation.
+
+## Publication starts with reviewing the complete result
+
+My content workflow is now defined as:
+
+**Heptabase draft → Codex produces the article and image → I review → Git push → GitHub Actions builds and deploys → verify the public pages.**
+
+I have captured that procedure in a publication skill. When I ask to prepare an article, the expected result includes the complete text in Chinese and English, an actual cover image, a source-check summary, and the intended destinations. A summary alone cannot show whether the body misrepresents my point. An image prompt cannot tell me whether the resulting image works.
+
+The review packet therefore contains the material intended for publication. After I approve that version, the workflow commits and pushes it through the site's GitHub Actions and Pages setup. GitHub Pages supports building and deploying a site with a custom Actions workflow. [GitHub's official documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+
+Two handoffs matter to me here. First, the published article and image must match what I reviewed; changed content has to be handled as a new version. Second, a successful push must be followed by checks of the deployment and public pages before the work is reported as live.
+
+The default destination is personal-site. When I want distribution on LinkedIn or X, the corresponding copy is prepared and approved as part of that scope. The canonical article URL stays on my site, and social posts help readers find it. The cover currently serves the website and link preview; a native image post is a separate publishing format to confirm.
+
+## Credentials, communication, and feedback have their own places
+
+Programmatic credentials belong in Bitwarden Secrets Manager and are supplied to the authorized process when needed. Bitwarden provides a CLI for injecting secrets into applications. [Bitwarden Secrets Manager overview](https://bitwarden.com/help/secrets-manager-overview/)
+
+Research notes can record a service's purpose and configuration status without mixing tokens into drafts, task descriptions, or conversations.
+
+Slack handles collaboration and notifications I explicitly request. Durable decisions return to Heptabase; tracked commitments return to Linear, with links to the original discussion. A writing task that does not require communication does not need an extra notification.
+
+GA4 belongs after publication, where readership and traffic-source data can inform future topics. Social publishing and analytics access still need valid credentials and live verification. Until those conditions are met, I will not describe them as continuously operating automation.
+
+## What remains after retiring Content Studio
+
+The current working tree has removed Content Studio and the AIPW runtime while preserving historical content and data. Publication, retry handling, and performance-sync code have moved to personal-site. Editable drafts return to Heptabase.
+
+The new publishing tools have passed local and isolated tests. At the time of drafting this article, the tooling changes still await a formal commit and deployment verification. This is a personal workflow being put into practice; I do not yet have usage data to claim a particular amount of time saved.
+
+The custom code I am keeping concentrates on handoffs that need precision: fixing the publication version, recording execution results, recovering from failed steps, and checking that the site actually changed. Each capability directly supports a deliverable and has a concrete way to verify it.
+
+I will evaluate the change through a few practical questions. Can I trace an article back to its evidence? Can I update work status in one place? Did the reviewed version actually go live? Can a failed operation continue from where it stopped?
+
+Having answers I can check should leave more of my attention available for research, implementation, and writing.
