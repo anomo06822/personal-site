@@ -1,0 +1,101 @@
+---
+articleId: "ai-agent-three-loops"
+slug: "ai-agent-three-loops"
+locale: "en"
+title: "Three loops for AI agents: ReAct, Reflexion, and Generative Agents"
+description: "Reading ReAct, Reflexion, and Generative Agents through actions, feedback, and memory, with practical checks for a research-to-publication workflow."
+publishedAt: "2026-09-11"
+contentType: "pillar"
+articleRole: "primary"
+aiGenerated: true
+tags: ["ai-agents","research","knowledge-management","workflow"]
+published: true
+heroImagePath: "/social/blog/en/ai-agent-three-loops.png"
+releaseHash: "67395e0816f549aa7836ec4a051620038929c4f8b21ba8b8c8f1d4e8ed1ea411"
+---
+
+In my previous article, I assigned clear responsibilities to my tools: Heptabase keeps knowledge, Codex executes, and Git and personal-site handle publication. That left me with another question: **How should an agent choose its next action, and what should it retain after a failed attempt?**
+
+I selected ReAct, Reflexion, and Generative Agents from my existing paper collection. Published in 2022–2023, they offer useful foundations for understanding agent behavior. This article uses fixed arXiv versions. I have not reproduced their experiments or ranked scores from different benchmarks.
+
+My reading framework has three timescales: the current action, the next attempt, and a future task. The “three loops” are my synthesis; the papers did not jointly propose a publishing system.
+
+| Perspective | Paper | The question I want to answer |
+| --- | --- | --- |
+| Current action | ReAct | How should new observations change the next step? |
+| Next attempt | Reflexion | Which feedback can make a revision more specific? |
+| Future task | Generative Agents | Which experiences should be retained, and when should they be retrieved? |
+
+## ReAct: let observations change the next action
+
+ReAct interleaves reasoning and actions, allowing observations from tools or an environment to inform later decisions. The paper evaluates this approach on question answering, fact verification, and interactive tasks. It also documents failures involving uninformative retrieval and repeated actions. Useful tool access still requires useful information. [ReAct v3, Sections 2–3](https://arxiv.org/pdf/2210.03629v3)
+
+In my research workflow, this becomes a small, concrete step: I read an old Heptabase note, notice that a conclusion lacks version information, and return to the original paper. If the source does not support the claim, I narrow the claim or investigate further.
+
+I want to retain the source consulted, the result, and the evidence still missing. These records help me judge whether the work is advancing. Repeatedly retrieving the same passage should prompt a different query, another source, or an explicit statement that the answer remains unresolved.
+
+## Reflexion: make feedback useful for the next attempt
+
+Reflexion combines an actor, evaluation feedback, and verbal reflections stored for subsequent attempts. This process does not update model weights through gradients. The paper also reports limits: faulty generated tests can accept incorrect solutions, and its WebShop experiment did not show a significant improvement. [Reflexion v4, Sections 3 and 4.3, Appendix B](https://arxiv.org/pdf/2303.11366v4)
+
+For writing, I would turn “this paragraph needs improvement” into feedback with a checkable target:
+
+> The draft presents simulated characters’ believability as a work assistant’s accuracy. Revise it to name the paper’s actual evaluation target, cite the source, and separate the proposed application from the research result.
+
+This is an illustrative review comment, not an experiment I ran. After revision, I need to check the source again and verify that the same problem has been corrected. A model’s self-assessment can suggest what to examine; acceptance still depends on sources, executable checks, and human review.
+
+I also want a stopping condition. Sufficient evidence moves the draft into review. Missing evidence becomes a recorded gap. Continued rewriting alone does not demonstrate better quality.
+
+## Generative Agents: retrieve experience when it matters
+
+Generative Agents combines memory, reflection, and planning in a simulated town with 25 characters. Retrieval considers relevance, importance, and recent access; reflection turns experiences into higher-level inferences. The evaluation focuses on behavioral believability. The authors also observe retrieval failures and fabricated additions to memories. [Generative Agents v2, Sections 4, 6, and 8.2](https://arxiv.org/html/2304.03442v2)
+
+For my second brain, the useful lesson is to preserve the identity of each memory. A source-supported fact, a work result, a preference I have confirmed, and an AI-generated inference should remain distinguishable.
+
+For example, “review the full article, image, and LinkedIn summary before publication” is a confirmed workflow preference that can inform future tasks. “This article is live” requires the URL and the result of that particular publication. A later decision should also be able to supersede an older rule.
+
+Heptabase cards and links give these records a home. Their presence does not mean my system implements the paper’s retrieval scoring or automatic reflection architecture. I am applying a design idea about organizing and using experience.
+
+## Where each tool fits in my publishing workflow
+
+The following is my application of these ideas to an existing workflow. It is not a product combination validated by the three papers.
+
+| Tool | Responsibility |
+| --- | --- |
+| Zotero | Original papers, bibliographic records, and PDFs with traceable versions |
+| Heptabase | Reading notes, source relationships, editable drafts, and confirmed lessons |
+| Codex | Research checks, writing, image creation, review preparation, and approved execution and verification |
+| Git, personal-site, and GitHub Actions | Public artifacts, version differences, site builds, and deployment |
+| LinkedIn | The reviewed short summary and article link, sent after the site is live |
+| Bitwarden Secrets Manager | Publishing credentials supplied at execution time |
+| Linear and Slack | Linear for tracked delivery; Slack for authorized communication to a known destination |
+
+Content Studio has been retired from this workflow. Preparing an article alone does not require a Linear issue.
+
+For this three-paper article, Codex starts with existing notes and returns to primary sources to fill verification gaps. That step draws on the ReAct action loop. It then produces the Chinese and English articles, the cover, and the LinkedIn summary. Specific review feedback guides revisions, borrowing from Reflexion. Reusable writing rules and source relationships return to Heptabase for later retrieval.
+
+Publication follows an established procedure: review a specific version, approve it, push Git, and trigger CI/CD. Verify that both language versions are live before sending that version’s LinkedIn summary. If execution fails midway, inspect the completed steps and their results to determine where to resume.
+
+**Content decisions can involve exploration; public release needs an identified version, authorization, and evidence of completion.** That is my engineering choice informed by this reading.
+
+## What I want to test next
+
+I would begin with one recurring task and ask three questions:
+
+1. When a note is outdated, can the agent find a newer source and identify the conclusions that need updating?
+2. After specific feedback, does the next revision fix that problem while preserving correct content?
+3. In a new task, can it retrieve the updated, confirmed rule and identify its source?
+
+These are proposed acceptance checks, not a completed controlled experiment. To assess whether the approach helps, I still need records of source accuracy, repeated errors, revision rounds, and human review time.
+
+The three papers make me pay closer attention to what each step leaves behind: observations for actions, evidence for revisions, and sources for memories. Those are the qualities I want my agent workflow to develop.
+
+## Reading versions
+
+- Yao et al., *ReAct: Synergizing Reasoning and Acting in Language Models*. First released in 2022; this article uses [arXiv v3, March 10, 2023](https://arxiv.org/abs/2210.03629v3). See also the [authors’ project](https://react-lm.github.io/).
+- Shinn et al., *Reflexion: Language Agents with Verbal Reinforcement Learning*. This article uses [arXiv v4, October 10, 2023](https://arxiv.org/abs/2303.11366v4). See also the [authors’ code](https://github.com/noahshinn/reflexion).
+- Park et al., *Generative Agents: Interactive Simulacra of Human Behavior*. This article uses [arXiv v2, August 6, 2023](https://arxiv.org/abs/2304.03442v2).
+
+Related reading: [My AI workflow: giving knowledge, tasks, and publishing clear owners](https://anomo06822.github.io/personal-site/en/blog/ai-workflow-tool-ownership/).
+
+I chose the publication direction; Codex assisted with literature synthesis, drafting, and the cover. The application sections present design judgments informed by the papers.
