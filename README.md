@@ -103,3 +103,9 @@ The included GitHub Actions workflow publishes the static `out/` directory to Pa
 - `out/downloads/jarvis-huang-resume-en.pdf`
 - `out/downloads/jarvis-huang-resume-zh-tw.pdf`
 - `out/social/social-manifest.json`
+
+## 內容工作流
+
+Content Studio / AIPW 已退役。以 Heptabase 編輯、Codex 產製，直接使用 `pnpm publish:content` 發佈、重試及讀取成效。操作說明見 [docs/publishing.md](docs/publishing.md)，程式不需要 AIPW API 或 PostgreSQL。
+
+準備發文可使用 `$heptabase-publishing`：生成文章與封面 → 私人審閱包 → 本人確認 → Git push / CI/CD → 驗證上線。

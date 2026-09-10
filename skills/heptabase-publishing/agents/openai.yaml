@@ -1,0 +1,4 @@
+interface:
+  display_name: "發文準備與審閱"
+  short_description: "準備文章與圖片，彙總供你審閱，確認後觸發 CI/CD 並驗證上線"
+  default_prompt: "使用 $heptabase-publishing 準備這次發文的內容、封面圖片與審閱包，等我確認後再觸發 CI/CD。"

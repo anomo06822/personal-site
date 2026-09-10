@@ -1,0 +1,11 @@
+{
+  "supportedPageKinds": ["article", "other"],
+  "captureIntents": ["analysis", "signal", "reference"],
+  "preferredHosts": ["openai.com", "anthropic.com", "vercel.com", "techcrunch.com"],
+  "preferredPillars": ["tech-news reaction", "AI-enabled delivery"],
+  "managementSignalDefault": false,
+  "builderSignalDefault": true,
+  "defaultTargetAudience": "技術主管、平台 builder、PM、工程管理者",
+  "readingLens": "優先提煉 operator adoption、workflow 可複製性、風險與 rollout framing。",
+  "distributionPresetKey": "content-engine-standard"
+}

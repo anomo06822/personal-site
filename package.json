@@ -13,7 +13,11 @@
     "start": "next start",
     "preview:export": "./scripts/preview-export.sh",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "publish:content": "node scripts/publish.mjs",
+    "publish:content:bws": "bash scripts/publish-with-bws.sh",
+    "test:publishing": "node --test scripts/publishing/*.test.mjs",
+    "build:publishing": "next build --webpack"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

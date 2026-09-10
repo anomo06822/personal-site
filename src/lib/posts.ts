@@ -146,6 +146,7 @@ const readLocalePosts = cache((locale: Locale): ParsedPostFile[] => {
 
     return {
       meta: {
+        releaseHash: parseOptionalString(frontmatter.releaseHash) ?? undefined,
         articleId: requireString(frontmatter.articleId, slug),
         slug,
         locale,

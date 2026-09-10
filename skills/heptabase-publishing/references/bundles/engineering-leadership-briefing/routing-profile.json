@@ -1,0 +1,11 @@
+{
+  "supportedPageKinds": ["repo", "docs", "article"],
+  "captureIntents": ["workflow", "analysis", "signal"],
+  "preferredHosts": ["github.com", "github.blog", "docs.github.com"],
+  "preferredPillars": ["management-news reaction", "platform architecture", "backend engineering", "operability"],
+  "managementSignalDefault": true,
+  "builderSignalDefault": true,
+  "defaultTargetAudience": "工程主管、Staff+ 工程師、平台與架構 owner",
+  "readingLens": "優先整理 builder workflow、control plane、治理與 adoption sequencing。",
+  "distributionPresetKey": "engineering-leadership-briefing"
+}

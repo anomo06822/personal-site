@@ -82,6 +82,7 @@ export async function generateMetadata({
     other: {
       "ps:article-id": post.articleId,
       "ps:locale": locale,
+      ...(post.releaseHash ? { "ps:release-hash": post.releaseHash } : {}),
     },
   };
 }

@@ -360,6 +360,7 @@ export type ContactLink = {
 };
 
 export type BlogPostMeta = {
+  releaseHash?: string;
   articleId: string;
   slug: string;
   locale: Locale;
