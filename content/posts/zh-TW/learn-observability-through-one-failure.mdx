@@ -11,7 +11,6 @@ aiGenerated: true
 tags: ["Observability","OpenTelemetry","Grafana","Software Architecture","Engineering Practice"]
 published: true
 heroImagePath: "/social/blog/zh-TW/learn-observability-through-one-failure.png"
-releaseHash: "9d719e9dd488d30a5a4e13135ea855f1b8ddb62a714ba3eb14790f6f84f38113"
 ---
 
 # 學 Observability，請親手追完一次故障
@@ -71,6 +70,54 @@ Monitoring 持續檢查服務的健康、趨勢與目標；Observability 則關�
 資料能否關聯，還需要共用的服務名稱、環境、版本、時間與請求 context。OpenTelemetry 提供埋點與資料傳送所需的共同能力，後端則負責各自的儲存與查詢。[來源：What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
 
 我希望練熟的動作很具體：找到慢請求，讀懂 span 關係，再用相同 trace ID 查事件。每一次跳轉，都能說明自己保留了哪些篩選條件。
+
+## 從三層到五層：把遙測管道拆開看
+
+知道有哪些訊號之後，下一步是追問：**資料從哪裡產生，經過什麼處理，最後由誰使用？**
+
+向團隊說明時，可以先用三層模型抓住主線：**Produce → Collect → Consume**，也就是產生、收集與使用。SDK 或自動埋點產生資料，Collector 收集與處理，後端和 Grafana 讓人查詢、分析與採取行動。
+
+要落到設計與除錯，再把這條主線展開成五個面向：**Instrumentation、Signals、Transport、Collection / Processing、Backend / Analysis**。這是本文的教學拆法，並非 OpenTelemetry 官方規定的五層架構，也不表示需要五個獨立服務。
+
+### ① Instrumentation：誰產生資料？
+
+手動埋點、函式庫整合、自動埋點與 profiler，決定能觀察到哪些操作。eBPF 也能在支援的環境補充自動觀測，但覆蓋範圍仍受 runtime、協定及工具能力限制。
+
+例如一筆慢請求，必須先有對應的 span、事件或量測，後端才有資料可查。安裝 Collector 不會自動補出應用程式未曾產生的業務資訊。
+
+### ② Signals / Data：產生的是什麼資料？
+
+Metrics、Logs、Traces 與 Profiles 是不同的資料視角。它們描述量測、事件、操作關係與程式資源使用，不能當成四個收集工具，也不能理解成資料會依序從 Metric 變成 Log，再變成 Trace。
+
+這裡的「資料層」貫穿整條管道；服務身分、語意、單位與 context 都需要一致。Profiles 已有實用工具，但截至 2026-09-20 查核的 [OTLP 規格](https://opentelemetry.io/docs/specs/otlp/)，Profiles 協定仍標示 Development；不能直接假設與另外三種訊號具有相同的標準成熟度或元件支援。
+
+### ③ Transport：用什麼協定搬運？
+
+OTLP 是 OpenTelemetry 的遙測傳輸協定，常見形式是 **OTLP/gRPC** 與 **OTLP/HTTP**。它可以出現在應用到 Collector，也可以出現在 Collector 到後端的連線上；Transport 並非只存在於中間的一個節點。[來源：OTLP Specification](https://opentelemetry.io/docs/specs/otlp/)
+
+使用共同協定能降低應用對特定後端的耦合，接收端仍要支援相同訊號、編碼、端點與認證。Prometheus scrape、remote write、Loki API 和 profiling 接口也可能並存，不能把整套 Grafana 生態都畫成 OTLP。
+
+### ④ Collection / Processing：如何接收、處理與轉送？
+
+OpenTelemetry Collector 的基本模型是 **Receiver → Processor → Exporter**。Receiver 可以接收推送，也可以主動採集；Processor 依需要處理批次、欄位或過濾，Exporter 再送往目的地。Processor 是可選的，而且各元件要支援所在 pipeline 的訊號。[來源：Collector Architecture](https://opentelemetry.io/docs/collector/architecture/)
+
+這次使用的 Alloy 把 OTel、Prometheus、Loki 與 Pyroscope 等元件接成資料流。Batch、Filter 或 trace sampling 各有不同用途，不能把所有 processor 無差別套到每種信號。Collector 是常見的集中處理方式，後端相容時也可由 SDK 直接輸出，不是每個部署都必須多一跳。
+
+### ⑤ Backend / Analysis：如何保存、查詢並理解？
+
+在本專題的工具組合中，Mimir、Loki、Tempo、Pyroscope 分別承接 Metrics、Logs、Traces、Profiles；其他架構也可能使用 Prometheus、Jaeger 或商業平台。Grafana 向資料來源查詢，提供視覺化、關聯與告警入口。
+
+OpenTelemetry 的責任，是協助產生、描述、傳輸與處理 telemetry；儲存與視覺化交由其他工具。共同標準能降低耦合，查詢語言、保留策略與資料模型轉換仍有平台差異。[來源：What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
+
+因此，三層到五層的對應可以這樣記：
+
+- **Produce**：① 埋點產生資料；② Signals 描述資料，並貫穿後續流程。
+- **Collect**：④ 收集與處理；③ Transport 連接資料來源、Collector 和後端。
+- **Consume**：⑤ 保存、查詢、分析與視覺化。
+
+回到這次 Lab，Traces 經 OTLP 進入 Alloy，Metrics 由 Alloy scrape 後 remote write 到 Mimir，Logs 使用 Loki API，Profiles 走 Pyroscope 接口。五個面向幫助我們讀懂這些不同路徑，而不是把已實跑環境改寫成全 OTLP 的假想部署。
+
+**三大支柱描述資料種類，三層模型描述工作階段，五層拆法幫助定位責任。** 前面的六個演進階段則回答能力如何累積，是另一個維度。
 
 ## Grafana Labs：先理解每個工具的責任
 

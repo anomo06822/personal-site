@@ -11,7 +11,6 @@ aiGenerated: true
 tags: ["Observability","OpenTelemetry","Grafana","Software Architecture","Engineering Practice"]
 published: true
 heroImagePath: "/social/blog/en/learn-observability-through-one-failure.png"
-releaseHash: "9d719e9dd488d30a5a4e13135ea855f1b8ddb62a714ba3eb14790f6f84f38113"
 ---
 
 # Learn Observability by Investigating One Failure End to End
@@ -71,6 +70,54 @@ Definitions for the first three appear in [OpenTelemetry Signals](https://opente
 Correlation also needs consistent service identity, environment, version, timestamps, and request context. OpenTelemetry supplies shared instrumentation and telemetry transport capabilities; backends provide their own storage and querying. [Source: What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
 
 The skill I want to practice is specific: find a slow request, understand its span relationships, and retrieve events with the same trace ID. At every step, explain which filters and context were carried forward.
+
+## From three layers to five: unpack the telemetry pipeline
+
+After identifying the signals, ask the next question: **where is the data produced, what happens to it, and who uses it?**
+
+For a team discussion, start with three stages: **Produce → Collect → Consume**. SDKs or automatic instrumentation produce data, a Collector receives and processes it, and backends and Grafana make it available for investigation and action.
+
+For design and troubleshooting, expand that outline into five concerns: **Instrumentation, Signals, Transport, Collection / Processing, and Backend / Analysis**. This is a teaching model used in this article. It is not an official five-layer OpenTelemetry architecture or a requirement to deploy five separate services.
+
+### ① Instrumentation: who produces the data?
+
+Manual instrumentation, library integrations, automatic instrumentation, and profilers determine which operations become visible. eBPF can add automatic observation in supported environments, with coverage constrained by the runtime, protocol, and tool.
+
+A slow request needs a corresponding span, event, or measurement before a backend can help investigate it. Installing a Collector cannot reconstruct business information that the application never emitted.
+
+### ② Signals / Data: what kind of data is it?
+
+Metrics, logs, traces, and profiles describe measurements, events, relationships between operations, and code-level resource usage. They are data perspectives, not four collection tools or a sequence in which a metric turns into a log and then a trace.
+
+This data concern spans the entire pipeline. Service identity, semantics, units, and context need to remain consistent. Useful profiling tools already exist, but the [OTLP specification](https://opentelemetry.io/docs/specs/otlp/) checked on September 20, 2026 still marks the profiles protocol as Development. Do not assume the same standards maturity or component support as the other three signals.
+
+### ③ Transport: which protocol carries the data?
+
+OTLP is the OpenTelemetry protocol for delivering telemetry, commonly through **OTLP/gRPC** or **OTLP/HTTP**. It can connect an application to a Collector and a Collector to a backend. Transport is a concern at these connections, not a single box between them. [Source: OTLP Specification](https://opentelemetry.io/docs/specs/otlp/)
+
+A shared protocol reduces application coupling to a particular backend. The receiving side still needs compatible signals, encoding, endpoints, and authentication. Prometheus scraping, remote write, the Loki API, and profiling interfaces can coexist; the whole Grafana ecosystem should not be labeled OTLP.
+
+### ④ Collection / Processing: how is data received, processed, and forwarded?
+
+The OpenTelemetry Collector's basic model is **Receiver → Processor → Exporter**. Receivers accept pushes or actively scrape data. Optional processors handle work such as batching, field changes, or filtering, and exporters send the result onward. Components must support their pipeline's signal type. [Source: Collector Architecture](https://opentelemetry.io/docs/collector/architecture/)
+
+Alloy connects components from OpenTelemetry, Prometheus, Loki, and Pyroscope into data flows. Batching, filtering, and trace sampling serve different purposes; a processor cannot be applied indiscriminately to every signal. A Collector is a common place to centralize processing, but compatible SDKs can also export directly to a backend. The extra hop is not mandatory in every deployment.
+
+### ⑤ Backend / Analysis: how is data stored, queried, and understood?
+
+In this learning stack, Mimir, Loki, Tempo, and Pyroscope handle metrics, logs, traces, and profiles respectively. Other architectures may use Prometheus, Jaeger, or commercial platforms. Grafana queries data sources and provides visualization, correlation, and alerting.
+
+OpenTelemetry helps generate, describe, transport, and process telemetry; other tools provide storage and visualization. Shared standards reduce coupling, while query languages, retention policies, and data-model mappings can remain platform-specific. [Source: What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
+
+The three-stage outline and five concerns therefore fit together like this:
+
+- **Produce**: ① instrumentation emits data; ② signals describe it throughout the pipeline.
+- **Collect**: ④ collection and processing; ③ transport connects sources, Collectors, and backends.
+- **Consume**: ⑤ storage, querying, analysis, and visualization.
+
+In the actual lab, traces reach Alloy over OTLP, Alloy scrapes metrics and remote-writes them to Mimir, logs use the Loki API, and profiles use Pyroscope interfaces. These five concerns help explain the different paths without recasting the verified setup as an imaginary all-OTLP deployment.
+
+**The three pillars describe data types, the three-stage model describes work, and the five concerns clarify responsibility.** The six historical teaching stages earlier in the article describe how capabilities accumulate—a different dimension.
 
 ## Understand each Grafana Labs tool's responsibility
 
