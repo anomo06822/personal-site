@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
+import { ArticleTable } from "@/components/article-table";
 
 function Anchor({ className = "", href = "", ...props }: ComponentPropsWithoutRef<"a">) {
   const isExternal = href.startsWith("http");
@@ -16,4 +17,5 @@ function Anchor({ className = "", href = "", ...props }: ComponentPropsWithoutRe
 
 export const mdxComponents = {
   a: Anchor,
+  table: ArticleTable,
 };
